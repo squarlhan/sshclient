@@ -8,7 +8,7 @@ import java.util.List;
 
 import cn.edu.jlu.ccst.sshclient.inter.BaseOperation;
 
-/** ¼ÆËã»úµÄÊµÌåÀà
+/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
  * @author Woden
  *
  */
@@ -67,7 +67,7 @@ public class SSHComputer extends BaseClass implements BaseOperation{
 	public void setGps(List<SSHGroup> gps) {
 		this.gps = gps;
 	}
-	//ÏÂÃæµÄ·½·¨ÐèÒªÊµÏÖ
+	//ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÊµï¿½ï¿½
 	@Override
 	public boolean creat() {
 		// TODO Auto-generated method stub
@@ -93,6 +93,14 @@ public class SSHComputer extends BaseClass implements BaseOperation{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+        @Override
+        public String toString(){
+             return "computer--id:"+id+";name:"+name+";memo:"+memo
+                     +";host:"+host+";user:"+username
+                     +";pswd:"+password
+                     +";date:"+creatdate;
+        }
 	
 	
 }

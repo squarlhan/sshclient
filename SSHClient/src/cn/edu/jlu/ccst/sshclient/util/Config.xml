@@ -5,9 +5,7 @@
               user="wuchunguo" pswd="wucg"
               creatdate="2009-06-26">             
         <group id="12" name="g1" creatdate="2009-06-26">
-              <task id="13" name="ps" creatdate="2009-06-26">
-                  <cmd cmd="ps">
-                  </cmd>
+              <task id="13" name="ps" creatdate="2009-06-26" cmd="ps">
               </task>
         </group>
     </computer>

@@ -10,17 +10,19 @@ import java.io.InputStreamReader;
 import ch.ethz.ssh2.Connection;
 import ch.ethz.ssh2.SCPClient;
 import ch.ethz.ssh2.Session;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Woden
- * Õë¶ÔsshÁ¬½ÓµÄ²Ù×÷½Ó¿Ú
+ * ï¿½ï¿½ï¿½sshï¿½ï¿½ï¿½ÓµÄ²ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
  */
 public class SSHCommand{
 	
 	private SSHCommand() {
 	}
 	/**
-	 * ´Ó·þÎñÆ÷»ñÈ¡ÎÄ¼þ
+	 * ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ä¼ï¿½
 	 * @param host ip
 	 * @param username
 	 * @param password
@@ -38,7 +40,7 @@ public class SSHCommand{
 	}
 
 	/**
-	 * Ïò·þÎñÆ÷·¢ËÍÎÄ¼þ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 	 * @param host ip
 	 * @param username
 	 * @param password
@@ -56,7 +58,7 @@ public class SSHCommand{
 	}
 
 	/**
-	 * ÔÚ·þÎñÆ÷ÉÏÔËÐÐÃüÁî
+	 * ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param host
 	 * @param username
 	 * @param password
@@ -80,7 +82,7 @@ public class SSHCommand{
 	}
 
 	/**
-	 * µÃµ½Ò»¸ö´ò¿ªµÄÁ¬½Ó
+	 * ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½ò¿ªµï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param host
 	 * @param username
 	 * @param password
@@ -99,7 +101,7 @@ public class SSHCommand{
 	}
 
 	/**
-	 * ÔÚ±¾µØ»úÆ÷ÉÏÔËÐÐÃüÁî
+	 * ï¿½Ú±ï¿½ï¿½Ø»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param cmd
 	 * @return exit status 
 	 */
@@ -116,4 +118,17 @@ public class SSHCommand{
 		return p.exitValue();
 
 	}
+
+        public static void main(String[] args) {
+        try {
+//            SSHCommand.scpPut("10.60.58.194", "wuchunguo", "wucg",
+//                    "E:/SSH/Code/NBSSHClient/src/cn/edu/jlu/ccst/sshclient/util/test/Test5m.java",
+//                    "squarlhan/");
+            //SSHCommand.scpGet("10.60.58.194", "wuchunguo", "wucg", "test.png", "F:/1/");
+            //SSHCommand.runSSH("10.60.58.194", "wuchunguo", "wucg", "ls");
+            SSHCommand.runSSH("192.168.1.90", "test", "123456", "ls");
+        } catch (IOException ex) {
+            Logger.getLogger(SSHCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 import cn.edu.jlu.ccst.sshclient.inter.BaseAction;
 import cn.edu.jlu.ccst.sshclient.inter.BaseOperation;
 
-/**ÈÎÎñ×éµÄÊµÌåÀà
+/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
  * @author Woden
  *
  */
@@ -74,7 +74,7 @@ public List<SSHTask> getSts() {
 		this.cp = cp;
 	}
 
-	//ÏÂÃæµÄ·½·¨ÐèÒªÊµÏÖ
+	//ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÊµï¿½ï¿½
 	/* (non-Javadoc)
 	 * @see cn.edu.jlu.ccst.sshclient.inter.BaseAction#start()
 	 */
@@ -137,5 +137,10 @@ public List<SSHTask> getSts() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+         @Override
+        public String toString(){
+            return "group--id:"+id+";name:"+name+";memo:"+memo+";date:"+creatdate;
+        }
 
 }
