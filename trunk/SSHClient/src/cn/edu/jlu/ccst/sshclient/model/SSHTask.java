@@ -26,8 +26,8 @@ public class SSHTask extends BaseClass implements BaseAction, BaseOperation {
 	
 	private String cmd;
 	private List<String> params;
-	private File in;
-	private File out;
+	private File fin;
+	private File fout;
 	private SSHGroup gp;
 	
 	public SSHTask(String id, String name, byte type, String memo,
@@ -54,13 +54,13 @@ public class SSHTask extends BaseClass implements BaseAction, BaseOperation {
 	}	
 	
     public SSHTask(String id, String name, byte type, String memo,
-			Date creatdate, String cmd, List<String> params, File in, File out,
+			Date creatdate, String cmd, List<String> params, File fin, File fout,
 			SSHGroup gp) {
 		super(id, name, type, memo, creatdate);
 		this.cmd = cmd;
 		this.params = params;
-		this.in = in;
-		this.out = out;
+		this.fin = fin;
+		this.fout = fout;
 		this.gp = gp;
 	}
 
@@ -80,20 +80,20 @@ public class SSHTask extends BaseClass implements BaseAction, BaseOperation {
 		this.params = params;
 	}
 
-	public File getIn() {
-		return in;
+	public File getFin() {
+		return fin;
 	}
 
-	public void setIn(File in) {
-		this.in = in;
+	public void setFin(File fin) {
+		this.fin = fin;
 	}
 
-	public File getOut() {
-		return out;
+	public File getFout() {
+		return fout;
 	}
 
-	public void setOut(File out) {
-		this.out = out;
+	public void setFout(File fout) {
+		this.fout = fout;
 	}
 
 	public SSHGroup getGp() {
@@ -104,7 +104,7 @@ public class SSHTask extends BaseClass implements BaseAction, BaseOperation {
 		this.gp = gp;
 	}
 
-	//ÏÂÃæµÄ·½·¨ÐèÒªÊµÏÖ
+	//ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÊµï¿½ï¿½
 	/* (non-Javadoc)
 	 * @see cn.edu.jlu.ccst.sshclient.inter.BaseAction#start()
 	 */
@@ -167,5 +167,10 @@ public class SSHTask extends BaseClass implements BaseAction, BaseOperation {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+         @Override
+        public String toString(){
+            return "task--id:"+id+";name:"+name+";memo:"+memo+";cmd:"+cmd+";date:"+creatdate;
+        }
 
 }
