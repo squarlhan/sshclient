@@ -22,7 +22,7 @@ public class Test5m {
             int b = 0;
             public void run(){
                 System.out.println("a = "+(++a)+"; "+(b+=5));
-                if(a>aa)timer.cancel();
+                if(a>aa)timer.cancel();   
             }
         }, 0, 1000*5);
     }
