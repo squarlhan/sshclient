@@ -188,7 +188,8 @@
 			}
 			staffVO = new StaffVO();
 			resultstaff.removeItemAt(i);
-			pagebar1.RecordCount =resultstaff.length;
+			if(resultstaff==null)pagebar1.RecordCount=0;
+			else pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}	   
 	    public function delallBtn():void //删除所有信息的按钮响应
@@ -212,7 +213,8 @@
 				this.query(delsql);
 			}	
 			resultstaff.removeAll();
-			pagebar1.RecordCount =resultstaff.length;
+			if(resultstaff==null)pagebar1.RecordCount=0;
+			else pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}
 		//------------------------------添加	   
@@ -297,7 +299,9 @@
 
 			trace(addsql);
 			resultstaff.addItem(newstaff);
-			pagebar1.RecordCount =resultstaff.length;
+			this.query(addsql);
+			if(resultstaff==null)pagebar1.RecordCount=0;
+			else pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}
 		//------------------------------修改   
@@ -447,7 +451,8 @@
 			if(temp=="and")selecttxt = StringUtil.trim(selecttxt.substring(0,selecttxt.length-3));
 			trace(selecttxt);
 			resultstaff = this.query(selecttxt);
-			pagebar1.RecordCount =resultstaff.length;
+			if(resultstaff==null)pagebar1.RecordCount=0;
+			else pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}
 		]]>
