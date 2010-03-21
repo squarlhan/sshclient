@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:HDividedBox xmlns:mx="http://www.adobe.com/2006/mxml"  creationComplete="creatstaff()">
+<mx:HDividedBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns="*" creationComplete="creatstaff()">
 	<mx:Script>
 	 	 <![CDATA[
 		import mx.controls.Alert;
@@ -105,6 +105,11 @@
             var regx:RegExp = /^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$/; 
             return regx.test(src); 
         } 
+        
+        public function pagechange(e:PageChangeEvent):void
+        {
+            staffGrid.dataProvider = e.Filter(resultstaff);
+        }
 		
 		public function creatstaff():void
 		{
@@ -150,7 +155,6 @@
 			staffVO.paybase = dataGrid.selectedItem.paybase;
 			staffVO.savedate = DateField.stringToDate(dataGrid.selectedItem.savedate,formatedate); 
 			staffVO.staffid = dataGrid.selectedItem.staffid;
-			staffVO.id = dataGrid.selectedItem.id;
 			staffVO.staffname = dataGrid.selectedItem.staffname;
 			staffVO.staffno = dataGrid.selectedItem.staffno;
 			staffVO.staffrate = dataGrid.selectedItem.staffrate;
@@ -351,7 +355,8 @@
 			if(temp=="and")selecttxt = StringUtil.trim(selecttxt.substring(0,selecttxt.length-3));
 			Alert.show(selecttxt);
 			resultstaff = this.query(selecttxt);
-			
+			pagebar1.RecordCount =resultstaff.length;
+            pagebar1.Open();
 		}
 		]]>
     </mx:Script>
@@ -379,8 +384,8 @@
     <mx:Validator id="state_m_vali" source="{staffrate_m}" property="text" requiredFieldError="请输入个人状态!"/>
     
 
-	<mx:VBox width="70%" height="100%">
-        <mx:DataGrid width="100%" height="100%" id="pafGrid" dataProvider="{resultstaff}" itemClick="selectItem(event);">
+	<mx:VBox width="70%" height="100%" horizontalAlign="right">
+        <mx:DataGrid width="100%" height="100%" id="staffGrid" dataProvider="{resultstaff}" itemClick="selectItem(event);">
 		    <mx:columns>
 			    <mx:DataGridColumn headerText="个人帐号" dataField="account"/>
 			    <mx:DataGridColumn headerText="部门编号" dataField="departid"/>
@@ -396,9 +401,9 @@
 				<mx:DataGridColumn headerText="存入日期" dataField="savedate"/>				
 				<mx:DataGridColumn headerText="状态" dataField="state"/>
 				<mx:DataGridColumn headerText="备注" dataField="memo"/>
-				<mx:DataGridColumn headerText="ID" dataField="id" visible="false"/>
 			</mx:columns>
 		</mx:DataGrid>
+		<ns:PageBar id="pagebar1" PageChange="pagechange(event)" width="100%" height="50" mPageSize="30"/>
 	</mx:VBox>
 	<mx:VBox width="30%" height="100%">
 	    <mx:LinkBar dataProvider="operation" width="100%"/>
