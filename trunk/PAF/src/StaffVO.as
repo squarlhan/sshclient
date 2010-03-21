@@ -17,7 +17,6 @@ package
 		public var savedate:Date;		
 		public var state:String;
 		public var memo:String;
-		public var id:int;
 		
 		public function StaffVO(){}
 
