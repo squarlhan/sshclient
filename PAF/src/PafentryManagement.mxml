@@ -343,10 +343,8 @@
 				options +=""; 
 			}
 			
-			options+=(isEmpty(memo_s.text))?"":" memo='"+memo_s.text+"' ";
-			if(!isEmpty(options))selecttxt=StringUtil.trim(selecttxt+" where "+options);
-			var temp:String = StringUtil.trim(selecttxt).substr(selecttxt.length-3,3);
-			if(temp=="and")selecttxt = StringUtil.trim(selecttxt.substring(0,selecttxt.length-3));
+			options+=(isEmpty(memo_s.text))?"":" memo='"+memo_s.text+"' and";
+			if(!isEmpty(options))selecttxt=StringUtil.trim(selecttxt+" where "+options+" s.staffno = e.staffno;");
 			trace(selecttxt);
 			resultpafentry = this.query(selecttxt);
 			if(resultpafentry==null)pagebar1.RecordCount=0;
@@ -397,7 +395,7 @@
 			    <mx:DataGridColumn headerText="余额" dataField="balance"/>
 				<mx:DataGridColumn headerText="存入日期" dataField="savedate"/>				
 				<mx:DataGridColumn headerText="状态" dataField="state"/>
-				<mx:DataGridColumn headerText="备注" dataField="memo"/>
+				<mx:DataGridColumn headerText="备注" dataField="ememo"/>
 				<mx:DataGridColumn headerText="ID" dataField="id" visible="false"/>
 			</mx:columns>
 		</mx:DataGrid>
@@ -504,7 +502,7 @@
 				<mx:FormItem label="余额: " ><mx:Text id="balance_d" text="{pafentryVO.staff.balance}"/></mx:FormItem>
 			    <mx:FormItem label="存入日期: " ><mx:Text id="savedate_d" text="{pafentryVO.savedate}"/></mx:FormItem>
 				<mx:FormItem label="状态: " ><mx:Text id="state_d" text="{pafentryVO.staff.state}"/></mx:FormItem>
-				<mx:FormItem label="备注: " ><mx:Text id="memo_d" text="{pafentryVO.memo}"/></mx:FormItem>
+				<mx:FormItem label="备注: " ><mx:Text id="memo_d" text="{pafentryVO.ememo}"/></mx:FormItem>
 				<mx:HRule width="100%" height="1"/>
 				<mx:HBox width="100%" horizontalAlign="right">
 				   <mx:Button label="删除所有信息" click="delallBtn()" enabled="{resultpafentry.length!=0}"/>   
