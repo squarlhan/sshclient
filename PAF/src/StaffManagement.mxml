@@ -268,18 +268,18 @@
 			
 			var newstaff:StaffVO = new StaffVO();
 			newstaff.account = account_a.text;
-			newstaff.balance = Number(StringUtil.trim(balance_a.text));
+			newstaff.balance = Number(Number(StringUtil.trim(balance_a.text)).toFixed(2));
 			newstaff.depart = depart_a.text;
 			newstaff.departid = departid_a.text;
 			newstaff.memo = memo_a.text;
 			newstaff.opendate = opendate_a.text; 
-			newstaff.paybase = Number(StringUtil.trim(paybase_a.text));
+			newstaff.paybase = Number(Number(StringUtil.trim(paybase_a.text)).toFixed(2));
 			newstaff.savedate = null; 
 			newstaff.staffid = staffid_a.text;
 			newstaff.staffname = staffname_a.text;
 			newstaff.staffno = staffno_a.text;
-			newstaff.staffrate = Number(StringUtil.trim(staffrate_a.text));
-			newstaff.unitrate = Number(StringUtil.trim(unitrate_a.text));
+			newstaff.staffrate = Number(Number(StringUtil.trim(staffrate_a.text)).toFixed(2));
+			newstaff.unitrate = Number(Number(StringUtil.trim(unitrate_a.text)).toFixed(2));
 			newstaff.state = state_a.selectedItem.data;
 			
 			addsql=addsql+StringUtil.trim(account_a.text)+"','"
@@ -289,10 +289,10 @@
 			             +StringUtil.trim(depart_a.text)+"','"
 			             +StringUtil.trim(departid_a.text)+"','"
 			             +StringUtil.trim(state_a.selectedItem.data)+"',"
-			             +StringUtil.trim(balance_a.text)+","
-			             +StringUtil.trim(paybase_a.text)+","
-			             +StringUtil.trim(unitrate_a.text)+","
-			             +StringUtil.trim(staffrate_a.text)+",'"
+			             +Number(StringUtil.trim(balance_a.text)).toFixed(2)+","
+			             +Number(StringUtil.trim(paybase_a.text)).toFixed(2)+","
+			             +Number(StringUtil.trim(unitrate_a.text)).toFixed(2)+","
+			             +Number(StringUtil.trim(staffrate_a.text)).toFixed(2)+",'"
 			             +"','"
 			             +StringUtil.trim(memo_a.text)+"','"
 			             +StringUtil.trim(opendate_a.text)+"');";
@@ -347,18 +347,18 @@
 			}
 			
 			staffVO.account = account_m.text;
-			staffVO.balance = Number(StringUtil.trim(balance_m.text));
+			staffVO.balance = Number(Number(StringUtil.trim(balance_m.text)).toFixed(2));
 			staffVO.depart = depart_m.text;
 			staffVO.departid = departid_m.text;
 			staffVO.memo = memo_m.text;
 			staffVO.opendate = opendate_m.text; 
 			staffVO.savedate = savedate_m.text; 
-			staffVO.paybase =  Number(StringUtil.trim(paybase_m.text));
+			staffVO.paybase =  Number(Number(StringUtil.trim(paybase_m.text)).toFixed(2));
 			staffVO.staffid = staffid_m.text;
 			staffVO.staffname = staffname_m.text;
 			staffVO.staffno = staffno_m.text;
-			staffVO.staffrate =  Number(StringUtil.trim(staffrate_m.text));
-			staffVO.unitrate =  Number(StringUtil.trim(unitrate_m.text));
+			staffVO.staffrate =  Number(Number(StringUtil.trim(staffrate_m.text)).toFixed(2));
+			staffVO.unitrate = Number(Number(StringUtil.trim(unitrate_m.text)).toFixed(2));
 			staffVO.state = state_m.selectedItem.data;
 			
 			modisql=modisql+"account='"+StringUtil.trim(account_m.text)+"', "
@@ -367,10 +367,10 @@
 			               +"depart='"+StringUtil.trim(depart_m.text)+"', "
 			               +"departid='"+StringUtil.trim(departid_m.text)+"', "
 			               +"state='"+StringUtil.trim(state_m.selectedItem.data)+"', "
-			               +"balance="+StringUtil.trim(balance_m.text)+", "
-			               +"paybase="+StringUtil.trim(paybase_m.text)+", "
-			               +"unitrate="+StringUtil.trim(unitrate_m.text)+", "
-			               +"staffrate="+StringUtil.trim(staffrate_m.text)+", "
+			               +"balance="+Number(StringUtil.trim(balance_m.text)).toFixed(2)+", "
+			               +"paybase="+Number(StringUtil.trim(paybase_m.text)).toFixed(2)+", "
+			               +"unitrate="+Number(StringUtil.trim(unitrate_m.text)).toFixed(2)+", "
+			               +"staffrate="+Number(StringUtil.trim(staffrate_m.text)).toFixed(2)+", "
 			               +"savedate='"+StringUtil.trim(savedate_m.text)+"', "
 			               +"memo='"+StringUtil.trim(memo_m.text)+"',"
 			               +"opendate='"+StringUtil.trim(opendate_m.text)+"' "
