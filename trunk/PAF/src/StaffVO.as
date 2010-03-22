@@ -14,7 +14,7 @@ package
 		public var unitrate:Number;		
 		public var balance:Number;
 		public var opendate:String;				
-		public var savedate:String;		
+		public var lastdate:String;		
 		public var state:String;
 		public var memo:String;
 		

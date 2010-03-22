@@ -7,8 +7,10 @@
             <ns:StaffManagement id="staffm" width="100%" height="100%"/>
         </mx:Form>
         <mx:Form label="公积金存入管理" id="inpanel" width="100%" height="100%">
+            <ns:PafentryManagement id="pafem" width="100%" height="100%"/>
         </mx:Form>
         <mx:Form label="公积金提取管理" id="outpanel" width="100%" height="100%">
+            <ns:PafoutManagement id="pafom" width="100%" height="100%"/>
         </mx:Form>
     </mx:ViewStack>
     </mx:VBox>
