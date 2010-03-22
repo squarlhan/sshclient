@@ -8,7 +8,7 @@ package
 		public var total:Number;
 		public var savedate:String;
 		public var staff:StaffVO;
-		public var memo:String;
+		public var ememo:String;
 		
 		public function PafentryVO()
 		{

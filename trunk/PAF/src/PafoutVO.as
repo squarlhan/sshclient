@@ -6,7 +6,7 @@ package
 		public var drawtotal:Number;
 		public var drawdate:String;
 		public var staff:StaffVO;
-		public var memo:String;
+		public var omemo:String;
 		
 		public function PafoutVO()
 		{
