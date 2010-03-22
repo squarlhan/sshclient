@@ -151,9 +151,9 @@
 			staffVO.depart = dataGrid.selectedItem.depart;
 			staffVO.departid = dataGrid.selectedItem.departid;
 			staffVO.memo = dataGrid.selectedItem.memo;
-			staffVO.opendate = DateField.stringToDate(dataGrid.selectedItem.opendate,formatedate); 
+			staffVO.opendate = dataGrid.selectedItem.opendate; 
 			staffVO.paybase = dataGrid.selectedItem.paybase;
-			staffVO.savedate = DateField.stringToDate(dataGrid.selectedItem.savedate,formatedate); 
+			staffVO.savedate = dataGrid.selectedItem.savedate; 
 			staffVO.staffid = dataGrid.selectedItem.staffid;
 			staffVO.staffname = dataGrid.selectedItem.staffname;
 			staffVO.staffno = dataGrid.selectedItem.staffno;
@@ -268,18 +268,18 @@
 			
 			var newstaff:StaffVO = new StaffVO();
 			newstaff.account = account_a.text;
-			newstaff.balance = balance_a.text as Number;
+			newstaff.balance = Number(StringUtil.trim(balance_a.text));
 			newstaff.depart = depart_a.text;
 			newstaff.departid = departid_a.text;
 			newstaff.memo = memo_a.text;
-			newstaff.opendate = opendate_a.selectedDate; 
-			newstaff.paybase = paybase_a.text as Number;
+			newstaff.opendate = opendate_a.text; 
+			newstaff.paybase = Number(StringUtil.trim(paybase_a.text));
 			newstaff.savedate = null; 
 			newstaff.staffid = staffid_a.text;
 			newstaff.staffname = staffname_a.text;
 			newstaff.staffno = staffno_a.text;
-			newstaff.staffrate = staffrate_a.text as Number;
-			newstaff.unitrate = unitrate_a.text as Number;
+			newstaff.staffrate = Number(StringUtil.trim(staffrate_a.text));
+			newstaff.unitrate = Number(StringUtil.trim(unitrate_a.text));
 			newstaff.state = state_a.selectedItem.data;
 			
 			addsql=addsql+StringUtil.trim(account_a.text)+"','"
@@ -307,7 +307,7 @@
 		//------------------------------修改   
 	    public function modistaffBtn():void //修改信息的按钮响应
 		{
-			Alert.show("确认添加人员信息？","添加人员信息",4|8,this,modistaffAlertHandler); 
+			Alert.show("确认修改人员信息？","修改人员信息",4|8,this,modistaffAlertHandler); 
 		}
 		public function modistaffAlertHandler(event:CloseEvent):void
 		{
@@ -318,6 +318,76 @@
 		}
 		public function modistaff():void //修改信息
 		{
+			var modisql:String = "update staff_table set ";
+			var ace:Boolean = isEmpty(account_m.text);
+			var dde:Boolean = isEmpty(departid_m.text);
+			var dpe:Boolean = isEmpty(depart_m.text);
+			var soe:Boolean = isEmpty(staffno_m.text);
+			var sne:Boolean = isEmpty(staffname_m.text);
+			var sde:Boolean = isEmpty(staffid_m.text);
+			var pbe:Boolean = isEmpty(paybase_m.text);
+			var sre:Boolean = isEmpty(staffrate_m.text);
+			var ure:Boolean = isEmpty(unitrate_m.text);
+			var bne:Boolean = isEmpty(balance_m.text);
+			var ste:Boolean = (state_m.selectedIndex==0);
+			if(ace||dde||dpe||soe||sne||sde||pbe||sre||ure||bne||ste)
+			{
+				Alert.show("请输入必选选项！")
+				return;
+			}
+			
+			var ur:Boolean = isNumeric(StringUtil.trim(unitrate_m.text));
+			var sr:Boolean = isNumeric(StringUtil.trim(staffrate_m.text));
+			var pb:Boolean = isNumeric(StringUtil.trim(paybase_m.text));
+			var bl:Boolean = isNumeric(StringUtil.trim(balance_m.text));
+			if(!ur||!sr||!pb||!bl)
+			{
+				Alert.show("请输入数字！")
+				return;
+			}
+			
+			staffVO.account = account_m.text;
+			staffVO.balance = Number(StringUtil.trim(balance_m.text));
+			staffVO.depart = depart_m.text;
+			staffVO.departid = departid_m.text;
+			staffVO.memo = memo_m.text;
+			staffVO.opendate = opendate_m.text; 
+			staffVO.savedate = savedate_m.text; 
+			staffVO.paybase =  Number(StringUtil.trim(paybase_m.text));
+			staffVO.staffid = staffid_m.text;
+			staffVO.staffname = staffname_m.text;
+			staffVO.staffno = staffno_m.text;
+			staffVO.staffrate =  Number(StringUtil.trim(staffrate_m.text));
+			staffVO.unitrate =  Number(StringUtil.trim(unitrate_m.text));
+			staffVO.state = state_m.selectedItem.data;
+			
+			modisql=modisql+"account='"+StringUtil.trim(account_m.text)+"', "
+			               +"staffname='"+StringUtil.trim(staffname_m.text)+"', "
+			               +"staffid='"+StringUtil.trim(staffid_m.text)+"', "
+			               +"depart='"+StringUtil.trim(depart_m.text)+"', "
+			               +"departid='"+StringUtil.trim(departid_m.text)+"', "
+			               +"state='"+StringUtil.trim(state_m.selectedItem.data)+"', "
+			               +"balance="+StringUtil.trim(balance_m.text)+", "
+			               +"paybase="+StringUtil.trim(paybase_m.text)+", "
+			               +"unitrate="+StringUtil.trim(unitrate_m.text)+", "
+			               +"staffrate="+StringUtil.trim(staffrate_m.text)+", "
+			               +"savedate='"+StringUtil.trim(savedate_m.text)+"', "
+			               +"memo='"+StringUtil.trim(memo_m.text)+"',"
+			               +"opendate='"+StringUtil.trim(opendate_m.text)+"' "
+			               +"where staffno='"+StringUtil.trim(staffno_m.text)+"' ;";
+
+			trace(modisql);
+			var i:int =0;
+			while(resultstaff[i].staffno != staffVO.staffno)
+			{
+				i++;
+			}
+			resultstaff.removeItemAt(i);
+			resultstaff.addItem(staffVO);
+			this.query(modisql);
+			if(resultstaff==null)pagebar1.RecordCount=0;
+			else pagebar1.RecordCount =resultstaff.length;
+            pagebar1.Open();
 		}
 		//------------------------------搜索   
 		public function resetBtn():void //重置按钮响应
@@ -601,8 +671,8 @@
 				<mx:FormItem label="个人汇率: " ><mx:Text id="staffrate_d" text="{staffVO.staffrate}"/></mx:FormItem>
 				<mx:FormItem label="企业汇率: " ><mx:Text id="unitrate_d" text="{staffVO.unitrate}"/></mx:FormItem>
 				<mx:FormItem label="余额: " ><mx:Text id="balance_d" text="{staffVO.balance}"/></mx:FormItem>
-				<mx:FormItem label="开户日期 " ><mx:Text id="opendate_d" text="{DateField.dateToString(staffVO.opendate,formatedate)}"/></mx:FormItem>				
-			    <mx:FormItem label="存入日期: " ><mx:Text id="savedate_d" text="{DateField.dateToString(staffVO.savedate,formatedate)}"/></mx:FormItem>
+				<mx:FormItem label="开户日期 " ><mx:Text id="opendate_d" text="{staffVO.opendate}"/></mx:FormItem>				
+			    <mx:FormItem label="存入日期: " ><mx:Text id="savedate_d" text="{staffVO.savedate}"/></mx:FormItem>
 				<mx:FormItem label="状态: " ><mx:Text id="state_d" text="{staffVO.state}"/></mx:FormItem>
 				<mx:FormItem label="备注: " ><mx:Text id="memo_d" text="{staffVO.memo}"/></mx:FormItem>
 				<mx:HRule width="100%" height="1"/>
@@ -690,7 +760,7 @@
 		            <mx:Text text="{depart_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="人员编码: "  required="true">
-				    <mx:TextInput id="staffno_m" width="200" text="{staffVO.staffno}"/>
+				    <mx:TextInput id="staffno_m" width="200" text="{staffVO.staffno}" editable="false"/>
 		            <mx:Text text="{staffno_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="姓名: "  required="true">
@@ -726,7 +796,7 @@
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
-				            	selectedDate="{staffVO.opendate}"
+				            	selectedDate="{DateField.stringToDate(staffVO.opendate, formatedate)}"
 				            	showToday="false" width="200"
 				                formatString="{formatedate}"/>
 				</mx:FormItem>	
@@ -735,7 +805,7 @@
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
-				            	selectedDate="{staffVO.savedate}"
+				            	selectedDate="{DateField.stringToDate(staffVO.savedate, formatedate)}"
 				            	showToday="false" width="200"
 				                formatString="{formatedate}"/>
 				</mx:FormItem>
@@ -744,7 +814,7 @@
 				</mx:FormItem>			        
 				<mx:HRule width="100%" height="1"/>
 				<mx:HBox width="100%" horizontalAlign="right">   
-				    <mx:Button label="修改" click="modistaffBtn()"/>			            
+				    <mx:Button label="修改" click="modistaffBtn()" enabled="{staffVO.staffid!=null}"/>			            
 				</mx:HBox>
 			</mx:Form>
 		

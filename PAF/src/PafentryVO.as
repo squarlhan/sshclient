@@ -6,7 +6,7 @@ package
 		public var unitpay:Number;
 		public var staffpay:Number;
 		public var total:Number;
-		public var savedate:Date;
+		public var savedate:String;
 		public var staff:StaffVO;
 		public var memo:String;
 		
