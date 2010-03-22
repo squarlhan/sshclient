@@ -4,7 +4,7 @@ package
 	{
 		public var id:int;
 		public var drawtotal:Number;
-		public var drawdate:Date;
+		public var drawdate:String;
 		public var staff:StaffVO;
 		public var memo:String;
 		

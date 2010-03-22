@@ -13,8 +13,8 @@ package
 		public var staffrate:Number;
 		public var unitrate:Number;		
 		public var balance:Number;
-		public var opendate:Date;				
-		public var savedate:Date;		
+		public var opendate:String;				
+		public var savedate:String;		
 		public var state:String;
 		public var memo:String;
 		
