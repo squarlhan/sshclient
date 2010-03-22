@@ -1,5 +1,6 @@
 package
 {
+	[Bindable] 
 	public class PafoutVO
 	{
 		public var id:int;

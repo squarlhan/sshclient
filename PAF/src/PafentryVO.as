@@ -1,5 +1,6 @@
 package
 {
+	[Bindable] 
 	public class PafentryVO
 	{
 		public var id:int;
