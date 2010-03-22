@@ -188,8 +188,7 @@
 			}
 			staffVO = new StaffVO();
 			resultstaff.removeItemAt(i);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+			pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}	   
 	    public function delallBtn():void //删除所有信息的按钮响应
@@ -213,8 +212,7 @@
 				this.query(delsql);
 			}	
 			resultstaff.removeAll();
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+			pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}
 		//------------------------------添加	   
@@ -297,11 +295,10 @@
 			             +StringUtil.trim(memo_a.text)+"','"
 			             +StringUtil.trim(opendate_a.text)+"');";
 
-			trace(addsql);
-			resultstaff.addItem(newstaff);
+			trace(addsql);		
 			this.query(addsql);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+			resultstaff.addItem(newstaff);
+			pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}
 		//------------------------------修改   
@@ -382,11 +379,10 @@
 			{
 				i++;
 			}
-			resultstaff.removeItemAt(i);
-			resultstaff.addItem(staffVO);
 			this.query(modisql);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+			resultstaff.removeItemAt(i);
+			resultstaff.addItem(staffVO);	
+			pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}
 		//------------------------------搜索   
@@ -521,8 +517,7 @@
 			if(temp=="and")selecttxt = StringUtil.trim(selecttxt.substring(0,selecttxt.length-3));
 			trace(selecttxt);
 			resultstaff = this.query(selecttxt);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+			pagebar1.RecordCount =resultstaff.length;
             pagebar1.Open();
 		}
 		]]>
@@ -596,22 +591,22 @@
 				</mx:FormItem>
 				<mx:FormItem label="缴费基数: ">
 				    <mx:HBox width="200">
-				    	 <mx:TextInput id="paybase_s" width="80"/>
+				    	 <mx:TextInput id="paybase_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
-				         <mx:TextInput id="paybase_s1" width="80" text="{paybase_s.text}"/>
+				         <mx:TextInput id="paybase_s1" width="80" restrict="0-9\." text="{paybase_s.text}"/>
 				    </mx:HBox>			   
 				</mx:FormItem>
 				<mx:FormItem label="个人汇率: " >
-				    <mx:TextInput id="staffrate_s" width="200"/>
+				    <mx:TextInput id="staffrate_s" width="200" restrict="0-9\."/>
 				</mx:FormItem>
 				<mx:FormItem label="企业汇率: " >
-				    <mx:TextInput id="unitrate_s" width="200"/>
+				    <mx:TextInput id="unitrate_s" width="200" restrict="0-9\."/>
 				</mx:FormItem>
 				<mx:FormItem label="余额: " >
 				    <mx:HBox width="200">
-				    	 <mx:TextInput id="balance_s" width="80"/>
+				    	 <mx:TextInput id="balance_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
-				         <mx:TextInput id="balance_s1" width="80" text="{balance_s.text}"/>
+				         <mx:TextInput id="balance_s1" width="80" restrict="0-9\." text="{balance_s.text}"/>
 				    </mx:HBox>
 				</mx:FormItem>
 				<mx:FormItem label="状态: " >				            
@@ -709,19 +704,19 @@
 		            <mx:Text text="{staffid_a.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="缴费基数: "  required="true">
-				    <mx:TextInput id="paybase_a" width="200"/>
+				    <mx:TextInput id="paybase_a" width="200" restrict="0-9\."/>
 		            <mx:Text text="{paybase_a.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="个人汇率: "  required="true">
-				    <mx:TextInput id="staffrate_a" width="200"/>
+				    <mx:TextInput id="staffrate_a" width="200" restrict="0-9\."/>
 				    <mx:Text text="{staffrate_a.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="企业汇率: "  required="true">
-				    <mx:TextInput id="unitrate_a" width="200"/>
+				    <mx:TextInput id="unitrate_a" width="200" restrict="0-9\."/>
 				    <mx:Text text="{unitrate_a.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="余额: " required="true">
-				    <mx:TextInput id="balance_a" text="0" width="200"/>
+				    <mx:TextInput id="balance_a" restrict="0-9\." text="0" width="200"/>
 				    <mx:Text text="{balance_a.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="状态: " required="true">				            
@@ -772,19 +767,19 @@
 		            <mx:Text text="{staffid_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="缴费基数: "  required="true">
-				    <mx:TextInput id="paybase_m" width="200" text="{staffVO.paybase}"/>
+				    <mx:TextInput id="paybase_m" width="200" restrict="0-9\." text="{staffVO.paybase}"/>
 		            <mx:Text text="{paybase_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="个人汇率: "  required="true">
-				    <mx:TextInput id="staffrate_m" width="200" text="{staffVO.staffrate}"/>
+				    <mx:TextInput id="staffrate_m" width="200" restrict="0-9\." text="{staffVO.staffrate}"/>
 				    <mx:Text text="{staffrate_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="企业汇率: "  required="true" >
-				    <mx:TextInput id="unitrate_m" width="200" text="{staffVO.unitrate}"/>
+				    <mx:TextInput id="unitrate_m" width="200" restrict="0-9\." text="{staffVO.unitrate}"/>
 				    <mx:Text text="{unitrate_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="余额: "  required="true" >
-				    <mx:TextInput id="balance_m" text="{staffVO.balance}" width="200"/>
+				    <mx:TextInput id="balance_m" text="{staffVO.balance}" restrict="0-9\." width="200"/>
 				    <mx:Text text="{balance_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
 				<mx:FormItem label="状态: " required="true">				            
