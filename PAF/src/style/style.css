@@ -525,34 +525,29 @@ NumericStepper
 }
 
 
-Panel
-{
-
-	closeButtonDisabledSkin: Embed("panel/up.png");
-	closeButtonDownSkin: Embed("panel/up.png");
-	closeButtonOverSkin: Embed("panel/over.png");
-	closeButtonUpSkin: Embed("panel/up.png");
-	
-	borderSkin: Embed(source="panel/windowSkin.png",
-		scaleGridTop=50, 				
-	    scaleGridLeft=11, 
-	    scaleGridBottom=60, 
-	    scaleGridRight=20
-	);	
-                
-	borderThicknessLeft: 6;
-	borderThicknessRight: 6;
-	borderThicknessTop: 0;
-	borderThicknessBottom: 6;
-	headerHeight: 30;
-	titleStyleName: "title";
-	backgroundColor: #ffffff;
-	backgroundAlpa:.5;				
-}
+Panel 
+{ 
+   
+   cornerRadius: 8;
+   headerHeight: 22;
+   shadowDistance: 3;
+   borderThickness: 1;
+   borderAlpha: 1;
+   borderStyle: solid;
+   borderColor: #c0c0c0;
+   highlightAlpas: 0.3,0;
+   headerColors: #f9f9f9, #cacaca;
+   titleStyleName: "title";
+   panelBorderStyle: default;
+   paddingTop: 5;
+   paddingBottom: 5;
+   paddingRight: 5;
+   paddingLeft: 5;
+   }
 
 .title {
 	fontSize: 11;
-	color: #ffffff;		
+	color: #000000;		
 	fontWeight: bold;
 }
 
