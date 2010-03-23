@@ -15,6 +15,11 @@
         import mx.utils.StringUtil;
         import mx.controls.Alert;
         import mx.controls.DateField;
+        
+        import com.as3xls.xls.ExcelFile;
+        import com.as3xls.xls.Sheet;
+        import flash.filesystem.*;
+
 		
 		[Bindable]  
         public var mystates:ArrayCollection = new ArrayCollection(  
@@ -652,6 +657,72 @@
 			pagebar1.RecordCount =resultpafentry.length;
             pagebar1.Open();
 		}
+		//-----------------创建EXCEL文件
+		public function createxcel():void
+		{
+			var excelFile:ExcelFile = new ConstomExcelFile();
+            var sheet:Sheet = new Sheet();
+            sheet.resize(resultpafentry.length+1, 14);
+            sheet.setCell(0, 0, "个人帐号");
+            sheet.setCell(0, 1, "部门编号");
+            sheet.setCell(0, 2, "部门");
+            sheet.setCell(0, 3, "人员编码");
+            sheet.setCell(0, 4, "姓名");
+            sheet.setCell(0, 5, "身份证");
+            sheet.setCell(0, 6, "缴费基数");
+            sheet.setCell(0, 7, "个人缴费");
+            sheet.setCell(0, 8, "企业缴费");
+            sheet.setCell(0, 9, "合计");
+            sheet.setCell(0, 10, "余额");
+            sheet.setCell(0, 11, "存入日期");
+            sheet.setCell(0, 12, "状态");
+            sheet.setCell(0, 13, "备注");
+            for(var i:int=1;i<=resultpafentry.length;i++)
+            {
+            	sheet.setCell(i, 0, resultpafentry[i-1].account);
+            	sheet.setCell(i, 1, resultpafentry[i-1].departid);
+            	sheet.setCell(i, 2, resultpafentry[i-1].depart);
+            	sheet.setCell(i, 3, resultpafentry[i-1].staffno);
+            	sheet.setCell(i, 4, resultpafentry[i-1].staffname);
+            	sheet.setCell(i, 5, resultpafentry[i-1].staffid);
+            	sheet.setCell(i, 6, resultpafentry[i-1].paybase);
+            	sheet.setCell(i, 7, resultpafentry[i-1].staffpay);
+            	sheet.setCell(i, 8, resultpafentry[i-1].unitpay);
+            	sheet.setCell(i, 9, resultpafentry[i-1].total);
+            	sheet.setCell(i, 10, resultpafentry[i-1].balance);
+            	sheet.setCell(i, 11, resultpafentry[i-1].savedate);
+            	sheet.setCell(i, 12, resultpafentry[i-1].state);
+            	sheet.setCell(i, 13, resultpafentry[i-1].ememo);
+            }
+            excelFile.sheets.addItem(sheet);
+            var mbytes:ByteArray = excelFile.saveToByteArray();
+    
+            var stream:FileStream = new FileStream();                
+            var docsDir:File = File.documentsDirectory.resolvePath("公积金存入报表.xls");  // 定死文件名
+            try
+            {
+                docsDir.browseForSave("Save As");
+                docsDir.addEventListener(Event.SELECT, saveData);
+            }catch (error:Error)
+            {
+                trace("Failed:", error.message)
+            }
+                                
+                                
+            function saveData(event:Event):void 
+            {
+                var newFile:File = event.target as File;  
+                if (!newFile.exists)
+                {
+                    var stream:FileStream = new FileStream();
+                    stream.open(newFile, FileMode.WRITE);
+                    stream.writeBytes(mbytes);  
+                    // 写文件流
+                    stream.close();
+                }
+            }
+		}
+		
 		]]>
     </mx:Script>
 
@@ -688,7 +759,11 @@
 				<mx:DataGridColumn headerText="MEmo" dataField="memo" visible="false"/>
 			</mx:columns>
 		</mx:DataGrid>
-		<ns:PageBar id="pagebar1" PageChange="pagechange(event)" width="100%" height="50" mPageSize="30"/>
+		<mx:HBox horizontalAlign="right">
+			<ns:PageBar id="pagebar1" PageChange="pagechange(event)" height="50" mPageSize="30"/>
+			<mx:Button label="打开EXCEL"  click="createxcel()" enabled="{resultpafentry.length!=0}"/>   
+		</mx:HBox>
+		
 	</mx:VBox>
 	<mx:VBox width="30%" height="100%">
 	    <mx:LinkBar dataProvider="operation" width="100%"/>
