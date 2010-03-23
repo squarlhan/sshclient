@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:HDividedBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns="*" creationComplete="creatstaff()">
+<mx:HDividedBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns="*" creationComplete="creatpafout()">
 	<mx:Script>
 	 	 <![CDATA[
 		import mx.controls.Alert;
@@ -15,6 +15,14 @@
         import mx.utils.StringUtil;
         import mx.controls.Alert;
         import mx.controls.DateField;
+        
+        import com.as3xls.xls.ExcelFile;
+        import com.as3xls.xls.Sheet;
+        import com.as3xls.xls.Type;
+        import com.as3xls.xls.Cell;
+        import com.as3xls.xls.Formatter;
+        import flash.filesystem.*;
+
 		
 		[Bindable]  
         public var mystates:ArrayCollection = new ArrayCollection(  
@@ -26,9 +34,11 @@
         public var mydepart:ArrayCollection = new ArrayCollection(  
                 [ {label:"", data:""} ]);
         [Bindable]  
-        public var resultstaff:ArrayCollection = new ArrayCollection(); 
+        public var resultpafout:ArrayCollection = new ArrayCollection(); 
 		[Bindable]
 		public var staffVO:StaffVO = new StaffVO();
+		[Bindable]
+		public var pafoutVO:PafoutVO = new PafoutVO();
 		[Bindable]
 		public var si:int;
 		public var formatedate:String = "YYYY/MM/DD";
@@ -46,6 +56,7 @@
                         var stmt:SQLStatement = new SQLStatement();
                         stmt.sqlConnection = con;
                         stmt.text = "select distinct depart,departid from staff_table";
+                        //stmt.text =  "select * from staff_table as s, pafout_table as e where e.staffno = s.staffno";
                         stmt.execute();
                         var result:SQLResult = stmt.getResult();
                         var leng:int = result.data.length;
@@ -53,7 +64,8 @@
                         {
                             for(var i:int = 0;i<=leng-1;i++)
                             {
-                                mydepart.addItem({label:result.data[i].depart, data:result.data[i].departid});
+                            	mydepart.addItem({label:result.data[i].depart, data:result.data[i].departid});
+                                //resultpafout.addItem(result.data[i]);
                             }
                         }
                         con.close();
@@ -93,25 +105,48 @@
             return result; 
         }
 
-        public function isEmpty(str:String):Boolean{ 
+        public function isEmpty(str:String):Boolean
+        { 
             if(str == null)return true; 
             str = StringUtil.trim(str); 
             if(str == null || str.length<=0)return true; 
             return false; 
         } 
 
-		public function isNumeric(src:String):Boolean{ 
+		public function isNumeric(src:String):Boolean
+		{ 
             if (this.isEmpty(src)) return false; 
             var regx:RegExp = /^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$/; 
             return regx.test(src); 
         } 
         
+        public function gettotal(v1:String, v2:String):String
+        {
+        	v1 = Number(v1).toFixed(2);
+        	v2 = Number(v2).toFixed(2);
+        	return (Number(v1)+Number(v2)).toFixed(2);
+        }
+        
+        public function searchstaff(no:String):void
+        {
+        	var searsql:String = "select staffname from staff_table where staffno ='"+no+"'; "
+        	var result:ArrayCollection = query(searsql);
+        	if(result.length!=1)
+        	{
+        		staffno_a.errorString = "无此人！";
+        		staffname_a.text = "";
+        		return;    	    
+        	}
+        	staffname_a.text = result[0].staffname;
+        	trace(result[0].staffname);
+        }
+        
         public function pagechange(e:PageChangeEvent):void
         {
-            staffGrid.dataProvider = e.Filter(resultstaff);
+            pafoutGrid.dataProvider = e.Filter(resultpafout);
         }
 		
-		public function creatstaff():void
+		public function creatpafout():void
 		{
 //			staffVO.account = "123456";
 //			staffVO.balance = 1234;
@@ -120,7 +155,7 @@
 //			staffVO.memo = "dd";
 //			staffVO.opendate = new Date(2008,9,10);
 //			staffVO.paybase = 4567.89;
-//			staffVO.lastdate = new Date(2010,2,23);
+//			staffVO.drawdate = new Date(2010,2,23);
 //			staffVO.staffid = "12302566546546";
 //			staffVO.id = 12;
 //			staffVO.staffname = "ZY";
@@ -146,7 +181,8 @@
         public function selectItem(event : mx.events.ListEvent) : void //选中这条信息的按钮响应
 	    {
 	    	var dataGrid : DataGrid = DataGrid(event.target);
-            staffVO.account = dataGrid.selectedItem.account;
+	    	staffVO = new StaffVO();
+	    	staffVO.account = dataGrid.selectedItem.account;
 			staffVO.balance = dataGrid.selectedItem.balance;
 			staffVO.depart = dataGrid.selectedItem.depart;
 			staffVO.departid = dataGrid.selectedItem.departid;
@@ -160,41 +196,54 @@
 			staffVO.staffrate = dataGrid.selectedItem.staffrate;
 			staffVO.unitrate = dataGrid.selectedItem.unitrate;
 			staffVO.state = dataGrid.selectedItem.state;
-//            staffVO  = StaffVO(dataGrid.selectedItem);
+			
+			pafoutVO.omemo = dataGrid.selectedItem.omemo;
+			pafoutVO.drawdate = dataGrid.selectedItem.drawdate;
+			pafoutVO.drawtotal = dataGrid.selectedItem.drawtotal;
+			pafoutVO.id = dataGrid.selectedItem.id;
+			pafoutVO.staff = staffVO;
+			
 			getsi();
 			
 	    }
 	   //------------------------------删除
-	    public function delstaffBtn():void //删除一条信息的按钮响应
+	    public function delpafoBtn():void //删除一条信息的按钮响应
 		{
-			Alert.show("确认删除该条人员信息？","删除该人员信息",4|8,this,deletoneAlertHandler); 
+			Alert.show("确认删除该条公积金提取信息？","删除该公积金提取信息",4|8,this,deletoneAlertHandler); 
 		}
 		public function deletoneAlertHandler(event:CloseEvent):void
 		{
 			 if(event.detail==Alert.OK)
 		     {
-			    delstaff();
+			    delpafo();
 	       	 }						
 		}
-		public function delstaff():void //删除这条信息
+		public function delpafo():void //删除这条信息
 		{
-			var delsql:String = "delete from staff_table where staffno ='"+staffVO.staffno+"'; ";
+			var delsql:String = "delete from pafout_table where id ="+pafoutVO.id+"; ";
 			trace(delsql);
 			this.query(delsql);
-			var i:int =0;
-			while(resultstaff[i].staffno != staffVO.staffno)
+			this.query("update staff_table set balance=(balance+"+pafoutVO.drawtotal+") where staffno='"+pafoutVO.staff.staffno+"';");
+			var d:int =0;
+			for(var i:int = 0;i<=resultpafout.length-1;i++)
 			{
-				i++;
-			}
-			staffVO = new StaffVO();
-			resultstaff.removeItemAt(i);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+				if(resultpafout[i].staffno == pafoutVO.staff.staffno)
+				{
+					resultpafout[i].balance += pafoutVO.drawtotal;
+				}
+				if(resultpafout[i].id == pafoutVO.id)
+				{
+					d = i;
+				}
+			}				
+			pafoutVO = new PafoutVO();
+			resultpafout.removeItemAt(d);
+			pagebar1.RecordCount =resultpafout.length;
             pagebar1.Open();
 		}	   
 	    public function delallBtn():void //删除所有信息的按钮响应
 		{
-			Alert.show("确认删除所有人员信息？","删除人员信息",4|8,this,deletallAlertHandler); 
+			Alert.show("确认删除所有公积金提取信息？","删除公积金提取信息",4|8,this,deletallAlertHandler); 
 		}
 		public function deletallAlertHandler(event:CloseEvent):void
 		{
@@ -206,188 +255,157 @@
 		public function delall():void //删除所有信息
 		{
 			var delsql:String = "";
-			for(var i:int=0;i<=resultstaff.length-1;i++)
+			for(var i:int=0;i<=resultpafout.length-1;i++)
 			{
-				delsql="delete from staff_table where staffno ='"+resultstaff[i].staffno+"'; ";
+				delsql="delete from pafout_table where id ='"+resultpafout[i].id+"'; ";
 				trace(delsql);
 				this.query(delsql);
+				this.query("update staff_table set balance=(balance+"+resultpafout[i].total+") where staffno='"+resultpafout[i].staffno+"';");
 			}	
-			resultstaff.removeAll();
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
-            pagebar1.Open();
+			resultpafout.removeAll();
+			pagebar1.RecordCount =resultpafout.length;
+            pagebar1.Open();			
 		}
 		//------------------------------添加	   
-	    public function addstaffBtn():void //添加信息的按钮响应
+	    public function addpafoBtn():void //添加信息的按钮响应
 		{
-			Alert.show("确认添加人员信息？","添加人员信息",4|8,this,addstaffAlertHandler); 
+			Alert.show("确认添加公积金提取信息？","添加公积金提取信息",4|8,this,addpafoAlertHandler); 
 		}
-		public function addstaffAlertHandler(event:CloseEvent):void
+		public function addpafoAlertHandler(event:CloseEvent):void
 		{
 			 if(event.detail==Alert.OK)
 		     {
-			    addstaff();
+			    addpafo();
 	       	 }						
 		}
-		public function addstaff():void //添加信息
+		public function addpafo():void //添加信息
 		{
-			var addsql:String = "insert into staff_table values('";
-			var ace:Boolean = isEmpty(account_a.text);
-			var dde:Boolean = isEmpty(departid_a.text);
-			var dpe:Boolean = isEmpty(depart_a.text);
+			var addsql:String = "insert into pafout_table(drawtotal,drawdate,staffno,omemo) values(";
+
 			var soe:Boolean = isEmpty(staffno_a.text);
 			var sne:Boolean = isEmpty(staffname_a.text);
-			var sde:Boolean = isEmpty(staffid_a.text);
-			var pbe:Boolean = isEmpty(paybase_a.text);
-			var sre:Boolean = isEmpty(staffrate_a.text);
-			var ure:Boolean = isEmpty(unitrate_a.text);
-			var bne:Boolean = isEmpty(balance_a.text);
-			var ste:Boolean = (state_a.selectedIndex==0);
-			if(ace||dde||dpe||soe||sne||sde||pbe||sre||ure||bne||ste)
+			var dte:Boolean = isEmpty(drawtotal_a.text);
+			if(soe||sne||dte)
 			{
 				Alert.show("请输入必选选项！")
 				return;
 			}
 			
-			var ur:Boolean = isNumeric(StringUtil.trim(unitrate_a.text));
-			var sr:Boolean = isNumeric(StringUtil.trim(staffrate_a.text));
-			var pb:Boolean = isNumeric(StringUtil.trim(paybase_a.text));
-			var bl:Boolean = isNumeric(StringUtil.trim(balance_a.text));
-			if(!ur||!sr||!pb||!bl)
+			var dt:Boolean = isNumeric(StringUtil.trim(drawtotal_a.text));
+			if(!dt)
 			{
 				Alert.show("请输入数字！")
 				return;
 			}
 			
-			var valistaff:ArrayCollection = this.query("select count(*) as data from staff_table where staffno='"+staffno_a.text+"';");
-			if(int(valistaff[0].data)!=0)
+			var newstaff:ArrayCollection = this.query("select * from staff_table where staffno='"+staffno_a.text+"';");
+			if(newstaff.length!=1)
 			{
-				Alert.show("已有该员工号记录！")
+				Alert.show("无此人，请重新输入员工号！")
 				return;
 			}
 			
-			var newstaff:StaffVO = new StaffVO();
-			newstaff.account = account_a.text;
-			newstaff.balance = Number(Number(StringUtil.trim(balance_a.text)).toFixed(2));
-			newstaff.depart = depart_a.text;
-			newstaff.departid = departid_a.text;
-			newstaff.memo = memo_a.text;
-			newstaff.opendate = opendate_a.text; 
-			newstaff.paybase = Number(Number(StringUtil.trim(paybase_a.text)).toFixed(2));
-			newstaff.lastdate = null; 
-			newstaff.staffid = staffid_a.text;
-			newstaff.staffname = staffname_a.text;
-			newstaff.staffno = staffno_a.text;
-			newstaff.staffrate = Number(Number(StringUtil.trim(staffrate_a.text)).toFixed(2));
-			newstaff.unitrate = Number(Number(StringUtil.trim(unitrate_a.text)).toFixed(2));
-			newstaff.state = state_a.selectedItem.data;
-			
-			addsql=addsql+StringUtil.trim(account_a.text)+"','"
-			             +StringUtil.trim(staffname_a.text)+"','"
+			addsql=addsql+Number(StringUtil.trim(drawtotal_a.text)).toFixed(2)+",'"
+			             +StringUtil.trim(drawdate_a.text)+"','"
 			             +StringUtil.trim(staffno_a.text)+"','"
-			             +StringUtil.trim(staffid_a.text)+"','"
-			             +StringUtil.trim(depart_a.text)+"','"
-			             +StringUtil.trim(departid_a.text)+"','"
-			             +StringUtil.trim(state_a.selectedItem.data)+"',"
-			             +Number(StringUtil.trim(balance_a.text)).toFixed(2)+","
-			             +Number(StringUtil.trim(paybase_a.text)).toFixed(2)+","
-			             +Number(StringUtil.trim(unitrate_a.text)).toFixed(2)+","
-			             +Number(StringUtil.trim(staffrate_a.text)).toFixed(2)+",'"
-			             +"','"
-			             +StringUtil.trim(memo_a.text)+"','"
-			             +StringUtil.trim(opendate_a.text)+"');";
+			             +StringUtil.trim(omemo_a.text)+"');";
 
-			trace(addsql);
-			resultstaff.addItem(newstaff);
+			trace(addsql);			
 			this.query(addsql);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+			this.query("update staff_table set balance=(balance-"+Number(StringUtil.trim(drawtotal_a.text)).toFixed(2)+") where staffno='"+staffno_a.text+"';");
+			var newid:ArrayCollection = this.query("select max(id) as data from pafout_table;");
+			var newpafout:Object = new Object();
+			newpafout.account = newstaff[0].account;
+			newpafout.balance = newstaff[0].balance;
+			newpafout.depart = newstaff[0].depart
+			newpafout.departid = newstaff[0].departid;
+			newpafout.memo = newstaff[0].memo;
+			newpafout.opendate = newstaff[0].opendate; 
+			newpafout.paybase = newstaff[0].paybase;
+			newpafout.lastdate = newstaff[0].lastdate; 
+			newpafout.staffid = newstaff[0].staffid;
+			newpafout.staffname = newstaff[0].staffname;
+			newpafout.staffno = newstaff[0].staffno;
+			newpafout.staffrate = newstaff[0].staffrate;
+			newpafout.unitrate = newstaff[0].unitrate;
+			newpafout.state = newstaff[0].state;
+			newpafout.drawdate = drawdate_a.text;
+			newpafout.drawtotal = Number(Number(StringUtil.trim(drawtotal_a.text)).toFixed(2));
+			newpafout.omemo = omemo_a.text;
+			newpafout.id = newid[0].data;
+			resultpafout.addItem(newpafout);
+			for(var i:int=0;i<=resultpafout.length-1;i++)
+			{
+				if(resultpafout[i].staffno == staffno_a.text)
+				{
+					resultpafout[i].balance -=  Number(Number(StringUtil.trim(drawtotal_a.text)).toFixed(2));
+				}
+			}
+			pagebar1.RecordCount =resultpafout.length;
             pagebar1.Open();
 		}
 		//------------------------------修改   
-	    public function modistaffBtn():void //修改信息的按钮响应
+	    public function modipafoBtn():void //修改信息的按钮响应
 		{
-			Alert.show("确认修改人员信息？","修改人员信息",4|8,this,modistaffAlertHandler); 
+			Alert.show("确认修改公积金提取信息？","修改公积金提取信息",4|8,this,modipafoAlertHandler); 
 		}
-		public function modistaffAlertHandler(event:CloseEvent):void
+		public function modipafoAlertHandler(event:CloseEvent):void
 		{
 			 if(event.detail==Alert.OK)
 		     {
-			    modistaff();
+			    modipafo();
 	       	 }						
 		}
-		public function modistaff():void //修改信息
+		public function modipafo():void //修改信息
 		{
-			var modisql:String = "update staff_table set ";
-			var ace:Boolean = isEmpty(account_m.text);
-			var dde:Boolean = isEmpty(departid_m.text);
-			var dpe:Boolean = isEmpty(depart_m.text);
-			var soe:Boolean = isEmpty(staffno_m.text);
-			var sne:Boolean = isEmpty(staffname_m.text);
-			var sde:Boolean = isEmpty(staffid_m.text);
-			var pbe:Boolean = isEmpty(paybase_m.text);
-			var sre:Boolean = isEmpty(staffrate_m.text);
-			var ure:Boolean = isEmpty(unitrate_m.text);
-			var bne:Boolean = isEmpty(balance_m.text);
-			var ste:Boolean = (state_m.selectedIndex==0);
-			if(ace||dde||dpe||soe||sne||sde||pbe||sre||ure||bne||ste)
+			var modisql:String = "update pafout_table set drawtotal=";
+
+			var tte:Boolean = isEmpty(drawtotal_m.text);
+			if(tte)
 			{
 				Alert.show("请输入必选选项！")
 				return;
 			}
 			
-			var ur:Boolean = isNumeric(StringUtil.trim(unitrate_m.text));
-			var sr:Boolean = isNumeric(StringUtil.trim(staffrate_m.text));
-			var pb:Boolean = isNumeric(StringUtil.trim(paybase_m.text));
-			var bl:Boolean = isNumeric(StringUtil.trim(balance_m.text));
-			if(!ur||!sr||!pb||!bl)
+			var tt:Boolean = isNumeric(StringUtil.trim(drawtotal_m.text));
+			if(!tt)
 			{
 				Alert.show("请输入数字！")
 				return;
 			}
 			
-			staffVO.account = account_m.text;
-			staffVO.balance = Number(Number(StringUtil.trim(balance_m.text)).toFixed(2));
-			staffVO.depart = depart_m.text;
-			staffVO.departid = departid_m.text;
-			staffVO.memo = memo_m.text;
-			staffVO.opendate = opendate_m.text; 
-			staffVO.lastdate = lastdate_m.text; 
-			staffVO.paybase =  Number(Number(StringUtil.trim(paybase_m.text)).toFixed(2));
-			staffVO.staffid = staffid_m.text;
-			staffVO.staffname = staffname_m.text;
-			staffVO.staffno = staffno_m.text;
-			staffVO.staffrate =  Number(Number(StringUtil.trim(staffrate_m.text)).toFixed(2));
-			staffVO.unitrate = Number(Number(StringUtil.trim(unitrate_m.text)).toFixed(2));
-			staffVO.state = state_m.selectedItem.data;
+			var originbalance:Number = pafoutVO.staff.balance;
+			var origintotal:Number = pafoutVO.drawtotal;
+			var newbalance = originbalance+origintotal-Number(Number(StringUtil.trim(drawtotal_m.text)).toFixed(2));
 			
-			modisql=modisql+"account='"+StringUtil.trim(account_m.text)+"', "
-			               +"staffname='"+StringUtil.trim(staffname_m.text)+"', "
-			               +"staffid='"+StringUtil.trim(staffid_m.text)+"', "
-			               +"depart='"+StringUtil.trim(depart_m.text)+"', "
-			               +"departid='"+StringUtil.trim(departid_m.text)+"', "
-			               +"state='"+StringUtil.trim(state_m.selectedItem.data)+"', "
-			               +"balance="+Number(StringUtil.trim(balance_m.text)).toFixed(2)+", "
-			               +"paybase="+Number(StringUtil.trim(paybase_m.text)).toFixed(2)+", "
-			               +"unitrate="+Number(StringUtil.trim(unitrate_m.text)).toFixed(2)+", "
-			               +"staffrate="+Number(StringUtil.trim(staffrate_m.text)).toFixed(2)+", "
-			               +"lastdate='"+StringUtil.trim(lastdate_m.text)+"', "
-			               +"memo='"+StringUtil.trim(memo_m.text)+"',"
-			               +"opendate='"+StringUtil.trim(opendate_m.text)+"' "
-			               +"where staffno='"+StringUtil.trim(staffno_m.text)+"' ;";
+			modisql=modisql+Number(StringUtil.trim(drawtotal_m.text)).toFixed(2)+", drawdate='"
+			               +StringUtil.trim(drawdate_m.text)+"',omemo='"
+			               +StringUtil.trim(omemo_m.text)+"' where id="+pafoutVO.id+";";
 
-			trace(modisql);
-			var i:int =0;
-			while(resultstaff[i].staffno != staffVO.staffno)
-			{
-				i++;
-			}
-			resultstaff.removeItemAt(i);
-			resultstaff.addItem(staffVO);
+			trace(modisql);			
 			this.query(modisql);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
-            pagebar1.Open();
+			this.query("update staff_table set balance="+newbalance+" where staffno='"+staffno_m.text+"';");
+			
+            pafoutVO.staff.balance = newbalance;
+            pafoutVO.drawdate = StringUtil.trim(drawdate_m.text);
+            pafoutVO.omemo = StringUtil.trim(omemo_m.text);
+            pafoutVO.drawtotal = Number(Number(StringUtil.trim(drawtotal_m.text)).toFixed(2));
+            
+			for(var i:int=0;i<=resultpafout.length-1;i++)
+			{
+				if(resultpafout[i].staffno == staffno_m.text)
+				{
+					resultpafout[i].balance =  newbalance;
+				}
+				if(resultpafout[i].id == pafoutVO.id)
+				{
+					resultpafout[i].drawdate = StringUtil.trim(drawdate_m.text);
+                    resultpafout[i].omemo = StringUtil.trim(omemo_m.text);
+                    resultpafout[i].drawtotal = Number(Number(StringUtil.trim(drawtotal_m.text)).toFixed(2));
+				}
+			}
+			pagebar1.RecordCount =resultpafout.length;
+            pagebar1.Open();			
 		}
 		//------------------------------搜索   
 		public function resetBtn():void //重置按钮响应
@@ -397,31 +415,26 @@
 			staffno_s.text = "";
 			staffid_s.text = "";
 			staffname_s.text = "";
-			staffrate_s.text = "";
-			unitrate_s.text = "";
-			paybase_s.text = "";
-			paybase_s1.text = "";
 			balance_s.text = "";
 			balance_s1.text = "";
 			state_s.selectedIndex = 0;
 			opendate_s.selectedDate = null;
-			lastdate_s.selectedDate = null;
+			drawdate_s.selectedDate = null;
 			//opendate_s1.selectedDate = null;
-			//lastdate_s1.selectedDate = null;
-			memo_s.text = "";
+			//drawdate_s1.selectedDate = null;
+			omemo_s.text = "";
 			
 		}
 	    public function selectstaffBtn():void //搜索信息的按钮响应
 		{
-			var selecttxt:String = "select * from staff_table";
+			var selecttxt:String = "select * from staff_table as s, pafout_table as e ";
 			var options:String = "";
-			var ur:Boolean = isEmpty(unitrate_s.text)||isNumeric(StringUtil.trim(unitrate_s.text));
-			var sr:Boolean = isEmpty(staffrate_s.text)||isNumeric(StringUtil.trim(staffrate_s.text));
-			var pb:Boolean = isEmpty(paybase_s.text)||isNumeric(StringUtil.trim(paybase_s.text));
-			var pb1:Boolean = isEmpty(paybase_s1.text)||isNumeric(StringUtil.trim(paybase_s1.text));
+
+            var dt:Boolean = isEmpty(drawtotal_s.text)||isNumeric(StringUtil.trim(drawtotal_s.text));
+			var dt1:Boolean = isEmpty(drawtotal_s1.text)||isNumeric(StringUtil.trim(drawtotal_s1.text));
 			var bl:Boolean = isEmpty(balance_s.text)||isNumeric(StringUtil.trim(balance_s.text));
 			var bl1:Boolean = isEmpty(balance_s1.text)||isNumeric(StringUtil.trim(balance_s1.text));
-			if(!ur||!sr||!pb||!pb1||!bl||!bl1)
+			if(!dt||!dt1||!bl||!bl1)
 			{
 				Alert.show("请输入数字！")
 				return;
@@ -431,8 +444,28 @@
 			options+=(isEmpty(staffno_s.text))?"":" staffno='"+staffno_s.text+"' and";
 			options+=(isEmpty(staffname_s.text))?"":" staffname='"+staffname_s.text+"' and";
 			options+=(isEmpty(staffid_s.text))?"":" staffid='"+staffid_s.text+"' and";
-			options+=(isEmpty(staffrate_s.text))?"":" staffrate="+staffrate_s.text+" and";
-			options+=(isEmpty(unitrate_s.text))?"":" unitrate="+unitrate_s.text+" and";
+			
+			//处理取款金额范围
+			if(!isEmpty(drawtotal_s.text)&&isEmpty(drawtotal_s1.text))
+			{
+				options+=" drawtotal="+Number(drawtotal_s.text)+" and";
+			}else if(!isEmpty(drawtotal_s1.text)&&isEmpty(drawtotal_s.text))
+			{
+				options+=" drawtotal="+Number(drawtotal_s1.text)+" and";
+			}else if(!isEmpty(drawtotal_s.text)&&!isEmpty(drawtotal_s1.text))
+			{
+				if(Number(drawtotal_s1.text)>=Number(drawtotal_s.text))
+				{
+					options+=" drawtotal>="+Number(drawtotal_s.text)+" and drawtotal<="+Number(drawtotal_s1.text)+" and";
+				}else
+				{
+					options+=" drawtotal>="+Number(drawtotal_s1.text)+" and drawtotal<="+Number(drawtotal_s.text)+" and";
+				}
+			}else
+			{
+				options +=""; 
+			}
+			
 			options+=(state_s.selectedIndex==0)?"":" state='"+state_s.selectedItem.data+"' and";
 			//处理余额范围
 			if(!isEmpty(balance_s.text)&&isEmpty(balance_s1.text))
@@ -449,26 +482,6 @@
 				}else
 				{
 					options+=" balance>="+Number(balance_s1.text)+" and balance<="+Number(balance_s.text)+" and";
-				}
-			}else
-			{
-				options +=""; 
-			}
-			//处理基数范围
-			if(!isEmpty(paybase_s.text)&&isEmpty(paybase_s1.text))
-			{
-				options+=" paybase="+Number(paybase_s.text)+" and";
-			}else if(!isEmpty(paybase_s1.text)&&isEmpty(paybase_s.text))
-			{
-				options+=" paybase="+Number(paybase_s1.text)+" and";
-			}else if(!isEmpty(paybase_s.text)&&!isEmpty(paybase_s1.text))
-			{
-				if(Number(paybase_s1.text)>=Number(paybase_s.text))
-				{
-					options+=" paybase>="+Number(paybase_s.text)+" and paybase<="+Number(paybase_s1.text)+" and";
-				}else
-				{
-					options+=" paybase>="+Number(paybase_s1.text)+" and paybase<="+Number(paybase_s.text)+" and";
 				}
 			}else
 			{
@@ -495,85 +508,125 @@
 				options +=""; 
 			}
 			//处理存入日期范围
-			if(!isEmpty(lastdate_s.text)&&isEmpty(lastdate_s1.text))
+			if(!isEmpty(drawdate_s.text)&&isEmpty(drawdate_s1.text))
 			{
-				options+=" lastdate='"+(lastdate_s.text)+"' and";
-			}else if(!isEmpty(lastdate_s1.text)&&isEmpty(lastdate_s.text))
+				options+=" drawdate='"+(drawdate_s.text)+"' and";
+			}else if(!isEmpty(drawdate_s1.text)&&isEmpty(drawdate_s.text))
 			{
-				options+=" lastdate='"+(lastdate_s1.text)+"' and";
-			}else if(!isEmpty(lastdate_s.text)&&!isEmpty(lastdate_s1.text))
+				options+=" drawdate='"+(drawdate_s1.text)+"' and";
+			}else if(!isEmpty(drawdate_s.text)&&!isEmpty(drawdate_s1.text))
 			{
-				if((lastdate_s1.text)>=(lastdate_s.text))
+				if((drawdate_s1.text)>=(drawdate_s.text))
 				{
-					options+=" lastdate>='"+(lastdate_s.text)+"' and lastdate<='"+(lastdate_s1.text)+"' and";
+					options+=" drawdate>='"+(drawdate_s.text)+"' and drawdate<='"+(drawdate_s1.text)+"' and";
 				}else
 				{
-					options+=" lastdate>='"+(lastdate_s1.text)+"' and lastdate<='"+(lastdate_s.text)+"' and";
+					options+=" drawdate>='"+(drawdate_s1.text)+"' and drawdate<='"+(drawdate_s.text)+"' and";
 				}
 			}else
 			{
 				options +=""; 
 			}
 			
-			options+=(isEmpty(memo_s.text))?"":" memo='"+memo_s.text+"' ";
-			if(!isEmpty(options))selecttxt=StringUtil.trim(selecttxt+" where "+options);
-			var temp:String = StringUtil.trim(selecttxt).substr(selecttxt.length-3,3);
-			if(temp=="and")selecttxt = StringUtil.trim(selecttxt.substring(0,selecttxt.length-3));
+			options+=(isEmpty(omemo_s.text))?"":" omemo='"+omemo_s.text+"' and";
+			selecttxt=StringUtil.trim(selecttxt+" where "+options+" s.staffno = e.staffno;");
 			trace(selecttxt);
-			resultstaff = this.query(selecttxt);
-			if(resultstaff==null)pagebar1.RecordCount=0;
-			else pagebar1.RecordCount =resultstaff.length;
+			resultpafout = this.query(selecttxt);
+			pagebar1.RecordCount =resultpafout.length;
             pagebar1.Open();
 		}
+		//-----------------创建EXCEL文件
+		public function createxcel():void
+		{
+			var excelFile:ExcelFile = new ConstomExcelFile();
+            var sheet:Sheet = new Sheet();
+            sheet.resize(resultpafout.length+1, 11);
+            sheet.setCell(0, 0, "个人帐号");
+            sheet.setCell(0, 1, "部门编号");
+            sheet.setCell(0, 2, "部门");
+            sheet.setCell(0, 3, "人员编码");
+            sheet.setCell(0, 4, "姓名");
+            sheet.setCell(0, 5, "身份证");
+            sheet.setCell(0, 6, "取款金额");
+            sheet.setCell(0, 7, "总余额");
+            sheet.setCell(0, 8, "取款日期");
+            sheet.setCell(0, 9, "状态");
+            sheet.setCell(0, 10, "备注");           
+            for(var i:int=1;i<=resultpafout.length;i++)
+            {
+            	sheet.setCell(i, 0, resultpafout[i-1].account+"·");
+            	sheet.setCell(i, 1, resultpafout[i-1].departid+"·");
+            	sheet.setCell(i, 2, resultpafout[i-1].depart);
+            	sheet.setCell(i, 3, resultpafout[i-1].staffno+"·");
+            	sheet.setCell(i, 4, resultpafout[i-1].staffname);
+            	sheet.setCell(i, 5, resultpafout[i-1].staffid+"·");
+            	sheet.setCell(i, 6, resultpafout[i-1].drawtotal);
+            	sheet.setCell(i, 7, resultpafout[i-1].balance);
+            	sheet.setCell(i, 8, resultpafout[i-1].drawdate);
+            	sheet.setCell(i, 9, resultpafout[i-1].state);
+            	sheet.setCell(i, 10, resultpafout[i-1].omemo);
+            }
+            excelFile.sheets.addItem(sheet);
+            var mbytes:ByteArray = excelFile.saveToByteArray();
+    
+            var stream:FileStream = new FileStream();                
+            var docsDir:File = File.documentsDirectory.resolvePath("公积金提取报表.xls");  // 定死文件名
+            try
+            {
+                docsDir.browseForSave("Save As");
+                docsDir.addEventListener(Event.SELECT, saveData);
+            }catch (error:Error)
+            {
+                trace("Failed:", error.message)
+            }
+                                
+                                
+            function saveData(event:Event):void 
+            {
+                var newFile:File = event.target as File;  
+                var stream:FileStream = new FileStream();
+                stream.open(newFile, FileMode.WRITE);
+                stream.writeBytes(mbytes);  
+                // 写文件流
+                stream.close();
+            }
+		}
+		
 		]]>
     </mx:Script>
-    <mx:Validator id="account_a_vali" source="{account_a}" property="text" requiredFieldError="请输入帐号!"/>
-    <mx:Validator id="departid_a_vali" source="{departid_a}" property="text" requiredFieldError="请输入部门编号!"/>
-    <mx:Validator id="depart_a_vali" source="{depart_a}" property="text" requiredFieldError="请输入部门!"/>
-    <mx:Validator id="staffno_a_vali" source="{staffno_a}" property="text" requiredFieldError="请输入人员编码!"/>
-    <mx:Validator id="staffname_a_vali" source="{staffname_a}" property="text" requiredFieldError="请输入人员姓名!"/>
-    <mx:Validator id="staffid_a_vali" source="{staffid_a}" property="text" requiredFieldError="请输入身份证!"/>
-    <mx:Validator id="paybase_a_vali" source="{paybase_a}" property="text" requiredFieldError="请输入缴费基数!"/>
-    <mx:Validator id="unitrate_a_vali" source="{unitrate_a}" property="text" requiredFieldError="请输入企业汇率!"/>
-    <mx:Validator id="staffrate_a_vali" source="{staffrate_a}" property="text" requiredFieldError="请输入个人汇率!"/>
-    <mx:Validator id="state_a_vali" source="{staffrate_a}" property="text" requiredFieldError="请输入个人状态!"/>
-    <mx:Validator id="balance_a_vali" source="{balance_a}" property="text" requiredFieldError="请输入余额!"/>
-    
-    <mx:Validator id="account_m_vali" source="{account_m}" property="text" requiredFieldError="请输入帐号!"/>
-    <mx:Validator id="departid_m_vali" source="{departid_m}" property="text" requiredFieldError="请输入部门编号!"/>
-    <mx:Validator id="depart_m_vali" source="{depart_m}" property="text" requiredFieldError="请输入部门!"/>
-    <mx:Validator id="staffno_m_vali" source="{staffno_m}" property="text" requiredFieldError="请输入人员编码!"/>
-    <mx:Validator id="staffname_m_vali" source="{staffname_m}" property="text" requiredFieldError="请输入人员姓名!"/>
-    <mx:Validator id="staffid_m_vali" source="{staffid_m}" property="text" requiredFieldError="请输入身份证!"/>
-    <mx:Validator id="paybase_m_vali" source="{paybase_m}" property="text" requiredFieldError="请输入缴费基数!"/>
-    <mx:Validator id="unitrate_m_vali" source="{unitrate_m}" property="text" requiredFieldError="请输入企业汇率!"/>
-    <mx:Validator id="staffrate_m_vali" source="{staffrate_m}" property="text" requiredFieldError="请输入个人汇率!"/>
-    <mx:Validator id="balance_m_vali" source="{balance_m}" property="text" requiredFieldError="请输入余额!"/>
-    <mx:Validator id="state_m_vali" source="{staffrate_m}" property="text" requiredFieldError="请输入个人状态!"/>
-    
 
-	<mx:VBox width="70%" height="100%" horizontalAlign="right">
-        <mx:DataGrid width="100%" height="100%" id="staffGrid" dataProvider="{resultstaff}" itemClick="selectItem(event);">
+    <mx:Validator id="staffno_a_vali" source="{staffno_a}" property="text" requiredFieldError="请输入人员编码!"/>
+    <mx:Validator id="drawtotal_a_vali" source="{drawtotal_a}" property="text" requiredFieldError="请输入取款金额!"/>
+    <mx:Validator id="drawtotal_m_vali" source="{drawtotal_m}" property="text" requiredFieldError="请输入取款金额!"/>
+    
+	<mx:VBox width="69%" height="100%">
+        <mx:DataGrid width="100%" height="100%" id="pafoutGrid" dataProvider="{resultpafout}" itemClick="selectItem(event);">
 		    <mx:columns>
 			    <mx:DataGridColumn headerText="个人帐号" dataField="account"/>
 			    <mx:DataGridColumn headerText="部门编号" dataField="departid"/>
 			    <mx:DataGridColumn headerText="部门" dataField="depart"/>
 				<mx:DataGridColumn headerText="人员编码" dataField="staffno"/>
 			    <mx:DataGridColumn headerText="姓名" dataField="staffname"/>
-			    <mx:DataGridColumn headerText="身份证" dataField="staffid"/>
-			    <mx:DataGridColumn headerText="缴费基数" dataField="paybase"/>
-			    <mx:DataGridColumn headerText="个人汇率" dataField="staffrate"/>
-			    <mx:DataGridColumn headerText="企业汇率" dataField="unitrate"/>			    
-			    <mx:DataGridColumn headerText="余额" dataField="balance"/>
-			    <mx:DataGridColumn headerText="开户日期" dataField="opendate"/>
-				<mx:DataGridColumn headerText="存入日期" dataField="lastdate"/>				
+			    <mx:DataGridColumn headerText="身份证" dataField="staffid"/>		    
+			    <mx:DataGridColumn headerText="取款金额" dataField="drawtotal"/>			    
+			    <mx:DataGridColumn headerText="总余额" dataField="balance"/>
+				<mx:DataGridColumn headerText="取款日期" dataField="drawdate"/>				
 				<mx:DataGridColumn headerText="状态" dataField="state"/>
-				<mx:DataGridColumn headerText="备注" dataField="memo"/>
+				<mx:DataGridColumn headerText="备注" dataField="omemo"/>
+				
+				<mx:DataGridColumn headerText="ID" dataField="id" visible="false"/>
+				<mx:DataGridColumn headerText="最后存入日期" dataField="lastdate" visible="false"/>
+				<mx:DataGridColumn headerText="开户日期" dataField="opendate" visible="false"/>
+				<mx:DataGridColumn headerText="MEmo" dataField="memo" visible="false"/>
 			</mx:columns>
 		</mx:DataGrid>
-		<ns:PageBar id="pagebar1" PageChange="pagechange(event)" width="100%" height="50" mPageSize="30"/>
+		<mx:HBox horizontalAlign="left" verticalAlign="middle">
+			<ns:PageBar id="pagebar1" PageChange="pagechange(event)" mPageSize="30"/>
+			<mx:Button label="打开EXCEL"  click="createxcel()" enabled="{resultpafout.length!=0}"/>   
+		</mx:HBox>
+		
 	</mx:VBox>
-	<mx:VBox width="30%" height="100%">
+	<mx:VBox width="31%" height="100%">
 	    <mx:LinkBar dataProvider="operation" width="100%"/>
 		<mx:ViewStack id="operation" width="100%" height="100%">
 		    <mx:Form label="搜索" width="100%" height="100%" id="pafselect">
@@ -594,24 +647,18 @@
 			    <mx:FormItem label="身份证: " >
 				    <mx:TextInput id="staffid_s" width="200"/>
 				</mx:FormItem>
-				<mx:FormItem label="缴费基数: ">
-				    <mx:HBox width="200">
-				    	 <mx:TextInput id="paybase_s" width="80"/>
+				<mx:FormItem label="取款金额: " >
+				    <mx:HBox>
+				    	 <mx:TextInput id="drawtotal_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
-				         <mx:TextInput id="paybase_s1" width="80" text="{paybase_s.text}"/>
-				    </mx:HBox>			   
-				</mx:FormItem>
-				<mx:FormItem label="个人汇率: " >
-				    <mx:TextInput id="staffrate_s" width="200"/>
-				</mx:FormItem>
-				<mx:FormItem label="企业汇率: " >
-				    <mx:TextInput id="unitrate_s" width="200"/>
+				         <mx:TextInput id="drawtotal_s1" width="80" restrict="0-9\." text="{drawtotal_s.text}"/>
+				    </mx:HBox>
 				</mx:FormItem>
 				<mx:FormItem label="余额: " >
-				    <mx:HBox width="200">
-				    	 <mx:TextInput id="balance_s" width="80"/>
+				    <mx:HBox>
+				    	 <mx:TextInput id="balance_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
-				         <mx:TextInput id="balance_s1" width="80" text="{balance_s.text}"/>
+				         <mx:TextInput id="balance_s1" width="80" restrict="0-9\." text="{balance_s.text}"/>
 				    </mx:HBox>
 				</mx:FormItem>
 				<mx:FormItem label="状态: " >				            
@@ -633,15 +680,15 @@
 			        </mx:HBox>
 				    
 				</mx:FormItem>	
-				<mx:FormItem label="存入日期: " >
+				<mx:FormItem label="取款日期: " >
 				    <mx:HBox>
-				    	<mx:DateField id = "lastdate_s" yearNavigationEnabled="true"
+				    	<mx:DateField id = "drawdate_s" yearNavigationEnabled="true"
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
 				            	showToday="false" width="100" formatString="{formatedate}"/>
 				        <mx:Label text="至" textAlign="center"/>
-				        <mx:DateField id = "lastdate_s1" yearNavigationEnabled="true"
+				        <mx:DateField id = "drawdate_s1" yearNavigationEnabled="true"
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
@@ -650,7 +697,7 @@
 				    
 				</mx:FormItem>
 				<mx:FormItem label="备注： " >
-				    <mx:TextArea id="memo_s" width="200"/>
+				    <mx:TextArea id="omemo_s" width="200"/>
 				</mx:FormItem>			        
 				<mx:HRule width="100%" height="1"/>
 				<mx:HBox width="100%" horizontalAlign="right">  
@@ -659,77 +706,41 @@
 				</mx:HBox>
 			</mx:Form>
 		    <mx:Form label="查看" width="100%" height="100%" id="pafdetail">
-			    <mx:HBox width="100%" horizontalAlign="left"><mx:Text text="公积金信息"/></mx:HBox>
+			    <mx:HBox width="100%" horizontalAlign="left"><mx:Text text="公积金提取信息"/></mx:HBox>
 			    <mx:HRule width="100%" height="1"/>
-			    <mx:FormItem label="个人帐号: "><mx:Text id="account_d" text="{staffVO.account}"/></mx:FormItem>
-			    <mx:FormItem label="部门编号: " ><mx:Text id="departid_d" text="{staffVO.departid}"/></mx:FormItem>
-				<mx:FormItem label="部门: " ><mx:Text id="depart_d" text="{staffVO.depart}"/></mx:FormItem>
-				<mx:FormItem label="人员编码: " ><mx:Text id="staffno_d" text="{staffVO.staffno}"/></mx:FormItem>
-				<mx:FormItem label="姓名: " ><mx:Text id="staffname_d" text="{staffVO.staffname}"/></mx:FormItem>
-				<mx:FormItem label="身份证: " ><mx:Text id="staffid_d" text="{staffVO.staffid}"/></mx:FormItem>
-				<mx:FormItem label="缴费基数: " ><mx:Text id="paybase_d" text="{staffVO.paybase}"/></mx:FormItem>
-				<mx:FormItem label="个人汇率: " ><mx:Text id="staffrate_d" text="{staffVO.staffrate}"/></mx:FormItem>
-				<mx:FormItem label="企业汇率: " ><mx:Text id="unitrate_d" text="{staffVO.unitrate}"/></mx:FormItem>
-				<mx:FormItem label="余额: " ><mx:Text id="balance_d" text="{staffVO.balance}"/></mx:FormItem>
-				<mx:FormItem label="开户日期 " ><mx:Text id="opendate_d" text="{staffVO.opendate}"/></mx:FormItem>				
-			    <mx:FormItem label="存入日期: " ><mx:Text id="lastdate_d" text="{staffVO.lastdate}"/></mx:FormItem>
-				<mx:FormItem label="状态: " ><mx:Text id="state_d" text="{staffVO.state}"/></mx:FormItem>
-				<mx:FormItem label="备注: " ><mx:Text id="memo_d" text="{staffVO.memo}"/></mx:FormItem>
+			    <mx:FormItem label="个人帐号: "><mx:Text id="account_d" text="{pafoutVO.staff.account}"/></mx:FormItem>
+			    <mx:FormItem label="部门编号: " ><mx:Text id="departid_d" text="{pafoutVO.staff.departid}"/></mx:FormItem>
+				<mx:FormItem label="部门: " ><mx:Text id="depart_d" text="{pafoutVO.staff.depart}"/></mx:FormItem>
+				<mx:FormItem label="人员编码: " ><mx:Text id="staffno_d" text="{pafoutVO.staff.staffno}"/></mx:FormItem>
+				<mx:FormItem label="姓名: " ><mx:Text id="staffname_d" text="{pafoutVO.staff.staffname}"/></mx:FormItem>
+				<mx:FormItem label="身份证: " ><mx:Text id="staffid_d" text="{pafoutVO.staff.staffid}"/></mx:FormItem>
+				<mx:FormItem label="取款金额: " ><mx:Text id="drawtotal_d" text="{pafoutVO.drawtotal}"/></mx:FormItem>
+				<mx:FormItem label="总余额: " ><mx:Text id="balance_d" text="{pafoutVO.staff.balance}"/></mx:FormItem>
+			    <mx:FormItem label="取款日期: " ><mx:Text id="drawdate_d" text="{pafoutVO.drawdate}"/></mx:FormItem>
+				<mx:FormItem label="状态: " ><mx:Text id="state_d" text="{pafoutVO.staff.state}"/></mx:FormItem>
+				<mx:FormItem label="备注: " ><mx:Text id="omemo_d" text="{pafoutVO.omemo}"/></mx:FormItem>
 				<mx:HRule width="100%" height="1"/>
 				<mx:HBox width="100%" horizontalAlign="right">
-				   <mx:Button label="删除所有信息" click="delallBtn()" enabled="{resultstaff.length!=0}"/>   
-				   <mx:Button label="删除" click="delstaffBtn()" enabled="{staffVO.staffid!=null}"/>			            
+				   <mx:Button label="删除所有信息" click="delallBtn()" enabled="{resultpafout.length!=0}"/>   
+				   <mx:Button label="删除" click="delpafoBtn()" enabled="{staffVO.staffid!=null}"/>			            
 				</mx:HBox>
 			</mx:Form>
 			<mx:Form label="添加" width="100%" height="100%" id="pafadd">
 			    <mx:HBox width="100%" horizontalAlign="left"><mx:Text text="填写以下信息"/></mx:HBox>
-			    <mx:HRule width="100%" height="1"/>
-			    <mx:FormItem label="个人帐号: " required="true">
-			        <mx:TextInput id="account_a" width="200"/>
-		            <mx:Text text="{account_a.errorString}" color="#FF0000"/>
-			    </mx:FormItem>
-			    <mx:FormItem label="部门编号: "  required="true">
-			        <mx:TextInput id="departid_a" width="200"/>
-		            <mx:Text text="{departid_a.errorString}" color="#FF0000"/>
-		        </mx:FormItem>
-				<mx:FormItem label="部门: "  required="true">
-				    <mx:TextInput id="depart_a" width="200"/>
-		            <mx:Text text="{depart_a.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="人员编码: "  required="true">
-				    <mx:TextInput id="staffno_a" width="200"/>
+			    <mx:HRule width="100%" height="1"/>	
+			    <mx:FormItem label="人员编码: "  required="true">
+			        <mx:HBox>
+			        	<mx:TextInput id="staffno_a" width="200" focusOut="{searchstaff(staffno_a.text)}"/>
+			        	<mx:Text id="staffname_a" color="#000000"/>
+			        </mx:HBox>				    
 		            <mx:Text text="{staffno_a.errorString}" color="#FF0000"/>
 				</mx:FormItem>
-				<mx:FormItem label="姓名: "  required="true">
-				    <mx:TextInput id="staffname_a" width="200"/>
-		            <mx:Text text="{staffname_a.errorString}" color="#FF0000"/>
+				<mx:FormItem label="取款金额: " required="true">
+				    <mx:TextInput id="drawtotal_a" width="200" restrict="0-9\." text="0"/>
+				    <mx:Text text="{drawtotal_a.errorString}" color="#FF0000"/>
 				</mx:FormItem>
-			    <mx:FormItem label="身份证: "  required="true">
-				    <mx:TextInput id="staffid_a" width="200"/>
-		            <mx:Text text="{staffid_a.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="缴费基数: "  required="true">
-				    <mx:TextInput id="paybase_a" width="200"/>
-		            <mx:Text text="{paybase_a.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="个人汇率: "  required="true">
-				    <mx:TextInput id="staffrate_a" width="200"/>
-				    <mx:Text text="{staffrate_a.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="企业汇率: "  required="true">
-				    <mx:TextInput id="unitrate_a" width="200"/>
-				    <mx:Text text="{unitrate_a.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="余额: " required="true">
-				    <mx:TextInput id="balance_a" text="0" width="200"/>
-				    <mx:Text text="{balance_a.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="状态: " required="true">				            
-				    <mx:ComboBox id="state_a" dataProvider="{mystates}" selectedIndex="1" text="" labelField="label" width="200"/>
-				    <mx:Text text="{(state_a.text=='')?'请输入个人状态!':''}" color="#FF0000"/>
-			    </mx:FormItem>
-			    <mx:FormItem label="开户日期: " >
-				    <mx:DateField id = "opendate_a" yearNavigationEnabled="true"
+			    <mx:FormItem label="取款日期: " >
+				    <mx:DateField id = "drawdate_a" yearNavigationEnabled="true"
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
@@ -737,84 +748,41 @@
 				                formatString="{formatedate}"/>
 				</mx:FormItem>	
 				<mx:FormItem label="备注： " >
-				    <mx:TextArea id="memo_a" width="200" text=""/>
+				    <mx:TextArea id="omemo_a" width="200" text=""/>
 				</mx:FormItem>			        
 				<mx:HRule width="100%" height="1"/>
-				<mx:HBox width="100%" horizontalAlign="right">   
-				    <mx:Button label="添加" click="addstaffBtn()"/>			            
+				<mx:HBox width="100%" horizontalAlign="right"> 
+				    <mx:Button label="添加" click="addpafoBtn()"/>			            
 				</mx:HBox>
 			</mx:Form>
 			<mx:Form label="更改" width="100%" height="100%" id="pafmodify">
 			    <mx:HBox width="100%" horizontalAlign="left"><mx:Text text="更改以下信息"/></mx:HBox>
 			    <mx:HRule width="100%" height="1"/>
-			    <mx:FormItem label="个人帐号: " required="true">
-			        <mx:TextInput id="account_m" width="200" text="{staffVO.account}"/>
-		            <mx:Text text="{account_m.errorString}" color="#FF0000"/>
-			    </mx:FormItem>
-			    <mx:FormItem label="部门编号: "  required="true" >
-			        <mx:TextInput id="departid_m" width="200" text="{staffVO.departid}"/>
-		            <mx:Text text="{departid_m.errorString}" color="#FF0000"/>
-		        </mx:FormItem>
-				<mx:FormItem label="部门: "  required="true" >
-				    <mx:TextInput id="depart_m" width="200" text="{staffVO.depart}"/>
-		            <mx:Text text="{depart_m.errorString}" color="#FF0000"/>
-				</mx:FormItem>
 				<mx:FormItem label="人员编码: "  required="true">
-				    <mx:TextInput id="staffno_m" width="200" text="{staffVO.staffno}" editable="false"/>
-		            <mx:Text text="{staffno_m.errorString}" color="#FF0000"/>
+				    <mx:TextInput id="staffno_m" width="200" text="{pafoutVO.staff.staffno}" editable="false"/>
 				</mx:FormItem>
 				<mx:FormItem label="姓名: "  required="true">
-				    <mx:TextInput id="staffname_m" width="200" text="{staffVO.staffname}"/>
-		            <mx:Text text="{staffname_m.errorString}" color="#FF0000"/>
+				    <mx:TextInput id="staffname_m" width="200" text="{pafoutVO.staff.staffname}" editable="false"/>
 				</mx:FormItem>
-			    <mx:FormItem label="身份证: "  required="true">
-				    <mx:TextInput id="staffid_m" width="200" text="{staffVO.staffid}"/>
-		            <mx:Text text="{staffid_m.errorString}" color="#FF0000"/>
+				<mx:FormItem label="取款金额: "  required="true" >
+				    <mx:TextInput id="drawtotal_m" text="{pafoutVO.drawtotal}" width="200" restrict="0-9\."/>
+				    <mx:Text text="{drawtotal_m.errorString}" color="#FF0000"/>
 				</mx:FormItem>
-				<mx:FormItem label="缴费基数: "  required="true">
-				    <mx:TextInput id="paybase_m" width="200" text="{staffVO.paybase}"/>
-		            <mx:Text text="{paybase_m.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="个人汇率: "  required="true">
-				    <mx:TextInput id="staffrate_m" width="200" text="{staffVO.staffrate}"/>
-				    <mx:Text text="{staffrate_m.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="企业汇率: "  required="true" >
-				    <mx:TextInput id="unitrate_m" width="200" text="{staffVO.unitrate}"/>
-				    <mx:Text text="{unitrate_m.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="余额: "  required="true" >
-				    <mx:TextInput id="balance_m" text="{staffVO.balance}" width="200"/>
-				    <mx:Text text="{balance_m.errorString}" color="#FF0000"/>
-				</mx:FormItem>
-				<mx:FormItem label="状态: " required="true">				            
-				    <mx:ComboBox id="state_m" dataProvider="{mystates}" selectedIndex="{si}" labelField="label" width="200"/>
-				    <mx:Text text="{(state_m.text=='')?'请输入个人状态!':''}" color="#FF0000"/>
-			    </mx:FormItem>
-			    <mx:FormItem label="开户日期: " >
-				    <mx:DateField id = "opendate_m" yearNavigationEnabled="true"
-				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
-				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
-				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
-				            	selectedDate="{DateField.stringToDate(staffVO.opendate, formatedate)}"
-				            	showToday="false" width="200"
-				                formatString="{formatedate}"/>
-				</mx:FormItem>	
 				<mx:FormItem label="存入日期: " >
-				    <mx:DateField id = "lastdate_m" yearNavigationEnabled="true"
+				    <mx:DateField id = "drawdate_m" yearNavigationEnabled="true"
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
-				            	selectedDate="{DateField.stringToDate(staffVO.lastdate, formatedate)}"
+				            	selectedDate="{DateField.stringToDate(pafoutVO.drawdate, formatedate)}"
 				            	showToday="false" width="200"
 				                formatString="{formatedate}"/>
 				</mx:FormItem>
 				<mx:FormItem label="备注： " >
-				    <mx:TextArea id="memo_m" width="200" text="{staffVO.memo}"/>
+				    <mx:TextArea id="omemo_m" width="200" text="{pafoutVO.omemo}"/>
 				</mx:FormItem>			        
 				<mx:HRule width="100%" height="1"/>
 				<mx:HBox width="100%" horizontalAlign="right">   
-				    <mx:Button label="修改" click="modistaffBtn()" enabled="{staffVO.staffid!=null}"/>			            
+				    <mx:Button label="修改" click="modipafoBtn()" enabled="{staffVO.staffid!=null}"/>			            
 				</mx:HBox>
 			</mx:Form>
 		

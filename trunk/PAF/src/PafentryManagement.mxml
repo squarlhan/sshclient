@@ -18,9 +18,6 @@
         
         import com.as3xls.xls.ExcelFile;
         import com.as3xls.xls.Sheet;
-        import com.as3xls.xls.Type;
-        import com.as3xls.xls.Cell;
-        import com.as3xls.xls.Formatter;
         import flash.filesystem.*;
 
 		
@@ -412,18 +409,18 @@
             pagebar1.Open();	
 		}
 		//------------------------------修改   
-	    public function modistaffBtn():void //修改信息的按钮响应
+	    public function modipafeBtn():void //修改信息的按钮响应
 		{
-			Alert.show("确认修改公积金存入信息？","修改公积金存入信息",4|8,this,modistaffAlertHandler); 
+			Alert.show("确认修改公积金存入信息？","修改公积金存入信息",4|8,this,modipafeAlertHandler); 
 		}
-		public function modistaffAlertHandler(event:CloseEvent):void
+		public function modipafeAlertHandler(event:CloseEvent):void
 		{
 			 if(event.detail==Alert.OK)
 		     {
-			    modistaff();
+			    modipafe();
 	       	 }						
 		}
-		public function modistaff():void //修改信息
+		public function modipafe():void //修改信息
 		{
 			var modisql:String = "update pafentry_table set unitpay=";
 
@@ -512,6 +509,8 @@
 		{
 			var selecttxt:String = "select * from staff_table as s, pafentry_table as e ";
 			var options:String = "";
+			var tt:Boolean = isEmpty(total_s.text)||isNumeric(StringUtil.trim(total_s.text));
+			var tt1:Boolean = isEmpty(total_s1.text)||isNumeric(StringUtil.trim(total_s1.text));
 			var up:Boolean = isEmpty(unitpay_s.text)||isNumeric(StringUtil.trim(unitpay_s.text));
 			var up1:Boolean = isEmpty(unitpay_s1.text)||isNumeric(StringUtil.trim(unitpay_s1.text));
 			var sp:Boolean = isEmpty(unitpay_s.text)||isNumeric(StringUtil.trim(staffpay_s.text));
@@ -520,7 +519,7 @@
 			var pb1:Boolean = isEmpty(paybase_s1.text)||isNumeric(StringUtil.trim(paybase_s1.text));
 			var bl:Boolean = isEmpty(balance_s.text)||isNumeric(StringUtil.trim(balance_s.text));
 			var bl1:Boolean = isEmpty(balance_s1.text)||isNumeric(StringUtil.trim(balance_s1.text));
-			if(!up||!up1||!sp||!sp1||!pb||!pb1||!bl||!bl1)
+			if(!tt||!tt1||!up||!up1||!sp||!sp1||!pb||!pb1||!bl||!bl1)
 			{
 				Alert.show("请输入数字！")
 				return;
@@ -565,6 +564,26 @@
 				}else
 				{
 					options+=" unitpay>="+Number(unitpay_s1.text)+" and unitpay<="+Number(unitpay_s.text)+" and";
+				}
+			}else
+			{
+				options +=""; 
+			}
+			//处理总计交费范围
+			if(!isEmpty(total_s.text)&&isEmpty(total_s1.text))
+			{
+				options+=" total="+Number(total_s.text)+" and";
+			}else if(!isEmpty(total_s1.text)&&isEmpty(total_s.text))
+			{
+				options+=" total="+Number(total_s1.text)+" and";
+			}else if(!isEmpty(total_s.text)&&!isEmpty(total_s1.text))
+			{
+				if(Number(total_s1.text)>=Number(total_s.text))
+				{
+					options+=" total>="+Number(total_s.text)+" and total<="+Number(total_s1.text)+" and";
+				}else
+				{
+					options+=" total>="+Number(total_s1.text)+" and total<="+Number(total_s.text)+" and";
 				}
 			}else
 			{
@@ -807,6 +826,13 @@
 				        <mx:TextInput id="unitpay_s1" width="80" restrict="0-9\." text="{unitpay_s.text}"/>
 				    </mx:HBox>			    
 				</mx:FormItem>
+				<mx:FormItem label="总计: " >
+				    <mx:HBox>
+				    	 <mx:TextInput id="total_s" width="80" restrict="0-9\."/>
+				         <mx:Label text="至" textAlign="center"/>
+				         <mx:TextInput id="total_s1" width="80" restrict="0-9\." text="{total_s.text}"/>
+				    </mx:HBox>
+				</mx:FormItem>
 				<mx:FormItem label="余额: " >
 				    <mx:HBox>
 				    	 <mx:TextInput id="balance_s" width="80" restrict="0-9\."/>
@@ -953,7 +979,7 @@
 				</mx:FormItem>			        
 				<mx:HRule width="100%" height="1"/>
 				<mx:HBox width="100%" horizontalAlign="right">   
-				    <mx:Button label="修改" click="modistaffBtn()" enabled="{staffVO.staffid!=null}"/>			            
+				    <mx:Button label="修改" click="modipafeBtn()" enabled="{staffVO.staffid!=null}"/>			            
 				</mx:HBox>
 			</mx:Form>
 		
