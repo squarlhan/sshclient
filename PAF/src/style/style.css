@@ -406,7 +406,7 @@ DataGrid
 {
 	headerStyleName: "dataGridHeader";
 	headerColors: #f0f0f0, #ffffff;
-	rollOverColor: #EEF2FB;
+	rollOverColor: #CCCCCC;
 	selectionColor: #CCCCCC;
 	disabledColor: #999999;
 	selectiondDisabledColor: #999999;
