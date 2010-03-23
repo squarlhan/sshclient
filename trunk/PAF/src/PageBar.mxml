@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="45">
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml">
 <mx:Metadata>
      [Event(name="PageChange", type="PageChangeEvent",bubbles="true",cancelable="true")]
 </mx:Metadata>
-       <mx:Button  label="&lt;&lt;" click="method_le()"  id="c_le" enabled="false" x="0" y="10">
+       <mx:Button  label="&lt;&lt;" click="method_le()"  id="c_le" enabled="false" x="0">
        </mx:Button>
-       <mx:Button label="&lt;" click="method_l()" id="c_l" enabled="false" x="52" y="10" >
+       <mx:Button label="&lt;" click="method_l()" id="c_l" enabled="false" x="70" >
        </mx:Button>
-       <mx:ComboBox rowCount="10" change="method_select()" id="c_select" enabled="false" x="100" y="10" width="54"></mx:ComboBox>
-       <mx:Button label=">" click="method_r()" id="c_r" enabled="false" x="162" y="10" >
+       <mx:ComboBox rowCount="10" change="method_select()" id="c_select" enabled="false" x="140" width="70"></mx:ComboBox>
+       <mx:Button label=">" click="method_r()" id="c_r" enabled="false" x="210">
        </mx:Button>
-       <mx:Button label=">>" click="method_re()" id="c_re" enabled="false" x="210" y="10"  >
+       <mx:Button label=">>" click="method_re()" id="c_re" enabled="false" x="280" >
        </mx:Button>
        <mx:Script>
               <![CDATA[
@@ -213,5 +213,5 @@
                      }              
               ]]>
        </mx:Script>
-       <mx:Label x="262" y="11" width="130" fontSize="12" id="pageinfo"/>
+       <mx:Label x="350" id="pageinfo"/>
 </mx:Canvas>

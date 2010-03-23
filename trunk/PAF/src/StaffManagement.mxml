@@ -547,7 +547,7 @@
     <mx:Validator id="state_m_vali" source="{staffrate_m}" property="text" requiredFieldError="请输入个人状态!"/>
     
 
-	<mx:VBox width="70%" height="100%" horizontalAlign="right">
+	<mx:VBox width="69%" height="100%" horizontalAlign="left">
         <mx:DataGrid width="100%" height="100%" id="staffGrid" dataProvider="{resultstaff}" itemClick="selectItem(event);">
 		    <mx:columns>
 			    <mx:DataGridColumn headerText="个人帐号" dataField="account"/>
@@ -566,9 +566,9 @@
 				<mx:DataGridColumn headerText="备注" dataField="memo"/>
 			</mx:columns>
 		</mx:DataGrid>
-		<ns:PageBar id="pagebar1" PageChange="pagechange(event)" width="100%" height="50" mPageSize="30"/>
+		<ns:PageBar id="pagebar1" PageChange="pagechange(event)" mPageSize="30"/>
 	</mx:VBox>
-	<mx:VBox width="30%" height="100%">
+	<mx:VBox width="31%" height="100%">
 	    <mx:LinkBar dataProvider="operation" width="100%"/>
 		<mx:ViewStack id="operation" width="100%" height="100%">
 		    <mx:Form label="搜索" width="100%" height="100%" id="pafselect">
@@ -590,7 +590,7 @@
 				    <mx:TextInput id="staffid_s" width="200"/>
 				</mx:FormItem>
 				<mx:FormItem label="缴费基数: ">
-				    <mx:HBox width="200">
+				    <mx:HBox>
 				    	 <mx:TextInput id="paybase_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
 				         <mx:TextInput id="paybase_s1" width="80" restrict="0-9\." text="{paybase_s.text}"/>
@@ -603,7 +603,7 @@
 				    <mx:TextInput id="unitrate_s" width="200" restrict="0-9\."/>
 				</mx:FormItem>
 				<mx:FormItem label="余额: " >
-				    <mx:HBox width="200">
+				    <mx:HBox>
 				    	 <mx:TextInput id="balance_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
 				         <mx:TextInput id="balance_s1" width="80" restrict="0-9\." text="{balance_s.text}"/>
