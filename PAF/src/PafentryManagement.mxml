@@ -715,14 +715,11 @@
             function saveData(event:Event):void 
             {
                 var newFile:File = event.target as File;  
-                if (!newFile.exists)
-                {
-                    var stream:FileStream = new FileStream();
-                    stream.open(newFile, FileMode.WRITE);
-                    stream.writeBytes(mbytes);  
-                    // 写文件流
-                    stream.close();
-                }
+                var stream:FileStream = new FileStream();
+                stream.open(newFile, FileMode.WRITE);
+                stream.writeBytes(mbytes);  
+                // 写文件流
+                stream.close();
             }
 		}
 		
@@ -737,7 +734,7 @@
     <mx:Validator id="staffpay_m_vali" source="{staffpay_m}" property="text" requiredFieldError="请输入个人缴费!"/>
     
 
-	<mx:VBox width="70%" height="100%" horizontalAlign="right">
+	<mx:VBox width="69%" height="100%">
         <mx:DataGrid width="100%" height="100%" id="pafentryGrid" dataProvider="{resultpafentry}" itemClick="selectItem(event);">
 		    <mx:columns>
 			    <mx:DataGridColumn headerText="个人帐号" dataField="account"/>
@@ -762,13 +759,13 @@
 				<mx:DataGridColumn headerText="MEmo" dataField="memo" visible="false"/>
 			</mx:columns>
 		</mx:DataGrid>
-		<mx:HBox horizontalAlign="right">
-			<ns:PageBar id="pagebar1" PageChange="pagechange(event)" height="50" mPageSize="30"/>
+		<mx:HBox horizontalAlign="left" verticalAlign="middle">
+			<ns:PageBar id="pagebar1" PageChange="pagechange(event)" mPageSize="30"/>
 			<mx:Button label="打开EXCEL"  click="createxcel()" enabled="{resultpafentry.length!=0}"/>   
 		</mx:HBox>
 		
 	</mx:VBox>
-	<mx:VBox width="30%" height="100%">
+	<mx:VBox width="31%" height="100%">
 	    <mx:LinkBar dataProvider="operation" width="100%"/>
 		<mx:ViewStack id="operation" width="100%" height="100%">
 		    <mx:Form label="搜索" width="100%" height="100%" id="pafselect">
@@ -790,7 +787,7 @@
 				    <mx:TextInput id="staffid_s" width="200"/>
 				</mx:FormItem>
 				<mx:FormItem label="缴费基数: ">
-				    <mx:HBox width="200">
+				    <mx:HBox>
 				    	 <mx:TextInput id="paybase_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
 				         <mx:TextInput id="paybase_s1" width="80" restrict="0-9\." text="{paybase_s.text}"/>
@@ -811,7 +808,7 @@
 				    </mx:HBox>			    
 				</mx:FormItem>
 				<mx:FormItem label="余额: " >
-				    <mx:HBox width="200">
+				    <mx:HBox>
 				    	 <mx:TextInput id="balance_s" width="80" restrict="0-9\."/>
 				         <mx:Label text="至" textAlign="center"/>
 				         <mx:TextInput id="balance_s1" width="80" restrict="0-9\." text="{balance_s.text}"/>
