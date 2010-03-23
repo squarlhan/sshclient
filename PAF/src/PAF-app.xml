@@ -17,14 +17,14 @@
 	<id>PAF</id>
 
 	<!-- Used as the filename for the application. Required. -->
-	<filename>PAF</filename>
+	<filename>公积金管理工具</filename>
 
 	<!-- The name that is displayed in the AIR application installer. 
 	     May have multiple values for each language. See samples or xsd schema file. Optional. -->
-	<name>PAF</name>
+	<name>公积金管理系统</name>
 
 	<!-- An application version designator (such as "v1", "2.5", or "Alpha 1"). Required. -->
-	<version>v1</version>
+	<version>最终版</version>
 
 	<!-- Description, displayed in the AIR application installer.
 	     May have multiple values for each language. See samples or xsd schema file. Optional. -->
