@@ -11,6 +11,7 @@ package
 		
 		public function PafoutVO()
 		{
+			drawtotal = 0;
 		}
 
 	}
