@@ -18,7 +18,13 @@ package
 		public var state:String;
 		public var memo:String;
 		
-		public function StaffVO(){}
+		public function StaffVO()
+		{
+			paybase = 0;
+			staffrate = 0;
+			unitrate = 0;
+			balance = 0;
+		}
 
 	}
 }

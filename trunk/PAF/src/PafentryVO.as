@@ -13,6 +13,9 @@ package
 		
 		public function PafentryVO()
 		{
+			unitpay = 0;
+			staffpay = 0;
+			total = 0;
 		}
 
 	}
