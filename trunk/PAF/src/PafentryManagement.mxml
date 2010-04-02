@@ -22,11 +22,12 @@
 
 		
 		[Bindable]  
-        public var mystates:ArrayCollection = new ArrayCollection(  
-                [ {label:"", data:""},
-                  {label:"正常", data:"正常"},   
-                  {label:"封存", data:"封存"},   
-                  {label:"销户", data:"销户"} ]); 
+			 public var mystates:ArrayCollection = new ArrayCollection(  
+				 [ {label:"", data:""},
+					 {label:"正常", data:"正常"},   
+					 {label:"封存", data:"封存"},   
+					 {label:"销户", data:"销户"}, 
+					 {label:"转入", data:"转入"}]); 
         [Bindable]  
         public var mydepart:ArrayCollection = new ArrayCollection(  
                 [ {label:"", data:""} ]);
@@ -38,7 +39,7 @@
 		public var pafentryVO:PafentryVO = new PafentryVO();
 		[Bindable]
 		public var si:int;
-		public var formatedate:String = "YYYY/MM/DD";
+		public var formatedate:String = "YYYY-MM-DD";
 		
 		public var file:File = File.applicationDirectory.resolvePath("paf.db");
         public var con:SQLConnection;
@@ -171,6 +172,7 @@
 				case "正常": si = 1;break;
 				case "封存": si = 2;break;
 				case "销户": si = 3;break;
+				case "转入": si = 4;break;
 				default: si = 0;
 			}
 		}
