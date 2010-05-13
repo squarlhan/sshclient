@@ -1,0 +1,6624 @@
+>X71666 206 57 Bos. Bos taurus
+57
+>X87251 252 103 Bos. Bos taurus
+103
+>J04204 204 55 Bos. Bos taurus
+55
+>L21717 169 20 Bos. Bos taurus
+20
+>M95605 299 150 Bos. Bos taurus
+150
+>D90280 299 150 Bos. Bos taurus
+150
+>M82914 299 150 Bos. Bos taurus
+150
+>L36128 180 31 Bos. Bos taurus
+31
+>L39834 174 25 Bos. Bos taurus
+25
+>M63500 190 41 Bos. Bos taurus
+41
+>J05426 246 97 Bos. Bos taurus
+97
+>M33618 245 96 Bos. Bos taurus
+96
+>M64751 186 37 Bos. Bos taurus
+37
+>M88690 173 24 Bos. Bos taurus
+24
+>M60328 183 34 Bos. Bos taurus
+34
+>L13462 299 150 Bos. Bos taurus
+150
+>M60482 233 84 Bos. Bos taurus
+84
+>L09726 211 62 Bos. Bos taurus
+62
+>M38641 213 64 Bos. Bos taurus
+64
+>L16547 299 150 Bos. Bos taurus
+150
+>M65081 187 38 Bos. Bos taurus
+38
+>J00003 175 26 Bos. Bos taurus
+26
+>M58607 208 59 Bos. Bos taurus
+59
+>D14074 271 122 Bos. Bos taurus
+122
+>M76747 189 40 Bos. Bos taurus
+40
+>J05058 299 150 Bos. Bos taurus
+150
+>M27444 299 150 Bos. Bos taurus
+150
+>L12039 265 116 Bos. Bos taurus
+116
+>M34336 165 16 Bos. Bos taurus
+16
+>M34241 176 27 Bos. Bos taurus
+27
+>L00633 211 62 Bos. Bos taurus
+62
+>L27218 210 61 Bos. Bos taurus
+61
+>M74083 185 36 Bos. Bos taurus
+36
+>M58349 247 98 Bos. Bos taurus
+98
+>M37585 194 45 Bos. Bos taurus
+45
+>L41844 249 100 Bos. Bos taurus
+100
+>M21660 194 45 Bos. Bos taurus
+45
+>M20818 299 150 Bos. Bos taurus
+150
+>L31893 171 22 Bos. Bos taurus
+22
+>L04188 213 64 Bos. Bos taurus
+64
+>M58150 272 123 Bos. Bos taurus
+123
+>M98430 219 70 Bos. Bos taurus
+70
+>L42867 168 19 Bos. Bos taurus
+19
+>M24638 299 150 Bos. Bos taurus
+150
+>D00409 216 67 Bos. Bos taurus
+67
+>M84602 194 45 Bos. Bos taurus
+45
+>J01394 221 72 Bos. Mitochondrion Bos taurus
+72
+>J01394 219 70 Bos. Mitochondrion Bos taurus
+70
+>J01394 223 74 Bos. Mitochondrion Bos taurus
+74
+>M10544 219 70 Bos. Mitochondrion Bos taurus
+70
+>M22539 182 33 Bos. Bos taurus
+33
+>L38996 216 67 Bos. Bos taurus
+67
+>M36192 221 72 Bos. Bos taurus
+72
+>J02819 299 150 Bos. Bos taurus
+150
+>L27869 299 150 Bos. Bos taurus
+150
+>D30789 226 77 Bos. Bos taurus
+77
+>M73962 170 21 Bos. Bos taurus
+21
+>L13938 299 150 Bos. Bos taurus
+150
+>L04797 222 73 Bos. Bos taurus
+73
+>M22754 204 55 Bos. Bos taurus
+55
+>J04214 204 55 Bos. Bos taurus
+55
+>L11356 202 53 Bos. Bos taurus
+53
+>M73836 299 150 Bos. Bos taurus
+150
+>M88287 235 86 Bos. Bos taurus
+86
+>D13613 170 21 Bos. Bos taurus
+21
+>M34915 287 138 Bos. Bos taurus
+138
+>L41692 299 150 Bos. Bos taurus
+150
+>J05468 238 89 Bos. Bos taurus
+89
+>M63325 177 28 Bos. Bos taurus
+28
+>L22095 168 19 Bos. Bos taurus
+19
+>D25220 193 44 Bos. Bos taurus
+44
+>M26158 299 150 Bos. Bos taurus
+150
+>M13236 243 94 Bos. Bos taurus
+94
+>L14019 264 115 Bos. Bos taurus
+115
+>L03545 178 29 Bos. Bos taurus
+29
+>L06665 183 34 Bos. Bos taurus
+34
+>L31770 283 134 Bos. Bos taurus
+134
+>Z49806 299 150 Bos. Bos taurus
+150
+>X64898 178 29 Bos. Bos taurus
+29
+>Z46968 196 47 Bos. Bos taurus
+47
+>X04823 204 55 Bos. Bos taurus
+55
+>X59048 180 31 Bos. Bos taurus
+31
+>X63220 190 41 Bos. Bos taurus
+41
+>X63215 169 20 Bos. Bos taurus
+20
+>X59697 245 96 Bos. Bos taurus
+96
+>X59418 164 15 Bos. Bos taurus
+15
+>X59419 180 31 Bos. Bos taurus
+31
+>X63216 186 37 Bos. Bos taurus
+37
+>X63209 184 35 Bos. Bos taurus
+35
+>X63213 195 46 Bos. Bos taurus
+46
+>X63212 240 11 Bos. Bos taurus
+11
+>X63219 183 34 Bos. Bos taurus
+34
+>X63214 168 19 Bos. Bos taurus
+19
+>X63223 177 28 Bos. Bos taurus
+28
+>X63222 210 61 Bos. Bos taurus
+61
+>X94707 204 55 Bos. Bos taurus
+55
+>X83097 281 132 Bos. Bos taurus
+132
+>X75931 299 150 Bos. Bos taurus
+150
+>Z22779 170 21 Bos. Bos taurus
+21
+>X13617 196 47 Bos. Bos taurus
+47
+>X53689 203 54 Bos. Bos taurus
+54
+>X76980 177 28 Bos. Bos taurus
+28
+>X16577 161 12 Bos. Bos taurus
+12
+>X15556 171 22 Bos. Bos taurus
+22
+>X16485 211 62 Bos. Bos taurus
+62
+>X67029 232 83 Bos. Bos taurus
+83
+>X69432 216 67 Bos. Bos taurus
+67
+>X68443 274 125 Bos. Bos taurus
+125
+>X57317 192 43 Bos. Bos taurus
+43
+>X02870 175 26 Bos. Bos taurus
+26
+>X06366 299 150 Bos. Bos taurus
+150
+>Z21961 166 17 Bos. Bos taurus
+17
+>X64897 222 73 Bos. Bos taurus
+73
+>X66481 299 150 Bos. Bos taurus
+150
+>X68647 171 22 Bos. Bos taurus
+22
+>X12672 299 150 Bos. Bos taurus
+150
+>X69515 247 98 Bos. Bos taurus
+98
+>X56395 299 150 Bos. Bos taurus
+150
+>X61585 195 46 Bos. Bos taurus
+46
+>X54962 299 150 Bos. Bos taurus
+150
+>X61036 231 82 Bos. Bos taurus
+82
+>Z37975 295 146 Bos. Bos taurus
+146
+>X12891 185 36 Bos. Bos taurus
+36
+>X12515 299 150 Bos. Bos taurus
+150
+>Z33621 299 150 Bos. Bos taurus
+150
+>X04122 171 22 Bos. Bos taurus
+22
+>Z14137 299 150 Bos. Bos taurus
+150
+>U02295 299 150 Bos. Bos taurus
+150
+>U03872 240 11 Bos. Bos taurus
+11
+>U04706 248 99 Bos. Bos taurus
+99
+>U05775 298 149 Bos. Bos taurus
+149
+>U07980 193 44 Bos. Bos taurus
+44
+>U09237 281 132 Bos. Bos taurus
+132
+>U09859 262 113 Bos. Bos taurus
+113
+>U25688 283 134 Bos. Bos taurus
+134
+>U26024 228 79 Bos. Bos taurus
+79
+>U27341 265 116 Bos. Bos taurus
+116
+>U34247 211 62 Bos. Bos taurus
+62
+>U35363 252 103 Bos. Bos taurus
+103
+>U35642 253 104 Bos. Bos taurus
+104
+>U36445 168 19 Bos. Bos taurus
+19
+>U37150 214 65 Bos. Bos taurus
+65
+>U37282 214 65 Bos. Bos taurus
+65
+>U48236 170 21 Bos. Bos taurus
+21
+>U51437 240 11 Bos. Bos taurus
+11
+>U52687 231 82 Bos. Bos taurus
+82
+>X65125 184 35 Bos. Bos taurus
+35
+>Z29378 211 62 Bos. Bos taurus
+62
+>X75935 179 30 Bos. Bos taurus
+30
+>D12816 268 119 Bos. Bos taurus
+119
+>X64836 176 27 Bos. Bos taurus
+27
+>V00654 299 150 Bos. Mitochondrion Bos taurus
+150
+>V00654 299 150 Bos. Mitochondrion Bos taurus
+150
+>X69556 194 45 Bos. Bos taurus
+45
+>Z49931 180 31 Bos. Bos taurus
+31
+>D37986 270 121 Gallus. Gallus gallus
+121
+>K02903 160 0 Gallus. Gallus gallus
+0
+>J05218 299 150 Gallus. Gallus gallus
+150
+>M37901 222 73 Gallus. Gallus gallus
+73
+>M94271 225 76 Gallus. Gallus gallus
+76
+>M12153 207 58 Gallus. Gallus gallus
+58
+>M55076 299 150 Gallus. Gallus gallus
+150
+>L08047 299 150 Gallus. Gallus gallus
+150
+>M27666 219 70 Gallus. Gallus gallus
+70
+>K01481 269 120 Gallus. Gallus gallus
+120
+>J04598 255 106 Gallus. Gallus gallus
+106
+>D42150 299 150 Gallus. Gallus gallus
+150
+>M24637 205 56 Gallus. Gallus gallus
+56
+>M10012 212 63 Gallus. Gallus gallus
+63
+>M25984 299 150 Gallus. Gallus gallus
+150
+>M24282 299 150 Gallus. Gallus gallus
+150
+>M28659 296 147 Gallus. Gallus gallus
+147
+>M10806 222 73 Gallus. Gallus gallus
+73
+>M28517 299 150 Gallus. Gallus gallus
+150
+>M25469 189 40 Gallus. Gallus gallus
+40
+>D43763 230 81 Gallus. Gallus gallus
+81
+>L12032 240 11 Gallus. Gallus gallus
+11
+>M99499 213 64 Gallus. Gallus gallus
+64
+>D26340 160 0 Gallus. Gallus gallus
+0
+>D82364 163 14 Gallus. Gallus gallus
+14
+>J03860 299 150 Gallus. Gallus gallus
+150
+>J04485 236 87 Gallus. Gallus gallus
+87
+>M34096 162 13 Gallus. Gallus gallus
+13
+>L13786 299 150 Gallus. Gallus gallus
+150
+>L07300 202 53 Gallus. Gallus gallus
+53
+>L06109 234 85 Gallus. Gallus gallus
+85
+>M22594 210 61 Gallus. Gallus gallus
+61
+>M76985 299 150 Gallus. Gallus gallus
+150
+>D14314 170 21 Gallus. Gallus gallus
+21
+>M81250 182 33 Gallus. Gallus gallus
+33
+>M31321 250 101 Gallus. Gallus gallus
+101
+>L29089 299 150 Gallus. Gallus gallus
+150
+>D14316 299 150 Gallus. Gallus gallus
+150
+>J03188 265 116 Gallus. Gallus gallus
+116
+>M25774 236 87 Gallus. Gallus gallus
+87
+>L35569 289 140 Gallus. Gallus gallus
+140
+>M73217 221 72 Gallus. Gallus gallus
+72
+>L10617 299 150 Gallus. Gallus gallus
+150
+>D45365 267 118 Gallus. Gallus gallus
+118
+>M14953 213 64 Gallus. Gallus gallus
+64
+>M19412 299 150 Gallus. Gallus gallus
+150
+>D90157 170 21 Gallus. Gallus gallus
+21
+>L13208 279 130 Gallus. Gallus gallus
+130
+>M83378 237 88 Gallus. Gallus gallus
+88
+>M86930 299 150 Gallus. Gallus gallus
+150
+>M14229 299 150 Gallus. Gallus gallus
+150
+>J05419 177 28 Gallus. Gallus gallus
+28
+>D10485 190 41 Gallus. Gallus gallus
+41
+>M37518 299 150 Gallus. Gallus gallus
+150
+>L27625 299 150 Gallus. Gallus gallus
+150
+>J00903 230 81 Gallus. Gallus gallus
+81
+>M12111 258 109 Gallus. Gallus gallus
+109
+>M20243 277 128 Gallus. Gallus gallus
+128
+>M17538 183 34 Gallus. Gallus gallus
+34
+>M88178 299 150 Gallus. Gallus gallus
+150
+>J04614 189 40 Gallus. Gallus gallus
+40
+>D13154 299 150 Gallus. Gallus gallus
+150
+>M73497 250 101 Gallus. Gallus gallus
+101
+>D14460 299 150 Gallus. Gallus gallus
+150
+>M57290 299 150 Gallus. Gallus gallus
+150
+>M57290 234 85 Gallus. Gallus gallus
+85
+>D13516 299 150 Gallus. Gallus gallus
+150
+>M37798 250 101 Gallus. Gallus gallus
+101
+>L38519 226 77 Gallus. Gallus gallus
+77
+>M96655 281 132 Gallus. Gallus gallus
+132
+>L01121 299 150 Gallus. Gallus gallus
+150
+>J03882 294 145 Gallus. Gallus gallus
+145
+>M81391 189 40 Gallus. Gallus gallus
+40
+>M11314 267 118 Gallus. Gallus gallus
+118
+>J05475 230 81 Gallus. Gallus gallus
+81
+>J03781 180 31 Gallus. Gallus gallus
+31
+>J04126 170 21 Gallus. Gallus gallus
+21
+>M92039 251 102 Gallus. Gallus gallus
+102
+>D31901 259 110 Gallus. Gallus gallus
+110
+>D16151 299 150 Gallus. Gallus gallus
+150
+>X53334 197 48 Gallus. Gallus gallus
+48
+>Z14957 299 150 Gallus. Gallus gallus
+150
+>X52841 162 13 Gallus. Gallus gallus
+13
+>X57760 299 150 Gallus. Gallus gallus
+150
+>X72806 299 150 Gallus. Gallus gallus
+150
+>Z23168 290 141 Gallus. Gallus gallus
+141
+>X52131 165 16 Gallus. Gallus gallus
+16
+>X60471 175 26 Gallus. Gallus gallus
+26
+>U06938 166 17 Gallus. Gallus gallus
+17
+>X74506 299 150 Gallus. Gallus gallus
+150
+>X52296 205 56 Gallus. Gallus gallus
+56
+>X80503 281 132 Gallus. Gallus gallus
+132
+>X15538 273 124 Gallus. Gallus gallus
+124
+>X07017 222 73 Gallus. Gallus gallus
+73
+>X89598 269 120 Gallus. Gallus gallus
+120
+>Y00813 188 39 Gallus. Gallus gallus
+39
+>Z36530 291 142 Gallus. Gallus gallus
+142
+>X64295 299 150 Gallus. Gallus gallus
+150
+>X62531 201 52 Gallus. Gallus gallus
+52
+>X59844 299 150 Gallus. Gallus gallus
+150
+>X91908 299 150 Gallus. Gallus gallus
+150
+>X72873 299 150 Gallus. Gallus gallus
+150
+>X73533 237 88 Gallus. Gallus gallus
+88
+>X77775 299 150 Gallus. Gallus gallus
+150
+>X74946 181 32 Gallus. Gallus gallus
+32
+>X62019 225 76 Gallus. Gallus gallus
+76
+>Z48168 299 150 Gallus. Gallus gallus
+150
+>X03578 282 133 Gallus. Gallus gallus
+133
+>X92476 204 55 Gallus. Gallus gallus
+55
+>X71786 249 100 Gallus. Gallus gallus
+100
+>Y00789 293 144 Gallus. Gallus gallus
+144
+>X07775 299 150 Gallus. Gallus gallus
+150
+>X60450 160 0 Gallus. Gallus gallus
+0
+>Z21646 299 150 Gallus. Gallus gallus
+150
+>X59713 299 150 Gallus. Gallus gallus
+150
+>X58482 182 33 Gallus. Gallus gallus
+33
+>Z11718 232 83 Gallus. Gallus gallus
+83
+>X90849 243 94 Gallus. Gallus gallus
+94
+>X95455 237 88 Gallus. Gallus gallus
+88
+>X84044 271 122 Gallus. Gallus gallus
+122
+>X84045 174 25 Gallus. Gallus gallus
+25
+>X89599 299 150 Gallus. Gallus gallus
+150
+>Z71930 199 50 Gallus. Gallus gallus
+50
+>X58071 299 150 Gallus. Gallus gallus
+150
+>X08012 299 150 Gallus. Gallus gallus
+150
+>X59669 190 41 Gallus. Gallus gallus
+41
+>U07775 281 132 Gallus. Gallus gallus
+132
+>U12534 299 150 Gallus. Gallus gallus
+150
+>U12974 195 46 Gallus. Gallus gallus
+46
+>U17605 299 150 Gallus. Gallus gallus
+150
+>U20160 299 150 Gallus. Gallus gallus
+150
+>U25274 204 55 Gallus. Gallus gallus
+55
+>U25353 299 150 Gallus. Gallus gallus
+150
+>U26661 168 19 Gallus. Gallus gallus
+19
+>U27196 161 12 Gallus. Gallus gallus
+12
+>U27465 246 97 Gallus. Gallus gallus
+97
+>U27708 227 78 Gallus. Gallus gallus
+78
+>U28380 299 150 Gallus. Gallus gallus
+150
+>U28980 299 150 Gallus. Gallus gallus
+150
+>U31977 231 82 Gallus. Gallus gallus
+82
+>U34278 299 150 Gallus. Gallus gallus
+150
+>U40598 178 29 Gallus. Gallus gallus
+29
+>U40874 212 63 Gallus. Gallus gallus
+63
+>U48860 299 150 Gallus. Gallus gallus
+150
+>U55871 299 150 Gallus. Gallus gallus
+150
+>X69190 183 34 Gallus. Gallus gallus
+34
+>Gallus 189 40189 S66387.1 CAT S66387 Unclassified. Gallus gallus
+40
+>D31784 270 121 Homo. Homo sapiens
+121
+>D50402 299 150 Homo. Homo sapiens
+150
+>D78586 176 27 Homo. Homo sapiens
+27
+>X90840 213 64 Homo. Homo sapiens
+64
+>X91196 299 150 Homo. Homo sapiens
+150
+>X83441 299 150 Homo. Homo sapiens
+150
+>X80201 227 78 Homo. Homo sapiens
+78
+>X91817 269 120 Homo. Homo sapiens
+120
+>X58140 190 41 Homo. Homo sapiens
+41
+>Z31357 299 150 Homo. Homo sapiens
+150
+>X57346 299 150 Homo. Homo sapiens
+150
+>X90857 299 150 Homo. Homo sapiens
+150
+>X57352 299 150 Homo. Homo sapiens
+150
+>X69090 267 118 Homo. Homo sapiens
+118
+>X56932 167 18 Homo. Homo sapiens
+18
+>X76388 267 118 Homo. Homo sapiens
+118
+>X66114 170 21 Homo. Homo sapiens
+21
+>X93510 191 42 Homo. Homo sapiens
+42
+>X77307 205 56 Homo. Homo sapiens
+56
+>X81411 213 64 Homo. Homo sapiens
+64
+>X52897 210 61 Homo. Homo sapiens
+61
+>X83956 299 150 Homo. Homo sapiens
+150
+>X66403 161 12 Homo. Homo sapiens
+12
+>X52174 173 24 Homo. Homo sapiens
+24
+>X15804 299 150 Homo. Homo sapiens
+150
+>X65633 299 150 Homo. Homo sapiens
+150
+>X53793 174 25 Homo. Homo sapiens
+25
+>X04299 222 73 Homo. Homo sapiens
+73
+>X66503 222 73 Homo. Homo sapiens
+73
+>X00318 241 92 Homo. Homo sapiens
+92
+>Y00264 297 148 Homo. Homo sapiens
+148
+>Z14961 180 31 Homo. Homo sapiens
+31
+>V00495 224 75 Homo. Homo sapiens
+75
+>X06290 195 46 Homo. Homo sapiens
+46
+>Z22535 299 150 Homo. Homo sapiens
+150
+>X07057 162 13 Homo. Homo sapiens
+13
+>X01470 246 97 Homo. Homo sapiens
+97
+>X97074 264 115 Homo. Homo sapiens
+115
+>X01388 221 72 Homo. Homo sapiens
+72
+>X63717 299 150 Homo. Homo sapiens
+150
+>X00955 201 52 Homo. Homo sapiens
+52
+>X53595 183 34 Homo. Homo sapiens
+34
+>X81197 267 118 Homo. Homo sapiens
+118
+>Y07508 199 50 Homo. Homo sapiens
+50
+>X83572 226 77 Homo. Homo sapiens
+77
+>X83573 217 68 Homo. Homo sapiens
+68
+>Z29572 299 150 Homo. Homo sapiens
+150
+>X01630 225 76 Homo. Homo sapiens
+76
+>X17544 299 150 Homo. Homo sapiens
+150
+>X68793 299 150 Homo. Homo sapiens
+150
+>X69909 254 105 Homo. Homo sapiens
+105
+>X59066 207 58 Homo. Homo sapiens
+58
+>Z49205 299 150 Homo. Homo sapiens
+150
+>X60221 182 33 Homo. Homo sapiens
+33
+>X83218 186 37 Homo. Homo sapiens
+37
+>X84838 299 150 Homo. Homo sapiens
+150
+>X64707 201 52 Homo. Homo sapiens
+52
+>Z14093 163 14 Homo. Homo sapiens
+14
+>X89984 299 150 Homo. Homo sapiens
+150
+>X52473 195 46 Homo. Homo sapiens
+46
+>X04143 299 150 Homo. Homo sapiens
+150
+>X81372 299 150 Homo. Homo sapiens
+150
+>X92106 228 79 Homo. Homo sapiens
+79
+>X68149 198 49 Homo. Homo sapiens
+49
+>Z48923 299 150 Homo. Homo sapiens
+150
+>X13293 277 128 Homo. Homo sapiens
+128
+>X52599 299 150 Homo. Homo sapiens
+150
+>X78549 178 29 Homo. Homo sapiens
+29
+>X82324 182 33 Homo. Homo sapiens
+33
+>U21911 299 150 Homo. Homo sapiens
+150
+>X53280 284 135 Homo. Homo sapiens
+135
+>X53281 299 150 Homo. Homo sapiens
+150
+>X93086 210 61 Homo. Homo sapiens
+61
+>X95592 267 118 Homo. Homo sapiens
+118
+>X04701 201 52 Homo. Homo sapiens
+52
+>X17025 200 51 Homo. Homo sapiens
+51
+>X65869 204 55 Homo. Homo sapiens
+55
+>X56667 192 43 Homo. Homo sapiens
+43
+>X62466 183 34 Homo. Homo sapiens
+34
+>X64228 244 95 Homo. Homo sapiens
+95
+>X81120 212 63 Homo. Homo sapiens
+63
+>X04076 220 71 Homo. Homo sapiens
+71
+>Z18951 184 35 Homo. Homo sapiens
+35
+>Z70293 251 102 Homo. Homo sapiens
+102
+>X07024 299 150 Homo. Homo sapiens
+150
+>X65977 201 52 Homo. Homo sapiens
+52
+>X56794 265 116 Homo. Homo sapiens
+116
+>X84700 220 71 Homo. Homo sapiens
+71
+>X85753 176 27 Homo. Homo sapiens
+27
+>X60592 196 47 Homo. Homo sapiens
+47
+>X84213 299 150 Homo. Homo sapiens
+150
+>X52207 162 13 Homo. Homo sapiens
+13
+>X52947 299 150 Homo. Homo sapiens
+150
+>X94354 299 150 Homo. Homo sapiens
+150
+>X78121 180 31 Homo. Homo sapiens
+31
+>X71877 160 0 Homo. Homo sapiens
+0
+>X74301 265 116 Homo. Homo sapiens
+116
+>X16937 283 134 Homo. Homo sapiens
+134
+>X78520 299 150 Homo. Homo sapiens
+150
+>X91906 299 150 Homo. Homo sapiens
+150
+>Z50853 169 20 Homo. Homo sapiens
+20
+>X66171 299 150 Homo. Homo sapiens
+150
+>X52125 299 150 Homo. Homo sapiens
+150
+>X07884 233 84 Homo. Homo sapiens
+84
+>X81053 299 150 Homo. Homo sapiens
+150
+>X60382 165 16 Homo. Homo sapiens
+16
+>X56210 189 40 Homo. Homo sapiens
+40
+>X15822 163 14 Homo. Homo sapiens
+14
+>X15341 241 92 Homo. Homo sapiens
+92
+>X16560 168 19 Homo. Homo sapiens
+19
+>X15875 176 27 Homo. Homo sapiens
+27
+>X58022 195 46 Homo. Homo sapiens
+46
+>X95237 223 74 Homo. Homo sapiens
+74
+>X59656 299 150 Homo. Homo sapiens
+150
+>X56214 239 90 Homo. Homo sapiens
+90
+>X70476 217 68 Homo. Homo sapiens
+68
+>X52142 225 76 Homo. Homo sapiens
+76
+>X14329 299 150 Homo. Homo sapiens
+150
+>X87843 199 50 Homo. Homo sapiens
+50
+>X68303 299 150 Homo. Homo sapiens
+150
+>X73501 299 150 Homo. Homo sapiens
+150
+>X54473 197 48 Homo. Homo sapiens
+48
+>X76105 299 150 Homo. Homo sapiens
+150
+>X76104 299 150 Homo. Homo sapiens
+150
+>X85785 299 150 Homo. Homo sapiens
+150
+>X63522 299 150 Homo. Homo sapiens
+150
+>X12556 299 150 Homo. Homo sapiens
+150
+>X63071 221 72 Homo. Homo sapiens
+72
+>X51362 299 150 Homo. Homo sapiens
+150
+>Z22865 162 13 Homo. Homo sapiens
+13
+>Z26317 161 12 Homo. Homo sapiens
+12
+>X91349 179 30 Homo. Homo sapiens
+30
+>X62535 252 103 Homo. Homo sapiens
+103
+>X06293 299 150 Homo. Homo sapiens
+150
+>X06272 183 34 Homo. Homo sapiens
+34
+>X55758 299 150 Homo. Homo sapiens
+150
+>Z28339 219 70 Homo. Homo sapiens
+70
+>X89059 299 150 Homo. Homo sapiens
+150
+>X72925 299 150 Homo. Homo sapiens
+150
+>X55988 220 71 Homo. Homo sapiens
+71
+>X16869 165 16 Homo. Homo sapiens
+16
+>X63526 169 20 Homo. Homo sapiens
+20
+>Z26248 299 150 Homo. Homo sapiens
+150
+>X95425 299 150 Homo. Homo sapiens
+150
+>X95648 160 0 Homo. Homo sapiens
+0
+>X60656 244 95 Homo. Homo sapiens
+95
+>X73882 250 101 Homo. Homo sapiens
+101
+>X81479 188 39 Homo. Homo sapiens
+39
+>X66610 189 40 Homo. Homo sapiens
+40
+>X83857 299 150 Homo. Homo sapiens
+150
+>X97875 299 150 Homo. Homo sapiens
+150
+>X64594 177 28 Homo. Homo sapiens
+28
+>X03363 299 150 Homo. Homo sapiens
+150
+>Y00479 299 150 Homo. Homo sapiens
+150
+>X78992 216 67 Homo. Homo sapiens
+67
+>X57147 299 150 Homo. Homo sapiens
+150
+>X61950 299 150 Homo. Homo sapiens
+150
+>X55177 208 59 Homo. Homo sapiens
+59
+>X52001 260 111 Homo. Homo sapiens
+111
+>X71129 177 28 Homo. Homo sapiens
+28
+>X87344 299 150 Homo. Homo sapiens
+150
+>X51521 267 118 Homo. Homo sapiens
+118
+>X51728 287 138 Homo. Homo sapiens
+138
+>X66894 299 150 Homo. Homo sapiens
+150
+>X54150 188 39 Homo. Homo sapiens
+39
+>X14355 205 56 Homo. Homo sapiens
+56
+>Z71929 162 13 Homo. Homo sapiens
+13
+>Z36531 183 34 Homo. Homo sapiens
+34
+>X07979 253 104 Homo. Homo sapiens
+104
+>X68044 166 17 Homo. Homo sapiens
+17
+>X17094 299 150 Homo. Homo sapiens
+150
+>X77474 243 94 Homo. Homo sapiens
+94
+>X98053 182 33 Homo. Homo sapiens
+33
+>X59303 299 150 Homo. Homo sapiens
+150
+>X69838 197 48 Homo. Homo sapiens
+48
+>Y00839 299 150 Homo. Homo sapiens
+150
+>X14766 299 150 Homo. Homo sapiens
+150
+>X15376 299 150 Homo. Homo sapiens
+150
+>Z49878 193 44 Homo. Homo sapiens
+44
+>X54199 228 79 Homo. Homo sapiens
+79
+>X01677 210 61 Homo. Homo sapiens
+61
+>X74570 299 150 Homo. Homo sapiens
+150
+>X66533 238 89 Homo. Homo sapiens
+89
+>Z29574 299 150 Homo. Homo sapiens
+150
+>X98001 174 25 Homo. Homo sapiens
+25
+>V00513 202 53 Homo. Homo sapiens
+53
+>X06562 193 44 Homo. Homo sapiens
+44
+>X78713 264 115 Homo. Homo sapiens
+115
+>X07384 228 79 Homo. Homo sapiens
+79
+>X08054 206 57 Homo. Homo sapiens
+57
+>X79537 233 84 Homo. Homo sapiens
+84
+>X52009 299 150 Homo. Homo sapiens
+150
+>X82834 299 150 Homo. Homo sapiens
+150
+>V00518 200 51 Homo. Homo sapiens
+51
+>Z15017 171 22 Homo. Homo sapiens
+22
+>X96597 239 90 Homo. Homo sapiens
+90
+>V00519 189 40 Homo. Homo sapiens
+40
+>X08020 174 25 Homo. Homo sapiens
+25
+>X57129 299 150 Homo. Homo sapiens
+150
+>X57128 299 150 Homo. Homo sapiens
+150
+>X90999 186 37 Homo. Homo sapiens
+37
+>Z11697 160 0 Homo. Homo sapiens
+0
+>X52946 299 150 Homo. Homo sapiens
+150
+>X77366 299 150 Homo. Homo sapiens
+150
+>X79198 253 104 Homo. Homo sapiens
+104
+>X92109 187 38 Homo. Homo sapiens
+38
+>X76383 229 80 Homo. Homo sapiens
+80
+>X68985 248 99 Homo. Homo sapiens
+99
+>X17648 206 57 Homo. Homo sapiens
+57
+>X64995 299 150 Homo. Homo sapiens
+150
+>X68242 277 128 Homo. Homo sapiens
+128
+>Y00764 186 37 Homo. Homo sapiens
+37
+>X77633 258 109 Homo. Homo sapiens
+109
+>X00088 299 150 Homo. Homo sapiens
+150
+>X75535 160 0 Homo. Homo sapiens
+0
+>X81419 179 30 Homo. Homo sapiens
+30
+>Z22752 299 150 Homo. Homo sapiens
+150
+>X83618 201 52 Homo. Homo sapiens
+52
+>X92518 299 150 Homo. Homo sapiens
+150
+>Y00698 169 20 Homo. Homo sapiens
+20
+>X76930 169 20 Homo. Homo sapiens
+20
+>Z49826 299 150 Homo. Homo sapiens
+150
+>X65488 191 42 Homo. Homo sapiens
+42
+>X82125 299 150 Homo. Homo sapiens
+150
+>X16665 228 79 Homo. Homo sapiens
+79
+>X07495 299 150 Homo. Homo sapiens
+150
+>X59373 182 33 Homo. Homo sapiens
+33
+>X00637 164 15 Homo. Homo sapiens
+15
+>X67337 184 35 Homo. Homo sapiens
+35
+>X17042 174 25 Homo. Homo sapiens
+25
+>X12433 299 150 Homo. Homo sapiens
+150
+>X63368 175 26 Homo. Homo sapiens
+26
+>X07523 223 74 Homo. Homo sapiens
+74
+>X05290 169 20 Homo. Homo sapiens
+20
+>X74837 299 150 Homo. Homo sapiens
+150
+>X55715 172 23 Homo. Homo sapiens
+23
+>X77278 299 150 Homo. Homo sapiens
+150
+>X78933 299 150 Homo. Homo sapiens
+150
+>X13956 299 150 Homo. Homo sapiens
+150
+>X90908 278 129 Homo. Homo sapiens
+129
+>X14904 248 99 Homo. Homo sapiens
+99
+>X67055 170 21 Homo. Homo sapiens
+21
+>X15606 212 63 Homo. Homo sapiens
+63
+>X91788 238 89 Homo. Homo sapiens
+89
+>V00531 216 67 Homo. Homo sapiens
+67
+>V00535 231 82 Homo. Homo sapiens
+82
+>X03557 214 65 Homo. Homo sapiens
+65
+>X02492 219 70 Homo. Homo sapiens
+70
+>X62570 212 63 Homo. Homo sapiens
+63
+>X07868 299 150 Homo. Homo sapiens
+150
+>X04434 195 46 Homo. Homo sapiens
+46
+>Z00042 299 150 Homo. Homo sapiens
+150
+>X07963 299 150 Homo. Homo sapiens
+150
+>X57805 165 16 Homo. Homo sapiens
+16
+>X51886 299 150 Homo. Homo sapiens
+150
+>X77909 218 69 Homo. Homo sapiens
+69
+>X02851 208 59 Homo. Homo sapiens
+59
+>X59770 210 61 Homo. Homo sapiens
+61
+>X60787 299 150 Homo. Homo sapiens
+150
+>Z25521 289 140 Homo. Homo sapiens
+140
+>X51841 276 127 Homo. Homo sapiens
+127
+>X73029 299 150 Homo. Homo sapiens
+150
+>Z31695 251 102 Homo. Homo sapiens
+102
+>X53586 296 147 Homo. Homo sapiens
+147
+>X55733 169 20 Homo. Homo sapiens
+20
+>X53044 271 122 Homo. Homo sapiens
+122
+>Z11559 257 108 Homo. Homo sapiens
+108
+>X14454 299 150 Homo. Homo sapiens
+150
+>Z11502 229 80 Homo. Homo sapiens
+80
+>X07173 213 64 Homo. Homo sapiens
+64
+>X04772 299 150 Homo. Homo sapiens
+150
+>X67683 171 22 Homo. Homo sapiens
+22
+>Y00503 182 33 Homo. Homo sapiens
+33
+>X74929 209 60 Homo. Homo sapiens
+60
+>X14758 299 150 Homo. Homo sapiens
+150
+>X52966 212 63 Homo. Homo sapiens
+63
+>X65859 299 150 Homo. Homo sapiens
+150
+>X76488 295 146 Homo. Homo sapiens
+146
+>X77196 286 137 Homo. Homo sapiens
+137
+>Y00815 299 150 Homo. Homo sapiens
+150
+>Y00638 236 87 Homo. Homo sapiens
+87
+>Z34975 245 96 Homo. Homo sapiens
+96
+>X01059 299 150 Homo. Homo sapiens
+150
+>X13967 194 45 Homo. Homo sapiens
+45
+>X61615 299 150 Homo. Homo sapiens
+150
+>X54516 293 144 Homo. Homo sapiens
+144
+>X17206 299 150 Homo. Homo sapiens
+150
+>X74215 183 34 Homo. Homo sapiens
+34
+>X07994 161 12 Homo. Homo sapiens
+12
+>X79882 255 106 Homo. Homo sapiens
+106
+>X60702 299 150 Homo. Homo sapiens
+150
+>X16150 241 92 Homo. Homo sapiens
+92
+>X64364 207 58 Homo. Homo sapiens
+58
+>X86693 299 150 Homo. Homo sapiens
+150
+>X95586 299 150 Homo. Homo sapiens
+150
+>X15954 218 69 Homo. Homo sapiens
+69
+>Y00651 193 44 Homo. Homo sapiens
+44
+>X94629 254 105 Homo. Homo sapiens
+105
+>Y00787 251 102 Homo. Homo sapiens
+102
+>X07982 177 28 Homo. Homo sapiens
+28
+>X07936 224 75 Homo. Homo sapiens
+75
+>X77748 299 150 Homo. Homo sapiens
+150
+>X66401 299 150 Homo. Homo sapiens
+150
+>X55777 228 79 Homo. Homo sapiens
+79
+>X66922 186 37 Homo. Homo sapiens
+37
+>X65551 238 89 Homo. Homo sapiens
+89
+>X85337 299 150 Homo. Homo sapiens
+150
+>X80200 235 86 Homo. Homo sapiens
+86
+>X14618 185 36 Homo. Homo sapiens
+36
+>X06323 226 77 Homo. Homo sapiens
+77
+>X07166 167 18 Homo. Homo sapiens
+18
+>X06233 194 45 Homo. Homo sapiens
+45
+>X06234 206 57 Homo. Homo sapiens
+57
+>X77494 299 150 Homo. Homo sapiens
+150
+>X78710 232 83 Homo. Homo sapiens
+83
+>X59657 236 87 Homo. Homo sapiens
+87
+>X66141 180 31 Homo. Homo sapiens
+31
+>X56677 270 121 Homo. Homo sapiens
+121
+>X76732 299 150 Homo. Homo sapiens
+150
+>Z36715 299 150 Homo. Homo sapiens
+150
+>X65172 299 150 Homo. Homo sapiens
+150
+>X61499 299 150 Homo. Homo sapiens
+150
+>X05608 245 96 Homo. Homo sapiens
+96
+>X54868 299 150 Homo. Homo sapiens
+150
+>X54870 299 150 Homo. Homo sapiens
+150
+>X73066 234 85 Homo. Homo sapiens
+85
+>X76534 241 92 Homo. Homo sapiens
+92
+>X16396 165 16 Homo. Homo sapiens
+16
+>Y00664 299 150 Homo. Homo sapiens
+150
+>X92396 264 115 Homo. Homo sapiens
+115
+>X58521 299 150 Homo. Homo sapiens
+150
+>X12466 195 46 Homo. Homo sapiens
+46
+>Z34289 204 55 Homo. Homo sapiens
+55
+>X89894 299 150 Homo. Homo sapiens
+150
+>X13403 209 60 Homo. Homo sapiens
+60
+>X63118 299 150 Homo. Homo sapiens
+150
+>X77130 299 150 Homo. Homo sapiens
+150
+>X13809 162 13 Homo. Homo sapiens
+13
+>Z11899 251 102 Homo. Homo sapiens
+102
+>X95463 238 89 Homo. Homo sapiens
+89
+>X06985 230 81 Homo. Homo sapiens
+81
+>X97058 299 150 Homo. Homo sapiens
+150
+>X80343 247 98 Homo. Homo sapiens
+98
+>X94453 288 139 Homo. Homo sapiens
+139
+>X87689 233 84 Homo. Homo sapiens
+84
+>X71440 163 14 Homo. Homo sapiens
+14
+>X91809 299 150 Homo. Homo sapiens
+150
+>X13097 258 109 Homo. Homo sapiens
+109
+>X63070 206 57 Homo. Homo sapiens
+57
+>U02020 176 27 Homo. Homo sapiens
+27
+>X63629 203 54 Homo. Homo sapiens
+54
+>X73424 220 71 Homo. Homo sapiens
+71
+>U40371 299 150 Homo. Homo sapiens
+150
+>Z46632 261 112 Homo. Homo sapiens
+112
+>X63966 163 14 Homo. Homo sapiens
+14
+>X05246 220 71 Homo. Homo sapiens
+71
+>X70848 177 28 Homo. Homo sapiens
+28
+>X75091 168 19 Homo. Homo sapiens
+19
+>Z37986 261 112 Homo. Homo sapiens
+112
+>Z29090 162 13 Homo. Homo sapiens
+13
+>X73874 299 150 Homo. Homo sapiens
+150
+>X80590 269 120 Homo. Homo sapiens
+120
+>X78342 270 121 Homo. Homo sapiens
+121
+>Z46973 197 48 Homo. Homo sapiens
+48
+>X52638 229 80 Homo. Homo sapiens
+80
+>X14034 299 150 Homo. Homo sapiens
+150
+>X07743 210 61 Homo. Homo sapiens
+61
+>Z19002 225 76 Homo. Homo sapiens
+76
+>X07315 249 100 Homo. Homo sapiens
+100
+>X81333 196 47 Homo. Homo sapiens
+47
+>X94912 211 62 Homo. Homo sapiens
+62
+>X75755 247 98 Homo. Homo sapiens
+98
+>X51730 299 150 Homo. Homo sapiens
+150
+>Z35102 299 150 Homo. Homo sapiens
+150
+>X71874 299 150 Homo. Homo sapiens
+150
+>X02750 247 98 Homo. Homo sapiens
+98
+>X14810 299 150 Homo. Homo sapiens
+150
+>X71875 299 150 Homo. Homo sapiens
+150
+>X62006 195 46 Homo. Homo sapiens
+46
+>X70766 279 130 Homo. Homo sapiens
+130
+>X73478 299 150 Homo. Homo sapiens
+150
+>X54131 179 30 Homo. Homo sapiens
+30
+>Z48541 270 121 Homo. Homo sapiens
+121
+>X63613 217 68 Homo. Homo sapiens
+68
+>X70500 180 31 Homo. Homo sapiens
+31
+>X54380 179 30 Homo. Homo sapiens
+30
+>X56976 182 33 Homo. Homo sapiens
+33
+>X12953 299 150 Homo. Homo sapiens
+150
+>X16901 269 120 Homo. Homo sapiens
+120
+>X64002 213 64 Homo. Homo sapiens
+64
+>X06538 299 150 Homo. Homo sapiens
+150
+>X07282 299 150 Homo. Homo sapiens
+150
+>Z28407 193 44 Homo. Homo sapiens
+44
+>X85133 240 11 Homo. Homo sapiens
+11
+>X85134 264 115 Homo. Homo sapiens
+115
+>X12654 299 150 Homo. Homo sapiens
+150
+>X64624 299 150 Homo. Homo sapiens
+150
+>X77664 299 150 Homo. Homo sapiens
+150
+>X12949 299 150 Homo. Homo sapiens
+150
+>X12453 171 22 Homo. Homo sapiens
+22
+>X15786 229 80 Homo. Homo sapiens
+80
+>X72632 299 150 Homo. Homo sapiens
+150
+>X77548 226 77 Homo. Homo sapiens
+77
+>X76091 299 150 Homo. Homo sapiens
+150
+>X54534 193 44 Homo. Homo sapiens
+44
+>Z23024 248 99 Homo. Homo sapiens
+99
+>Y00281 287 138 Homo. Homo sapiens
+138
+>Z14000 225 76 Homo. Homo sapiens
+76
+>X57522 180 31 Homo. Homo sapiens
+31
+>X80878 280 131 Homo. Homo sapiens
+131
+>X86098 299 150 Homo. Homo sapiens
+150
+>X89426 205 56 Homo. Homo sapiens
+56
+>X86400 299 150 Homo. Homo sapiens
+150
+>Z68907 229 80 Homo. Homo sapiens
+80
+>X76562 197 48 Homo. Homo sapiens
+48
+>X91171 299 150 Homo. Homo sapiens
+150
+>X83957 299 150 Homo. Homo sapiens
+150
+>Z47087 259 110 Homo. Homo sapiens
+110
+>X90529 181 32 Homo. Homo sapiens
+32
+>X85372 265 116 Homo. Homo sapiens
+116
+>X83973 194 45 Homo. Homo sapiens
+45
+>X90858 299 150 Homo. Homo sapiens
+150
+>X78137 180 31 Homo. Homo sapiens
+31
+>X12791 231 82 Homo. Homo sapiens
+82
+>X63563 193 44 Homo. Homo sapiens
+44
+>Z23102 166 17 Homo. Homo sapiens
+17
+>X63564 299 150 Homo. Homo sapiens
+150
+>X52839 175 26 Homo. Homo sapiens
+26
+>X03342 184 35 Homo. Homo sapiens
+35
+>Z26876 260 111 Homo. Homo sapiens
+111
+>X06617 165 16 Homo. Homo sapiens
+16
+>X53505 228 79 Homo. Homo sapiens
+79
+>X67247 172 23 Homo. Homo sapiens
+23
+>X79204 299 150 Homo. Homo sapiens
+150
+>X52259 170 21 Homo. Homo sapiens
+21
+>X57830 295 146 Homo. Homo sapiens
+146
+>X52228 207 58 Homo. Homo sapiens
+58
+>X81789 299 150 Homo. Homo sapiens
+150
+>Y00064 262 113 Homo. Homo sapiens
+113
+>X68148 231 82 Homo. Homo sapiens
+82
+>X52075 299 150 Homo. Homo sapiens
+150
+>X12496 270 121 Homo. Homo sapiens
+121
+>X89814 299 150 Homo. Homo sapiens
+150
+>X83300 216 67 Homo. Homo sapiens
+67
+>Z49989 299 150 Homo. Homo sapiens
+150
+>X73114 231 82 Homo. Homo sapiens
+82
+>X63753 299 150 Homo. Homo sapiens
+150
+>X71135 299 150 Homo. Homo sapiens
+150
+>X70683 299 150 Homo. Homo sapiens
+150
+>X82554 299 150 Homo. Homo sapiens
+150
+>Z49099 172 23 Homo. Homo sapiens
+23
+>X69141 241 92 Homo. Homo sapiens
+92
+>X53772 299 150 Homo. Homo sapiens
+150
+>Z12830 179 30 Homo. Homo sapiens
+30
+>X51416 213 64 Homo. Homo sapiens
+64
+>X51417 249 100 Homo. Homo sapiens
+100
+>X66360 219 70 Homo. Homo sapiens
+70
+>X80229 244 95 Homo. Homo sapiens
+95
+>X97630 299 150 Homo. Homo sapiens
+150
+>X91257 225 76 Homo. Homo sapiens
+76
+>X07820 172 23 Homo. Homo sapiens
+23
+>Z29630 298 149 Homo. Homo sapiens
+149
+>Y00451 233 84 Homo. Homo sapiens
+84
+>X05044 299 150 Homo. Homo sapiens
+150
+>X84003 161 12 Homo. Homo sapiens
+12
+>X83928 242 93 Homo. Homo sapiens
+93
+>X85750 231 82 Homo. Homo sapiens
+82
+>X52520 246 97 Homo. Homo sapiens
+97
+>X14474 180 31 Homo. Homo sapiens
+31
+>X57637 276 127 Homo. Homo sapiens
+127
+>X58158 299 150 Homo. Homo sapiens
+150
+>X59869 228 79 Homo. Homo sapiens
+79
+>X82240 194 45 Homo. Homo sapiens
+45
+>X05027 242 93 Homo. Homo sapiens
+93
+>X74850 193 44 Homo. Homo sapiens
+44
+>X58768 180 31 Homo. Homo sapiens
+31
+>X06192 299 150 Homo. Homo sapiens
+150
+>Z49234 299 150 Homo. Homo sapiens
+150
+>X04038 299 150 Homo. Homo sapiens
+150
+>X03884 204 55 Homo. Homo sapiens
+55
+>X77588 245 96 Homo. Homo sapiens
+96
+>X78565 299 150 Homo. Homo sapiens
+150
+>X70340 181 32 Homo. Homo sapiens
+32
+>X72018 276 127 Homo. Homo sapiens
+127
+>Z22548 239 90 Homo. Homo sapiens
+90
+>X05615 191 42 Homo. Homo sapiens
+42
+>X60957 186 37 Homo. Homo sapiens
+37
+>X90568 282 133 Homo. Homo sapiens
+133
+>X16354 222 73 Homo. Homo sapiens
+73
+>X97442 161 12 Homo. Homo sapiens
+12
+>X67688 220 71 Homo. Homo sapiens
+71
+>X14548 169 20 Homo. Homo sapiens
+20
+>X13954 256 107 Homo. Homo sapiens
+107
+>X63547 181 32 Homo. Homo sapiens
+32
+>Z17227 193 44 Homo. Homo sapiens
+44
+>X85960 167 18 Homo. Homo sapiens
+18
+>Z24727 299 150 Homo. Homo sapiens
+150
+>X54163 239 90 Homo. Homo sapiens
+90
+>X89066 299 150 Homo. Homo sapiens
+150
+>X75621 168 19 Homo. Homo sapiens
+19
+>X67698 160 0 Homo. Homo sapiens
+0
+>X82850 164 15 Homo. Homo sapiens
+15
+>X16064 244 95 Homo. Homo sapiens
+95
+>X94993 253 104 Homo. Homo sapiens
+104
+>X82676 299 150 Homo. Homo sapiens
+150
+>X51420 279 130 Homo. Homo sapiens
+130
+>U01828 299 150 Homo. Homo sapiens
+150
+>U01877 299 150 Homo. Homo sapiens
+150
+>U02523 299 150 Homo. Homo sapiens
+150
+>U02556 218 69 Homo. Homo sapiens
+69
+>U02609 299 150 Homo. Homo sapiens
+150
+>U02619 210 61 Homo. Homo sapiens
+61
+>U02680 210 61 Homo. Homo sapiens
+61
+>U02683 299 150 Homo. Homo sapiens
+150
+>U02687 207 58 Homo. Homo sapiens
+58
+>U02882 258 109 Homo. Homo sapiens
+109
+>U03056 299 150 Homo. Homo sapiens
+150
+>U03090 281 132 Homo. Homo sapiens
+132
+>U03105 263 114 Homo. Homo sapiens
+114
+>U03269 168 19 Homo. Homo sapiens
+19
+>U03274 185 36 Homo. Homo sapiens
+36
+>U03291 166 17 Homo. Homo sapiens
+17
+>U03504 180 31 Homo. Homo sapiens
+31
+>U03634 299 150 Homo. Homo sapiens
+150
+>U03642 299 150 Homo. Homo sapiens
+150
+>U03643 299 150 Homo. Homo sapiens
+150
+>U03644 182 33 Homo. Homo sapiens
+33
+>U03865 273 124 Homo. Homo sapiens
+124
+>U03877 299 150 Homo. Homo sapiens
+150
+>U03886 162 13 Homo. Homo sapiens
+13
+>U04045 218 69 Homo. Homo sapiens
+69
+>U04209 268 119 Homo. Homo sapiens
+119
+>U04313 225 76 Homo. Homo sapiens
+76
+>U04628 299 150 Homo. Homo sapiens
+150
+>U04636 283 134 Homo. Homo sapiens
+134
+>U04641 188 39 Homo. Homo sapiens
+39
+>U04678 299 150 Homo. Homo sapiens
+150
+>U04735 186 37 Homo. Homo sapiens
+37
+>U04810 260 111 Homo. Homo sapiens
+111
+>U04811 177 28 Homo. Homo sapiens
+28
+>U04819 299 150 Homo. Homo sapiens
+150
+>U04840 210 61 Homo. Homo sapiens
+61
+>U04847 219 70 Homo. Homo sapiens
+70
+>U04899 228 79 Homo. Homo sapiens
+79
+>U04953 235 86 Homo. Homo sapiens
+86
+>U05340 260 111 Homo. Homo sapiens
+111
+>U05659 197 48 Homo. Homo sapiens
+48
+>U06155 290 141 Homo. Homo sapiens
+141
+>U06452 203 54 Homo. Homo sapiens
+54
+>U06632 172 23 Homo. Homo sapiens
+23
+>U06643 179 30 Homo. Homo sapiens
+30
+>U06863 241 92 Homo. Homo sapiens
+92
+>U07132 299 150 Homo. Homo sapiens
+150
+>U07158 216 67 Homo. Homo sapiens
+67
+>U07223 299 150 Homo. Homo sapiens
+150
+>U07358 248 99 Homo. Homo sapiens
+99
+>U07361 291 142 Homo. Homo sapiens
+142
+>U07559 299 150 Homo. Homo sapiens
+150
+>U07707 171 22 Homo. Homo sapiens
+22
+>U07856 299 150 Homo. Homo sapiens
+150
+>U07856 299 150 Homo. Homo sapiens
+150
+>U07857 171 22 Homo. Homo sapiens
+22
+>U07969 237 88 Homo. Homo sapiens
+88
+>U08015 299 150 Homo. Homo sapiens
+150
+>U08021 267 118 Homo. Homo sapiens
+118
+>U08092 189 40 Homo. Homo sapiens
+40
+>U08853 299 150 Homo. Homo sapiens
+150
+>U08998 216 67 Homo. Homo sapiens
+67
+>U09002 299 150 Homo. Homo sapiens
+150
+>U09086 299 150 Homo. Homo sapiens
+150
+>U09116 299 150 Homo. Homo sapiens
+150
+>U09284 269 120 Homo. Homo sapiens
+120
+>U09412 299 150 Homo. Homo sapiens
+150
+>U09413 225 76 Homo. Homo sapiens
+76
+>U09414 290 141 Homo. Homo sapiens
+141
+>U09466 190 41 Homo. Homo sapiens
+41
+>U09510 299 150 Homo. Homo sapiens
+150
+>U09550 162 13 Homo. Homo sapiens
+13
+>U09584 299 150 Homo. Homo sapiens
+150
+>U09770 214 65 Homo. Homo sapiens
+65
+>U09825 299 150 Homo. Homo sapiens
+150
+>U09850 187 38 Homo. Homo sapiens
+38
+>U09955 299 150 Homo. Homo sapiens
+150
+>U10099 299 150 Homo. Homo sapiens
+150
+>U10117 198 49 Homo. Homo sapiens
+49
+>U10301 203 54 Homo. Homo sapiens
+54
+>U10307 299 150 Homo. Homo sapiens
+150
+>U10323 189 40 Homo. Homo sapiens
+40
+>U10692 299 150 Homo. Homo sapiens
+150
+>U10860 272 123 Homo. Homo sapiens
+123
+>U11037 161 12 Homo. Homo sapiens
+12
+>U11050 284 135 Homo. Homo sapiens
+135
+>U11090 295 146 Homo. Homo sapiens
+146
+>U11293 225 76 Homo. Homo sapiens
+76
+>U11700 299 150 Homo. Homo sapiens
+150
+>U11732 174 25 Homo. Homo sapiens
+25
+>U11870 182 33 Homo. Homo sapiens
+33
+>U12128 299 150 Homo. Homo sapiens
+150
+>U12134 182 33 Homo. Homo sapiens
+33
+>U12170 174 25 Homo. Homo sapiens
+25
+>U12206 299 150 Homo. Homo sapiens
+150
+>U12387 226 77 Homo. Homo sapiens
+77
+>U12596 262 113 Homo. Homo sapiens
+113
+>U12685 162 13 Homo. Homo sapiens
+13
+>U12707 184 35 Homo. Homo sapiens
+35
+>U12778 165 16 Homo. Homo sapiens
+16
+>U13022 238 89 Homo. Homo sapiens
+89
+>U13044 299 150 Homo. Homo sapiens
+150
+>U13261 184 35 Homo. Homo sapiens
+35
+>U13395 168 19 Homo. Homo sapiens
+19
+>U13666 299 150 Homo. Homo sapiens
+150
+>U13695 230 81 Homo. Homo sapiens
+81
+>U13738 213 64 Homo. Homo sapiens
+64
+>U13948 299 150 Homo. Homo sapiens
+150
+>U13989 200 51 Homo. Homo sapiens
+51
+>U14193 291 142 Homo. Homo sapiens
+142
+>U14391 299 150 Homo. Homo sapiens
+150
+>U14510 174 25 Homo. Homo sapiens
+25
+>U14575 299 150 Homo. Homo sapiens
+150
+>U14588 224 75 Homo. Homo sapiens
+75
+>U14747 299 150 Homo. Homo sapiens
+150
+>U14957 172 23 Homo. Homo sapiens
+23
+>U14966 180 31 Homo. Homo sapiens
+31
+>U14968 166 17 Homo. Homo sapiens
+17
+>U14970 187 38 Homo. Homo sapiens
+38
+>U14972 166 17 Homo. Homo sapiens
+17
+>U15009 237 88 Homo. Homo sapiens
+88
+>U15128 299 150 Homo. Homo sapiens
+150
+>U15172 160 0 Homo. Homo sapiens
+0
+>U15173 299 150 Homo. Homo sapiens
+150
+>U15174 221 72 Homo. Homo sapiens
+72
+>U15460 299 150 Homo. Homo sapiens
+150
+>U15552 174 25 Homo. Homo sapiens
+25
+>U15590 182 33 Homo. Homo sapiens
+33
+>U15655 272 123 Homo. Homo sapiens
+123
+>U15782 281 132 Homo. Homo sapiens
+132
+>U15979 299 150 Homo. Homo sapiens
+150
+>U16028 209 60 Homo. Homo sapiens
+60
+>U16031 299 150 Homo. Homo sapiens
+150
+>U16127 168 19 Homo. Homo sapiens
+19
+>U16258 299 150 Homo. Homo sapiens
+150
+>U16261 299 150 Homo. Homo sapiens
+150
+>U16861 299 150 Homo. Homo sapiens
+150
+>U16957 290 141 Homo. Homo sapiens
+141
+>U16997 219 70 Homo. Homo sapiens
+70
+>U17032 299 150 Homo. Homo sapiens
+150
+>U17278 166 17 Homo. Homo sapiens
+17
+>U17279 221 72 Homo. Homo sapiens
+72
+>U17474 225 76 Homo. Homo sapiens
+76
+>U17714 299 150 Homo. Homo sapiens
+150
+>U17894 213 64 Homo. Homo sapiens
+64
+>U17970 299 150 Homo. Homo sapiens
+150
+>U18062 299 150 Homo. Homo sapiens
+150
+>U18121 197 48 Homo. Homo sapiens
+48
+>U18242 186 37 Homo. Homo sapiens
+37
+>U18291 174 25 Homo. Homo sapiens
+25
+>U18300 299 150 Homo. Homo sapiens
+150
+>U18423 182 33 Homo. Homo sapiens
+33
+>U18759 191 42 Homo. Homo sapiens
+42
+>U18985 172 23 Homo. Homo sapiens
+23
+>U19142 198 49 Homo. Homo sapiens
+49
+>U19178 299 150 Homo. Homo sapiens
+150
+>U19252 287 138 Homo. Homo sapiens
+138
+>U19556 179 30 Homo. Homo sapiens
+30
+>U19718 191 42 Homo. Homo sapiens
+42
+>U19765 163 14 Homo. Homo sapiens
+14
+>U19906 299 150 Homo. Homo sapiens
+150
+>U19948 177 28 Homo. Homo sapiens
+28
+>U20166 188 39 Homo. Homo sapiens
+39
+>U20230 299 150 Homo. Homo sapiens
+150
+>U20240 299 150 Homo. Homo sapiens
+150
+>U20324 195 46 Homo. Homo sapiens
+46
+>U20362 299 150 Homo. Homo sapiens
+150
+>U20657 299 150 Homo. Homo sapiens
+150
+>U20659 178 29 Homo. Homo sapiens
+29
+>U20758 163 14 Homo. Homo sapiens
+14
+>U20896 299 150 Homo. Homo sapiens
+150
+>U20938 198 49 Homo. Homo sapiens
+49
+>U20979 190 41 Homo. Homo sapiens
+41
+>U20980 212 63 Homo. Homo sapiens
+63
+>U21090 228 79 Homo. Homo sapiens
+79
+>U21128 234 85 Homo. Homo sapiens
+85
+>U21663 299 150 Homo. Homo sapiens
+150
+>U21936 206 57 Homo. Homo sapiens
+57
+>U21943 203 54 Homo. Homo sapiens
+54
+>U22055 299 150 Homo. Homo sapiens
+150
+>U22233 271 122 Homo. Homo sapiens
+122
+>U22386 194 45 Homo. Homo sapiens
+45
+>U22492 299 150 Homo. Homo sapiens
+150
+>U22512 250 101 Homo. Homo sapiens
+101
+>U22526 299 150 Homo. Homo sapiens
+150
+>U22680 299 150 Homo. Homo sapiens
+150
+>U22961 218 69 Homo. Homo sapiens
+69
+>U22961 190 41 Homo. Homo sapiens
+41
+>U23070 299 150 Homo. Homo sapiens
+150
+>U23143 299 150 Homo. Homo sapiens
+150
+>U23851 223 74 Homo. Homo sapiens
+74
+>U23946 219 70 Homo. Homo sapiens
+70
+>U24074 171 22 Homo. Homo sapiens
+22
+>U24105 257 108 Homo. Homo sapiens
+108
+>U24152 299 150 Homo. Homo sapiens
+150
+>U24169 263 114 Homo. Homo sapiens
+114
+>U24183 299 150 Homo. Homo sapiens
+150
+>U24186 299 150 Homo. Homo sapiens
+150
+>U25112 196 47 Homo. Homo sapiens
+47
+>U25128 292 143 Homo. Homo sapiens
+143
+>U25138 299 150 Homo. Homo sapiens
+150
+>U25265 299 150 Homo. Homo sapiens
+150
+>U25433 195 46 Homo. Homo sapiens
+46
+>U25435 299 150 Homo. Homo sapiens
+150
+>U25997 299 150 Homo. Homo sapiens
+150
+>U26174 190 41 Homo. Homo sapiens
+41
+>U26424 288 139 Homo. Homo sapiens
+139
+>U26455 299 150 Homo. Homo sapiens
+150
+>U26554 172 23 Homo. Homo sapiens
+23
+>U26555 299 150 Homo. Homo sapiens
+150
+>U26596 203 54 Homo. Homo sapiens
+54
+>U26711 299 150 Homo. Homo sapiens
+150
+>U26744 208 59 Homo. Homo sapiens
+59
+>U27109 221 72 Homo. Homo sapiens
+72
+>U27203 196 47 Homo. Homo sapiens
+47
+>U27266 177 28 Homo. Homo sapiens
+28
+>U27333 299 150 Homo. Homo sapiens
+150
+>U27459 299 150 Homo. Homo sapiens
+150
+>U27467 184 35 Homo. Homo sapiens
+35
+>U27655 299 150 Homo. Homo sapiens
+150
+>U28015 184 35 Homo. Homo sapiens
+35
+>U28042 215 66 Homo. Homo sapiens
+66
+>U28424 299 150 Homo. Homo sapiens
+150
+>U28488 231 82 Homo. Homo sapiens
+82
+>U28686 299 150 Homo. Homo sapiens
+150
+>U28833 198 49 Homo. Homo sapiens
+49
+>U29106 299 150 Homo. Homo sapiens
+150
+>U29165 299 150 Homo. Homo sapiens
+150
+>U29895 299 150 Homo. Homo sapiens
+150
+>X64044 190 41 Homo. Homo sapiens
+41
+>X13482 206 57 Homo. Homo sapiens
+57
+>U30473 299 150 Homo. Homo sapiens
+150
+>U30521 299 150 Homo. Homo sapiens
+150
+>U30610 234 85 Homo. Homo sapiens
+85
+>U30826 239 90 Homo. Homo sapiens
+90
+>U30872 222 73 Homo. Homo sapiens
+73
+>U31116 192 43 Homo. Homo sapiens
+43
+>U31176 299 150 Homo. Homo sapiens
+150
+>U31215 299 150 Homo. Homo sapiens
+150
+>U31248 299 150 Homo. Homo sapiens
+150
+>U31384 257 108 Homo. Homo sapiens
+108
+>U31466 160 0 Homo. Homo sapiens
+0
+>U31601 245 96 Homo. Homo sapiens
+96
+>U31929 299 150 Homo. Homo sapiens
+150
+>U31930 179 30 Homo. Homo sapiens
+30
+>U31933 268 119 Homo. Homo sapiens
+119
+>U32114 180 31 Homo. Homo sapiens
+31
+>U32519 271 122 Homo. Homo sapiens
+122
+>U32573 292 143 Homo. Homo sapiens
+143
+>U32581 174 25 Homo. Homo sapiens
+25
+>U32659 203 54 Homo. Homo sapiens
+54
+>U32907 299 150 Homo. Homo sapiens
+150
+>U32974 231 82 Homo. Homo sapiens
+82
+>U32986 259 110 Homo. Homo sapiens
+110
+>U33055 299 150 Homo. Homo sapiens
+150
+>U33284 257 108 Homo. Homo sapiens
+108
+>U33286 273 124 Homo. Homo sapiens
+124
+>U33429 184 35 Homo. Homo sapiens
+35
+>U33447 299 150 Homo. Homo sapiens
+150
+>U33448 299 150 Homo. Homo sapiens
+150
+>U33921 299 150 Homo. Homo sapiens
+150
+>U33936 241 92 Homo. Homo sapiens
+92
+>U34044 299 150 Homo. Homo sapiens
+150
+>U34074 212 63 Homo. Homo sapiens
+63
+>U34252 299 150 Homo. Homo sapiens
+150
+>U34304 246 97 Homo. Homo sapiens
+97
+>U34343 299 150 Homo. Homo sapiens
+150
+>U34349 241 92 Homo. Homo sapiens
+92
+>U34355 181 32 Homo. Homo sapiens
+32
+>U34584 175 26 Homo. Homo sapiens
+26
+>U34690 242 93 Homo. Homo sapiens
+93
+>U34806 232 83 Homo. Homo sapiens
+83
+>U34962 299 150 Homo. Homo sapiens
+150
+>U35340 222 73 Homo. Homo sapiens
+73
+>U36188 196 47 Homo. Homo sapiens
+47
+>U36310 253 104 Homo. Homo sapiens
+104
+>U36448 252 103 Homo. Homo sapiens
+103
+>U36759 231 82 Homo. Homo sapiens
+82
+>U36764 187 38 Homo. Homo sapiens
+38
+>U37139 279 130 Homo. Homo sapiens
+130
+>U37219 242 93 Homo. Homo sapiens
+93
+>U37448 193 44 Homo. Homo sapiens
+44
+>U37519 299 150 Homo. Homo sapiens
+150
+>U37547 299 150 Homo. Homo sapiens
+150
+>U37689 299 150 Homo. Homo sapiens
+150
+>U37707 299 150 Homo. Homo sapiens
+150
+>U38276 299 150 Homo. Homo sapiens
+150
+>U38480 177 28 Homo. Homo sapiens
+28
+>U38545 245 96 Homo. Homo sapiens
+96
+>U38614 299 150 Homo. Homo sapiens
+150
+>U38654 299 150 Homo. Homo sapiens
+150
+>U38810 299 150 Homo. Homo sapiens
+150
+>U38864 299 150 Homo. Homo sapiens
+150
+>U38964 291 142 Homo. Homo sapiens
+142
+>U38979 299 150 Homo. Homo sapiens
+150
+>U39064 299 150 Homo. Homo sapiens
+150
+>U39195 299 150 Homo. Homo sapiens
+150
+>U39360 219 70 Homo. Homo sapiens
+70
+>U39361 219 70 Homo. Homo sapiens
+70
+>U39400 163 14 Homo. Homo sapiens
+14
+>U39657 299 150 Homo. Homo sapiens
+150
+>U39840 237 88 Homo. Homo sapiens
+88
+>U39905 299 150 Homo. Homo sapiens
+150
+>U40053 239 90 Homo. Homo sapiens
+90
+>U40282 299 150 Homo. Homo sapiens
+150
+>U40396 206 57 Homo. Homo sapiens
+57
+>U40579 233 84 Homo. Homo sapiens
+84
+>U40622 200 51 Homo. Homo sapiens
+51
+>U40671 299 150 Homo. Homo sapiens
+150
+>U41060 287 138 Homo. Homo sapiens
+138
+>U41804 237 88 Homo. Homo sapiens
+88
+>U42376 244 95 Homo. Homo sapiens
+95
+>U42390 216 67 Homo. Homo sapiens
+67
+>U42412 244 95 Homo. Homo sapiens
+95
+>U43148 299 150 Homo. Homo sapiens
+150
+>U43292 299 150 Homo. Homo sapiens
+150
+>U43328 267 118 Homo. Homo sapiens
+118
+>U43408 266 117 Homo. Homo sapiens
+117
+>U43416 299 150 Homo. Homo sapiens
+150
+>U43746 299 150 Homo. Homo sapiens
+150
+>U43885 271 122 Homo. Homo sapiens
+122
+>U43901 182 33 Homo. Homo sapiens
+33
+>U43923 217 68 Homo. Homo sapiens
+68
+>U43965 280 131 Homo. Homo sapiens
+131
+>U44754 162 13 Homo. Homo sapiens
+13
+>U44799 210 61 Homo. Homo sapiens
+61
+>U45983 299 150 Homo. Homo sapiens
+150
+>U45984 299 150 Homo. Homo sapiens
+150
+>U46922 299 150 Homo. Homo sapiens
+150
+>U47674 299 150 Homo. Homo sapiens
+150
+>U47686 296 147 Homo. Homo sapiens
+147
+>U47924 216 67 Homo. Homo sapiens
+67
+>U49187 299 150 Homo. Homo sapiens
+150
+>U49262 271 122 Homo. Homo sapiens
+122
+>U49392 235 86 Homo. Homo sapiens
+86
+>U49844 255 106 Homo. Homo sapiens
+106
+>U49857 267 118 Homo. Homo sapiens
+118
+>U49973 299 150 Homo. Homo sapiens
+150
+>U50040 166 17 Homo. Homo sapiens
+17
+>U50158 299 150 Homo. Homo sapiens
+150
+>U50733 228 79 Homo. Homo sapiens
+79
+>U50743 182 33 Homo. Homo sapiens
+33
+>U50939 223 74 Homo. Homo sapiens
+74
+>U50950 283 134 Homo. Homo sapiens
+134
+>U51004 257 108 Homo. Homo sapiens
+108
+>U51007 294 145 Homo. Homo sapiens
+145
+>U51333 224 75 Homo. Homo sapiens
+75
+>U51336 268 119 Homo. Homo sapiens
+119
+>U51432 171 22 Homo. Homo sapiens
+22
+>U51903 299 150 Homo. Homo sapiens
+150
+>U52077 299 150 Homo. Homo sapiens
+150
+>U52101 199 50 Homo. Homo sapiens
+50
+>U52111 211 62 Homo. Homo sapiens
+62
+>U52219 219 70 Homo. Homo sapiens
+70
+>U52521 280 131 Homo. Homo sapiens
+131
+>U52828 299 150 Homo. Homo sapiens
+150
+>U52965 299 150 Homo. Homo sapiens
+150
+>U53209 299 150 Homo. Homo sapiens
+150
+>U53445 284 135 Homo. Homo sapiens
+135
+>U53784 204 55 Homo. Homo sapiens
+55
+>U55766 162 13 Homo. Homo sapiens
+13
+>U56244 299 150 Homo. Homo sapiens
+150
+>U57629 208 59 Homo. Homo sapiens
+59
+>U57721 256 107 Homo. Homo sapiens
+107
+>U58048 190 41 Homo. Homo sapiens
+41
+>X63237 175 26 Homo. Homo sapiens
+26
+>Z29328 203 54 Homo. Homo sapiens
+54
+>X52486 229 80 Homo. Homo sapiens
+80
+>X57019 185 36 Homo. Homo sapiens
+36
+>X56348 299 150 Homo. Homo sapiens
+150
+>Z33642 170 21 Homo. Homo sapiens
+21
+>X69151 299 150 Homo. Homo sapiens
+150
+>X16316 260 111 Homo. Homo sapiens
+111
+>X71490 299 150 Homo. Homo sapiens
+150
+>X71491 206 57 Homo. Homo sapiens
+57
+>X04146 299 150 Homo. Homo sapiens
+150
+>X71937 190 41 Homo. Homo sapiens
+41
+>X69978 299 150 Homo. Homo sapiens
+150
+>X51435 299 150 Homo. Homo sapiens
+150
+>X59738 299 150 Homo. Homo sapiens
+150
+>X59739 227 78 Homo. Homo sapiens
+78
+>X82018 202 53 Homo. Homo sapiens
+53
+>X56465 299 150 Homo. Homo sapiens
+150
+>X65233 299 150 Homo. Homo sapiens
+150
+>D83777 299 150 Homo. Homo sapiens
+150
+>D83780 299 150 Homo. Homo sapiens
+150
+>M92439 195 46 Homo. Homo sapiens
+46
+>L07493 180 31 Homo. Homo sapiens
+31
+>L02426 210 61 Homo. Homo sapiens
+61
+>D10523 207 58 Homo. Homo sapiens
+58
+>M33478 201 52 Homo. Homo sapiens
+52
+>L25798 171 22 Homo. Homo sapiens
+22
+>L22009 222 73 Homo. Homo sapiens
+73
+>J02769 203 54 Homo. Homo sapiens
+54
+>L36818 299 150 Homo. Homo sapiens
+150
+>M91467 299 150 Homo. Homo sapiens
+150
+>L17330 244 95 Homo. Homo sapiens
+95
+>D17400 218 69 Homo. Homo sapiens
+69
+>D16581 176 27 Homo. Homo sapiens
+27
+>D10653 174 25 Homo. Homo sapiens
+25
+>M76446 205 56 Homo. Homo sapiens
+56
+>D38163 267 118 Homo. Homo sapiens
+118
+>M59465 216 67 Homo. Homo sapiens
+67
+>K02566 199 50 Homo. Homo sapiens
+50
+>L09604 225 76 Homo. Homo sapiens
+76
+>L05075 177 28 Homo. Homo sapiens
+28
+>L38716 258 109 Homo. Homo sapiens
+109
+>M14753 299 150 Homo. Homo sapiens
+150
+>L25877 172 23 Homo. Homo sapiens
+23
+>D13866 216 67 Homo. Homo sapiens
+67
+>M87339 299 150 Homo. Homo sapiens
+150
+>M62994 258 109 Homo. Homo sapiens
+109
+>K02567 226 77 Homo. Homo sapiens
+77
+>J02960 299 150 Homo. Homo sapiens
+150
+>L13773 299 150 Homo. Homo sapiens
+150
+>L13744 299 150 Homo. Homo sapiens
+150
+>D10250 279 130 Homo. Homo sapiens
+130
+>L13434 299 150 Homo. Homo sapiens
+150
+>M55172 210 61 Homo. Homo sapiens
+61
+>M80902 299 150 Homo. Homo sapiens
+150
+>L48211 299 150 Homo. Homo sapiens
+150
+>M59217 271 122 Homo. Homo sapiens
+122
+>M13928 216 67 Homo. Homo sapiens
+67
+>L38608 213 64 Homo. Homo sapiens
+64
+>D55649 218 69 Homo. Homo sapiens
+69
+>M84720 299 150 Homo. Homo sapiens
+150
+>M20132 299 150 Homo. Homo sapiens
+150
+>L18972 184 35 Homo. Homo sapiens
+35
+>J04611 183 34 Homo. Homo sapiens
+34
+>J04205 240 11 Homo. Homo sapiens
+11
+>M60618 181 32 Homo. Homo sapiens
+32
+>D14874 299 150 Homo. Homo sapiens
+150
+>M81768 203 54 Homo. Homo sapiens
+54
+>L32179 234 85 Homo. Homo sapiens
+85
+>M14502 206 57 Homo. Homo sapiens
+57
+>M72709 245 96 Homo. Homo sapiens
+96
+>M11025 270 121 Homo. Homo sapiens
+121
+>J05032 243 94 Homo. Homo sapiens
+94
+>L09235 164 15 Homo. Homo sapiens
+15
+>D13118 194 45 Homo. Homo sapiens
+45
+>D16561 180 31 Homo. Homo sapiens
+31
+>D32050 260 111 Homo. Homo sapiens
+111
+>L05425 229 80 Homo. Homo sapiens
+80
+>M58460 299 150 Homo. Homo sapiens
+150
+>M80783 299 150 Homo. Homo sapiens
+150
+>L11708 233 84 Homo. Homo sapiens
+84
+>L38961 256 107 Homo. Homo sapiens
+107
+>M57730 223 74 Homo. Homo sapiens
+74
+>M33509 250 101 Homo. Homo sapiens
+101
+>D23672 299 150 Homo. Homo sapiens
+150
+>M15530 226 77 Homo. Homo sapiens
+77
+>L21950 299 150 Homo. Homo sapiens
+150
+>M81886 293 144 Homo. Homo sapiens
+144
+>D82348 225 76 Homo. Homo sapiens
+76
+>L10405 299 150 Homo. Homo sapiens
+150
+>K01884 256 107 Homo. Homo sapiens
+107
+>L08893 298 149 Homo. Homo sapiens
+149
+>L11690 252 103 Homo. Homo sapiens
+103
+>L38616 295 146 Homo. Homo sapiens
+146
+>D31716 299 150 Homo. Homo sapiens
+150
+>D14520 299 150 Homo. Homo sapiens
+150
+>D83542 227 78 Homo. Homo sapiens
+78
+>M83653 194 45 Homo. Homo sapiens
+45
+>J04080 299 150 Homo. Homo sapiens
+150
+>L41415 292 143 Homo. Homo sapiens
+143
+>D21239 280 131 Homo. Homo sapiens
+131
+>L11244 299 150 Homo. Homo sapiens
+150
+>J04478 288 139 Homo. Homo sapiens
+139
+>J04506 216 67 Homo. Homo sapiens
+67
+>M83566 268 119 Homo. Homo sapiens
+119
+>L29529 169 20 Homo. Homo sapiens
+20
+>M76559 184 35 Homo. Homo sapiens
+35
+>L07738 221 72 Homo. Homo sapiens
+72
+>L14778 297 148 Homo. Homo sapiens
+148
+>M92301 299 150 Homo. Homo sapiens
+150
+>L39211 226 77 Homo. Homo sapiens
+77
+>L19297 205 56 Homo. Homo sapiens
+56
+>L04656 299 150 Homo. Homo sapiens
+150
+>D16217 299 150 Homo. Homo sapiens
+150
+>L16510 299 150 Homo. Homo sapiens
+150
+>M33375 193 44 Homo. Homo sapiens
+44
+>D90359 201 52 Homo. Homo sapiens
+52
+>M28825 299 150 Homo. Homo sapiens
+150
+>M63928 250 101 Homo. Homo sapiens
+101
+>M34065 299 150 Homo. Homo sapiens
+150
+>L10844 299 150 Homo. Homo sapiens
+150
+>M28668 282 133 Homo. Homo sapiens
+133
+>D49738 299 150 Homo. Homo sapiens
+150
+>M80629 299 150 Homo. Homo sapiens
+150
+>L19315 299 150 Homo. Homo sapiens
+150
+>M96015 299 150 Homo. Homo sapiens
+150
+>L36844 299 150 Homo. Homo sapiens
+150
+>J04469 299 150 Homo. Homo sapiens
+150
+>J05556 221 72 Homo. Homo sapiens
+72
+>M97501 299 150 Homo. Homo sapiens
+150
+>L29222 299 150 Homo. Homo sapiens
+150
+>L29218 278 129 Homo. Homo sapiens
+129
+>L29220 205 56 Homo. Homo sapiens
+56
+>M65272 192 43 Homo. Homo sapiens
+43
+>L14813 163 14 Homo. Homo sapiens
+14
+>M55914 180 31 Homo. Homo sapiens
+31
+>M91368 230 81 Homo. Homo sapiens
+81
+>L15297 299 150 Homo. Homo sapiens
+150
+>M19650 163 14 Homo. Homo sapiens
+14
+>L34081 299 150 Homo. Homo sapiens
+150
+>M92642 299 150 Homo. Homo sapiens
+150
+>M90464 299 150 Homo. Homo sapiens
+150
+>M35252 287 138 Homo. Homo sapiens
+138
+>J04973 203 54 Homo. Homo sapiens
+54
+>M21575 184 35 Homo. Homo sapiens
+35
+>L28957 195 46 Homo. Homo sapiens
+46
+>D90282 268 119 Homo. Homo sapiens
+119
+>M68867 248 99 Homo. Homo sapiens
+99
+>M62397 299 150 Homo. Homo sapiens
+150
+>M27691 266 117 Homo. Homo sapiens
+117
+>L05913 295 146 Homo. Homo sapiens
+146
+>M85085 172 23 Homo. Homo sapiens
+23
+>M14219 231 82 Homo. Homo sapiens
+82
+>L49506 299 150 Homo. Homo sapiens
+150
+>D15057 216 67 Homo. Homo sapiens
+67
+>J03639 299 150 Homo. Homo sapiens
+150
+>M12654 178 29 Homo. Homo sapiens
+29
+>M60527 299 150 Homo. Homo sapiens
+150
+>L13286 299 150 Homo. Homo sapiens
+150
+>D28540 211 62 Homo. Homo sapiens
+62
+>D73409 230 81 Homo. Homo sapiens
+81
+>M96860 299 150 Homo. Homo sapiens
+150
+>D64108 203 54 Homo. Homo sapiens
+54
+>M80397 203 54 Homo. Homo sapiens
+54
+>L09561 263 114 Homo. Homo sapiens
+114
+>D50857 173 24 Homo. Homo sapiens
+24
+>L39874 299 150 Homo. Homo sapiens
+150
+>L24178 169 20 Homo. Homo sapiens
+20
+>L40386 181 32 Homo. Homo sapiens
+32
+>L76937 299 150 Homo. Homo sapiens
+150
+>M97388 299 150 Homo. Homo sapiens
+150
+>L02785 299 150 Homo. Homo sapiens
+150
+>L42176 288 139 Homo. Homo sapiens
+139
+>M77185 299 150 Homo. Homo sapiens
+150
+>D16294 198 49 Homo. Homo sapiens
+49
+>J04810 211 62 Homo. Homo sapiens
+62
+>L13852 299 150 Homo. Homo sapiens
+150
+>M91670 209 60 Homo. Homo sapiens
+60
+>D38524 233 84 Homo. Homo sapiens
+84
+>J03634 235 86 Homo. Homo sapiens
+86
+>M31210 299 150 Homo. Homo sapiens
+150
+>L06623 299 150 Homo. Homo sapiens
+150
+>M15887 207 58 Homo. Homo sapiens
+58
+>L40157 286 137 Homo. Homo sapiens
+137
+>M32977 206 57 Homo. Homo sapiens
+57
+>M29366 249 100 Homo. Homo sapiens
+100
+>L47345 182 33 Homo. Homo sapiens
+33
+>M61733 299 150 Homo. Homo sapiens
+150
+>M60298 299 150 Homo. Homo sapiens
+150
+>M98343 299 150 Homo. Homo sapiens
+150
+>M60119 299 150 Homo. Homo sapiens
+150
+>M60922 276 127 Homo. Homo sapiens
+127
+>M10976 172 23 Homo. Homo sapiens
+23
+>M28650 292 143 Homo. Homo sapiens
+143
+>M17254 299 150 Homo. Homo sapiens
+150
+>M74509 299 150 Homo. Homo sapiens
+150
+>M12140 299 150 Homo. Homo sapiens
+150
+>M69297 299 150 Homo. Homo sapiens
+150
+>M14123 299 150 Homo. Homo sapiens
+150
+>M14123 299 150 Homo. Homo sapiens
+150
+>D90287 230 81 Homo. Homo sapiens
+81
+>J04101 269 120 Homo. Homo sapiens
+120
+>J04102 299 150 Homo. Homo sapiens
+150
+>M60830 170 21 Homo. Homo sapiens
+21
+>M90707 190 41 Homo. Homo sapiens
+41
+>M55150 206 57 Homo. Homo sapiens
+57
+>L05186 164 15 Homo. Homo sapiens
+15
+>L13616 299 150 Homo. Homo sapiens
+150
+>L13923 283 134 Homo. Homo sapiens
+134
+>J02770 164 15 Homo. Homo sapiens
+15
+>K02402 178 29 Homo. Homo sapiens
+29
+>M65128 187 38 Homo. Homo sapiens
+38
+>M98045 220 71 Homo. Homo sapiens
+71
+>M80613 299 150 Homo. Homo sapiens
+150
+>M14354 234 85 Homo. Homo sapiens
+85
+>L49169 299 150 Homo. Homo sapiens
+150
+>M62400 196 47 Homo. Homo sapiens
+47
+>M86868 230 81 Homo. Homo sapiens
+81
+>L32961 248 99 Homo. Homo sapiens
+99
+>L08485 299 150 Homo. Homo sapiens
+150
+>M74826 291 142 Homo. Homo sapiens
+142
+>L20491 283 134 Homo. Homo sapiens
+134
+>M23612 249 100 Homo. Homo sapiens
+100
+>M55542 218 69 Homo. Homo sapiens
+69
+>D13286 255 106 Homo. Homo sapiens
+106
+>L36859 172 23 Homo. Homo sapiens
+23
+>D13287 299 150 Homo. Homo sapiens
+150
+>M81637 269 120 Homo. Homo sapiens
+120
+>D13811 279 130 Homo. Homo sapiens
+130
+>M90516 271 122 Homo. Homo sapiens
+122
+>L25441 299 150 Homo. Homo sapiens
+150
+>M18185 248 99 Homo. Homo sapiens
+99
+>J03077 188 39 Homo. Homo sapiens
+39
+>M57609 204 55 Homo. Homo sapiens
+55
+>M84443 170 21 Homo. Homo sapiens
+21
+>J04040 187 38 Homo. Homo sapiens
+38
+>L20859 299 150 Homo. Homo sapiens
+150
+>L11238 222 73 Homo. Homo sapiens
+73
+>L20860 299 150 Homo. Homo sapiens
+150
+>L01439 240 11 Homo. Homo sapiens
+11
+>M86492 177 28 Homo. Homo sapiens
+28
+>M91667 172 23 Homo. Homo sapiens
+23
+>L06147 168 19 Homo. Homo sapiens
+19
+>L06797 222 73 Homo. Homo sapiens
+73
+>D38449 299 150 Homo. Homo sapiens
+150
+>L08177 183 34 Homo. Homo sapiens
+34
+>L36149 288 139 Homo. Homo sapiens
+139
+>L15189 179 30 Homo. Homo sapiens
+30
+>J03746 223 74 Homo. Homo sapiens
+74
+>L38933 282 133 Homo. Homo sapiens
+133
+>M60278 299 150 Homo. Homo sapiens
+150
+>M35531 253 104 Homo. Homo sapiens
+104
+>M64098 299 150 Homo. Homo sapiens
+150
+>M58600 165 16 Homo. Homo sapiens
+16
+>M16592 225 76 Homo. Homo sapiens
+76
+>D14825 216 67 Homo. Homo sapiens
+67
+>D14826 213 64 Homo. Homo sapiens
+64
+>M80627 299 150 Homo. Homo sapiens
+150
+>M97508 299 150 Homo. Homo sapiens
+150
+>D49742 246 97 Homo. Homo sapiens
+97
+>M60263 276 127 Homo. Homo sapiens
+127
+>L04132 162 13 Homo. Homo sapiens
+13
+>M33906 193 44 Homo. Homo sapiens
+44
+>M57678 216 67 Homo. Homo sapiens
+67
+>D10923 210 61 Homo. Homo sapiens
+61
+>L23808 162 13 Homo. Homo sapiens
+13
+>M86737 299 150 Homo. Homo sapiens
+150
+>D21094 235 86 Homo. Homo sapiens
+86
+>M95542 283 134 Homo. Homo sapiens
+134
+>M16938 299 150 Homo. Homo sapiens
+150
+>D28769 299 150 Homo. Homo sapiens
+150
+>D83004 213 64 Homo. Homo sapiens
+64
+>L07515 285 136 Homo. Homo sapiens
+136
+>M20919 299 150 Homo. Homo sapiens
+150
+>M55422 299 150 Homo. Homo sapiens
+150
+>M15780 186 37 Homo. Homo sapiens
+37
+>M13149 271 122 Homo. Homo sapiens
+122
+>D50487 223 74 Homo. Homo sapiens
+74
+>L26081 165 16 Homo. Homo sapiens
+16
+>M81806 168 19 Homo. Homo sapiens
+19
+>M16660 234 85 Homo. Homo sapiens
+85
+>J02986 299 150 Homo. Homo sapiens
+150
+>M97856 235 86 Homo. Homo sapiens
+86
+>M83233 264 115 Homo. Homo sapiens
+115
+>L27624 188 39 Homo. Homo sapiens
+39
+>D16480 177 28 Homo. Homo sapiens
+28
+>M94083 299 150 Homo. Homo sapiens
+150
+>M83181 299 150 Homo. Homo sapiens
+150
+>L29384 299 150 Homo. Homo sapiens
+150
+>L07033 164 15 Homo. Homo sapiens
+15
+>M57506 221 72 Homo. Homo sapiens
+72
+>L01100 299 150 Homo. Homo sapiens
+150
+>M73780 299 150 Homo. Homo sapiens
+150
+>L35848 248 99 Homo. Homo sapiens
+99
+>M63838 299 150 Homo. Homo sapiens
+150
+>M13755 225 76 Homo. Homo sapiens
+76
+>M13909 299 150 Homo. Homo sapiens
+150
+>L06226 160 0 Homo. Homo sapiens
+0
+>K02770 236 87 Homo. Homo sapiens
+87
+>M33199 299 150 Homo. Homo sapiens
+150
+>D11086 164 15 Homo. Homo sapiens
+15
+>M13982 213 64 Homo. Homo sapiens
+64
+>J04156 299 150 Homo. Homo sapiens
+150
+>L08488 299 150 Homo. Homo sapiens
+150
+>M81695 214 65 Homo. Homo sapiens
+65
+>M13903 169 20 Homo. Homo sapiens
+20
+>L47738 299 150 Homo. Homo sapiens
+150
+>L27711 201 52 Homo. Homo sapiens
+52
+>L39833 238 89 Homo. Homo sapiens
+89
+>D43948 197 48 Homo. Homo sapiens
+48
+>D28588 299 150 Homo. Homo sapiens
+150
+>D43951 206 57 Homo. Homo sapiens
+57
+>D42040 299 150 Homo. Homo sapiens
+150
+>D79983 299 150 Homo. Homo sapiens
+150
+>D79986 299 150 Homo. Homo sapiens
+150
+>D79988 299 150 Homo. Homo sapiens
+150
+>D79990 299 150 Homo. Homo sapiens
+150
+>D79992 163 14 Homo. Homo sapiens
+14
+>D79993 251 102 Homo. Homo sapiens
+102
+>D79995 299 150 Homo. Homo sapiens
+150
+>D79996 213 64 Homo. Homo sapiens
+64
+>D80008 244 95 Homo. Homo sapiens
+95
+>D80009 177 28 Homo. Homo sapiens
+28
+>D42045 299 150 Homo. Homo sapiens
+150
+>D42053 299 150 Homo. Homo sapiens
+150
+>D42054 203 54 Homo. Homo sapiens
+54
+>D42085 216 67 Homo. Homo sapiens
+67
+>L04733 299 150 Homo. Homo sapiens
+150
+>M19156 211 62 Homo. Homo sapiens
+62
+>M90657 258 109 Homo. Homo sapiens
+109
+>L25931 225 76 Homo. Homo sapiens
+76
+>D10040 163 14 Homo. Homo sapiens
+14
+>D11327 254 105 Homo. Homo sapiens
+105
+>L34041 179 30 Homo. Homo sapiens
+30
+>D45906 264 115 Homo. Homo sapiens
+115
+>J03801 175 26 Homo. Homo sapiens
+26
+>M54992 258 109 Homo. Homo sapiens
+109
+>L01664 183 34 Homo. Homo sapiens
+34
+>M16985 295 146 Homo. Homo sapiens
+146
+>M29273 270 121 Homo. Homo sapiens
+121
+>M55905 239 90 Homo. Homo sapiens
+90
+>M68840 223 74 Homo. Homo sapiens
+74
+>M64571 240 11 Homo. Homo sapiens
+11
+>M13150 299 150 Homo. Homo sapiens
+150
+>M54927 271 122 Homo. Homo sapiens
+122
+>M65131 225 76 Homo. Homo sapiens
+76
+>M27937 184 35 Homo. Homo sapiens
+35
+>M88468 241 92 Homo. Homo sapiens
+92
+>L35251 299 150 Homo. Homo sapiens
+150
+>L08238 299 150 Homo. Homo sapiens
+150
+>D14043 229 80 Homo. Homo sapiens
+80
+>M85168 195 46 Homo. Homo sapiens
+46
+>M55270 205 56 Homo. Homo sapiens
+56
+>D28538 299 150 Homo. Homo sapiens
+150
+>L14848 189 40 Homo. Homo sapiens
+40
+>L26261 277 128 Homo. Homo sapiens
+128
+>K03014 299 150 Homo. Homo sapiens
+150
+>M11591 299 150 Homo. Homo sapiens
+150
+>L19739 170 21 Homo. Homo sapiens
+21
+>D11094 216 67 Homo. Homo sapiens
+67
+>D43638 299 150 Homo. Homo sapiens
+150
+>L34600 299 150 Homo. Homo sapiens
+150
+>D50477 262 113 Homo. Homo sapiens
+113
+>M30818 254 105 Homo. Homo sapiens
+105
+>L07648 299 150 Homo. Homo sapiens
+150
+>M29142 216 67 Homo. Homo sapiens
+67
+>M91556 289 140 Homo. Homo sapiens
+140
+>L36674 168 19 Homo. Homo sapiens
+19
+>D49387 183 34 Homo. Homo sapiens
+34
+>M55067 172 23 Homo. Homo sapiens
+23
+>L19659 299 150 Homo. Homo sapiens
+150
+>D17716 295 146 Homo. Homo sapiens
+146
+>M18728 299 150 Homo. Homo sapiens
+150
+>D32002 299 150 Homo. Homo sapiens
+150
+>L34035 162 13 Homo. Homo sapiens
+13
+>D42072 215 66 Homo. Homo sapiens
+66
+>M81797 194 45 Homo. Homo sapiens
+45
+>M59807 209 60 Homo. Homo sapiens
+60
+>M73482 288 139 Homo. Homo sapiens
+139
+>M32011 217 68 Homo. Homo sapiens
+68
+>D83243 216 67 Homo. Homo sapiens
+67
+>M81840 281 132 Homo. Homo sapiens
+132
+>L34363 299 150 Homo. Homo sapiens
+150
+>L41840 263 114 Homo. Homo sapiens
+114
+>D38551 299 150 Homo. Homo sapiens
+150
+>D38555 264 115 Homo. Homo sapiens
+115
+>D14657 211 62 Homo. Homo sapiens
+62
+>D14658 299 150 Homo. Homo sapiens
+150
+>D14661 274 125 Homo. Homo sapiens
+125
+>D14662 193 44 Homo. Homo sapiens
+44
+>D14664 299 150 Homo. Homo sapiens
+150
+>D14665 295 146 Homo. Homo sapiens
+146
+>D14697 264 115 Homo. Homo sapiens
+115
+>D14812 299 150 Homo. Homo sapiens
+150
+>D29642 299 150 Homo. Homo sapiens
+150
+>D29677 295 146 Homo. Homo sapiens
+146
+>D29956 299 150 Homo. Homo sapiens
+150
+>M82829 264 115 Homo. Homo sapiens
+115
+>D25215 299 150 Homo. Homo sapiens
+150
+>D31762 225 76 Homo. Homo sapiens
+76
+>D31764 299 150 Homo. Homo sapiens
+150
+>D31766 299 150 Homo. Homo sapiens
+150
+>D31767 219 70 Homo. Homo sapiens
+70
+>D30756 290 141 Homo. Homo sapiens
+141
+>D31883 299 150 Homo. Homo sapiens
+150
+>D31891 236 87 Homo. Homo sapiens
+87
+>D25278 299 150 Homo. Homo sapiens
+150
+>D25539 299 150 Homo. Homo sapiens
+150
+>D26361 299 150 Homo. Homo sapiens
+150
+>D13665 177 28 Homo. Homo sapiens
+28
+>K02100 285 136 Homo. Homo sapiens
+136
+>D55716 266 117 Homo. Homo sapiens
+117
+>J02902 287 138 Homo. Homo sapiens
+138
+>D50063 233 84 Homo. Homo sapiens
+84
+>D49489 244 95 Homo. Homo sapiens
+95
+>M60724 177 28 Homo. Homo sapiens
+28
+>M80359 299 150 Homo. Homo sapiens
+150
+>D17516 223 74 Homo. Homo sapiens
+74
+>D28514 299 150 Homo. Homo sapiens
+150
+>M57736 299 150 Homo. Homo sapiens
+150
+>L11373 264 115 Homo. Homo sapiens
+115
+>L41560 169 20 Homo. Homo sapiens
+20
+>M75106 169 20 Homo. Homo sapiens
+20
+>L20966 288 139 Homo. Homo sapiens
+139
+>M63193 273 124 Homo. Homo sapiens
+124
+>L20969 299 150 Homo. Homo sapiens
+150
+>L24470 299 150 Homo. Homo sapiens
+150
+>L40933 241 92 Homo. Homo sapiens
+92
+>M73704 299 150 Homo. Homo sapiens
+150
+>L11701 182 33 Homo. Homo sapiens
+33
+>D90188 216 67 Homo. Homo sapiens
+67
+>D13435 217 68 Homo. Homo sapiens
+68
+>D10216 275 126 Homo. Homo sapiens
+126
+>L01087 244 95 Homo. Homo sapiens
+95
+>M72393 275 126 Homo. Homo sapiens
+126
+>M95678 299 150 Homo. Homo sapiens
+150
+>L27841 299 150 Homo. Homo sapiens
+150
+>M13140 263 114 Homo. Homo sapiens
+114
+>M73547 232 83 Homo. Homo sapiens
+83
+>M32402 297 148 Homo. Homo sapiens
+148
+>M99701 299 150 Homo. Homo sapiens
+150
+>L07590 299 150 Homo. Homo sapiens
+150
+>L40904 299 150 Homo. Homo sapiens
+150
+>M17886 279 130 Homo. Homo sapiens
+130
+>M13143 243 94 Homo. Homo sapiens
+94
+>M33689 222 73 Homo. Homo sapiens
+73
+>L24804 299 150 Homo. Homo sapiens
+150
+>L13994 299 150 Homo. Homo sapiens
+150
+>M91585 178 29 Homo. Homo sapiens
+29
+>D00015 226 77 Homo. Homo sapiens
+77
+>J04798 299 150 Homo. Homo sapiens
+150
+>M60495 299 150 Homo. Homo sapiens
+150
+>L26953 299 150 Homo. Homo sapiens
+150
+>L36529 163 14 Homo. Homo sapiens
+14
+>K03202 197 48 Homo. Homo sapiens
+48
+>M31452 288 139 Homo. Homo sapiens
+139
+>D00860 272 123 Homo. Homo sapiens
+123
+>M30838 201 52 Homo. Homo sapiens
+52
+>D00761 162 13 Homo. Homo sapiens
+13
+>D26600 173 24 Homo. Homo sapiens
+24
+>D44467 161 12 Homo. Homo sapiens
+12
+>L11573 299 150 Homo. Homo sapiens
+150
+>L41498 299 150 Homo. Homo sapiens
+150
+>M64174 225 76 Homo. Homo sapiens
+76
+>D13380 169 20 Homo. Homo sapiens
+20
+>L48937 299 150 Homo. Homo sapiens
+150
+>M93426 297 148 Homo. Homo sapiens
+148
+>M68941 299 150 Homo. Homo sapiens
+150
+>M76482 233 84 Homo. Homo sapiens
+84
+>D10326 189 40 Homo. Homo sapiens
+40
+>M24486 268 119 Homo. Homo sapiens
+119
+>J02888 299 150 Homo. Homo sapiens
+150
+>M64788 299 150 Homo. Homo sapiens
+150
+>M62303 257 108 Homo. Homo sapiens
+108
+>L37378 299 150 Homo. Homo sapiens
+150
+>L26921 169 20 Homo. Homo sapiens
+20
+>M89796 251 102 Homo. Homo sapiens
+102
+>D26528 299 150 Homo. Homo sapiens
+150
+>L13848 230 81 Homo. Homo sapiens
+81
+>L37127 210 61 Homo. Homo sapiens
+61
+>L11566 165 16 Homo. Homo sapiens
+16
+>L19527 167 18 Homo. Homo sapiens
+18
+>L06499 166 17 Homo. Homo sapiens
+17
+>L20868 165 16 Homo. Homo sapiens
+16
+>M18000 174 25 Homo. Homo sapiens
+25
+>L06498 262 113 Homo. Homo sapiens
+113
+>L04483 188 39 Homo. Homo sapiens
+39
+>M31520 160 0 Homo. Homo sapiens
+0
+>M64716 221 72 Homo. Homo sapiens
+72
+>M58459 162 13 Homo. Homo sapiens
+13
+>M20020 177 28 Homo. Homo sapiens
+28
+>M15661 180 31 Homo. Homo sapiens
+31
+>D13634 167 18 Homo. Homo sapiens
+18
+>D13626 299 150 Homo. Homo sapiens
+150
+>D13642 286 137 Homo. Homo sapiens
+137
+>D13630 230 81 Homo. Homo sapiens
+81
+>D13632 228 79 Homo. Homo sapiens
+79
+>D13645 299 150 Homo. Homo sapiens
+150
+>D13627 178 29 Homo. Homo sapiens
+29
+>D13633 271 122 Homo. Homo sapiens
+122
+>D13644 299 150 Homo. Homo sapiens
+150
+>L12535 299 150 Homo. Homo sapiens
+150
+>D13292 190 41 Homo. Homo sapiens
+41
+>L42110 299 150 Homo. Homo sapiens
+150
+>M81757 172 23 Homo. Homo sapiens
+23
+>D16350 201 52 Homo. Homo sapiens
+52
+>M75884 231 82 Homo. Homo sapiens
+82
+>L25085 213 64 Homo. Homo sapiens
+64
+>J05037 239 90 Homo. Homo sapiens
+90
+>M95549 170 21 Homo. Homo sapiens
+21
+>M24847 160 0 Homo. Homo sapiens
+0
+>M64676 299 150 Homo. Homo sapiens
+150
+>L21195 177 28 Homo. Homo sapiens
+28
+>L19760 238 89 Homo. Homo sapiens
+89
+>M96982 188 39 Homo. Homo sapiens
+39
+>M97190 299 150 Homo. Homo sapiens
+150
+>L10123 299 150 Homo. Homo sapiens
+150
+>M15885 161 12 Homo. Homo sapiens
+12
+>L08961 219 70 Homo. Homo sapiens
+70
+>L20815 212 63 Homo. Homo sapiens
+63
+>M61877 299 150 Homo. Homo sapiens
+150
+>J02988 249 100 Homo. Homo sapiens
+100
+>L20321 299 150 Homo. Homo sapiens
+150
+>L26247 289 140 Homo. Homo sapiens
+140
+>L31573 299 150 Homo. Homo sapiens
+150
+>L07093 299 150 Homo. Homo sapiens
+150
+>D66904 178 29 Homo. Homo sapiens
+29
+>M88282 299 150 Homo. Homo sapiens
+150
+>M75715 205 56 Homo. Homo sapiens
+56
+>M34079 212 63 Homo. Homo sapiens
+63
+>M63175 299 150 Homo. Homo sapiens
+150
+>M83773 299 150 Homo. Homo sapiens
+150
+>J05068 225 76 Homo. Homo sapiens
+76
+>M16768 299 150 Homo. Homo sapiens
+150
+>D14887 299 150 Homo. Homo sapiens
+150
+>M11507 245 96 Homo. Homo sapiens
+96
+>L39060 173 24 Homo. Homo sapiens
+24
+>L10386 191 42 Homo. Homo sapiens
+42
+>M34057 240 11 Homo. Homo sapiens
+11
+>M60314 299 150 Homo. Homo sapiens
+150
+>J05125 162 13 Homo. Homo sapiens
+13
+>L34840 194 45 Homo. Homo sapiens
+45
+>L12350 299 150 Homo. Homo sapiens
+150
+>M11749 176 27 Homo. Homo sapiens
+27
+>M59924 299 150 Homo. Homo sapiens
+150
+>M34427 237 88 Homo. Homo sapiens
+88
+>D83077 299 150 Homo. Homo sapiens
+150
+>D17547 299 150 Homo. Homo sapiens
+150
+>M73747 220 71 Homo. Homo sapiens
+71
+>L27071 236 87 Homo. Homo sapiens
+87
+>M30496 170 21 Homo. Homo sapiens
+21
+>J05428 164 15 Homo. Homo sapiens
+15
+>M15841 275 126 Homo. Homo sapiens
+126
+>D50312 299 150 Homo. Homo sapiens
+150
+>D63813 200 51 Homo. Homo sapiens
+51
+>M14016 167 18 Homo. Homo sapiens
+18
+>M33027 299 150 Homo. Homo sapiens
+150
+>D31833 299 150 Homo. Homo sapiens
+150
+>M60614 299 150 Homo. Homo sapiens
+150
+>D16469 299 150 Homo. Homo sapiens
+150
+>D43642 193 44 Homo. Homo sapiens
+44
+>M91592 299 150 Homo. Homo sapiens
+150
+>X61100 195 46 Homo. Homo sapiens
+46
+>Homo 299 150299 S40832.1 CAT S40832 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S41211.1 CAT S41211 Unclassified. Homo sapiens
+150
+>Homo 183 34183 S45207.1 CAT S45207 Unclassified. Homo sapiens
+34
+>Homo 299 150299 S47339.1 CAT S47339 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S49953.1 CAT S49953 Unclassified. Homo sapiens
+150
+>Homo 239 90239 S50223.1 CAT S50223 Unclassified. Homo sapiens
+90
+>Homo 183 34183 S52784.1 CAT S52784 Unclassified. Homo sapiens
+34
+>Homo 240 11240 S53910.1 CAT S53910 Unclassified. Homo sapiens
+11
+>Homo 299 150299 S54641.1 CAT S54641 Unclassified. Homo sapiens
+150
+>Homo 160 0160 S58039.1 CAT S58039 Unclassified. Homo sapiens
+0
+>Homo 248 99248 S59049.1 CAT S59049 Unclassified. Homo sapiens
+99
+>Homo 299 150299 S62035.1 CAT S62035 Unclassified. Homo sapiens
+150
+>Homo 180 31180 S63697.1 CAT S63697 Unclassified. Homo sapiens
+31
+>Homo 299 150299 S67156.1 CAT S67156 Unclassified. Homo sapiens
+150
+>Homo 270 121270 S69232.1 CAT S69232 Unclassified. Homo sapiens
+121
+>Homo 299 150299 S70527.1 CAT S70527 Unclassified. Homo sapiens
+150
+>Homo 198 49198 S71022.1 CAT S71022 Unclassified. Homo sapiens
+49
+>Homo 196 47196 S72396.1 CAT S72396 Unclassified. Homo sapiens
+47
+>Homo 299 150299 S72422.1 CAT S72422 Unclassified. Homo sapiens
+150
+>Homo 164 15164 S72666.1 CAT S72666 Unclassified. Homo sapiens
+15
+>Homo 299 150299 S72904.1 CAT S72904 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S73205.1 CAT S73205 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S73498.1 CAT S73498 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S73591.1 CAT S73591 Unclassified. Homo sapiens
+150
+>Homo 217 68217 S73813.1 CAT S73813 Unclassified. Homo sapiens
+68
+>Homo 299 150299 S73885.1 CAT S73885 Unclassified. Homo sapiens
+150
+>Homo 189 40189 S74221.1 CAT S74221 Unclassified. Homo sapiens
+40
+>Homo 299 150299 S74703.1 CAT S74703 Unclassified. Homo sapiens
+150
+>Homo 204 55204 S74728.1 CAT S74728 Unclassified. Homo sapiens
+55
+>Homo 215 66215 S74936.1 CAT S74936 Unclassified. Homo sapiens
+66
+>Homo 230 81230 S75037.1 CAT S75037 Unclassified. Homo sapiens
+81
+>Homo 185 36185 S75313.1 CAT S75313 Unclassified. Homo sapiens
+36
+>Homo 299 150299 S75654.1 CAT S75654 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S76853.1 CAT S76853 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S77154.1 CAT S77154 Unclassified. Homo sapiens
+150
+>Homo 250 101250 S78234.1 CAT S78234 Unclassified. Homo sapiens
+101
+>Homo 183 34183 S78271.1 CAT S78271 Unclassified. Homo sapiens
+34
+>Homo 299 150299 S78653.1 CAT S78653 Unclassified. Homo sapiens
+150
+>Homo 299 150299 S79639.1 CAT S79639 Unclassified. Homo sapiens
+150
+>Homo 177 28177 S80343.1 CAT S80343 Unclassified. Homo sapiens
+28
+>X65644 165 16 Homo. Homo sapiens
+16
+>U01147 259 110 Homo. Homo sapiens
+110
+>U01160 252 103 Homo. Homo sapiens
+103
+>U01351 299 150 Homo. Homo sapiens
+150
+>U38980 299 150 Homo. Homo sapiens
+150
+>M27008 182 33 Mus. Mus musculus
+33
+>X54352 273 124 Mus. Mus musculus domesticus
+124
+>U03458 299 150 Mus. Mus musculus
+150
+>Z30174 293 144 Mus. Mus musculus domesticus
+144
+>X67702 212 63 Mus. Mus musculus
+63
+>X83202 277 128 Mus. Mus musculus
+128
+>X89998 162 13 Mus. Mus musculus
+13
+>X14607 172 23 Mus. Mus musculus
+23
+>Z11597 299 150 Mus. Mus musculus
+150
+>X72230 299 150 Mus. Mus musculus
+150
+>X79283 297 148 Mus. Mus musculus
+148
+>X69867 299 150 Mus. Mus musculus
+150
+>X15830 228 79 Mus. Mus musculus
+79
+>X65582 171 22 Mus. Mus musculus
+22
+>X75926 299 150 Mus. Mus musculus
+150
+>X14972 299 150 Mus. Mus musculus
+150
+>X54424 299 150 Mus. Mus musculus
+150
+>X80478 299 150 Mus. Mus musculus
+150
+>X87142 299 150 Mus. Mus musculus
+150
+>Z48670 299 150 Mus. Mus musculus
+150
+>X03796 210 61 Mus. Mus musculus
+61
+>Z23143 299 150 Mus. Mus musculus
+150
+>X69618 173 24 Mus. Mus musculus
+24
+>X52685 299 150 Mus. Mus musculus
+150
+>X70847 237 88 Mus. Mus musculus
+88
+>X78197 299 150 Mus. Mus musculus
+150
+>U17291 185 36 Mus. Mus musculus
+36
+>X15267 223 74 Mus. Mus musculus
+74
+>Z14252 268 119 Mus. Mus musculus
+119
+>X12822 168 19 Mus. Mus musculus
+19
+>X15643 299 150 Mus. Mus musculus
+150
+>X01838 202 53 Mus. Mus musculus
+53
+>X78682 191 42 Mus. Mus musculus
+42
+>X55573 227 78 Mus. Mus musculus
+78
+>X78987 209 60 Mus. Mus musculus
+60
+>X56848 299 150 Mus. Mus musculus
+150
+>X13586 170 21 Mus. Mus musculus
+21
+>X69676 299 150 Mus. Mus musculus
+150
+>X63509 168 19 Mus. Mus musculus
+19
+>X70533 204 55 Mus. Mus musculus
+55
+>X80899 176 27 Mus. Mus musculus
+27
+>Z31553 206 57 Mus. Mus musculus
+57
+>Z31555 248 99 Mus. Mus musculus
+99
+>Z31556 250 101 Mus. Mus musculus
+101
+>X15036 162 13 Mus. Mus musculus
+13
+>X58995 195 46 Mus. Mus musculus
+46
+>X17373 299 150 Mus. Mus musculus
+150
+>X67083 224 75 Mus. Mus musculus
+75
+>X65997 299 150 Mus. Mus musculus
+150
+>X01023 299 150 Mus. Mus musculus
+150
+>X98171 299 150 Mus. Mus musculus
+150
+>X53157 162 13 Mus. Mus musculus
+13
+>X81650 261 112 Mus. Mus musculus
+112
+>X05719 207 58 Mus. Mus musculus
+58
+>X75013 299 150 Mus. Mus musculus
+150
+>X00479 210 61 Mus. Mus musculus
+61
+>X84311 261 112 Mus. Mus musculus
+112
+>X64713 225 76 Mus. Mus musculus
+76
+>X75888 188 39 Mus. Mus musculus
+39
+>X63023 233 84 Mus. Mus musculus
+84
+>X61448 299 150 Mus. Mus musculus
+150
+>V00734 261 112 Mus. Mus musculus
+112
+>Z38011 264 115 Mus. Mus musculus
+115
+>X14805 299 150 Mus. Mus musculus
+150
+>X72310 204 55 Mus. Mus musculus
+55
+>X58384 267 118 Mus. Mus musculus
+118
+>X61450 299 150 Mus. Mus musculus
+150
+>X00951 299 150 Mus. Mus musculus
+150
+>X12507 185 36 Mus. Mus musculus
+36
+>X77952 299 150 Mus. Mus musculus
+150
+>X73360 299 150 Mus. Mus musculus
+150
+>X54239 299 150 Mus. Mus musculus
+150
+>X61451 231 82 Mus. Mus musculus
+82
+>V00743 190 41 Mus. Mus musculus
+41
+>X59927 254 105 Mus. Mus musculus
+105
+>X06368 225 76 Mus. Mus musculus
+76
+>Z67963 299 150 Mus. Mus musculus
+150
+>X95280 282 133 Mus. Mus musculus
+133
+>Z49976 269 120 Mus. Mus musculus
+120
+>X76989 251 102 Mus. Mus musculus
+102
+>X04699 179 30 Mus. Mus musculus
+30
+>X55123 299 150 Mus. Mus musculus
+150
+>Z36270 262 113 Mus. Mus musculus
+113
+>X04435 168 19 Mus. Mus musculus
+19
+>X05402 185 36 Mus. Mus musculus
+36
+>X71642 170 21 Mus. Mus musculus
+21
+>X02801 199 50 Mus. Mus musculus
+50
+>X65603 208 59 Mus. Mus musculus
+59
+>X65021 162 13 Mus. Mus musculus
+13
+>X76295 299 150 Mus. Mus musculus
+150
+>X03019 182 33 Mus. Mus musculus
+33
+>X75885 299 150 Mus. Mus musculus
+150
+>Z11911 201 52 Mus. Mus musculus
+52
+>X98096 299 150 Mus. Mus musculus
+150
+>X80502 224 75 Mus. Mus musculus
+75
+>X66901 299 150 Mus. Mus musculus
+150
+>X83506 299 150 Mus. Mus musculus
+150
+>X58196 299 150 Mus. Mus musculus
+150
+>X58196 299 150 Mus. Mus musculus
+150
+>Z19543 252 103 Mus. Mus musculus
+103
+>X61452 185 36 Mus. Mus musculus
+36
+>Z32675 190 41 Mus. Mus musculus
+41
+>X65627 299 150 Mus. Mus musculus
+150
+>X14961 171 22 Mus. Mus musculus
+22
+>X12944 189 40 Mus. Mus musculus
+40
+>X07888 172 23 Mus. Mus musculus
+23
+>X00349 218 69 Mus. Mus musculus
+69
+>Y00208 223 74 Mus. Mus musculus
+74
+>X06762 299 150 Mus. Mus musculus
+150
+>X53063 244 95 Mus. Mus musculus
+95
+>X07646 299 150 Mus. Mus musculus
+150
+>X59251 272 123 Mus. Mus musculus
+123
+>X61754 299 150 Mus. Mus musculus
+150
+>X60676 299 150 Mus. Mus musculus
+150
+>X55023 167 18 Mus. Mus musculus
+18
+>X56046 267 118 Mus. Mus musculus
+118
+>X56044 299 150 Mus. Mus musculus
+150
+>X58426 168 19 Mus. Mus musculus
+19
+>X16511 277 128 Mus. Mus musculus
+128
+>X61497 228 79 Mus. Mus musculus
+79
+>X16671 299 150 Mus. Mus musculus
+150
+>X87638 299 150 Mus. Mus musculus
+150
+>X04120 299 150 Mus. Mus musculus
+150
+>X62379 299 150 Mus. Mus musculus
+150
+>X78107 160 0 Mus. Mus musculus
+0
+>X04769 288 139 Mus. Mus musculus
+139
+>X07129 228 79 Mus. Mus musculus
+79
+>X85999 284 135 Mus. Mus musculus
+135
+>X06270 193 44 Mus. Mus musculus
+44
+>X67493 299 150 Mus. Mus musculus
+150
+>Z46966 195 46 Mus. Mus musculus
+46
+>Y00848 299 150 Mus. Mus musculus
+150
+>X74342 299 150 Mus. Mus musculus
+150
+>X58523 291 142 Mus. Mus musculus
+142
+>X69722 299 150 Mus. Mus musculus
+150
+>X60457 228 79 Mus. Mus musculus
+79
+>X97281 299 150 Mus. Mus musculus
+150
+>X83577 299 150 Mus. Mus musculus
+150
+>X58472 174 25 Mus. Mus musculus
+25
+>X79083 299 150 Mus. Mus musculus
+150
+>X06746 299 150 Mus. Mus musculus
+150
+>X80699 197 48 Mus. Mus musculus
+48
+>X84013 212 63 Mus. Mus musculus
+63
+>X98113 299 150 Mus. Mus musculus
+150
+>X07486 163 14 Mus. Mus musculus
+14
+>X53599 299 150 Mus. Mus musculus
+150
+>X04752 204 55 Mus. Mus musculus
+55
+>X58636 299 150 Mus. Mus musculus
+150
+>X59849 299 150 Mus. Mus musculus
+150
+>X60271 299 150 Mus. Mus musculus
+150
+>X07698 199 50 Mus. Mus musculus
+50
+>Y00157 299 150 Mus. Mus musculus
+150
+>X62537 297 148 Mus. Mus musculus
+148
+>X16834 193 44 Mus. Mus musculus
+44
+>X68273 241 92 Mus. Mus musculus
+92
+>X16625 299 150 Mus. Mus musculus
+150
+>Z11974 249 100 Mus. Mus musculus
+100
+>X93038 237 88 Mus. Mus musculus
+88
+>X64449 169 20 Mus. Mus musculus
+20
+>X58876 299 150 Mus. Mus musculus
+150
+>X51829 299 150 Mus. Mus musculus
+150
+>X64455 247 98 Mus. Mus musculus
+98
+>X06086 218 69 Mus. Mus musculus
+69
+>X92499 180 31 Mus. Mus musculus
+31
+>Z23066 279 130 Mus. Mus musculus
+130
+>X52574 299 150 Mus. Mus musculus
+150
+>Z15103 299 150 Mus. Mus musculus
+150
+>X06246 227 78 Mus. Mus musculus
+78
+>X58287 299 150 Mus. Mus musculus
+150
+>X71629 230 81 Mus. Mus musculus
+81
+>X13335 167 18 Mus. Mus musculus
+18
+>X65635 164 15 Mus. Mus musculus
+15
+>Z35294 299 150 Mus. Mus musculus
+150
+>X51397 259 110 Mus. Mus musculus
+110
+>X86000 299 150 Mus. Mus musculus
+150
+>X83562 225 76 Mus. Mus musculus
+76
+>X75330 299 150 Mus. Mus musculus
+150
+>X92397 299 150 Mus. Mus musculus
+150
+>X96585 194 45 Mus. Mus musculus
+45
+>X77241 229 80 Mus. Mus musculus
+80
+>Z18857 185 36 Mus. Mus musculus
+36
+>X64837 264 115 Mus. Mus musculus
+115
+>Z18537 225 76 Mus. Mus musculus
+76
+>X07392 175 26 Mus. Mus musculus
+26
+>X52634 299 150 Mus. Mus musculus
+150
+>Z17804 299 150 Mus. Mus musculus
+150
+>X52102 226 77 Mus. Mus musculus
+77
+>X15373 299 150 Mus. Mus musculus
+150
+>X66323 177 28 Mus. Mus musculus
+28
+>X75959 299 150 Mus. Mus musculus
+150
+>X57800 293 144 Mus. Mus musculus
+144
+>X17320 165 16 Mus. Mus musculus
+16
+>X67914 213 64 Mus. Mus musculus
+64
+>X04367 288 139 Mus. Mus musculus
+139
+>X12807 299 150 Mus. Mus musculus
+150
+>X51942 197 48 Mus. Mus musculus
+48
+>X76858 299 150 Mus. Mus musculus
+150
+>X65981 215 66 Mus. Mus musculus
+66
+>X57638 299 150 Mus. Mus musculus
+150
+>Z47352 299 150 Mus. Mus musculus
+150
+>Z47352 299 150 Mus. Mus musculus
+150
+>X14425 209 60 Mus. Mus musculus
+60
+>U49853 168 19 Mus. Mus musculus
+19
+>Z11981 172 23 Mus. Mus musculus
+23
+>X65026 299 150 Mus. Mus musculus
+150
+>X80169 299 150 Mus. Mus musculus
+150
+>X56565 299 150 Mus. Mus musculus
+150
+>X15848 299 150 Mus. Mus musculus
+150
+>X70067 299 150 Mus. Mus musculus
+150
+>X14770 299 150 Mus. Mus musculus
+150
+>X76654 299 150 Mus. Mus musculus
+150
+>X75285 200 51 Mus. Mus musculus
+51
+>X64550 299 150 Mus. Mus musculus
+150
+>X60103 173 24 Mus. Mus musculus
+24
+>X85983 275 126 Mus. Mus musculus
+126
+>X86405 264 115 Mus. Mus musculus
+115
+>X86073 202 53 Mus. Mus musculus
+53
+>X74856 220 71 Mus. Mus musculus
+71
+>X89222 198 49 Mus. Mus musculus
+49
+>X80937 299 150 Mus. Mus musculus
+150
+>X85991 215 66 Mus. Mus musculus
+66
+>X85994 290 141 Mus. Mus musculus
+141
+>X86374 185 36 Mus. Mus musculus
+36
+>X74736 299 150 Mus. Mus musculus
+150
+>X66223 299 150 Mus. Mus musculus
+150
+>X83733 299 150 Mus. Mus musculus
+150
+>X65138 207 58 Mus. Mus musculus
+58
+>X91270 171 22 Mus. Mus musculus
+22
+>U02982 299 150 Mus. Mus musculus
+150
+>X94479 299 150 Mus. Mus musculus
+150
+>Z19580 299 150 Mus. Mus musculus
+150
+>Z68618 161 12 Mus. Mus musculus
+12
+>X63730 257 108 Mus. Mus musculus
+108
+>X96767 181 32 Mus. Mus musculus
+32
+>Z11574 187 38 Mus. Mus musculus
+38
+>X14799 182 33 Mus. Mus musculus
+33
+>X84692 254 105 Mus. Mus musculus
+105
+>X95279 299 150 Mus. Mus musculus
+150
+>Z14224 299 150 Mus. Mus musculus
+150
+>X16319 299 150 Mus. Mus musculus
+150
+>X78304 243 94 Mus. Mus musculus
+94
+>X60184 271 122 Mus. Mus musculus
+122
+>Z48781 299 150 Mus. Mus musculus
+150
+>X74504 199 50 Mus. Mus musculus
+50
+>X06143 165 16 Mus. Mus musculus
+16
+>X56123 299 150 Mus. Mus musculus
+150
+>X81987 177 28 Mus. Mus musculus
+28
+>X00620 217 68 Mus. Mus musculus
+68
+>X03668 299 150 Mus. Mus musculus
+150
+>X03671 299 150 Mus. Mus musculus
+150
+>X03670 299 150 Mus. Mus musculus
+150
+>Y00635 289 140 Mus. Mus musculus
+140
+>X05187 299 150 Mus. Mus musculus
+150
+>X55663 299 150 Mus. Mus musculus
+150
+>X81058 184 35 Mus. Mus musculus
+35
+>X81059 204 55 Mus. Mus musculus
+55
+>X78990 299 150 Mus. Mus musculus
+150
+>X14045 165 16 Mus. Mus musculus
+16
+>X14432 299 150 Mus. Mus musculus
+150
+>X71426 236 87 Mus. Mus musculus
+87
+>X14678 299 150 Mus. Mus musculus
+150
+>X52128 221 72 Mus. Mus musculus domesticus
+72
+>X60703 223 74 Mus. Mus musculus
+74
+>X81323 233 84 Mus. Mus musculus
+84
+>X17068 272 123 Mus. Mus musculus
+123
+>X81464 216 67 Mus. Mus musculus
+67
+>X04601 248 99 Mus. Mus musculus
+99
+>X04574 166 17 Mus. Mus musculus
+17
+>X59387 210 61 Mus. Mus musculus
+61
+>X76505 299 150 Mus. Mus musculus
+150
+>U01063 177 28 Mus. Mus musculus
+28
+>U02079 220 71 Mus. Mus musculus
+71
+>U02313 265 116 Mus. Mus musculus
+116
+>U02599 174 25 Mus. Mus musculus
+25
+>U02887 273 124 Mus. Mus musculus
+124
+>U03421 198 49 Mus. Mus musculus
+49
+>U03434 232 83 Mus. Mus musculus
+83
+>U03645 299 150 Mus. Mus musculus
+150
+>U03873 299 150 Mus. Mus musculus
+150
+>U04269 186 37 Mus. Mus musculus
+37
+>U04294 263 114 Mus. Mus musculus
+114
+>U04674 209 60 Mus. Mus musculus
+60
+>U05245 299 150 Mus. Mus musculus
+150
+>U05252 299 150 Mus. Mus musculus
+150
+>U07157 187 38 Mus. Mus musculus
+38
+>U07662 264 115 Mus. Mus musculus
+115
+>U08095 189 40 Mus. Mus musculus
+40
+>U08110 185 36 Mus. Mus musculus
+36
+>U08185 299 150 Mus. Mus musculus
+150
+>U08188 299 150 Mus. Mus musculus domesticus
+150
+>U08354 178 29 Mus. Mus musculus
+29
+>U09114 170 21 Mus. Mus musculus
+21
+>U09218 242 93 Mus. Mus musculus
+93
+>U09399 232 83 Mus. Mus musculus
+83
+>U09507 299 150 Mus. Mus musculus
+150
+>U09563 299 150 Mus. Mus musculus
+150
+>U09741 185 36 Mus. Mus musculus
+36
+>U09874 195 46 Mus. Mus musculus
+46
+>U10090 217 68 Mus. Mus musculus
+68
+>U10119 299 150 Mus. Mus musculus
+150
+>U10120 183 34 Mus. Mus musculus
+34
+>U10341 270 121 Mus. Mus musculus
+121
+>U10355 299 150 Mus. Mus musculus
+150
+>U10406 197 48 Mus. Mus musculus
+48
+>U10420 179 30 Mus. Mus musculus
+30
+>U10440 299 150 Mus. Mus musculus
+150
+>U10484 299 150 Mus. Mus musculus
+150
+>U10532 299 150 Mus. Mus musculus
+150
+>U11548 299 150 Mus. Mus musculus
+150
+>U11688 216 67 Mus. Mus musculus
+67
+>U12142 299 150 Mus. Mus musculus
+150
+>U12147 204 55 Mus. Mus musculus
+55
+>U12236 197 48 Mus. Mus musculus
+48
+>U12273 299 150 Mus. Mus musculus
+150
+>U13053 270 121 Mus. Mus musculus
+121
+>U13263 243 94 Mus. Mus musculus
+94
+>U13393 219 70 Mus. Mus musculus
+70
+>U13649 174 25 Mus. Mus musculus
+25
+>U14332 299 150 Mus. Mus musculus
+150
+>U14390 263 114 Mus. Mus musculus
+114
+>U15208 299 150 Mus. Mus musculus
+150
+>U15209 299 150 Mus. Mus musculus
+150
+>U16216 299 150 Mus. Mus musculus
+150
+>U16321 240 11 Mus. Mus musculus
+11
+>U16818 278 129 Mus. Mus musculus
+129
+>U16959 299 150 Mus. Mus musculus
+150
+>U17095 238 89 Mus. Mus musculus
+89
+>U17259 299 150 Mus. Mus musculus
+150
+>U17297 240 11 Mus. Mus musculus
+11
+>U17698 207 58 Mus. Mus musculus
+58
+>U17961 261 112 Mus. Mus musculus
+112
+>U18119 299 150 Mus. Mus musculus
+150
+>U18343 299 150 Mus. Mus musculus
+150
+>U18424 299 150 Mus. Mus musculus
+150
+>U18869 299 150 Mus. Mus musculus
+150
+>U18992 197 48 Mus. Mus musculus
+48
+>U19031 299 150 Mus. Mus musculus
+150
+>U19033 291 142 Mus. Mus musculus
+142
+>U19118 299 150 Mus. Mus musculus
+150
+>U19119 299 150 Mus. Mus musculus
+150
+>U19521 299 150 Mus. Mus musculus
+150
+>U19596 228 79 Mus. Mus musculus
+79
+>U19597 283 134 Mus. Mus musculus
+134
+>U19617 299 150 Mus. Mus musculus
+150
+>U19799 223 74 Mus. Mus musculus
+74
+>U19825 299 150 Mus. Mus musculus
+150
+>U19859 299 150 Mus. Mus musculus
+150
+>U19860 280 131 Mus. Mus musculus
+131
+>U20159 299 150 Mus. Mus musculus
+150
+>U20238 275 126 Mus. Mus musculus
+126
+>U20344 299 150 Mus. Mus musculus
+150
+>U20372 206 57 Mus. Mus musculus
+57
+>U20532 299 150 Mus. Mus musculus
+150
+>U20612 187 38 Mus. Mus musculus
+38
+>U21050 299 150 Mus. Mus musculus
+150
+>U21226 299 150 Mus. Mus musculus
+150
+>U21674 268 119 Mus. Mus musculus
+119
+>U21855 189 40 Mus. Mus musculus
+40
+>U22059 189 40 Mus. Mus musculus
+40
+>U22151 166 17 Mus. Mus musculus
+17
+>U22518 198 49 Mus. Mus musculus
+49
+>U24493 172 23 Mus. Mus musculus
+23
+>U25416 213 64 Mus. Mus musculus
+64
+>U25691 189 40 Mus. Mus musculus
+40
+>U25739 197 48 Mus. Mus musculus
+48
+>U25995 201 52 Mus. Mus musculus
+52
+>U26452 299 150 Mus. Mus musculus
+150
+>U26589 176 27 Mus. Mus musculus
+27
+>U26707 162 13 Mus. Mus musculus
+13
+>U26915 299 150 Mus. Mus musculus
+150
+>U27195 186 37 Mus. Mus musculus
+37
+>U27267 215 66 Mus. Mus musculus
+66
+>U27830 205 56 Mus. Mus musculus
+56
+>U28016 251 102 Mus. Mus musculus
+102
+>U28151 210 61 Mus. Mus musculus
+61
+>U28216 299 150 Mus. Mus musculus
+150
+>U28724 299 150 Mus. Mus musculus
+150
+>U29088 299 150 Mus. Mus musculus
+150
+>U29762 299 150 Mus. Mus musculus domesticus
+150
+>U30823 235 86 Mus. Mus musculus domesticus
+86
+>U30839 227 78 Mus. Mus musculus
+78
+>U31992 214 65 Mus. Mus musculus
+65
+>U32170 165 16 Mus. Mus musculus
+16
+>U32332 299 150 Mus. Mus musculus
+150
+>U32614 299 150 Mus. Mus musculus
+150
+>U33005 299 150 Mus. Mus musculus
+150
+>U33012 234 85 Mus. Mus musculus
+85
+>U33198 299 150 Mus. Mus musculus
+150
+>U33457 299 150 Mus. Mus musculus
+150
+>U33629 299 150 Mus. Mus musculus
+150
+>U34259 285 136 Mus. Mus musculus
+136
+>U34272 299 150 Mus. Mus musculus
+150
+>U34293 299 150 Mus. Mus musculus
+150
+>U34920 229 80 Mus. Mus musculus
+80
+>U34973 299 150 Mus. Mus musculus
+150
+>U35142 299 150 Mus. Mus musculus
+150
+>U35312 266 117 Mus. Mus musculus
+117
+>U35665 299 150 Mus. Mus musculus
+150
+>U35730 299 150 Mus. Mus musculus
+150
+>U35741 164 15 Mus. Mus musculus
+15
+>U35836 160 0 Mus. Mus musculus
+0
+>U35885 299 150 Mus. Mus musculus
+150
+>U36384 299 150 Mus. Mus musculus
+150
+>U36760 299 150 Mus. Mus musculus
+150
+>U36778 299 150 Mus. Mus musculus
+150
+>U36788 205 56 Mus. Mus musculus
+56
+>U37222 195 46 Mus. Mus musculus
+46
+>U37253 299 150 Mus. Mus musculus
+150
+>U37351 260 111 Mus. Mus musculus
+111
+>U37467 299 150 Mus. Mus musculus
+150
+>U37531 251 102 Mus. Mus musculus
+102
+>U37543 299 150 Mus. Mus musculus
+150
+>U37709 298 149 Mus. Mus musculus
+149
+>U38940 248 99 Mus. Mus musculus
+99
+>U38981 299 150 Mus. Mus musculus
+150
+>U39473 235 86 Mus. Mus musculus
+86
+>U39643 299 150 Mus. Mus musculus
+150
+>U39827 299 150 Mus. Mus musculus
+150
+>U39904 299 150 Mus. Mus musculus
+150
+>U40189 299 150 Mus. Mus musculus
+150
+>U40720 299 150 Mus. Mus musculus
+150
+>U41626 196 47 Mus. Mus musculus
+47
+>U41636 299 150 Mus. Mus musculus
+150
+>U41751 233 84 Mus. Mus musculus
+84
+>U41764 299 150 Mus. Mus musculus
+150
+>U42190 299 150 Mus. Mus musculus
+150
+>U42383 235 86 Mus. Mus musculus
+86
+>U42384 299 150 Mus. Mus musculus
+150
+>U42386 299 150 Mus. Mus musculus
+150
+>U43298 299 150 Mus. Mus musculus
+150
+>U43319 295 146 Mus. Mus musculus
+146
+>U43321 299 150 Mus. Mus musculus
+150
+>U43673 299 150 Mus. Mus musculus
+150
+>U43788 245 96 Mus. Mus musculus
+96
+>U43921 201 52 Mus. Mus musculus
+52
+>U44940 299 150 Mus. Mus musculus
+150
+>U45978 299 150 Mus. Mus musculus
+150
+>U45980 270 121 Mus. Mus musculus
+121
+>U46135 210 61 Mus. Mus musculus
+61
+>U46956 289 140 Mus. Mus musculus
+140
+>U47024 287 138 Mus. Mus musculus
+138
+>U47281 237 88 Mus. Mus musculus
+88
+>U47543 299 150 Mus. Mus musculus
+150
+>U48419 299 150 Mus. Mus musculus
+150
+>U48797 299 150 Mus. Mus musculus
+150
+>U48830 299 150 Mus. Mus musculus
+150
+>U49185 299 150 Mus. Mus musculus
+150
+>U49251 245 96 Mus. Mus musculus
+96
+>U49739 299 150 Mus. Mus musculus
+150
+>U50406 161 12 Mus. Mus musculus
+12
+>U50631 299 150 Mus. Mus musculus
+150
+>U50715 161 12 Mus. Mus musculus
+12
+>U51014 204 55 Mus. Mus musculus
+55
+>U51167 173 24 Mus. Mus musculus
+24
+>U51196 216 67 Mus. Mus musculus
+67
+>U51717 241 92 Mus. Mus musculus
+92
+>U51907 249 100 Mus. Mus musculus
+100
+>U52869 163 14 Mus. Mus musculus
+14
+>U52945 210 61 Mus. Mus musculus
+61
+>U52951 284 135 Mus. Mus musculus
+135
+>U53208 218 69 Mus. Mus musculus
+69
+>U53584 299 150 Mus. Mus musculus
+150
+>U54638 299 150 Mus. Mus musculus
+150
+>U55772 207 58 Mus. Mus musculus
+58
+>X92664 299 150 Mus. Mus musculus
+150
+>X92665 299 150 Mus. Mus musculus
+150
+>X60831 199 50 Mus. Mus musculus
+50
+>X02389 208 59 Mus. Mus musculus
+59
+>X64361 163 14 Mus. Mus musculus
+14
+>X67783 165 16 Mus. Mus musculus
+16
+>X83930 192 43 Mus. Mus musculus
+43
+>X55984 299 150 Mus. Mus musculus
+150
+>X63003 212 63 Mus. Mus musculus
+63
+>Z29987 262 113 Mus. Mus musculus
+113
+>X56842 277 128 Mus. Mus musculus
+128
+>X53824 211 62 Mus. Mus musculus
+62
+>X07967 216 67 Mus. Mus musculus
+67
+>X05260 299 150 Mus. Mus musculus
+150
+>X17617 299 150 Mus. Mus musculus
+150
+>X63747 299 150 Mus. Mus musculus
+150
+>X60551 191 42 Mus. Mus musculus
+42
+>D16262 299 150 Mus. Mus musculus domesticus
+150
+>M32486 204 55 Mus. Mus musculus
+55
+>M33863 185 36 Mus. Mus musculus
+36
+>L10382 299 150 Mus. Mus musculus
+150
+>L19057 276 127 Mus. Mus musculus
+127
+>L14543 206 57 Mus. Mus musculus
+57
+>D13208 177 28 Mus. Mus musculus
+28
+>D38162 299 150 Mus. Mus musculus
+150
+>L00979 299 150 Mus. Mus musculus
+150
+>L42293 198 49 Mus. Mus musculus
+49
+>L42996 164 15 Mus. Mus musculus
+15
+>M28383 299 150 Mus. Mus musculus
+150
+>M29379 270 121 Mus. Mus musculus
+121
+>M99623 299 150 Mus. Mus musculus
+150
+>M75721 183 34 Mus. Mus musculus
+34
+>M63244 204 55 Mus. Mus musculus
+55
+>L48015 299 150 Mus. Mus musculus
+150
+>L41352 230 81 Mus. Mus musculus
+81
+>L40631 299 150 Mus. Mus musculus
+150
+>L13129 192 43 Mus. Mus musculus
+43
+>J04634 299 150 Mus. Mus musculus
+150
+>M29961 237 88 Mus. Mus musculus
+88
+>M25149 299 150 Mus. Mus musculus
+150
+>D00466 214 65 Mus. Mus musculus
+65
+>M14680 299 150 Mus. Mus musculus
+150
+>L76092 192 43 Mus. Mus musculus
+43
+>J02623 204 55 Mus. Mus musculus
+55
+>J04036 299 150 Mus. Mus musculus
+150
+>D16220 213 64 Mus. Mus musculus
+64
+>L25606 248 99 Mus. Mus musculus
+99
+>L24118 255 106 Mus. Mus musculus
+106
+>D63520 299 150 Mus. Mus musculus
+150
+>L37296 299 150 Mus. Mus musculus
+150
+>M90364 247 98 Mus. Mus musculus
+98
+>M16506 299 150 Mus. Mus musculus
+150
+>L35049 299 150 Mus. Mus musculus
+150
+>D16106 299 150 Mus. Mus musculus
+150
+>M64279 299 150 Mus. Mus musculus
+150
+>J03750 192 43 Mus. Mus musculus
+43
+>L31395 167 18 Mus. Mus musculus
+18
+>L36132 299 150 Mus. Mus musculus
+150
+>L16846 299 150 Mus. Mus musculus
+150
+>L29788 282 133 Mus. Mus musculus
+133
+>K02782 205 56 Mus. Mus musculus
+56
+>L05630 295 146 Mus. Mus musculus
+146
+>M35525 163 14 Mus. Mus musculus
+14
+>L06234 266 117 Mus. Mus musculus
+117
+>D10071 172 23 Mus. Mus musculus
+23
+>L57509 256 107 Mus. Mus musculus
+107
+>M64266 299 150 Mus. Mus musculus
+150
+>L12367 214 65 Mus. Mus musculus
+65
+>D26123 186 37 Mus. Mus musculus
+37
+>M10114 186 37 Mus. Mus musculus
+37
+>J02809 292 143 Mus. Mus musculus
+143
+>M57890 260 111 Mus. Mus musculus
+111
+>L05573 299 150 Mus. Mus musculus
+150
+>M62542 160 0 Mus. Mus musculus
+0
+>M62541 299 150 Mus. Mus musculus
+150
+>L16928 170 21 Mus. Mus musculus
+21
+>L20899 299 150 Mus. Mus musculus
+150
+>D26090 234 85 Mus. Mus musculus
+85
+>D16313 299 150 Mus. Mus musculus
+150
+>L35307 299 150 Mus. Mus musculus
+150
+>M62404 164 15 Mus. Mus musculus
+15
+>D21826 250 101 Mus. Mus musculus
+101
+>D29639 203 54 Mus. Mus musculus
+54
+>L29468 281 132 Mus. Mus musculus
+132
+>J04695 286 137 Mus. Mus musculus
+137
+>L08407 160 0 Mus. Mus musculus
+0
+>D13759 274 125 Mus. Mus musculus
+125
+>M36470 216 67 Mus. Mus musculus
+67
+>M60285 180 31 Mus. Mus musculus
+31
+>M64278 299 150 Mus. Mus musculus
+150
+>M87321 299 150 Mus. Mus musculus
+150
+>M23529 299 150 Mus. Mus musculus
+150
+>L49507 299 150 Mus. Mus musculus
+150
+>M60456 190 41 Mus. Mus musculus
+41
+>L16894 299 150 Mus. Mus musculus
+150
+>D17571 202 53 Mus. Mus musculus
+53
+>D50263 217 68 Mus. Mus musculus
+68
+>D44443 179 30 Mus. Mus musculus
+30
+>D13139 299 150 Mus. Mus musculus
+150
+>D13546 299 150 Mus. Mus musculus
+150
+>D13545 294 145 Mus. Mus musculus
+145
+>D28529 299 150 Mus. Mus musculus
+150
+>L31580 299 150 Mus. Mus musculus
+150
+>L11316 299 150 Mus. Mus musculus
+150
+>M76175 299 150 Mus. Mus musculus
+150
+>J00380 299 150 Mus. Mus musculus
+150
+>M61731 169 20 Mus. Mus musculus
+20
+>M97200 197 48 Mus. Mus musculus
+48
+>D10475 299 150 Mus. Mus musculus
+150
+>D78353 277 128 Mus. Mus musculus
+128
+>L21671 299 150 Mus. Mus musculus
+150
+>M22115 230 81 Mus. Mus musculus
+81
+>M33884 231 82 Mus. Mus musculus
+82
+>D42048 299 150 Mus. Mus musculus
+150
+>M86377 187 38 Mus. Mus musculus
+38
+>L10426 299 150 Mus. Mus musculus
+150
+>L10427 172 23 Mus. Mus musculus
+23
+>M34897 299 150 Mus. Mus musculus
+150
+>L33726 228 79 Mus. Mus musculus
+79
+>M64817 299 150 Mus. Mus musculus
+150
+>J05018 189 40 Mus. Mus musculus
+40
+>M32054 299 150 Mus. Mus musculus
+150
+>D38258 232 83 Mus. Mus musculus
+83
+>L23971 273 124 Mus. Mus musculus
+124
+>M77003 299 150 Mus. Mus musculus
+150
+>M74517 281 132 Mus. Mus musculus
+132
+>M55253 196 47 Mus. Mus musculus
+47
+>U00937 299 150 Mus. Mus musculus
+150
+>M96265 281 132 Mus. Mus musculus
+132
+>M60978 177 28 Mus. Mus musculus
+28
+>M21828 299 150 Mus. Mus musculus
+150
+>M58288 299 150 Mus. Mus musculus
+150
+>L38677 299 150 Mus. Mus musculus
+150
+>L06444 178 29 Mus. Mus musculus
+29
+>M14951 181 32 Mus. Mus musculus
+32
+>M73815 299 150 Mus. Mus musculus
+150
+>M72332 273 124 Mus. Mus musculus
+124
+>M80632 192 43 Mus. Mus musculus
+43
+>L07924 299 150 Mus. Mus musculus
+150
+>L07507 299 150 Mus. Mus musculus
+150
+>M83336 238 89 Mus. Mus musculus
+89
+>D29802 248 99 Mus. Mus musculus
+99
+>J03535 299 150 Mus. Mus musculus
+150
+>L17305 217 68 Mus. Mus musculus
+68
+>M94450 299 150 Mus. Mus musculus
+150
+>D10171 212 63 Mus. Mus musculus
+63
+>L01119 195 46 Mus. Mus musculus
+46
+>M61000 299 150 Mus. Mus musculus
+150
+>M63630 259 110 Mus. Mus musculus
+110
+>D11374 299 150 Mus. Mus musculus
+150
+>L20294 234 85 Mus. Mus musculus
+85
+>D17653 171 22 Mus. Mus musculus
+22
+>D63707 211 62 Mus. Mus musculus
+62
+>L25125 247 98 Mus. Mus musculus
+98
+>M30499 264 115 Mus. Mus musculus
+115
+>D16464 299 150 Mus. Mus musculus
+150
+>M75953 214 65 Mus. Mus musculus
+65
+>M74555 237 88 Mus. Mus musculus
+88
+>L07107 183 34 Mus. Mus musculus
+34
+>J00423 237 88 Mus. Mus musculus
+88
+>D50050 192 43 Mus. Mus musculus
+43
+>D67016 203 54 Mus. Mus musculus wagneri
+54
+>L07577 208 59 Mus. Mus musculus
+59
+>L38847 299 150 Mus. Mus musculus
+150
+>L42115 299 150 Mus. Mus musculus
+150
+>M69109 220 71 Mus. Mus musculus
+71
+>M73818 299 150 Mus. Mus musculus
+150
+>L20232 213 64 Mus. Mus musculus
+64
+>L07921 170 21 Mus. Mus musculus
+21
+>L36539 245 96 Mus. Mus musculus
+96
+>M55290 299 150 Mus. Mus musculus
+150
+>K00083 219 70 Mus. Mus musculus
+70
+>M28995 183 34 Mus. Mus musculus
+34
+>M90766 171 22 Mus. Mus musculus
+22
+>M34473 299 150 Mus. Mus musculus
+150
+>L03547 188 39 Mus. Mus musculus
+39
+>L12120 229 80 Mus. Mus musculus
+80
+>M57525 165 16 Mus. Mus musculus
+16
+>M20658 299 150 Mus. Mus musculus
+150
+>M27959 299 150 Mus. Mus musculus
+150
+>D90205 299 150 Mus. Mus musculus
+150
+>M29697 197 48 Mus. Mus musculus
+48
+>M33934 216 67 Mus. Mus musculus
+67
+>M31418 299 150 Mus. Mus musculus
+150
+>K02593 299 150 Mus. Mus musculus
+150
+>M80456 272 123 Mus. Mus musculus
+123
+>L35556 299 150 Mus. Mus musculus
+150
+>L23423 299 150 Mus. Mus musculus
+150
+>M95633 182 33 Mus. Mus musculus
+33
+>M33266 190 41 Mus. Mus musculus
+41
+>M98036 219 70 Mus. Mus musculus
+70
+>L11065 299 150 Mus. Mus musculus
+150
+>M65255 299 150 Mus. Mus musculus
+150
+>M76763 172 23 Mus. Mus musculus
+23
+>M55669 233 84 Mus. Mus musculus
+84
+>L27153 161 12 Mus. Mus musculus
+12
+>M15525 183 34 Mus. Mus musculus
+34
+>D16503 299 150 Mus. Mus musculus
+150
+>L15435 202 53 Mus. Mus musculus
+53
+>L34659 299 150 Mus. Mus musculus
+150
+>L11613 299 150 Mus. Mus musculus
+150
+>M81385 192 43 Mus. Mus musculus
+43
+>M36033 175 26 Mus. Mus musculus
+26
+>D49802 299 150 Mus. Mus musculus
+150
+>M74013 200 51 Mus. Mus musculus
+51
+>M84412 164 15 Mus. Mus musculus
+15
+>L22167 297 148 Mus. Mus musculus
+148
+>L32752 187 38 Mus. Mus musculus
+38
+>D29801 299 150 Mus. Mus musculus
+150
+>L35236 299 150 Mus. Mus musculus
+150
+>M68899 269 120 Mus. Mus musculus
+120
+>L36244 199 50 Mus. Mus musculus
+50
+>M94087 299 150 Mus. Mus musculus
+150
+>D44480 201 52 Mus. Mus musculus
+52
+>D38377 227 78 Mus. Mus musculus
+78
+>M15060 187 38 Mus. Mus musculus
+38
+>D26089 276 127 Mus. Mus musculus
+127
+>M29603 177 28 Mus. Mus musculus
+28
+>M29462 231 82 Mus. Mus musculus
+82
+>M20823 171 22 Mus. Mus musculus
+22
+>J03398 299 150 Mus. Mus musculus
+150
+>D14117 299 150 Mus. Mus musculus
+150
+>L13103 299 150 Mus. Mus musculus
+150
+>L29006 299 150 Mus. Mus musculus
+150
+>M74897 165 16 Mus. Mus musculus
+16
+>M28723 197 48 Mus. Mus musculus
+48
+>L39373 224 75 Mus. Mus musculus
+75
+>D16141 171 22 Mus. Mus musculus
+22
+>L76155 190 41 Mus. Mus musculus
+41
+>M55637 299 150 Mus. Mus musculus
+150
+>M17326 299 150 Mus. Mus musculus
+150
+>D21099 299 150 Mus. Mus musculus
+150
+>D14849 299 150 Mus. Mus musculus
+150
+>L17306 180 31 Mus. Mus musculus
+31
+>M69196 299 150 Mus. Mus musculus
+150
+>D13903 299 150 Mus. Mus musculus
+150
+>M36411 198 49 Mus. Mus musculus
+49
+>L36962 161 12 Mus. Mus musculus
+12
+>L37297 209 60 Mus. Mus musculus
+60
+>L31958 299 150 Mus. Mus musculus
+150
+>M16360 208 59 Mus. Mus musculus
+59
+>J03368 269 120 Mus. Mus musculus
+120
+>M16449 299 150 Mus. Mus musculus
+150
+>M63903 299 150 Mus. Mus musculus
+150
+>D12713 177 28 Mus. Mus musculus
+28
+>M33212 228 79 Mus. Mus musculus
+79
+>M88489 299 150 Mus. Mus musculus
+150
+>D76440 235 86 Mus. Mus musculus
+86
+>D10712 196 47 Mus. Mus musculus
+47
+>D10715 226 77 Mus. Mus musculus
+77
+>L22181 299 150 Mus. Mus musculus
+150
+>M77676 269 120 Mus. Mus musculus
+120
+>M84563 228 79 Mus. Mus musculus
+79
+>L25890 242 93 Mus. Mus musculus
+93
+>D63819 299 150 Mus. Mus musculus
+150
+>M34381 198 49 Mus. Mus musculus
+49
+>D84096 217 68 Mus. Mus musculus
+68
+>D31951 189 40 Mus. Mus musculus
+40
+>L49502 284 135 Mus. Mus musculus
+135
+>M64863 180 31 Mus. Mus musculus
+31
+>J04620 222 73 Mus. Mus musculus
+73
+>M60651 299 150 Mus. Mus musculus
+150
+>D50872 251 102 Mus. Mus musculus
+102
+>D21072 208 59 Mus. Mus musculus
+59
+>M95564 299 150 Mus. Mus musculus
+150
+>M21532 253 104 Mus. Mus musculus
+104
+>M60320 269 120 Mus. Mus musculus
+120
+>L01695 245 96 Mus. Mus musculus
+96
+>M29464 212 63 Mus. Mus musculus
+63
+>M84607 299 150 Mus. Mus musculus
+150
+>M76728 299 150 Mus. Mus musculus
+150
+>M32484 256 107 Mus. Mus musculus
+107
+>M12039 299 150 Mus. Mus musculus
+150
+>D50589 295 146 Mus. Mus musculus
+146
+>D16338 221 72 Mus. Mus musculus
+72
+>D30687 199 50 Mus. Mus musculus
+50
+>J02980 299 150 Mus. Mus musculus
+150
+>M20473 227 78 Mus. Mus musculus
+78
+>D28577 186 37 Mus. Mus musculus
+37
+>J02626 299 150 Mus. Mus musculus
+150
+>M98502 299 150 Mus. Mus musculus
+150
+>L12687 299 150 Mus. Mus musculus
+150
+>L28116 206 57 Mus. Mus musculus
+57
+>D17584 250 101 Mus. Mus musculus
+101
+>D26157 299 150 Mus. Mus musculus
+150
+>M29169 299 150 Mus. Mus musculus
+150
+>L02241 299 150 Mus. Mus musculus
+150
+>M38314 176 27 Mus. Mus musculus
+27
+>M30774 299 150 Mus. Mus musculus
+150
+>D45836 299 150 Mus. Mus musculus
+150
+>D31898 299 150 Mus. Mus musculus
+150
+>L09562 299 150 Mus. Mus musculus
+150
+>M32370 282 133 Mus. Mus musculus
+133
+>L23754 299 150 Mus. Mus musculus
+150
+>M89777 193 44 Mus. Mus musculus
+44
+>D13803 299 150 Mus. Mus musculus
+150
+>M29475 244 95 Mus. Mus musculus
+95
+>M32069 299 150 Mus. Mus musculus
+150
+>L07911 209 60 Mus. Mus musculus
+60
+>M83380 183 34 Mus. Mus musculus
+34
+>M14639 171 22 Mus. Mus musculus
+22
+>K02927 231 82 Mus. Mus musculus
+82
+>D37797 262 113 Mus. Mus musculus
+113
+>L08651 177 28 Mus. Mus musculus
+28
+>D00812 219 70 Mus. Mus musculus
+70
+>L35034 299 150 Mus. Mus musculus
+150
+>L04280 228 79 Mus. Mus musculus
+79
+>K02929 219 70 Mus. Mus musculus
+70
+>M11408 201 52 Mus. Mus musculus
+52
+>M13002 190 41 Mus. Mus musculus
+41
+>D00925 198 49 Mus. Mus musculus
+49
+>M90316 299 150 Mus. Mus musculus
+150
+>L29479 299 150 Mus. Mus musculus
+150
+>M62361 299 150 Mus. Mus musculus
+150
+>M32032 208 59 Mus. Mus musculus
+59
+>L22482 299 150 Mus. Mus musculus
+150
+>M77842 299 150 Mus. Mus musculus
+150
+>M58558 196 47 Mus. Mus musculus
+47
+>M85170 161 12 Mus. Mus musculus
+12
+>L33878 186 37 Mus. Mus musculus
+37
+>M81832 173 24 Mus. Mus musculus
+24
+>M91000 299 150 Mus. Mus musculus
+150
+>L27121 176 27 Mus. Mus musculus
+27
+>D42049 299 150 Mus. Mus musculus
+150
+>M14689 244 95 Mus. Mus musculus
+95
+>M63114 254 105 Mus. Mus musculus
+105
+>M20742 243 94 Mus. Mus musculus
+94
+>L44117 177 28 Mus. Mus musculus
+28
+>D37793 165 16 Mus. Mus musculus
+16
+>M81077 185 36 Mus. Mus musculus
+36
+>L33406 278 129 Mus. Mus musculus
+129
+>J04492 295 146 Mus. Mus musculus
+146
+>M16119 241 92 Mus. Mus musculus
+92
+>M15615 162 13 Mus. Mus musculus
+13
+>M13337 160 0 Mus. Mus musculus
+0
+>D90344 202 53 Mus. Mus musculus
+53
+>M22598 299 150 Mus. Mus musculus
+150
+>M63725 169 20 Mus. Mus musculus
+20
+>M23545 175 26 Mus. Mus musculus
+26
+>L13853 299 150 Mus. Mus musculus
+150
+>L29441 219 70 Mus. Mus musculus
+70
+>D01034 214 65 Mus. Mus musculus
+65
+>L09600 204 55 Mus. Mus musculus
+55
+>M18209 271 122 Mus. Mus musculus
+122
+>M55154 179 30 Mus. Mus musculus
+30
+>D31967 299 150 Mus. Mus musculus
+150
+>D43796 299 150 Mus. Mus musculus
+150
+>L18868 197 48 Mus. Mus musculus
+48
+>L32973 299 150 Mus. Mus musculus
+150
+>D38046 196 47 Mus. Mus musculus
+47
+>M17243 180 31 Mus. Mus musculus
+31
+>M36387 299 150 Mus. Mus musculus
+150
+>L35302 299 150 Mus. Mus musculus
+150
+>M59811 299 150 Mus. Mus musculus
+150
+>M54943 239 90 Mus. Mus musculus
+90
+>L15436 299 150 Mus. Mus musculus
+150
+>M87276 299 150 Mus. Mus musculus
+150
+>L04302 189 40 Mus. Mus musculus
+40
+>D26186 299 150 Mus. Mus musculus
+150
+>M57422 181 32 Mus. Mus musculus
+32
+>M13444 179 30 Mus. Mus musculus
+30
+>D10849 299 150 Mus. Mus musculus
+150
+>D45205 299 150 Mus. Mus musculus
+150
+>L31784 225 76 Mus. Mus musculus
+76
+>D44464 299 150 Mus. Mus musculus
+150
+>M88354 181 32 Mus. Mus musculus
+32
+>M89798 299 150 Mus. Mus musculus
+150
+>D32167 299 150 Mus. Mus musculus
+150
+>D14340 299 150 Mus. Mus musculus
+150
+>M34148 180 31 Mus. Mus musculus
+31
+>D17569 194 45 Mus. Mus musculus
+45
+>X85802 299 150 Mus. Mus musculus
+150
+>X76768 271 122 Mus. Mus musculus
+122
+>U00445 231 82 Mus. Mus musculus
+82
+>U00478 229 80 Mus. Mus musculus
+80
+>U00689 299 150 Mus. Mus musculus
+150
+>U01036 195 46 Mus. Mus musculus
+46
+>U01840 209 60 Mus. Mus musculus
+60
+>Z50162 261 112 Oryctolagus. Oryctolagus cuniculus
+112
+>X52090 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>X65944 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>X54708 240 11 Oryctolagus. Oryctolagus cuniculus
+11
+>X54044 202 53 Oryctolagus. Oryctolagus cuniculus
+53
+>U07548 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>X59069 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>Z34286 245 96 Oryctolagus. Oryctolagus cuniculus
+96
+>Z46844 202 53 Oryctolagus. Oryctolagus cuniculus
+53
+>Z20655 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>Z19092 171 22 Oryctolagus. Oryctolagus cuniculus
+22
+>U09183 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U09356 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U15025 208 59 Oryctolagus. Oryctolagus cuniculus
+59
+>U20055 162 13 Oryctolagus. Oryctolagus cuniculus
+13
+>U21155 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U21157 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U26723 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U30380 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U32587 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U34200 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U36822 203 54 Oryctolagus. Oryctolagus cuniculus
+54
+>U37770 173 24 Oryctolagus. Oryctolagus cuniculus
+24
+>U38194 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U40631 176 27 Oryctolagus. Oryctolagus cuniculus
+27
+>U46069 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>U47663 207 58 Oryctolagus. Oryctolagus cuniculus
+58
+>U50465 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>Z12840 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>Z12842 198 49 Oryctolagus. Oryctolagus cuniculus
+49
+>Z22644 225 76 Oryctolagus. Oryctolagus cuniculus
+76
+>M12898 231 82 Oryctolagus. Oryctolagus cuniculus
+82
+>L04689 282 133 Oryctolagus. Oryctolagus cuniculus
+133
+>L26981 172 23 Oryctolagus. Oryctolagus cuniculus
+23
+>J05042 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>M22743 210 61 Oryctolagus. Oryctolagus cuniculus
+61
+>D12494 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>L22090 197 48 Oryctolagus. Oryctolagus cuniculus
+48
+>M17099 237 88 Oryctolagus. Oryctolagus cuniculus
+88
+>L10391 191 42 Oryctolagus. Oryctolagus cuniculus
+42
+>L10605 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>D26482 171 22 Oryctolagus. Oryctolagus cuniculus
+22
+>L12411 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>M93325 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>M63601 245 96 Oryctolagus. Oryctolagus cuniculus
+96
+>M64658 299 150 Oryctolagus. Oryctolagus cuniculus
+150
+>M86381 216 67 Oryctolagus. Oryctolagus cuniculus
+67
+>M14046 176 27 Oryctolagus. Oryctolagus cuniculus
+27
+>D00040 224 75 Oryctolagus. Oryctolagus cuniculus
+75
+>D16216 174 25 Oryctolagus. Oryctolagus cuniculus
+25
+>M77667 170 21 Oryctolagus. Oryctolagus cuniculus
+21
+>M65109 162 13 Oryctolagus. Oryctolagus cuniculus
+13
+>M17250 281 132 Oryctolagus. Oryctolagus cuniculus
+132
+>L37420 252 103 Oryctolagus. Oryctolagus cuniculus
+103
+>Z46939 299 150 Rattus. Rattus norvegicus
+150
+>D26178 299 150 Rattus. Rattus norvegicus
+150
+>D49955 168 19 Rattus. Rattus norvegicus
+19
+>L36467 299 150 Rattus. Rattus norvegicus
+150
+>D44494 239 90 Rattus. Rattus norvegicus
+90
+>D37934 299 150 Rattus. Rattus norvegicus
+150
+>L31546 184 35 Rattus. Rattus norvegicus
+35
+>L03202 299 150 Rattus. Rattus norvegicus
+150
+>J05214 299 150 Rattus. Rattus norvegicus
+150
+>D50455 285 136 Rattus. Rattus norvegicus
+136
+>L31771 299 150 Rattus. Rattus norvegicus
+150
+>L29554 299 150 Rattus. Rattus norvegicus
+150
+>D10354 263 114 Rattus. Rattus norvegicus
+114
+>M26731 175 26 Rattus. Rattus norvegicus
+26
+>M80633 259 110 Rattus. Rattus norvegicus
+110
+>J02791 174 25 Rattus. Rattus norvegicus
+25
+>D42156 187 38 Rattus. Rattus norvegicus
+38
+>L01115 299 150 Rattus. Rattus norvegicus
+150
+>M55075 299 150 Rattus. Rattus norvegicus
+150
+>D38100 202 53 Rattus. Rattus norvegicus
+53
+>M85183 245 96 Rattus. Rattus norvegicus
+96
+>D30735 299 150 Rattus. Rattus norvegicus
+150
+>M93017 299 150 Rattus. Rattus norvegicus
+150
+>M14513 293 144 Rattus. Rattus norvegicus
+144
+>M90398 299 150 Rattus. Rattus norvegicus
+150
+>J05087 299 150 Rattus. Rattus norvegicus
+150
+>M25301 177 28 Rattus. Rattus norvegicus
+28
+>D10853 218 69 Rattus. Rattus norvegicus
+69
+>J04793 299 150 Rattus. Rattus norvegicus
+150
+>M97662 183 34 Rattus. Rattus norvegicus
+34
+>L07495 299 150 Rattus. Rattus norvegicus
+150
+>D45413 299 150 Rattus. Rattus norvegicus
+150
+>M73987 290 141 Rattus. Rattus norvegicus
+141
+>M93271 271 122 Rattus. Rattus norvegicus
+122
+>J05519 299 150 Rattus. Rattus norvegicus
+150
+>M26137 162 13 Rattus. Rattus norvegicus
+13
+>L15453 299 150 Rattus. Rattus norvegicus
+150
+>L09120 262 113 Rattus. Rattus norvegicus
+113
+>D78591 187 38 Rattus. Rattus norvegicus
+38
+>J03583 247 98 Rattus. Rattus norvegicus
+98
+>L14018 299 150 Rattus. Rattus norvegicus
+150
+>M38135 252 103 Rattus. Rattus norvegicus
+103
+>L42810 255 106 Rattus. Rattus norvegicus
+106
+>D00753 233 84 Rattus. Rattus norvegicus
+84
+>L11007 267 118 Rattus. Rattus norvegicus
+118
+>M77482 299 150 Rattus. Rattus norvegicus
+150
+>L33869 165 16 Rattus. Rattus norvegicus
+16
+>L21698 267 118 Rattus. Rattus norvegicus
+118
+>K02804 299 150 Rattus. Rattus norvegicus
+150
+>L46791 180 31 Rattus. Rattus norvegicus
+31
+>M59980 299 150 Rattus. Rattus norvegicus
+150
+>L07578 299 150 Rattus. Rattus norvegicus
+150
+>D12524 194 45 Rattus. Rattus norvegicus
+45
+>J05210 222 73 Rattus. Rattus norvegicus
+73
+>L35317 179 30 Rattus. Rattus norvegicus
+30
+>D13927 193 44 Rattus. Rattus norvegicus
+44
+>M64755 217 68 Rattus. Rattus norvegicus
+68
+>D17711 176 27 Rattus. Rattus norvegicus
+27
+>J05156 170 21 Rattus. Rattus norvegicus
+21
+>M21678 299 150 Rattus. Rattus norvegicus
+150
+>M75281 222 73 Rattus. Rattus norvegicus
+73
+>M69118 299 150 Rattus. Rattus norvegicus
+150
+>M89902 245 96 Rattus. Rattus norvegicus
+96
+>D00569 168 19 Rattus. Rattus norvegicus
+19
+>J04147 244 95 Rattus. Rattus norvegicus
+95
+>M86708 217 68 Rattus. Rattus norvegicus
+68
+>J04563 285 136 Rattus. Rattus norvegicus
+136
+>J03481 199 50 Rattus. Rattus norvegicus
+50
+>M26717 299 150 Rattus. Rattus norvegicus
+150
+>L29281 299 150 Rattus. Rattus norvegicus
+150
+>L11651 299 150 Rattus. Rattus norvegicus
+150
+>L37380 206 57 Rattus. Rattus norvegicus
+57
+>M64301 299 150 Rattus. Rattus norvegicus
+150
+>M64711 299 150 Rattus. Rattus norvegicus
+150
+>D28498 299 150 Rattus. Rattus norvegicus
+150
+>J04473 175 26 Rattus. Rattus norvegicus
+26
+>L09249 215 66 Rattus. Rattus norvegicus
+66
+>M59742 299 150 Rattus. Rattus norvegicus
+150
+>J05499 280 131 Rattus. Rattus norvegicus
+131
+>D13518 266 117 Rattus. Rattus norvegicus
+117
+>L37203 243 94 Rattus. Rattus norvegicus
+94
+>M57405 299 150 Rattus. Rattus norvegicus
+150
+>M57507 296 147 Rattus. Rattus norvegicus
+147
+>M73486 169 20 Rattus. Rattus norvegicus
+20
+>L01407 177 28 Rattus. Rattus norvegicus
+28
+>L04796 254 105 Rattus. Rattus norvegicus
+105
+>J03621 299 150 Rattus. Rattus norvegicus
+150
+>M83561 299 150 Rattus. Rattus norvegicus
+150
+>M58716 251 102 Rattus. Rattus norvegicus
+102
+>M16975 299 150 Rattus. Rattus norvegicus
+150
+>D11445 186 37 Rattus. Rattus norvegicus
+37
+>M60388 176 27 Rattus. Rattus norvegicus
+27
+>D13418 299 150 Rattus. Rattus norvegicus
+150
+>M68971 299 150 Rattus. Rattus norvegicus
+150
+>D10863 213 64 Rattus. Rattus norvegicus
+64
+>M17593 299 150 Rattus. Rattus norvegicus
+150
+>M84149 188 39 Rattus. Rattus norvegicus
+39
+>M73049 222 73 Rattus. Rattus norvegicus
+73
+>M90661 299 150 Rattus. Rattus norvegicus
+150
+>J05031 165 16 Rattus. Rattus norvegicus
+16
+>M60266 234 85 Rattus. Rattus norvegicus
+85
+>M32801 228 79 Rattus. Rattus norvegicus
+79
+>J03734 192 43 Rattus. Rattus norvegicus
+43
+>M25073 169 20 Rattus. Rattus norvegicus
+20
+>M27905 189 40 Rattus. Rattus norvegicus
+40
+>M73553 162 13 Rattus. Rattus norvegicus
+13
+>M55269 201 52 Rattus. Rattus norvegicus
+52
+>D32209 243 94 Rattus. Rattus norvegicus
+94
+>M21730 218 69 Rattus. Rattus norvegicus
+69
+>J03170 299 150 Rattus. Rattus norvegicus
+150
+>D31873 299 150 Rattus. Rattus norvegicus
+150
+>M68965 299 150 Rattus. Rattus norvegicus
+150
+>M13100 299 150 Rattus. Rattus norvegicus
+150
+>M13100 202 53 Rattus. Rattus norvegicus
+53
+>M13101 172 23 Rattus. Rattus norvegicus
+23
+>L07512 195 46 Rattus. Rattus norvegicus
+46
+>J03960 241 92 Rattus. Rattus norvegicus
+92
+>L27651 223 74 Rattus. Rattus norvegicus
+74
+>M99065 185 36 Rattus. Rattus norvegicus
+36
+>M57547 299 150 Rattus. Rattus norvegicus
+150
+>M36074 299 150 Rattus. Rattus norvegicus
+150
+>D63834 299 150 Rattus. Rattus norvegicus
+150
+>M94064 209 60 Rattus. Rattus norvegicus
+60
+>M61142 207 58 Rattus. Rattus norvegicus
+58
+>J03886 209 60 Rattus. Rattus norvegicus
+60
+>M11794 211 62 Rattus. Rattus norvegicus
+62
+>M83196 299 150 Rattus. Rattus norvegicus
+150
+>L31882 299 150 Rattus. Rattus norvegicus
+150
+>J05231 251 102 Rattus. Rattus norvegicus
+102
+>L19102 167 18 Rattus. Rattus norvegicus
+18
+>M34384 276 127 Rattus. Rattus norvegicus
+127
+>L27867 299 150 Rattus. Rattus norvegicus
+150
+>L11004 299 150 Rattus. Rattus norvegicus
+150
+>M85301 299 150 Rattus. Rattus norvegicus
+150
+>M16410 263 114 Rattus. Rattus norvegicus
+114
+>L19708 299 150 Rattus. Rattus norvegicus
+150
+>L10077 299 150 Rattus. Rattus norvegicus
+150
+>D28560 241 92 Rattus. Rattus norvegicus
+92
+>M20373 198 49 Rattus. Rattus norvegicus
+49
+>L31840 235 86 Rattus. Rattus norvegicus
+86
+>L39991 299 150 Rattus. Rattus norvegicus
+150
+>D49653 179 30 Rattus. Rattus norvegicus
+30
+>M74067 299 150 Rattus. Rattus norvegicus
+150
+>L32602 192 43 Rattus. Rattus norvegicus
+43
+>M58167 203 54 Rattus. Rattus norvegicus
+54
+>L07074 181 32 Rattus. Rattus norvegicus
+32
+>J05121 299 150 Rattus. Rattus norvegicus
+150
+>M63006 299 150 Rattus. Rattus norvegicus
+150
+>J05022 210 61 Rattus. Rattus norvegicus
+61
+>J05206 299 150 Rattus. Rattus norvegicus
+150
+>D63860 299 150 Rattus. Rattus norvegicus
+150
+>M22631 299 150 Rattus. Rattus norvegicus
+150
+>D38292 299 150 Rattus. Rattus norvegicus
+150
+>K03249 171 22 Rattus. Rattus norvegicus
+22
+>L24896 174 25 Rattus. Rattus norvegicus
+25
+>L14441 242 93 Rattus. Rattus norvegicus
+93
+>L27058 299 150 Rattus. Rattus norvegicus
+150
+>J00770 201 52 Rattus. Rattus norvegicus
+52
+>M29859 238 89 Rattus. Rattus norvegicus
+89
+>D26073 297 148 Rattus. Rattus norvegicus
+148
+>J00777 204 55 Rattus. Rattus norvegicus
+55
+>M27882 192 43 Rattus. Rattus norvegicus
+43
+>L10415 200 51 Rattus. Rattus norvegicus
+51
+>M15428 299 150 Rattus. Rattus norvegicus
+150
+>M19393 171 22 Rattus. Rattus norvegicus
+22
+>J02650 178 29 Rattus. Rattus norvegicus
+29
+>M34331 197 48 Rattus. Rattus norvegicus
+48
+>M35297 299 150 Rattus. Rattus norvegicus
+150
+>M76733 195 46 Rattus. Rattus norvegicus
+46
+>L27129 299 150 Rattus. Rattus norvegicus
+150
+>J02675 201 52 Rattus. Rattus norvegicus
+52
+>J02585 252 103 Rattus. Rattus norvegicus
+103
+>M57453 168 19 Rattus. Rattus norvegicus
+19
+>D10021 174 25 Rattus. Rattus norvegicus
+25
+>D10874 245 96 Rattus. Rattus norvegicus
+96
+>L01624 215 66 Rattus. Rattus norvegicus
+66
+>L11319 224 75 Rattus. Rattus norvegicus
+75
+>M83210 174 25 Rattus. Rattus norvegicus
+25
+>M97255 179 30 Rattus. Rattus norvegicus
+30
+>L40624 299 150 Rattus. Rattus norvegicus
+150
+>L20822 279 130 Rattus. Rattus norvegicus
+130
+>D32207 299 150 Rattus. Rattus norvegicus
+150
+>M25071 206 57 Rattus. Rattus norvegicus
+57
+>J03819 299 150 Rattus. Rattus norvegicus
+150
+>L09653 208 59 Rattus. Rattus norvegicus
+59
+>M81642 223 74 Rattus. Rattus norvegicus
+74
+>L25785 299 150 Rattus. Rattus norvegicus
+150
+>M96601 276 127 Rattus. Rattus norvegicus
+127
+>M11814 299 150 Rattus. Rattus norvegicus
+150
+>M59786 299 150 Rattus. Rattus norvegicus
+150
+>M84716 168 19 Rattus. Rattus norvegicus
+19
+>D21058 167 18 Rattus. Rattus norvegicus
+18
+>X03347 299 150 Rattus. Rattus norvegicus
+150
+>X73911 223 74 Rattus. Rattus norvegicus
+74
+>X70223 167 18 Rattus. Rattus norvegicus
+18
+>X64411 243 94 Rattus. Rattus norvegicus
+94
+>X95272 299 150 Rattus. Rattus norvegicus
+150
+>X76456 299 150 Rattus. Rattus norvegicus
+150
+>X65948 166 17 Rattus. Rattus norvegicus
+17
+>X15512 233 84 Rattus. Rattus norvegicus
+84
+>X68878 206 57 Rattus. Rattus norvegicus
+57
+>X69767 255 106 Rattus. Rattus norvegicus
+106
+>X06942 227 78 Rattus. Rattus norvegicus
+78
+>X72341 299 150 Rattus. Rattus norvegicus
+150
+>X57228 237 88 Rattus. Rattus norvegicus
+88
+>X67877 178 29 Rattus. Rattus norvegicus
+29
+>X97754 190 41 Rattus. Rattus norvegicus
+41
+>Z36277 214 65 Rattus. Rattus norvegicus
+65
+>X84349 196 47 Rattus. Rattus norvegicus
+47
+>X64827 202 53 Rattus. Rattus norvegicus
+53
+>Z11663 164 15 Rattus. Rattus norvegicus
+15
+>X53430 211 62 Rattus. Rattus norvegicus
+62
+>X54510 299 150 Rattus. Rattus norvegicus
+150
+>X70658 299 150 Rattus. Rattus norvegicus
+150
+>X96393 199 50 Rattus. Rattus norvegicus
+50
+>X17457 226 77 Rattus. Rattus norvegicus
+77
+>X73292 299 150 Rattus. Rattus norvegicus
+150
+>X70871 299 150 Rattus. Rattus norvegicus
+150
+>Z36980 226 77 Rattus. Rattus norvegicus
+77
+>X62160 299 150 Rattus. Rattus norvegicus
+150
+>X59267 203 54 Rattus. Rattus norvegicus
+54
+>X66140 196 47 Rattus. Rattus norvegicus
+47
+>X15958 161 12 Rattus. Rattus norvegicus
+12
+>X94371 251 102 Rattus. Rattus norvegicus
+102
+>X70497 231 82 Rattus. Rattus norvegicus
+82
+>Y07503 299 150 Rattus. Rattus norvegicus
+150
+>X62322 180 31 Rattus. Rattus norvegicus
+31
+>Y00102 299 150 Rattus. Rattus norvegicus
+150
+>X59832 185 36 Rattus. Rattus norvegicus
+36
+>X05831 299 150 Rattus. Rattus norvegicus
+150
+>X51991 299 150 Rattus. Rattus norvegicus
+150
+>X55742 210 61 Rattus. Rattus norvegicus
+61
+>X92495 198 49 Rattus. Rattus norvegicus
+49
+>Z36276 196 47 Rattus. Rattus norvegicus
+47
+>X53589 258 109 Rattus. Rattus norvegicus
+109
+>X68497 171 22 Rattus. Rattus norvegicus
+22
+>X66366 299 150 Rattus. Rattus norvegicus
+150
+>X13554 189 40 Rattus. Rattus norvegicus
+40
+>X78595 192 43 Rattus. Rattus norvegicus
+43
+>X76453 247 98 Rattus. Rattus norvegicus
+98
+>X82021 216 67 Rattus. Rattus norvegicus
+67
+>X06107 299 150 Rattus. Rattus norvegicus
+150
+>X60675 194 45 Rattus. Rattus norvegicus
+45
+>X03846 299 150 Rattus. Rattus norvegicus
+150
+>X52140 299 150 Rattus. Rattus norvegicus
+150
+>Z18630 299 150 Rattus. Rattus norvegicus
+150
+>Z50144 261 112 Rattus. Rattus norvegicus
+112
+>X07687 299 150 Rattus. Rattus norvegicus
+150
+>X74226 299 150 Rattus. Rattus norvegicus
+150
+>X56420 274 125 Rattus. Rattus norvegicus
+125
+>X79812 203 54 Rattus. Rattus norvegicus
+54
+>X53724 299 150 Rattus. Rattus norvegicus
+150
+>X89638 245 96 Rattus. Rattus norvegicus
+96
+>X01785 174 25 Rattus. Rattus norvegicus
+25
+>X56551 258 109 Rattus. Rattus norvegicus
+109
+>U06746 256 107 Rattus. Rattus norvegicus
+107
+>X57281 299 150 Rattus. Rattus norvegicus
+150
+>X15834 190 41 Rattus. Rattus norvegicus
+41
+>Z21780 225 76 Rattus. Rattus norvegicus
+76
+>X54862 248 99 Rattus. Rattus norvegicus
+99
+>X55519 299 150 Rattus. Rattus norvegicus
+150
+>X13016 184 35 Rattus. Rattus norvegicus
+35
+>X93565 299 150 Rattus. Rattus norvegicus
+150
+>X13058 173 24 Rattus. Rattus norvegicus
+24
+>U10455 170 21 Rattus. Rattus norvegicus
+21
+>X65497 181 32 Rattus. Rattus norvegicus
+32
+>X94246 195 46 Rattus. Rattus norvegicus
+46
+>V01255 186 37 Rattus. Rattus norvegicus
+37
+>X06827 206 57 Rattus. Rattus norvegicus
+57
+>X71873 178 29 Rattus. Rattus norvegicus
+29
+>L41045 299 150 Rattus. Rattus norvegicus
+150
+>V01543 299 150 Rattus. Rattus norvegicus
+150
+>X54686 299 150 Rattus. Rattus norvegicus
+150
+>X68400 178 29 Rattus. Rattus norvegicus
+29
+>X59601 299 150 Rattus. Rattus norvegicus
+150
+>Z49858 299 150 Rattus. Rattus norvegicus
+150
+>X53232 226 77 Rattus. Rattus norvegicus
+77
+>X79769 279 130 Rattus. Rattus norvegicus
+130
+>X53304 246 97 Rattus. Rattus norvegicus
+97
+>Z47987 189 40 Rattus. Rattus norvegicus
+40
+>X17215 299 150 Rattus. Rattus norvegicus
+150
+>X90355 299 150 Rattus. Rattus norvegicus
+150
+>X92070 163 14 Rattus. Rattus norvegicus
+14
+>X75785 207 58 Rattus. Rattus norvegicus
+58
+>X60212 179 30 Rattus. Rattus norvegicus
+30
+>X78443 170 21 Rattus. Rattus norvegicus
+21
+>X04809 175 26 Rattus. Rattus norvegicus
+26
+>X66369 184 35 Rattus. Rattus norvegicus
+35
+>X82551 174 25 Rattus. Rattus norvegicus
+25
+>X77398 178 29 Rattus. Rattus norvegicus
+29
+>X02414 173 24 Rattus. Rattus norvegicus
+24
+>X59051 187 38 Rattus. Rattus norvegicus
+38
+>X66370 176 27 Rattus. Rattus norvegicus
+27
+>X67156 299 150 Rattus. Rattus norvegicus
+150
+>X15734 222 73 Rattus. Rattus norvegicus
+73
+>X67805 299 150 Rattus. Rattus norvegicus
+150
+>X74593 206 57 Rattus. Rattus norvegicus
+57
+>X78167 166 17 Rattus. Rattus norvegicus
+17
+>Z30585 172 23 Rattus. Rattus norvegicus
+23
+>X16563 218 69 Rattus. Rattus norvegicus
+69
+>X89968 195 46 Rattus. Rattus norvegicus
+46
+>X73653 289 140 Rattus. Rattus norvegicus
+140
+>X75855 264 115 Rattus. Rattus norvegicus
+115
+>X61184 165 16 Rattus. Rattus norvegicus
+16
+>Y00311 201 52 Rattus. Rattus norvegicus
+52
+>U02074 162 13 Rattus. Rattus norvegicus
+13
+>U02522 246 97 Rattus. Rattus norvegicus
+97
+>U03470 223 74 Rattus. Rattus norvegicus
+74
+>U04860 180 31 Rattus. Rattus norvegicus
+31
+>U05675 192 43 Rattus. Rattus norvegicus
+43
+>U05784 176 27 Rattus. Rattus norvegicus
+27
+>U05989 216 67 Rattus. Rattus norvegicus
+67
+>U06845 259 110 Rattus. Rattus norvegicus
+110
+>U07183 265 116 Rattus. Rattus norvegicus
+116
+>U07797 299 150 Rattus. Rattus norvegicus
+150
+>U08136 299 150 Rattus. Rattus norvegicus
+150
+>U08257 226 77 Rattus. Rattus norvegicus
+77
+>U08976 160 0 Rattus. Rattus norvegicus
+0
+>U09099 286 137 Rattus. Rattus norvegicus
+137
+>U09455 299 150 Rattus. Rattus norvegicus
+150
+>U09540 299 150 Rattus. Rattus norvegicus
+150
+>U09824 270 121 Rattus. Rattus norvegicus
+121
+>U09957 299 150 Rattus. Rattus norvegicus
+150
+>U10097 162 13 Rattus. Rattus norvegicus
+13
+>U12184 299 150 Rattus. Rattus norvegicus
+150
+>U12187 299 150 Rattus. Rattus norvegicus
+150
+>U12250 299 150 Rattus. Rattus norvegicus
+150
+>U12623 258 109 Rattus. Rattus norvegicus
+109
+>U12973 180 31 Rattus. Rattus norvegicus
+31
+>U13176 224 75 Rattus. Rattus norvegicus
+75
+>U13396 299 150 Rattus. Rattus norvegicus
+150
+>U14746 269 120 Rattus. Rattus norvegicus
+120
+>U14937 213 64 Rattus. Rattus norvegicus
+64
+>U14950 299 150 Rattus. Rattus norvegicus
+150
+>U15589 246 97 Rattus. Rattus norvegicus
+97
+>U16358 216 67 Rattus. Rattus norvegicus
+67
+>U16359 299 150 Rattus. Rattus norvegicus
+150
+>U17253 299 150 Rattus. Rattus norvegicus
+150
+>U17901 293 144 Rattus. Rattus norvegicus
+144
+>U18374 299 150 Rattus. Rattus norvegicus
+150
+>U18650 299 150 Rattus. Rattus norvegicus
+150
+>U18729 194 45 Rattus. Rattus norvegicus
+45
+>U19181 174 25 Rattus. Rattus norvegicus
+25
+>U19511 248 99 Rattus. Rattus norvegicus
+99
+>U19614 208 59 Rattus. Rattus norvegicus
+59
+>U20106 299 150 Rattus. Rattus norvegicus
+150
+>U21871 259 110 Rattus. Rattus norvegicus
+110
+>U22297 299 150 Rattus. Rattus norvegicus
+150
+>U22321 299 150 Rattus. Rattus norvegicus
+150
+>U22952 299 150 Rattus. Rattus norvegicus
+150
+>U24070 299 150 Rattus. Rattus norvegicus
+150
+>U24071 299 150 Rattus. Rattus norvegicus
+150
+>U24654 299 150 Rattus. Rattus norvegicus
+150
+>U25055 299 150 Rattus. Rattus norvegicus
+150
+>U25264 201 52 Rattus. Rattus norvegicus
+52
+>U25746 299 150 Rattus. Rattus norvegicus
+150
+>U25808 299 150 Rattus. Rattus norvegicus
+150
+>U25967 299 150 Rattus. Rattus norvegicus
+150
+>U26033 201 52 Rattus. Rattus norvegicus
+52
+>U26397 299 150 Rattus. Rattus norvegicus
+150
+>U27767 213 64 Rattus. Rattus norvegicus
+64
+>U29174 299 150 Rattus. Rattus norvegicus
+150
+>U29893 207 58 Rattus. Rattus norvegicus
+58
+>U30290 299 150 Rattus. Rattus norvegicus
+150
+>U30831 238 89 Rattus. Rattus norvegicus
+89
+>U31880 195 46 Rattus. Rattus norvegicus
+46
+>U31968 283 134 Rattus. Rattus norvegicus
+134
+>U32577 299 150 Rattus. Rattus norvegicus
+150
+>U32673 299 150 Rattus. Rattus norvegicus
+150
+>U32990 221 72 Rattus. Rattus norvegicus
+72
+>U33847 253 104 Rattus. Rattus norvegicus
+104
+>U34932 210 61 Rattus. Rattus norvegicus
+61
+>U35371 299 150 Rattus. Rattus norvegicus
+150
+>U35774 212 63 Rattus. Rattus norvegicus
+63
+>U35775 283 134 Rattus. Rattus norvegicus
+134
+>U35776 299 150 Rattus. Rattus norvegicus
+150
+>U35890 252 103 Rattus. Rattus norvegicus
+103
+>U36895 299 150 Rattus. Rattus norvegicus
+150
+>U36897 167 18 Rattus. Rattus norvegicus
+18
+>U37026 299 150 Rattus. Rattus norvegicus
+150
+>U37463 225 76 Rattus. Rattus norvegicus
+76
+>U38481 299 150 Rattus. Rattus norvegicus
+150
+>U39546 171 22 Rattus. Rattus norvegicus
+22
+>U39549 170 21 Rattus. Rattus norvegicus
+21
+>U39875 299 150 Rattus. Rattus norvegicus
+150
+>U40260 286 137 Rattus. Rattus norvegicus
+137
+>U40627 235 86 Rattus. Rattus norvegicus
+86
+>U40803 299 150 Rattus. Rattus norvegicus
+150
+>U42209 242 93 Rattus. Rattus norvegicus
+93
+>U42755 275 126 Rattus. Rattus norvegicus
+126
+>U43175 201 52 Rattus. Rattus norvegicus
+52
+>U43534 269 120 Rattus. Rattus norvegicus
+120
+>U44979 299 150 Rattus. Rattus norvegicus
+150
+>U45479 291 142 Rattus. Rattus norvegicus
+142
+>U48248 299 150 Rattus. Rattus norvegicus
+150
+>U48255 242 93 Rattus. Rattus norvegicus
+93
+>U48702 299 150 Rattus. Rattus norvegicus
+150
+>U48809 299 150 Rattus. Rattus norvegicus
+150
+>U49066 238 89 Rattus. Rattus norvegicus
+89
+>U50147 299 150 Rattus. Rattus norvegicus
+150
+>U50948 183 34 Rattus. Rattus norvegicus
+34
+>U53211 299 150 Rattus. Rattus norvegicus
+150
+>U53513 299 150 Rattus. Rattus norvegicus
+150
+>U53706 192 43 Rattus. Rattus norvegicus
+43
+>U57391 299 150 Rattus. Rattus norvegicus
+150
+>X13309 193 44 Rattus. Rattus norvegicus
+44
+>X59993 299 150 Rattus. Rattus norvegicus
+150
+>Z30584 210 61 Rattus. Rattus norvegicus
+61
+>X62528 268 119 Rattus. Rattus norvegicus
+119
+>X62894 233 84 Rattus. Rattus norvegicus
+84
+>U07619 213 64 Rattus. Rattus norvegicus
+64
+>U48288 299 150 Rattus. Rattus norvegicus
+150
+>X86818 267 118 Rattus. Rattus norvegicus
+118
+>U00964 186 37 Rattus. Rattus norvegicus
+37
+>U00995 299 150 Rattus. Rattus norvegicus
+150
+>U25803 299 150 Rattus. Rattus norvegicus
+150
+>L06820 162 13 Sus. Sus scrofa
+13
+>M80534 230 81 Sus. Sus scrofa
+81
+>M74420 299 150 Sus. Sus scrofa
+150
+>D00160 171 22 Sus. Sus scrofa
+22
+>L16507 177 28 Sus. Sus scrofa
+28
+>M86347 252 103 Sus. Sus scrofa
+103
+>J03489 214 65 Sus. Sus scrofa
+65
+>M31219 189 40 Sus. Sus scrofa
+40
+>M31337 177 28 Sus. Sus scrofa
+28
+>M64227 299 150 Sus. Sus scrofa
+150
+>J02792 257 108 Sus. Sus scrofa
+108
+>D49571 162 13 Sus. Sus scrofa
+13
+>D11336 299 150 Sus. Sus scrofa domestica
+150
+>M31453 173 24 Sus. Sus scrofa
+24
+>M27697 160 0 Sus. Sus scrofa
+0
+>M30143 299 150 Sus. Sus scrofa
+150
+>D50319 299 150 Sus. Sus scrofa
+150
+>L11000 187 38 Sus. Sus scrofa
+38
+>Z34846 237 88 Sus. Sus scrofa
+88
+>X68213 255 106 Sus. Sus scrofa
+106
+>X71117 299 150 Sus. Sus scrofa
+150
+>X89480 299 150 Sus. Sus scrofa
+150
+>X64315 299 150 Sus. Sus scrofa
+150
+>U02476 199 50 Sus. Sus scrofa
+50
+>U09985 208 59 Sus. Sus scrofa
+59
+>U17062 186 37 Sus. Sus scrofa
+37
+>U34226 299 150 Sus. Sus scrofa
+150
+>U40024 299 150 Sus. Sus scrofa
+150
+>U57333 190 41 Sus. Sus scrofa
+41
+>Xenopus 299 150299 S50096.1 CAT S50096 Unclassified. Xenopus laevis
+150
+>Xenopus 190 41190 S93559.1 CAT S93559 Unclassified. Xenopus laevis
+41
+>L11263 299 150 Xenopus. Xenopus laevis
+150
+>M18350 188 39 Xenopus. Xenopus laevis
+39
+>D49543 260 111 Xenopus. Xenopus laevis
+111
+>L16463 299 150 Xenopus. Xenopus laevis
+150
+>M98272 299 150 Xenopus. Xenopus laevis
+150
+>M92304 201 52 Xenopus. Xenopus laevis
+52
+>L29057 250 101 Xenopus. Xenopus laevis
+101
+>M96857 281 132 Xenopus. Xenopus laevis
+132
+>L35764 299 150 Xenopus. Xenopus laevis
+150
+>J03831 299 150 Xenopus. Xenopus laevis
+150
+>M12494 209 60 Xenopus. Xenopus laevis
+60
+>M99580 299 150 Xenopus. Xenopus laevis
+150
+>M20621 222 73 Xenopus. Xenopus laevis
+73
+>M22249 207 58 Xenopus. Xenopus laevis
+58
+>M76410 186 37 Xenopus. Xenopus laevis
+37
+>L20299 299 150 Xenopus. Xenopus laevis
+150
+>D78003 192 43 Xenopus. Xenopus laevis
+43
+>D31761 171 22 Xenopus. Xenopus laevis
+22
+>M32473 190 41 Xenopus. Xenopus laevis
+41
+>L13702 299 150 Xenopus. Xenopus laevis
+150
+>M76563 270 121 Xenopus. Xenopus laevis
+121
+>M18067 299 150 Xenopus. Xenopus laevis
+150
+>M18055 177 28 Xenopus. Xenopus laevis
+28
+>M81481 263 114 Xenopus. Xenopus laevis
+114
+>M17447 255 106 Xenopus. Xenopus laevis
+106
+>L19566 299 150 Xenopus. Xenopus laevis
+150
+>L25857 299 150 Xenopus. Xenopus laevis
+150
+>M24675 163 14 Xenopus. Xenopus laevis
+14
+>M24442 198 49 Xenopus. Xenopus laevis
+49
+>L13591 254 105 Xenopus. Xenopus laevis
+105
+>M62978 172 23 Xenopus. Xenopus laevis
+23
+>D44549 272 123 Xenopus. Xenopus laevis
+123
+>L20733 189 40 Xenopus. Xenopus laevis
+40
+>M27063 218 69 Xenopus. Xenopus laevis
+69
+>M76710 299 150 Xenopus. Xenopus laevis
+150
+>L43146 299 150 Xenopus. Xenopus laevis
+150
+>L10327 299 150 Xenopus. Xenopus laevis
+150
+>M98807 299 150 Xenopus. Xenopus laevis
+150
+>M76721 210 61 Xenopus. Xenopus laevis
+61
+>L29495 299 150 Xenopus. Xenopus laevis
+150
+>M35664 173 24 Xenopus. Xenopus laevis
+24
+>L10987 282 133 Xenopus. Xenopus laevis
+133
+>D63332 270 121 Xenopus. Xenopus laevis
+121
+>L15430 192 43 Xenopus. Xenopus laevis
+43
+>L02955 235 86 Xenopus. Xenopus laevis
+86
+>M21485 187 38 Xenopus. Xenopus laevis
+38
+>M20188 173 24 Xenopus. Xenopus laevis
+24
+>M98268 197 48 Xenopus. Xenopus laevis
+48
+>D63522 274 125 Xenopus. Xenopus laevis
+125
+>K02938 191 42 Xenopus. Xenopus laevis
+42
+>M34698 299 150 Xenopus. Xenopus laevis
+150
+>M26915 299 150 Xenopus. Xenopus laevis
+150
+>L06232 198 49 Xenopus. Xenopus laevis
+49
+>L33099 219 70 Xenopus. Xenopus laevis
+70
+>L23542 299 150 Xenopus. Xenopus laevis
+150
+>D29796 299 150 Xenopus. Xenopus laevis
+150
+>M94969 299 150 Xenopus. Xenopus laevis
+150
+>D42057 299 150 Xenopus. Xenopus laevis
+150
+>L11363 161 12 Xenopus. Xenopus laevis
+12
+>L77885 200 51 Xenopus. Xenopus laevis
+51
+>M60074 299 150 Xenopus. Xenopus laevis
+150
+>L20221 264 115 Xenopus. Xenopus laevis
+115
+>M75033 198 49 Xenopus. Xenopus laevis
+49
+>M90095 173 24 Xenopus. Xenopus laevis
+24
+>M75034 187 38 Xenopus. Xenopus laevis
+38
+>D31895 299 150 Xenopus. Xenopus laevis
+150
+>L02953 202 53 Xenopus. Xenopus laevis
+53
+>D50552 299 150 Xenopus. Xenopus laevis
+150
+>Y00968 199 50 Xenopus. Xenopus laevis
+50
+>X01168 162 13 Xenopus. Xenopus laevis
+13
+>X78454 161 12 Xenopus. Xenopus laevis
+12
+>X17244 172 23 Xenopus. Xenopus laevis
+23
+>X01559 186 37 Xenopus. Xenopus laevis
+37
+>X02797 213 64 Xenopus. Xenopus laevis
+64
+>Z14997 299 150 Xenopus. Xenopus laevis
+150
+>X16627 209 60 Xenopus. Xenopus laevis
+60
+>X63425 299 150 Xenopus. Xenopus laevis
+150
+>X96469 267 118 Xenopus. Xenopus laevis
+118
+>X72340 165 16 Xenopus. Xenopus laevis
+16
+>X14427 164 15 Xenopus. Xenopus laevis
+15
+>Z14122 299 150 Xenopus. Xenopus laevis
+150
+>X63092 222 73 Xenopus. Xenopus laevis
+73
+>X53745 210 61 Xenopus. Xenopus laevis
+61
+>X13856 176 27 Xenopus. Xenopus laevis
+27
+>X63720 160 0 Xenopus. Xenopus laevis
+0
+>X72983 229 80 Xenopus. Xenopus laevis
+80
+>Z25539 299 150 Xenopus. Xenopus laevis
+150
+>X81570 202 53 Xenopus. Xenopus laevis
+53
+>X15243 299 150 Xenopus. Xenopus laevis
+150
+>X93494 299 150 Xenopus. Xenopus laevis
+150
+>X93491 249 100 Xenopus. Xenopus laevis
+100
+>X69662 201 52 Xenopus. Xenopus laevis
+52
+>X05215 207 58 Xenopus. Xenopus laevis
+58
+>X15627 170 21 Xenopus. Xenopus laevis
+21
+>X12499 299 150 Xenopus. Xenopus laevis
+150
+>U04867 299 150 Xenopus. Xenopus laevis
+150
+>X02512 299 150 Xenopus. Xenopus laevis
+150
+>X57963 299 150 Xenopus. Xenopus laevis
+150
+>X56862 299 150 Xenopus. Xenopus laevis
+150
+>X04668 216 67 Xenopus. Xenopus laevis
+67
+>X71864 286 137 Xenopus. Xenopus laevis
+137
+>X82012 212 63 Xenopus. Xenopus laevis
+63
+>X94082 291 142 Xenopus. Xenopus laevis
+142
+>X54099 189 40 Xenopus. Xenopus laevis
+40
+>X83742 299 150 Xenopus. Xenopus laevis
+150
+>X59813 299 150 Xenopus. Xenopus laevis
+150
+>X80751 234 85 Xenopus. Xenopus laevis
+85
+>X59285 299 150 Xenopus. Xenopus laevis
+150
+>X72957 192 43 Xenopus. Xenopus laevis
+43
+>X53962 264 115 Xenopus. Xenopus laevis
+115
+>Z17207 299 150 Xenopus. Xenopus laevis
+150
+>Z50852 299 150 Xenopus. Xenopus laevis
+150
+>X85746 299 150 Xenopus. Xenopus laevis
+150
+>X85330 285 136 Xenopus. Xenopus laevis
+136
+>X92421 299 150 Xenopus. Xenopus laevis
+150
+>X87365 299 150 Xenopus. Xenopus laevis
+150
+>X87366 274 125 Xenopus. Xenopus laevis
+125
+>X90517 179 30 Xenopus. Xenopus laevis
+30
+>X67240 292 143 Xenopus. Xenopus laevis
+143
+>Z49897 203 54 Xenopus. Xenopus laevis
+54
+>Z48606 163 14 Xenopus. Xenopus laevis
+14
+>X84996 177 28 Xenopus. Xenopus laevis
+28
+>Z27093 299 150 Xenopus. Xenopus laevis
+150
+>Z14131 190 41 Xenopus. Xenopus laevis
+41
+>Z12595 183 34 Xenopus. Xenopus laevis
+34
+>Z19091 252 103 Xenopus. Xenopus laevis
+103
+>X90584 202 53 Xenopus. Xenopus laevis
+53
+>U06633 299 150 Xenopus. Xenopus laevis
+150
+>U09135 299 150 Xenopus. Xenopus laevis
+150
+>U09561 181 32 Xenopus. Xenopus laevis
+32
+>U09769 273 124 Xenopus. Xenopus laevis
+124
+>U10986 299 150 Xenopus. Xenopus laevis
+150
+>U12683 198 49 Xenopus. Xenopus laevis
+49
+>U13183 299 150 Xenopus. Xenopus laevis
+150
+>U13673 299 150 Xenopus. Xenopus laevis
+150
+>U13962 223 74 Xenopus. Xenopus laevis
+74
+>U16800 299 150 Xenopus. Xenopus laevis
+150
+>U17608 271 122 Xenopus. Xenopus laevis
+122
+>U19974 299 150 Xenopus. Xenopus laevis
+150
+>U21860 215 66 Xenopus. Xenopus laevis
+66
+>U22155 189 40 Xenopus. Xenopus laevis
+40
+>U22679 299 150 Xenopus. Xenopus laevis
+150
+>U23144 299 150 Xenopus. Xenopus laevis
+150
+>U23535 213 64 Xenopus. Xenopus laevis
+64
+>U24433 299 150 Xenopus. Xenopus laevis
+150
+>U24435 293 144 Xenopus. Xenopus laevis
+144
+>U25285 299 150 Xenopus. Xenopus laevis
+150
+>U25342 299 150 Xenopus. Xenopus laevis
+150
+>U25993 213 64 Xenopus. Xenopus laevis
+64
+>U27842 299 150 Xenopus. Xenopus laevis
+150
+>U28931 299 150 Xenopus. Xenopus laevis
+150
+>U29447 197 48 Xenopus. Xenopus laevis
+48
+>U29448 197 48 Xenopus. Xenopus laevis
+48
+>U35728 293 144 Xenopus. Xenopus laevis
+144
+>U36485 194 45 Xenopus. Xenopus laevis
+45
+>U37374 299 150 Xenopus. Xenopus laevis
+150
+>U37375 299 150 Xenopus. Xenopus laevis
+150
+>U37376 180 31 Xenopus. Xenopus laevis
+31
+>U37377 164 15 Xenopus. Xenopus laevis
+15
+>U37538 264 115 Xenopus. Xenopus laevis
+115
+>U38225 210 61 Xenopus. Xenopus laevis
+61
+>U40457 232 83 Xenopus. Xenopus laevis
+83
+>U41839 162 13 Xenopus. Xenopus laevis
+13
+>U41856 262 113 Xenopus. Xenopus laevis
+113
+>U41860 246 97 Xenopus. Xenopus laevis
+97
+>U42462 299 150 Xenopus. Xenopus laevis
+150
+>U43394 299 150 Xenopus. Xenopus laevis
+150
+>U43664 297 148 Xenopus. Xenopus laevis
+148
+>U44025 171 22 Xenopus. Xenopus laevis
+22
+>U44949 160 0 Xenopus. Xenopus laevis
+0
+>U44950 181 32 Xenopus. Xenopus laevis
+32
+>U44951 240 11 Xenopus. Xenopus laevis
+11
+>U46575 244 95 Xenopus. Xenopus laevis
+95
+>U49509 299 150 Xenopus. Xenopus laevis
+150
+>U53529 165 16 Xenopus. Xenopus laevis
+16
+>U54497 254 105 Xenopus. Xenopus laevis
+105
+>X92871 267 118 Xenopus. Xenopus laevis
+118
+>X71435 217 68 Xenopus. Xenopus laevis
+68
+>X72673 188 39 Xenopus. Xenopus laevis
+39
+>X74316 196 47 Xenopus. Xenopus laevis
+47
+>X82643 299 150 Xenopus. Xenopus laevis
+150
+>X70676 217 68 Xenopus. Xenopus laevis
+68
+>X07679 209 60 Xenopus. Xenopus laevis
+60
+>Z48770 207 58 Xenopus. Xenopus laevis
+58
+>X58487 299 150 Xenopus. Xenopus laevis
+150
+>X80269 261 112 Xenopus. Xenopus laevis
+112
+>X57234 204 55 Xenopus. Xenopus laevis
+55
+>X14377 299 150 Xenopus. Xenopus laevis
+150
