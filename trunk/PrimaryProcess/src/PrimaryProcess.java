@@ -157,15 +157,48 @@ public class PrimaryProcess {
 		writefile(cdsresult,cdsaddress);
 	}
 	
-	public static void main(String[] args){
+	public static void joinfile(String datafile, String cdsfile, String resultfile){
+		List<String> mydata = new ArrayList<String>();
+		List<String> mycds = new ArrayList<String>();
+		
 		try {
-			//writefile(processfile(readfile("vertebrates.txt")),"result.txt");
-			//writefile(processcdsfile(readfile("vertebrates.txt")),"cdsresult.txt");
-			process(readfile("vertebrates.txt"),"result.txt","cdsresult.txt");
+			mydata = readfile(datafile);
+			mycds = readfile(cdsfile);
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int a = 0;
+		int i = 0;
+		while(i<=mydata.size()-1){
+			int j = i+1;
+			String dna = "";
+			while(j<=mydata.size()-1&&!mydata.get(j).startsWith(">")){
+				dna+=mydata.get(j).trim();
+				j++;
+			}
+			int num = dna.length();
+			String[] cdslines = mycds.get(a).split(" ");
+			String title = ">"+cdslines[0]+" "+String.valueOf(num)+" "+cdslines[1];
+			mydata.set(i, title);
+			i=j;
+			a++;
+		}
+		
+		writefile(mydata,resultfile);
+	}
+	
+	public static void main(String[] args) throws IOException{
+		try {
+			//writefile(processfile(readfile("vertebrates.txt")),"result.txt");
+			//writefile(processcdsfile(readfile("vertebrates.txt")),"cdsresult.txt");
+			//process(readfile("vertebrates.txt"),"result.txt","cdsresult.txt");
+			joinfile("DNASequences.fasta", "CDS.tbl", "ALLSEQ.txt");
+			joinfile("hmrfasta.txt", "hmrcds.txt", "HMR195.txt");
+		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
