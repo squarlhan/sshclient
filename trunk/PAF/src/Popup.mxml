@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="344" height="372" title="请等待…">
+	<mx:SWFLoader x="0" y="10" width="322" height="326" source="style/wait.swf"/>
+</mx:TitleWindow>
