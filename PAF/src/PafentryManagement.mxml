@@ -7,22 +7,30 @@
 		
 		import flash.data.SQLConnection;
 		import flash.data.SQLStatement;
+		import flash.display.Sprite;
 		import flash.filesystem.*;
 		import flash.filesystem.File;
 		import flash.filesystem.FileStream;
+		import flash.utils.Timer;
 		
 		import mx.collections.ArrayCollection;
 		import mx.containers.GridItem;
+		import mx.containers.TitleWindow;
 		import mx.controls.Alert;
 		import mx.controls.DataGrid;
 		import mx.controls.DateField;
+		import mx.core.IFlexDisplayObject;
 		import mx.events.*;
+		import mx.managers.PopUpManager;
 		import mx.utils.StringUtil;
+		
+		import org.libspark.thread.EnterFrameThreadExecutor;
+		import org.libspark.thread.Thread;
 
 
 		
 		[Bindable]  
-			 public var mystates:ArrayCollection = new ArrayCollection(  
+		public var mystates:ArrayCollection = new ArrayCollection(  
 				 [ {label:"", data:""},
 					 {label:"正常", data:"正常"},   
 					 {label:"封存", data:"封存"},   
@@ -40,6 +48,7 @@
 		[Bindable]
 		public var si:int;
 		public var formatedate:String = "YYYY-MM-DD";
+		public var tw;
 		
 		public var file:File = File.applicationDirectory.resolvePath("paf.db");
         public var con:SQLConnection;
@@ -120,9 +129,9 @@
         
         public function gettotal(v1:String, v2:String):String
         {
-        	v1 = Number(v1).toFixed(2);
-        	v2 = Number(v2).toFixed(2);
-        	return (Number(v1)+Number(v2)).toFixed(2);
+        	var v11:Number = Math.ceil(Number(v1));
+			var v22:Number = Math.ceil(Number(v2));
+        	return (v11+v22).toFixed(2);
         }
         
         public function searchstaff(no:String):void
@@ -310,9 +319,9 @@
 				return;
 			}
 			
-			addsql=addsql+Number(StringUtil.trim(unitpay_a.text)).toFixed(2)+","
-			             +Number(StringUtil.trim(staffpay_a.text)).toFixed(2)+","
-			             +Number(StringUtil.trim(total_a.text)).toFixed(2)+",'"
+			addsql=addsql+Math.ceil(Number(StringUtil.trim(unitpay_a.text)))+","
+			             +Math.ceil(Number(StringUtil.trim(staffpay_a.text)))+","
+			             +Math.ceil(Number(StringUtil.trim(total_a.text)))+",'"
 			             +StringUtil.trim(savedate_a.text)+"','"
 			             +StringUtil.trim(staffno_a.text)+"','"
 			             +StringUtil.trim(ememo_a.text)+"');";
@@ -337,9 +346,9 @@
 			newpafentry.unitrate = newstaff[0].unitrate;
 			newpafentry.state = newstaff[0].state;
 			newpafentry.savedate = savedate_a.text;
-			newpafentry.staffpay = Number(Number(StringUtil.trim(staffpay_a.text)).toFixed(2));
-			newpafentry.unitpay = Number(Number(StringUtil.trim(unitpay_a.text)).toFixed(2));
-			newpafentry.total = Number(Number(StringUtil.trim(total_a.text)).toFixed(2));
+			newpafentry.staffpay = Math.ceil(Number(StringUtil.trim(staffpay_a.text)));
+			newpafentry.unitpay = Math.ceil(Number(StringUtil.trim(unitpay_a.text)));
+			newpafentry.total = Math.ceil(Number(StringUtil.trim(total_a.text)));
 			newpafentry.ememo = ememo_a.text;
 			newpafentry.id = newid[0].data;
 			resultpafentry.addItem(newpafentry);
@@ -353,6 +362,8 @@
 			pagebar1.RecordCount =resultpafentry.length;
             pagebar1.Open();
 		}
+
+		 			 
 	    public function addallBtn():void //添加本月信息的按钮响应
 		{
 			Alert.show("确认添加本月公积金存入信息？","添加公积金存入信息",4|8,this,addallAlertHandler); 
@@ -360,12 +371,26 @@
 		public function addallAlertHandler(event:CloseEvent):void
 		{
 			 if(event.detail==Alert.OK)
-		     {
-			    addall();
+		     {	tw = PopUpManager.createPopUp(DisplayObject(this), Popup,  true);
+				var timer:Timer = new Timer(1000, 1);
+				timer.addEventListener(TimerEvent.TIMER, onTimer);
+				timer.start();
+				PopUpManager.centerPopUp(tw);
 	       	 }						
 		}
+		
+		public function onTimer(event:TimerEvent):void{
+//			var dodo: Dosth = new Dosth(tw);
+//			dodo.start ();
+			
+			
+			addall();
+			PopUpManager.removePopUp(tw);
+		}	 
+	
 		public function addall():void //添加本月信息
 		{
+			
 			var dates:ArrayCollection = new ArrayCollection();
 			dates = this.query("select distinct lastdate from staff_table order by lastdate desc");
 			var today:String = DateField.dateToString(new Date(),"YYYY/MM/DD");
@@ -388,8 +413,8 @@
 				    var newunitrate:Number = staffs[i].unitrate;
 				    var newpaybase:Number = staffs[i].paybase;
 				    var newstaffno:String = staffs[i].staffno;
-				    var newstaffpay:Number = Number((newstaffrate*newpaybase).toFixed(2));
-				    var newunitpay:Number = Number((newunitrate*newpaybase).toFixed(2));
+				    var newstaffpay:Number = Math.ceil(newstaffrate*newpaybase);
+				    var newunitpay:Number = Math.ceil(newunitrate*newpaybase);
 				    var newtotal:Number = newstaffpay+newunitpay;
 				    var newbalance:Number = staffs[i].balance+newtotal;
 				    var addsql:String = "insert into pafentry_table(unitpay,staffpay,total,savedate,staffno,ememo) values(";
@@ -404,6 +429,7 @@
 			        this.query("update staff_table set balance="+newbalance+", lastdate='"+today+"' where staffno='"+newstaffno+"';");			        			
 				}				
 			}
+			var today:String = DateField.dateToString(new Date(),"YYYY/MM/DD");
 			resultpafentry.removeAll();
 			pafentryVO = new PafentryVO();
 			resultpafentry = this.query("select * from staff_table as s, pafentry_table as e where s.lastdate='"+today+"' and s.staffno = e.staffno;");
@@ -448,9 +474,9 @@
 			var origintotal:Number = pafentryVO.total;
 			var newbalance:Number = originbalance-origintotal+Number(Number(StringUtil.trim(total_m.text)).toFixed(2));
 			
-			modisql=modisql+Number(StringUtil.trim(unitpay_m.text)).toFixed(2)+", staffpay="
-			               +Number(StringUtil.trim(staffpay_m.text)).toFixed(2)+", total="
-			               +Number(StringUtil.trim(total_m.text)).toFixed(2)+", savedate='"
+			modisql=modisql+Math.ceil(Number(StringUtil.trim(unitpay_m.text)))+", staffpay="
+			               +Math.ceil(Number(StringUtil.trim(staffpay_m.text)))+", total="
+			               +Math.ceil(Number(StringUtil.trim(total_m.text)))+", savedate='"
 			               +StringUtil.trim(savedate_m.text)+"',ememo='"
 			               +StringUtil.trim(ememo_m.text)+"' where id="+pafentryVO.id+";";
 
@@ -460,10 +486,10 @@
 			
             pafentryVO.staff.balance = newbalance;
             pafentryVO.savedate = StringUtil.trim(savedate_m.text);
-            pafentryVO.staffpay = Number(Number(StringUtil.trim(staffpay_m.text)).toFixed(2));
-            pafentryVO.unitpay = Number(Number(StringUtil.trim(unitpay_m.text)).toFixed(2));
+            pafentryVO.staffpay = Math.ceil(Number(StringUtil.trim(staffpay_m.text)));
+            pafentryVO.unitpay = Math.ceil(Number(StringUtil.trim(unitpay_m.text)));
             pafentryVO.ememo = StringUtil.trim(ememo_m.text);
-            pafentryVO.total = Number(Number(StringUtil.trim(total_m.text)).toFixed(2));
+            pafentryVO.total = Math.ceil(Number(StringUtil.trim(total_m.text)));
             
 			for(var i:int=0;i<=resultpafentry.length-1;i++)
 			{
@@ -474,10 +500,10 @@
 				if(resultpafentry[i].id == pafentryVO.id)
 				{
 					resultpafentry[i].savedate = StringUtil.trim(savedate_m.text);
-                    resultpafentry[i].staffpay = Number(Number(StringUtil.trim(staffpay_m.text)).toFixed(2));
-                    resultpafentry[i].unitpay = Number(Number(StringUtil.trim(unitpay_m.text)).toFixed(2));
+                    resultpafentry[i].staffpay = Math.ceil(Number(StringUtil.trim(staffpay_m.text)));
+                    resultpafentry[i].unitpay = Math.ceil(Number(StringUtil.trim(unitpay_m.text)));
                     resultpafentry[i].ememo = StringUtil.trim(ememo_m.text);
-                    resultpafentry[i].total = Number(Number(StringUtil.trim(total_m.text)).toFixed(2));
+                    resultpafentry[i].total = Math.ceil(Number(StringUtil.trim(total_m.text)));
 				}
 			}
 			pagebar1.RecordCount =resultpafentry.length;
@@ -987,4 +1013,6 @@
 		
         </mx:ViewStack>
     </mx:VBox>
+	
+	
 </mx:HDividedBox>
