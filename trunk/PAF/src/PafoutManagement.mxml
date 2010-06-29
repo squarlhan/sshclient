@@ -422,8 +422,8 @@
 			state_s.selectedIndex = 0;
 			opendate_s.selectedDate = null;
 			drawdate_s.selectedDate = null;
-			//opendate_s1.selectedDate = null;
-			//drawdate_s1.selectedDate = null;
+			opendate_s1.selectedDate = null;
+			drawdate_s1.selectedDate = null;
 			omemo_s.text = "";
 			
 		}
@@ -442,8 +442,8 @@
 				return;
 			}
 			options+=(isEmpty(account_s.text))?"":" account='"+account_s.text+"' and";
-			options+=(depart_s.selectedIndex==0)?"":" departid='"+depart_s.selectedItem.data+"' and";
-			options+=(isEmpty(staffno_s.text))?"":" staffno='"+staffno_s.text+"' and";
+			options+=(depart_s.selectedIndex==0)?"":" depart='"+depart_s.selectedItem.label+"' and";
+			options+=(isEmpty(staffno_s.text))?"":" s.staffno='"+staffno_s.text+"' and";
 			options+=(isEmpty(staffname_s.text))?"":" staffname='"+staffname_s.text+"' and";
 			options+=(isEmpty(staffid_s.text))?"":" staffid='"+staffid_s.text+"' and";
 			
