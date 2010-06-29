@@ -80,7 +80,7 @@
 	</initialWindow>
 
 	<!-- The subpath of the standard default installation location to use. Optional. -->
-	<!-- <installFolder></installFolder> -->
+	<installFolder>PAF</installFolder>
 
 	<!-- The subpath of the Windows Start/Programs menu to use. Optional. -->
 	<!-- <programMenuFolder></programMenuFolder> -->
