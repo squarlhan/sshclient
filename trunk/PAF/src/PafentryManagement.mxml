@@ -48,6 +48,7 @@
 		[Bindable]
 		public var si:int;
 		public var formatedate:String = "YYYY-MM-DD";
+		public var formatedate1:String = "YYYY/MM/DD";
 		public var tw;
 		
 		public var file:File = File.applicationDirectory.resolvePath("paf.db");
@@ -893,13 +894,13 @@
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
-				            	showToday="false" width="100" formatString="{formatedate}"/>
+				            	showToday="false" width="100" formatString="{formatedate1}"/>
 				        <mx:Label text="至" textAlign="center"/>
 				        <mx:DateField id = "savedate_s1" yearNavigationEnabled="true"
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
-				            	showToday="false" width="100" formatString="{formatedate}"/>
+				            	showToday="false" width="100" formatString="{formatedate1}"/>
 				    </mx:HBox>
 				    
 				</mx:FormItem>
@@ -962,7 +963,7 @@
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
 				                selectedDate="{new Date()}" width="200"
-				                formatString="{formatedate}"/>
+				                formatString="{formatedate1}"/>
 				</mx:FormItem>	
 				<mx:FormItem label="备注： " >
 				    <mx:TextArea id="ememo_a" width="200" text=""/>
@@ -998,9 +999,9 @@
 				            	monthNames="['一月', '二月', '三月', '四月', '五月', '六月', 
 				            	'七月', '八月', '九月', '十月', '十一月','十二月']"
 				            	dayNames="['日', '一', '二', '三', '四', '五', '六']"
-				            	selectedDate="{DateField.stringToDate(pafentryVO.savedate, formatedate)}"
+				            	selectedDate="{DateField.stringToDate(pafentryVO.savedate, formatedate1)}"
 				            	showToday="false" width="200"
-				                formatString="{formatedate}"/>
+				                formatString="{formatedate1}"/>
 				</mx:FormItem>
 				<mx:FormItem label="备注： " >
 				    <mx:TextArea id="ememo_m" width="200" text="{pafentryVO.ememo}"/>
