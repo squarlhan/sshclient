@@ -1,9 +1,11 @@
 package cn.edu.jlu.ccst;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -160,10 +162,61 @@ public class Datedealing {
 		System.out.println("Pathway:"+result.size());
 		return result;	
 	}
+	
+	private static List<String> produceseq(List<Operon> ops, List<String> ges, String resultaddr){
+		List<String> seq = new ArrayList();
+		for(String geneid:ges){
+			boolean flag = false;
+			for(Operon op:ops){
+				if(op.getGeneid().contains(geneid)){
+					if(seq.size()>0){
+						if(!seq.contains(op.getId())){
+							seq.add(op.getId());				
+							//break;
+						}
+					}else {
+						seq.add(op.getId());
+					}
+					flag = true;
+				}
+			}
+			if(!flag)seq.add(geneid);
+		}
+		System.out.println("Totel:"+seq.size());
+		
+		try {
+			File result = new File(resultaddr);
+			if (result.exists()) {
+				result.delete();
+				if (result.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+			} else {
+				if (result.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+
+			}
+
+			BufferedWriter output = new BufferedWriter(new FileWriter(result));
+			for(int i=0;i<=seq.size()-1;i++){
+				output.write(seq.get(i)+"\n");
+			}
+			output.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return seq;
+	}
 
 	public static void main(String[] args){
-		getallgene("allgene.txt");
-		getopandge("opandge.txt");
-		getgeandpa("geandpa.list");
+//		getallgene("allgene.txt");
+//		getopandge("opandge.txt");
+//		getgeandpa("geandpa.list");
+		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
 	}
 }
