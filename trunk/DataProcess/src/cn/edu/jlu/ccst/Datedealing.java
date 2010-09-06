@@ -303,17 +303,20 @@ public class Datedealing {
 		for(int a = 0; a<=seq.size()-1; a++){
 			for(int i = 0; i<=pas.size()-1; i++)res[a][i] = "0";
 		}
+		int count1 = 0;
 		for(int i = 0; i<=pas.size()-1; i++){
 			for(Iterator it = pas.get(i).getGeneid().iterator();it.hasNext();){
 				String gene = (String)it.next();
 				for(int a = 0; a<=seq.size()-1; a++){
 					if(seq.get(a).equals(gene)){
 						res[a][i] = "1";
+						count1++;
 						break;
 					}
 				}
 			}
 		}
+		System.out.println("count1:"+count1);
 		List<String> outtxt = new ArrayList();		
 		for(int a = 0; a<=seq.size()-1; a++){
 			String t = "";
@@ -354,6 +357,6 @@ public class Datedealing {
 //		getopandge("opandge.txt");
 //		getgeandpa("geandpa.txt");
 //		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
-		producepath("opandge.txt", "newseq.txt", getgeandpa("geandpa.txt"), "try.txt");
+		producepath("opandge.txt", "newseq.txt", getgeandpa("geandpa.txt"), "pathway.txt");
 	}
 }
