@@ -1,8 +1,11 @@
-allgene.txt 得到的据说是所有基因的编号共4132 但是有99个基因在opandge中有，这里没有
-opandge.txt operon和gene的对应关系，共计884个operon对应2704个基因，其中2605个在allgene中有
+allgene.txt 得到的据说是所有gen的编号共4132 但是有99个gen在opandge中有，这里没有
+opandge.txt operon和gene的对应关系，共计884个operon对应2704个gen，其中2605个在allgene中有
 seq.html    得到的利用operon替gene的顺序，共2385个，其中operon858个，gene1527个
 newseq.txt  得到的seq.txt加入没有包括的26个操纵子，共2411个
-geandpa.txt  pathway和gene的对应关系，123个pathway对应
+geandpa.txt pathway和gene的对应关系，123个pathway对应2520个gene
+newpa.txt   得到的pathway用到哪些gen或者operon的列表，即用operon替换geandpa里面的gene，共计1698对
+pathway.txt 得到的pathway和newseq对应矩阵，每一列对应一个pathway，每一列和newseq去对应，该pathway用到的gene或者operon的相应位置为1，其余为0,一共对应上1681个，其中17对中的10个基因在allgene和newseq中都没有
+以下26个operon是opandge中有，但是对应的gen在allgene中没有的
 +--------+
 | operon |
 +--------+
@@ -33,3 +36,25 @@ geandpa.txt  pathway和gene的对应关系，123个pathway对应
 | 4659   |
 | 4695   |
 +--------+
+以下pathway包含的基因，在gene列表和operon列表里面都没有,共计10个基因，17个pathway
++-------+----------+
+| geop  | pa       |
++-------+----------+
+| b0229 | eco02040 |
+| b0229 | eco03070 |
+| b0230 | eco02030 |
+| b0230 | eco02031 |
+| b0230 | eco02040 |
+| b0263 | eco02010 |
+| b0263 | eco02011 |
+| b0455 | eco03060 |
+| b2591 | eco03010 |
+| b2969 | eco03090 |
+| b2970 | eco03090 |
+| b3268 | eco02010 |
+| b3268 | eco02011 |
+| b3683 | eco00010 |
+| b3683 | eco02060 |
+| b4104 | eco02010 |
+| b4104 | eco02011 |
++-------+----------+
