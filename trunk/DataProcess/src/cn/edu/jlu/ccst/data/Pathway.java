@@ -1,4 +1,4 @@
-package cn.edu.jlu.ccst;
+package cn.edu.jlu.ccst.data;
 
 import java.util.Set;
 
