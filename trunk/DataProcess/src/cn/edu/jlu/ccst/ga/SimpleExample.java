@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.jgap.*;
@@ -45,14 +46,39 @@ public class SimpleExample {
    * @since 2.0
    */
   public static void main(String[] args) {
-    int numEvolutions = 1000;
+	
+    int numEvolutions;
+    int pop;
+    String out1;
+    String out2 ;
+    String out3 ;
+    if (args.length == 5) {
+	   numEvolutions = Integer.parseInt(args[0]);
+	   pop = Integer.parseInt(args[1]);
+	   out1 = args[2];
+       out2 = args[3];
+       out3 = args[4];
+    }else if (args.length == 2) {
+ 	   numEvolutions = Integer.parseInt(args[0]);
+ 	   pop = Integer.parseInt(args[1]);
+ 	  out1 = "fittrack"+(new Date()).toString()+".txt";
+      out2 = "resltinfo"+(new Date()).toString()+".txt";
+      out3 = "bestchrom"+(new Date()).toString()+".txt";
+     }else {
+	   numEvolutions = 20;
+	   pop = 20;
+	   out1 = "fittrack.txt";
+       out2 = "resltinfo.txt";
+       out3 = "bestchrom.txt";
+    }
+    
     Configuration gaConf = new DefaultConfiguration();
     gaConf.setPreservFittestIndividual(true);
     gaConf.setKeepPopulationSizeConstant(false);
     Genotype genotype = null;
     int chromeSize = 2411;
     
-    double maxFitness = 2411/123;
+    double maxFitness = (double)2411/(double)123;
     
     List<List<String>> matrix = new ArrayList<List<String>>();
     
@@ -98,7 +124,7 @@ public class SimpleExample {
       IChromosome sampleChromosome = new Chromosome(gaConf,
           new BooleanGene(gaConf), chromeSize);
       gaConf.setSampleChromosome(sampleChromosome);
-      gaConf.setPopulationSize(50);
+      gaConf.setPopulationSize(pop);
       gaConf.setFitnessFunction(new MaxFunction(matrix));
       genotype = Genotype.randomInitialGenotype(gaConf);
     }
@@ -133,23 +159,27 @@ public class SimpleExample {
     System.out.println("Fittest Chromosome has fitness " +
                        fittest.getFitnessValue());
     int back = 0;
-    for (int i = 0; i < fittest.size()-1; i++){
+    int cc = 0;
+    for (int i = 0; i <= fittest.size()-1; i++){
 		BooleanGene value = (BooleanGene) fittest.getGene(i);
 		if (value.booleanValue()) {
 			bestchrom.add("1");
 			suminfo=suminfo+String.valueOf(i)+"\t";
 			back++;
-			if(back==4){
+			cc++;
+			if(back==5){
 				suminfo=suminfo+"\n";
 				back = 0;
 			}			
 		}else bestchrom.add("0");
 	}
-    suminfo = "\nThe sum of Supercoli pos is "+bestchrom.size()+".\n"+suminfo;
+    suminfo = "The best fitness is " +fittest.getFitnessValue()+
+    		"\nThe sum of Supercoli pos is "+cc+".\n"+suminfo;
     
     try {
-		File result = new File("fittrack.txt");
-		File result1 = new File("resltinfo.txt");
+		File result = new File(out1);
+		File result1 = new File(out2);
+		File result2 = new File(out3);
 		if (result.exists()) {
 			result.delete();
 			if (result.createNewFile()) {
@@ -180,15 +210,35 @@ public class SimpleExample {
 			}
 
 		}
+		if (result2.exists()) {
+			result2.delete();
+			if (result2.createNewFile()) {
+				System.out.println("result2 file create success!");
+			} else {
+				System.out.println("result2 file create failed!");
+			}
+		} else {
+			if (result2.createNewFile()) {
+				System.out.println("result2 file create success!");
+			} else {
+				System.out.println("result2 file create failed!");
+			}
+
+		}
 
 		BufferedWriter output = new BufferedWriter(new FileWriter(result));
 		BufferedWriter output1 = new BufferedWriter(new FileWriter(result1));
+		BufferedWriter output2 = new BufferedWriter(new FileWriter(result2));
 		for(int i=0;i<=fittrack.size()-1;i++){
 			output.write(fittrack.get(i)+"\n");
 		}
 		output1.write(suminfo);
+		for(int i=0;i<=bestchrom.size()-1;i++){
+			output2.write(bestchrom.get(i));
+		}
 		output.close();
 		output1.close();
+		output2.close();
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
