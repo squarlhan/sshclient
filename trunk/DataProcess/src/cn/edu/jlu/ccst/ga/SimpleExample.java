@@ -18,6 +18,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -61,15 +62,19 @@ public class SimpleExample {
     }else if (args.length == 2) {
  	   numEvolutions = Integer.parseInt(args[0]);
  	   pop = Integer.parseInt(args[1]);
- 	  out1 = "fittrack"+(new Date()).toString()+".txt";
-      out2 = "resltinfo"+(new Date()).toString()+".txt";
-      out3 = "bestchrom"+(new Date()).toString()+".txt";
+ 	  SimpleDateFormat df=new SimpleDateFormat("yyyyMMddHHmmss");
+ 	  String marker = df.format(new Date());
+ 	  out1 = "fittrack"+marker+".txt";
+      out2 = "resltinfo"+marker+".txt";
+      out3 = "bestchrom"+marker+".txt";
      }else {
-	   numEvolutions = 20;
-	   pop = 20;
-	   out1 = "fittrack.txt";
-       out2 = "resltinfo.txt";
-       out3 = "bestchrom.txt";
+	   numEvolutions = 500;
+	   pop = 50;
+	   SimpleDateFormat df=new SimpleDateFormat("yyyyMMddHHmmss");
+	   String marker = df.format(new Date());
+	   out1 = "fittrack"+marker+".txt";
+	   out2 = "resltinfo"+marker+".txt";
+	   out3 = "bestchrom"+marker+".txt";
     }
     
     Configuration gaConf = new DefaultConfiguration();
@@ -78,7 +83,7 @@ public class SimpleExample {
     Genotype genotype = null;
     int chromeSize = 2411;
     
-    double maxFitness = (double)2411/(double)123;
+    double maxFitness = Math.pow((double)2411,0.5)/(double)123;
     
     List<List<String>> matrix = new ArrayList<List<String>>();
     

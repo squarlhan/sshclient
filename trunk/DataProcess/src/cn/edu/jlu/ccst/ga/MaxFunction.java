@@ -135,28 +135,27 @@ public class MaxFunction
 			}
 			int a = 0;
 			int sumitem = 0;
+			int np = 0;
 			while(a<pos.size()-1){
-				boolean flag = false;
+				boolean flag = false;				
 				for(int p:gepos){
 					if(p>=pos.get(a)&&p<pos.get(a+1)){
 						flag=true;
 						break;
 					}
-					if(p>pos.get(pos.size()-1)){
-						flag=true;
-						break;
-					}
+					np = p;
 				}
 				if(flag)sumitem++;
 				a++;
 			}
+			if(np>=pos.get(pos.size()-1))sumitem++;
 			sum.add(sumitem);
 		}
         
 	    for (int i = 0; i < sum.size(); i++) {	      
 	        total += sum.get(i);
 	    }
-	    //System.out.println("fitness:"+pos.size()+"/"+total+" :"+(double)pos.size()/(double)total);
-	    return (double)pos.size()/(double)total;
+	    System.out.println("fitness:"+pos.size()+"/"+total+" :"+Math.pow((double)pos.size(),0.5)/(double)total);
+	    return Math.pow((double)pos.size(),0.5)/(double)total;
 	  }
 }
