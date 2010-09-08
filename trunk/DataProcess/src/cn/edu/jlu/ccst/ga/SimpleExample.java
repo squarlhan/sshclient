@@ -53,6 +53,7 @@ public class SimpleExample {
     String out1;
     String out2 ;
     String out3 ;
+    String out4 = "" ;
     if (args.length == 5) {
 	   numEvolutions = Integer.parseInt(args[0]);
 	   pop = Integer.parseInt(args[1]);
@@ -68,8 +69,8 @@ public class SimpleExample {
       out2 = "resltinfo"+marker+".txt";
       out3 = "bestchrom"+marker+".txt";
      }else {
-	   numEvolutions = 500;
-	   pop = 50;
+	   numEvolutions = 10;
+	   pop = 20;
 	   SimpleDateFormat df=new SimpleDateFormat("yyyyMMddHHmmss");
 	   String marker = df.format(new Date());
 	   out1 = "fittrack"+marker+".txt";
@@ -81,13 +82,13 @@ public class SimpleExample {
     gaConf.setPreservFittestIndividual(true);
     gaConf.setKeepPopulationSizeConstant(false);
     Genotype genotype = null;
-    int chromeSize = 2411;
+    int chromeSize = 2421;
     
-    double maxFitness = Math.pow((double)2411,0.5)/(double)123;
+    double maxFitness = -1/Math.log10(Math.pow((double)2421,0.5)/Math.pow((double)123,2));
     
     List<List<String>> matrix = new ArrayList<List<String>>();
     
-    File file = new File("pathway.txt");
+    File file = new File("pathway2421.txt");
 	try {
 		InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
 		BufferedReader br = new BufferedReader(insr);
@@ -125,6 +126,7 @@ public class SimpleExample {
 	}
 	System.out.println("Matrix:"+matrix.size()+"*"+matrix.get(0).size());
    
+	
     try {
       IChromosome sampleChromosome = new Chromosome(gaConf,
           new BooleanGene(gaConf), chromeSize);

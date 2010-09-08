@@ -10,6 +10,7 @@
 package cn.edu.jlu.ccst.ga;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -155,7 +156,7 @@ public class MaxFunction
 	    for (int i = 0; i < sum.size(); i++) {	      
 	        total += sum.get(i);
 	    }
-	    System.out.println("fitness:"+pos.size()+"/"+total+" :"+Math.pow((double)pos.size(),0.5)/(double)total);
-	    return Math.pow((double)pos.size(),0.5)/(double)total;
+//	    System.out.println("fitness:"+pos.size()+"/"+total+" :"+Math.pow((double)pos.size(),0.5)/(double)total);
+	    return -1/Math.log10(Math.pow((double)pos.size(),0.5)/Math.pow((double)total,2));
 	  }
 }

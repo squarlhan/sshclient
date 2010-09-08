@@ -318,14 +318,25 @@ public class Datedealing {
 		}
 		System.out.println("count1:"+count1);
 		List<String> outtxt = new ArrayList();		
+		List<String> outtxt1 = new ArrayList();
 		for(int a = 0; a<=seq.size()-1; a++){
 			String t = "";
-			for(int i = 0; i<=pas.size()-1; i++)t=t+res[a][i]+" ";
+			for(int i = 0; i<=pas.size()-1; i++){
+				t=t+res[a][i]+" ";
+			}
 			outtxt.add(t);
+		}
+		for(int i = 0; i<=pas.size()-1; i++){
+			String t1 = "";
+			for(int a = 0; a<=seq.size()-1; a++){
+				if(res[a][i].trim().equals("1"))t1=t1+String.valueOf(a)+" ";
+			}
+			outtxt1.add(t1);
 		}
 		//写出得到的结果
 		try {
 			File result = new File(resultaddr);
+			File result1 = new File("path.txt");
 			if (result.exists()) {
 				result.delete();
 				if (result.createNewFile()) {
@@ -341,12 +352,32 @@ public class Datedealing {
 				}
 
 			}
+			if (result1.exists()) {
+				result1.delete();
+				if (result1.createNewFile()) {
+					System.out.println("result1 file create success!");
+				} else {
+					System.out.println("result1 file create failed!");
+				}
+			} else {
+				if (result1.createNewFile()) {
+					System.out.println("result1 file create success!");
+				} else {
+					System.out.println("result1 file create failed!");
+				}
+
+			}
 
 			BufferedWriter output = new BufferedWriter(new FileWriter(result));
+			BufferedWriter output1 = new BufferedWriter(new FileWriter(result1));
 			for(int i=0;i<=outtxt.size()-1;i++){
 				output.write(outtxt.get(i)+"\n");
 			}
+			for(int i=0;i<=outtxt1.size()-1;i++){
+				output1.write(outtxt1.get(i)+"\n");
+			}
 			output.close();
+			output1.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -357,6 +388,6 @@ public class Datedealing {
 //		getopandge("opandge.txt");
 //		getgeandpa("geandpa.txt");
 //		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
-		producepath("opandge.txt", "newseq.txt", getgeandpa("geandpa.txt"), "pathway.txt");
+		producepath("opandge.txt", "seq2421.txt", getgeandpa("geandpa.txt"), "pathway2421.txt");
 	}
 }
