@@ -157,6 +157,6 @@ public class MaxFunction
 	        total += sum.get(i);
 	    }
 //	    System.out.println("fitness:"+pos.size()+"/"+total+" :"+Math.pow((double)pos.size(),0.5)/(double)total);
-	    return -1/Math.log10(Math.pow((double)pos.size(),0.5)/Math.pow((double)total,2));
+	    return Math.pow((double)pos.size(),0.5)/Math.pow((double)total,1);
 	  }
 }
