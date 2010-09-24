@@ -84,7 +84,7 @@ public class SimpleExample {
     Genotype genotype = null;
     int chromeSize = 2421;
     
-    double maxFitness = -1/Math.log10(Math.pow((double)2421,0.5)/Math.pow((double)123,2));
+    double maxFitness = Math.pow((double)2421,0.5)/Math.pow((double)123,1);
     
     List<List<String>> matrix = new ArrayList<List<String>>();
     
