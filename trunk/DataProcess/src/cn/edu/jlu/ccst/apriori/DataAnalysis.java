@@ -1,4 +1,4 @@
-package cn.edu.jlu.ccst.data;
+package cn.edu.jlu.ccst.apriori;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
