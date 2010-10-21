@@ -45,7 +45,7 @@ class aprioriProcess {
   int M; // total transaction #
   Vector largeitemset=new Vector();
   Vector candidate=new Vector();
-  int minsup;
+  double minsup;
   String fullitemset;
   String configfile="config.txt";
   String transafile="transa.txt";
@@ -199,7 +199,7 @@ class aprioriProcess {
       oneline=data_in.readLine();
       M=Integer.valueOf(oneline).intValue();
       oneline=data_in.readLine();
-      minsup=Integer.valueOf(oneline).intValue();
+      minsup=Double.valueOf(oneline).floatValue();
       System.out.print("\nInput configuration: "+N+" items, "+M+" transactions, ");
       System.out.println("minsup = "+minsup+"%");
       System.out.println();
