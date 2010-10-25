@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.hp.hpl.jena.datatypes.BaseDatatype;
 import com.hp.hpl.jena.db.DBConnection;
 import com.hp.hpl.jena.db.IDBConnection;
 import com.hp.hpl.jena.ontology.DatatypeProperty;
@@ -25,7 +26,9 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ModelMaker;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
@@ -41,23 +44,25 @@ public class SimpleExample {
 	public static final String DB_PASSWD = "root"; // database user password
 	public static final String TYPE_DB = "MySQL"; // database type
 	public static final String DB_Driver = "com.mysql.jdbc.Driver";
+
 	public static final String PROMOTER_PREFIX = "http://miuras.inf.um.es/ontologies/promoter.owl";
 	public static final String OGO_PREFIX = "http://miuras.inf.um.es/ontologies/OGO.owl";
 	public static final String ECO_PREFIX = "http://um.es/eco.owl";
 	public static final String GO_PREFIX = "http://um.es/go.owl";
 	public static final String NCBI_PREFIX = "http://um.es/ncbi.owl";
-	private static final String uriOntology = "file:D:/My Document/ontologies/promoter.owl"; // Where the ontology file is located in your pc
+	private static final String uriOntology = "file:E:/promoter/ontologies/promoter.owl"; // Where the ontology file is located in your pc
 	
 	private PersistentOntology po = new PersistentOntology();
 	private List<String[]> importList = new ArrayList();
+
 	private String[] nss = {OGO_PREFIX,
-			"file:D:/My Document/ontologies/OGO.owl"};
+			"file:E:/promoter/ontologies/OGO.owl"};
 	private String[] nss1 = {ECO_PREFIX,
-	        "file:D:/My Document/ontologies/eco_punned.owl"};
+	        "file:E:/promoter/ontologies/eco_punned.owl"};
 	private String[] nss2 = {GO_PREFIX,
-	        "file:D:/My Document/ontologies/go_punned.owl"};
+	        "file:E:/promoter/ontologies/go_punned.owl"};
 	private String[] nss3 = {NCBI_PREFIX,
-	        "file:D:/My Document/ontologies/ncbi_punned.owl"};
+	        "file:E:/promoter/ontologies/ncbi_punned.owl"};
 
 	
 	public OntModel createOntModel(){
@@ -131,7 +136,14 @@ public class SimpleExample {
 		}
 	}
 	
-
+    public void deleteIndividual(OntModel onmo, String myuri){
+    	 //access every individual of a class
+	    OntResource or = onmo.getOntResource(myuri);	
+		if (or!=null&&or.canAs(Individual.class)){
+			Individual theind = or.as(Individual.class);
+			theind.remove();
+		}else return;
+    }
 
 	/**
 	 * @param args
@@ -139,6 +151,7 @@ public class SimpleExample {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SimpleExample se = new SimpleExample();
+
 		OntModel onmo = null;
         try {
         	onmo = se.loadDB2nd();
@@ -147,6 +160,7 @@ public class SimpleExample {
 			e.printStackTrace();
 		}
 		
+		//access every subclass of a class
 		OntResource mor = onmo.getOntResource("http://www.w3.org/2002/07/owl#Thing");		
 		if (mor.canAs(OntClass.class)){
 			OntClass rootClass = mor.as(OntClass.class);
@@ -156,11 +170,13 @@ public class SimpleExample {
 				System.out.println("ChildCC = "+childClass.getURI());
 			}
 		}
+		//access all the Object Property
 		ExtendedIterator<ObjectProperty> it = onmo.listObjectProperties();
 		while (it.hasNext()) {
 			ObjectProperty subprop = it.next();
 			System.out.println("ChildOP = " + subprop.getURI());
 		}
+		//access all the Data Property
 		ExtendedIterator<DatatypeProperty> it1 = onmo.listDatatypeProperties();
 		while (it1.hasNext()) {
 			DatatypeProperty subprop = it1.next();
@@ -168,8 +184,28 @@ public class SimpleExample {
 		}
 		
 		System.out.println("Over!");
-		//onmo.createIndividual(PROMOTER_PREFIX+"#temp1", onmo.getOntClass(PROMOTER_PREFIX+"#Promoter"));
-		OntResource mor1 = onmo.getOntResource("http://miuras.inf.um.es/ontologies/promoter.owl#Promoter");
+//		se.deleteIndividual(onmo, PROMOTER_PREFIX+"#temp1");
+//		se.deleteIndividual(onmo, OGO_PREFIX+"#gene1");
+//		se.deleteIndividual(onmo, OGO_PREFIX+"#pubm1");
+		//create new individual
+//		Individual pro1 = onmo.createIndividual(PROMOTER_PREFIX+"#temp1", onmo.getOntClass(PROMOTER_PREFIX+"#Promoter"));
+//		Individual gen1 = onmo.createIndividual(OGO_PREFIX+"#gene1", onmo.getOntClass(OGO_PREFIX+"#Gene"));
+//		Individual pub1 = onmo.createIndividual(OGO_PREFIX+"#pubm1", onmo.getOntClass(OGO_PREFIX+"#Pubmed"));
+//		//create new Object Property for a individual
+//		pro1.addProperty(onmo.getOntProperty(PROMOTER_PREFIX+"#isBelongedTo"), gen1);
+//		//create new Data Property
+//		DatatypeProperty dp = 	(DatatypeProperty) onmo.getOntProperty(PROMOTER_PREFIX+"#Link");
+//		BaseDatatype bd=null;
+//		if (dp.getRange() != null){
+//			bd = new BaseDatatype(dp.getRange().toString());
+//			if (bd != null){
+//				pub1.addProperty(dp,"##",bd);
+//			}else{
+//				pub1.addProperty(dp,"##");
+//			}
+//		}
+	    //access every individual of a class
+	    OntResource mor1 = onmo.getOntResource(PROMOTER_PREFIX+"#Promoter");	
 		if (mor1.canAs(OntClass.class)){
 			OntClass rootClass = mor1.as(OntClass.class);
 			ExtendedIterator<? extends OntResource> it2 = rootClass.listInstances();
@@ -178,6 +214,15 @@ public class SimpleExample {
 				Individual ttt = null;
 				if (tt.canAs(Individual.class)){
 					ttt = tt.as(Individual.class);
+					 //access the RDF 3-mer 
+					StmtIterator stmtI = tt.listProperties();
+					while(stmtI.hasNext()){
+						Statement stmt = stmtI.nextStatement();
+						Resource subject   = stmt.getSubject();   // get the subject
+						Property predicate = stmt.getPredicate(); // get the predicate
+						RDFNode object = stmt.getObject();    // get the object
+						System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.asResource());
+					}
 				}
 				
 				System.out.println("ChildInstance = "+ttt.getURI());
