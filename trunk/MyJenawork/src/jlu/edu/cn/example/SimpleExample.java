@@ -50,7 +50,7 @@ public class SimpleExample {
 	public static final String ECO_PREFIX = "http://um.es/eco.owl";
 	public static final String GO_PREFIX = "http://um.es/go.owl";
 	public static final String NCBI_PREFIX = "http://um.es/ncbi.owl";
-	private static final String uriOntology = "file:E:/promoter/ontologies/promoter.owl"; // Where the ontology file is located in your pc
+	private static final String uriOntology = "file:D:/My Document/ontologies/promoter.owl"; // Where the ontology file is located in your pc
 	
 	private PersistentOntology po = new PersistentOntology();
 	private List<String[]> importList = new ArrayList();
@@ -136,13 +136,97 @@ public class SimpleExample {
 		}
 	}
 	
-    public void deleteIndividual(OntModel onmo, String myuri){
+    public void deleteResource(OntModel onmo, String myuri){
     	 //access every individual of a class
 	    OntResource or = onmo.getOntResource(myuri);	
-		if (or!=null&&or.canAs(Individual.class)){
-			Individual theind = or.as(Individual.class);
-			theind.remove();
+		if (or!=null){
+			or.remove();
 		}else return;
+    }
+    //create new Object Property statement for a individual
+    public Individual addObjProperty(OntModel onmo, String sinduri, String propuri,String oinduri){
+    	Individual sind = null;
+    	ObjectProperty prop = null;
+    	Individual oind = null;
+    	OntResource or1 = onmo.getOntResource(sinduri);	
+		if (or1!=null&&or1.canAs(Individual.class)){
+			sind = or1.as(Individual.class);
+		}else return null;
+		OntResource or2 = onmo.getOntResource(propuri);	
+		if (or2!=null&&or2.canAs(ObjectProperty.class)){
+			prop = or2.as(ObjectProperty.class);
+		}else return null;
+		OntResource or3 = onmo.getOntResource(oinduri);	
+		if (or3!=null&&or3.canAs(Individual.class)){
+			oind = or3.as(Individual.class);
+		}else return null;
+		sind.addProperty(prop, oind);
+		return sind;
+    }
+    //Add value to Data Property for a individual
+    public Individual addDataProperty(OntModel onmo, String sinduri, String propuri,String valueuri){
+    	Individual sind = null;
+    	DatatypeProperty prop = null;
+    	OntResource or1 = onmo.getOntResource(sinduri);	
+		if (or1!=null&&or1.canAs(Individual.class)){
+			sind = or1.as(Individual.class);
+		}else return null;
+		OntResource or2 = onmo.getOntResource(propuri);	
+		if (or2!=null&&or2.canAs(DatatypeProperty.class)){
+			prop = or2.as(DatatypeProperty.class);
+		}else return null;
+		BaseDatatype bd=null;
+		if (prop.getRange() != null){
+			bd = new BaseDatatype(prop.getRange().toString());
+			if (bd != null){
+				sind.addProperty(prop,valueuri,bd);
+			}else{
+				sind.addProperty(prop,valueuri);
+			}
+		}
+		return sind;
+    }
+    
+    public Individual CreateandGetIndiv(String newuri, String typeuri, OntModel onmo){
+    	Individual newindiv = null;  	
+    	newindiv = onmo.createIndividual(newuri, onmo.getOntClass(typeuri));
+        return newindiv;
+    }
+    
+    public ObjectProperty CreateandGetObjpo(String newuri, OntModel onmo){
+    	ObjectProperty newindiv = null;  	
+    	newindiv = onmo.createObjectProperty(newuri);
+        return newindiv;
+    }
+    //create or get resource if the uri exist. 0: individual 1: objectproperty 2: dataproerty 3:class
+    public OntResource CreateandGetRes(String newuri, String typeuri, OntModel onmo, int Type){
+    	OntResource newres = null; 
+    	newres = onmo.getOntResource(newuri);
+    	if(newres != null)return newres;
+		else {
+			switch (Type) {
+			case 0:
+				newres = onmo.createIndividual(newuri, onmo.getOntClass(typeuri));
+				break;
+			case 1:
+				newres = onmo.createObjectProperty(newuri);
+				break;
+			case 2:
+				newres = onmo.createDatatypeProperty(newuri);
+				break;
+			case 3:
+				newres = onmo.createClass(newuri);
+				OntResource fatherRes = onmo.getOntResource(typeuri);
+				if(fatherRes!=null&&fatherRes.canAs(OntClass.class)){
+					OntClass fatherClass = fatherRes.as(OntClass.class);
+					fatherClass.addSubClass(newres);
+				}
+				break;
+			default:
+				break;
+			}
+			return newres;
+		}
     }
 
 	/**
@@ -184,10 +268,10 @@ public class SimpleExample {
 		}
 		
 		System.out.println("Over!");
-//		se.deleteIndividual(onmo, PROMOTER_PREFIX+"#temp1");
-//		se.deleteIndividual(onmo, OGO_PREFIX+"#gene1");
-//		se.deleteIndividual(onmo, OGO_PREFIX+"#pubm1");
-		//create new individual
+//		se.deleteResource(onmo, PROMOTER_PREFIX+"#temp1");
+//		se.deleteResource(onmo, OGO_PREFIX+"#gene1");
+//		se.deleteResource(onmo, OGO_PREFIX+"#pubm1");
+//		//create new individual
 //		Individual pro1 = onmo.createIndividual(PROMOTER_PREFIX+"#temp1", onmo.getOntClass(PROMOTER_PREFIX+"#Promoter"));
 //		Individual gen1 = onmo.createIndividual(OGO_PREFIX+"#gene1", onmo.getOntClass(OGO_PREFIX+"#Gene"));
 //		Individual pub1 = onmo.createIndividual(OGO_PREFIX+"#pubm1", onmo.getOntClass(OGO_PREFIX+"#Pubmed"));
@@ -215,7 +299,7 @@ public class SimpleExample {
 				if (tt.canAs(Individual.class)){
 					ttt = tt.as(Individual.class);
 					 //access the RDF 3-mer 
-					StmtIterator stmtI = tt.listProperties();
+					StmtIterator stmtI = ttt.listProperties();
 					while(stmtI.hasNext()){
 						Statement stmt = stmtI.nextStatement();
 						Resource subject   = stmt.getSubject();   // get the subject
@@ -228,6 +312,30 @@ public class SimpleExample {
 				System.out.println("ChildInstance = "+ttt.getURI());
 			}
 		}
+		
+		 OntResource mor2 = onmo.getOntResource(OGO_PREFIX+"#Pubmed");	
+			if (mor2.canAs(OntClass.class)){
+				OntClass rootClass = mor2.as(OntClass.class);
+				ExtendedIterator<? extends OntResource> it2 = rootClass.listInstances();
+				while(it2.hasNext()){
+					OntResource tt = it2.next();
+					Individual ttt = null;
+					if (tt.canAs(Individual.class)){
+						ttt = tt.as(Individual.class);
+						 //access the RDF 3-mer 
+						StmtIterator stmtI = tt.listProperties();
+						while(stmtI.hasNext()){
+							Statement stmt = stmtI.nextStatement();
+							Resource subject   = stmt.getSubject();   // get the subject
+							Property predicate = stmt.getPredicate(); // get the predicate
+							RDFNode object = stmt.getObject();    // get the object
+							System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.asResource());
+						}
+					}
+					
+					System.out.println("ChildInstance = "+ttt.getURI());
+				}
+			}
 
 	}
 
