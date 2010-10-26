@@ -21,6 +21,13 @@ import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.ontology.Ontology;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
+import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -30,6 +37,8 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.reasoner.rulesys.GenericRuleReasoner;
+import com.hp.hpl.jena.reasoner.rulesys.Rule;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
 /**
@@ -50,7 +59,7 @@ public class SimpleExample {
 	public static final String ECO_PREFIX = "http://um.es/eco.owl";
 	public static final String GO_PREFIX = "http://um.es/go.owl";
 	public static final String NCBI_PREFIX = "http://um.es/ncbi.owl";
-	private static final String uriOntology = "file:D:/My Document/ontologies/promoter.owl"; // Where the ontology file is located in your pc
+	private static final String uriOntology = "file:E:/promoter/ontologies/promoter.owl"; // Where the ontology file is located in your pc
 	
 	private PersistentOntology po = new PersistentOntology();
 	private List<String[]> importList = new ArrayList();
@@ -82,12 +91,16 @@ public class SimpleExample {
 			return model;
 		}
 	
-	//Get the ontology from the Database
+	/**
+	 * Get the ontology from the Database
+	 * @return
+	 * @throws ClassNotFoundException
+	 */
 	public OntModel loadDB2nd() throws ClassNotFoundException {
 		Class.forName (DB_Driver);                  // Load the Driver
 		
 		ModelMaker maker = po.getRDBMaker( DB_URL+DB_SCHEMA, DB_USER, DB_PASSWD, TYPE_DB, false );
-		Model base = maker.createModel( uriOntology, false );
+		Model base = maker.openModel( uriOntology, false );
 		OntModelSpec spec = new OntModelSpec( OntModelSpec.OWL_MEM );
         spec.setImportModelMaker( maker );       
 		OntModel m = ModelFactory.createOntologyModel(spec, base );		
@@ -135,7 +148,11 @@ public class SimpleExample {
 			dm.loadImports(model);
 		}
 	}
-	
+	/**
+	 * delete resource by uri
+	 * @param onmo
+	 * @param myuri
+	 */
     public void deleteResource(OntModel onmo, String myuri){
     	 //access every individual of a class
 	    OntResource or = onmo.getOntResource(myuri);	
@@ -143,7 +160,14 @@ public class SimpleExample {
 			or.remove();
 		}else return;
     }
-    //create new Object Property statement for a individual
+    /**
+     * create new Object Property statement for a individual
+     * @param onmo
+     * @param sinduri
+     * @param propuri
+     * @param oinduri
+     * @return
+     */
     public Individual addObjProperty(OntModel onmo, String sinduri, String propuri,String oinduri){
     	Individual sind = null;
     	ObjectProperty prop = null;
@@ -163,7 +187,14 @@ public class SimpleExample {
 		sind.addProperty(prop, oind);
 		return sind;
     }
-    //Add value to Data Property for a individual
+    /**
+     * Add value to Data Property for a individual
+     * @param onmo
+     * @param sinduri
+     * @param propuri
+     * @param valueuri
+     * @return
+     */
     public Individual addDataProperty(OntModel onmo, String sinduri, String propuri,String valueuri){
     	Individual sind = null;
     	DatatypeProperty prop = null;
@@ -186,19 +217,10 @@ public class SimpleExample {
 		}
 		return sind;
     }
-    
-    public Individual CreateandGetIndiv(String newuri, String typeuri, OntModel onmo){
-    	Individual newindiv = null;  	
-    	newindiv = onmo.createIndividual(newuri, onmo.getOntClass(typeuri));
-        return newindiv;
-    }
-    
-    public ObjectProperty CreateandGetObjpo(String newuri, OntModel onmo){
-    	ObjectProperty newindiv = null;  	
-    	newindiv = onmo.createObjectProperty(newuri);
-        return newindiv;
-    }
-    //create or get resource if the uri exist. 0: individual 1: objectproperty 2: dataproerty 3:class
+      
+    /**
+     * create or get resource if the uri exist. 0: individual 1: objectproperty 2: dataproerty 3:class
+     */
     public OntResource CreateandGetRes(String newuri, String typeuri, OntModel onmo, int Type){
     	OntResource newres = null; 
     	newres = onmo.getOntResource(newuri);
@@ -228,6 +250,44 @@ public class SimpleExample {
 			return newres;
 		}
     }
+    /**
+     * modefi the property of a individual
+     * @param onmo
+     * @param idvuri
+     * @param dpuri
+     * @param dpvalue
+     * @return
+     */
+    public Individual modifyProperty(OntModel onmo, String idvuri, String dpuri, String dpvalue){
+    	Individual indi = onmo.getIndividual(idvuri);
+    	Property pro = onmo.getProperty(dpuri);
+    	Individual objindi = onmo.getIndividual(dpvalue);
+    	RDFNode rdfNode = null;
+    	rdfNode = objindi != null?objindi:onmo.createLiteral(dpvalue);        
+        indi.setPropertyValue(pro, rdfNode);
+        return indi;
+    }
+    /**
+     * Do SPARQL Query
+     * @param onmo
+     * @param querystatement
+     * @return
+     */
+    public ResultSet doquery(OntModel onmo, String querystatement){
+//    	querystatement = 
+//			"PREFIX Pubmed: <" + PROMOTER_PREFIX + "#>" +
+//			"SELECT ?x " +
+//			"WHERE {" +
+//			"      ?x Pubmed:Link \"KILL\" . " +
+//			"      }";
+
+		Query query = QueryFactory.create(querystatement);
+		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
+		ResultSet results = qe.execSelect();
+		ResultSetFormatter.out(System.out, results, query);
+		qe.close();
+		return results;
+    }
 
 	/**
 	 * @param args
@@ -235,7 +295,7 @@ public class SimpleExample {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SimpleExample se = new SimpleExample();
-
+        se.createOntModel();
 		OntModel onmo = null;
         try {
         	onmo = se.loadDB2nd();
@@ -266,29 +326,12 @@ public class SimpleExample {
 			DatatypeProperty subprop = it1.next();
 			System.out.println("ChildDP = " + subprop.getURI());
 		}
-		
-		System.out.println("Over!");
-//		se.deleteResource(onmo, PROMOTER_PREFIX+"#temp1");
-//		se.deleteResource(onmo, OGO_PREFIX+"#gene1");
-//		se.deleteResource(onmo, OGO_PREFIX+"#pubm1");
-//		//create new individual
-//		Individual pro1 = onmo.createIndividual(PROMOTER_PREFIX+"#temp1", onmo.getOntClass(PROMOTER_PREFIX+"#Promoter"));
-//		Individual gen1 = onmo.createIndividual(OGO_PREFIX+"#gene1", onmo.getOntClass(OGO_PREFIX+"#Gene"));
-//		Individual pub1 = onmo.createIndividual(OGO_PREFIX+"#pubm1", onmo.getOntClass(OGO_PREFIX+"#Pubmed"));
-//		//create new Object Property for a individual
-//		pro1.addProperty(onmo.getOntProperty(PROMOTER_PREFIX+"#isBelongedTo"), gen1);
-//		//create new Data Property
-//		DatatypeProperty dp = 	(DatatypeProperty) onmo.getOntProperty(PROMOTER_PREFIX+"#Link");
-//		BaseDatatype bd=null;
-//		if (dp.getRange() != null){
-//			bd = new BaseDatatype(dp.getRange().toString());
-//			if (bd != null){
-//				pub1.addProperty(dp,"##",bd);
-//			}else{
-//				pub1.addProperty(dp,"##");
-//			}
-//		}
 	    //access every individual of a class
+		se.CreateandGetRes(PROMOTER_PREFIX+"#temp1", PROMOTER_PREFIX+"#Promoter", onmo, 0);
+		se.CreateandGetRes(OGO_PREFIX+"#gene1", OGO_PREFIX+"#Gene", onmo, 0);
+		se.CreateandGetRes(OGO_PREFIX+"#pubm1", OGO_PREFIX+"#Pubmed", onmo, 0);
+		se.addObjProperty(onmo, PROMOTER_PREFIX+"#temp1", PROMOTER_PREFIX+"#isBelongedTo", OGO_PREFIX+"#gene1");
+		se.modifyProperty(onmo, PROMOTER_PREFIX+"#temp1", PROMOTER_PREFIX+"#hasReference", OGO_PREFIX+"#pubm1");
 	    OntResource mor1 = onmo.getOntResource(PROMOTER_PREFIX+"#Promoter");	
 		if (mor1.canAs(OntClass.class)){
 			OntClass rootClass = mor1.as(OntClass.class);
@@ -312,7 +355,7 @@ public class SimpleExample {
 				System.out.println("ChildInstance = "+ttt.getURI());
 			}
 		}
-		
+		se.modifyProperty(onmo, OGO_PREFIX+"#pubm1", PROMOTER_PREFIX+"#Link", "KILL");
 		 OntResource mor2 = onmo.getOntResource(OGO_PREFIX+"#Pubmed");	
 			if (mor2.canAs(OntClass.class)){
 				OntClass rootClass = mor2.as(OntClass.class);
@@ -326,16 +369,31 @@ public class SimpleExample {
 						StmtIterator stmtI = tt.listProperties();
 						while(stmtI.hasNext()){
 							Statement stmt = stmtI.nextStatement();
+							
 							Resource subject   = stmt.getSubject();   // get the subject
 							Property predicate = stmt.getPredicate(); // get the predicate
 							RDFNode object = stmt.getObject();    // get the object
-							System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.asResource());
+							System.out.println(subject+"->"+predicate+"->"+object);
 						}
 					}
 					
 					System.out.println("ChildInstance = "+ttt.getURI());
 				}
 			}
+			
+			 List rules = Rule.rulesFromURL("myrules.txt");  
+			 GenericRuleReasoner reasoner = new GenericRuleReasoner(rules);
+			 reasoner.setOWLTranslation(true);               
+			 reasoner.setTransitiveClosureCaching(true);
+			    
+			 InfModel infmodel = ModelFactory.createInfModel(reasoner, onmo);
+			 infmodel.write(System.out, "N-TRIPLE");
+			  
+			 Resource resource_2=infmodel.getResource(PROMOTER_PREFIX+"#Promoter");
+			 ExtendedIterator iter_2=infmodel.listStatements(resource_2 ,null, (RDFNode)null);
+			 while(iter_2.hasNext()){
+			     System.out.println(iter_2.next());
+			 }  
 
 	}
 

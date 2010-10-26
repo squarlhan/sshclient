@@ -1,0 +1,1 @@
+[restriction:(?a rdf:type rdfs:Class),(?b rdf:type rdfs:Class),(?c rdf:type owl:ObjectProperty),(?b owl:onProperty ?c),(?b owl:allValuesFrom ?d),(?a rdfs:subClassOf ?b)-> (?a owl:onProperty ?c),(?a owl:allValuesFrom ?d)]
