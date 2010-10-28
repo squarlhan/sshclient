@@ -2,6 +2,10 @@ package cn.edu.jlu.ccst.model;
 
 public class Protein {
 	
+	public Protein() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private String id;
 	private String name;
 	public Protein(String id, String name) {
