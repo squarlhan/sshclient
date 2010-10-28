@@ -2,6 +2,10 @@ package cn.edu.jlu.ccst.model;
 
 public class Resource {
 	
+	public Resource() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private String dataset;
 	private String id;
 	private String link;

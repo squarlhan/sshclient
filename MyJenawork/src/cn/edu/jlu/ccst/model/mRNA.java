@@ -2,6 +2,10 @@ package cn.edu.jlu.ccst.model;
 
 public class mRNA {
 	
+	public mRNA() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private String id;
 	private String name;
 	private Protein protein;

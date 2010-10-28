@@ -21,6 +21,12 @@ public class Gene {
 	}
 	
 	
+	public Gene() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Gene(String id, String name, GO go,
 			Taxonomy taxonomy, List<mRNA> mrnas, List<Protein> proteins,
 			List<Promoter> promoters) {

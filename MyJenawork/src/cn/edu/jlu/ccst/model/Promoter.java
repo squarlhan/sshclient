@@ -13,6 +13,13 @@ public class Promoter {
 	private List<Keyword> keywords;
 	private List<mRNA> mrnas;
 	
+	
+	
+	public Promoter() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Promoter(String id, String name, Homology homology, Gene gene,
 			List<Reference> references, List<Resource> resources,
 			List<Keyword> keywords, List<mRNA> mrnas) {

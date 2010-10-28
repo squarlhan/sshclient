@@ -2,6 +2,11 @@ package cn.edu.jlu.ccst.model;
 
 public class Keyword {
 	
+	public Keyword() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private String keyword;
 
 	public String getKeyword() {

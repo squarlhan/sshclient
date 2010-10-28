@@ -2,6 +2,10 @@ package cn.edu.jlu.ccst.model;
 
 public class Reference {
 	
+	public Reference() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private String pubmed;
 	private String auther;
 	private String title;

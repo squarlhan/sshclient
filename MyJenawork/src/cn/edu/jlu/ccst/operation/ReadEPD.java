@@ -29,11 +29,11 @@ public class ReadEPD {
 			InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
 			BufferedReader br = new BufferedReader(insr);
 			String line;
+			Promoter temppromoter;
 			while ((line = br.readLine()) != null) {
 				line = line.trim();
-				if (line.trim().length() >= 1) 
-				{				 
-					result.add(line);					
+				if(line.startsWith("ID")){
+					temppromoter = new Promoter();
 				}
 			}
 			br.close();
