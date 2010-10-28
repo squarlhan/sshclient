@@ -274,12 +274,12 @@ public class SimpleExample {
      * @return
      */
     public ResultSet doquery(OntModel onmo, String querystatement){
-//    	querystatement = 
-//			"PREFIX Pubmed: <" + PROMOTER_PREFIX + "#>" +
-//			"SELECT ?x " +
-//			"WHERE {" +
-//			"      ?x Pubmed:Link \"KILL\" . " +
-//			"      }";
+    	querystatement = 
+    	    "PREFIX rdfsch: <http://www.w3.org/2000/01/rdf-schema#>" +
+			"SELECT ?x " +
+			"WHERE {" +
+			"      ?x rdfsch:label \"Culicinae\" . " +
+			"      }";
 
 		Query query = QueryFactory.create(querystatement);
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
@@ -288,6 +288,56 @@ public class SimpleExample {
 		qe.close();
 		return results;
     }
+    /**
+     * do reasoner for the ontology
+     * @param onmo
+     * @return
+     */
+	public InfModel doReasoner(OntModel onmo) {
+		List rules = Rule.rulesFromURL("myrules.txt");
+		GenericRuleReasoner reasoner = new GenericRuleReasoner(rules);
+		reasoner.setOWLTranslation(true);
+		reasoner.setTransitiveClosureCaching(true);
+
+		InfModel infmodel = ModelFactory.createInfModel(reasoner, onmo);
+		infmodel.write(System.out, "N-TRIPLE");
+		Resource resource_2 = infmodel.getResource(PROMOTER_PREFIX	+ "#Promoter");
+		ExtendedIterator iter_2 = infmodel.listStatements(resource_2, null,	(RDFNode) null);
+		while (iter_2.hasNext()) {
+			System.out.println(iter_2.next());
+		}
+		return infmodel;
+	}
+	/**
+	 * For testing, list all the individuals and the 3-mers of a class
+	 * @param onmo
+	 * @param classuri
+	 */
+	public void testListIndividual(OntModel onmo, String classuri){
+		OntResource mor1 = onmo.getOntResource(classuri);	
+		if (mor1.canAs(OntClass.class)){
+			OntClass rootClass = mor1.as(OntClass.class);
+			ExtendedIterator<? extends OntResource> it2 = rootClass.listInstances();
+			while(it2.hasNext()){
+				OntResource tt = it2.next();
+				Individual ttt = null;
+				if (tt.canAs(Individual.class)){
+					ttt = tt.as(Individual.class);
+					 //access the RDF 3-mer 
+					StmtIterator stmtI = ttt.listProperties();
+					while(stmtI.hasNext()){
+						Statement stmt = stmtI.nextStatement();
+						Resource subject   = stmt.getSubject();   // get the subject
+						Property predicate = stmt.getPredicate(); // get the predicate
+						RDFNode object = stmt.getObject();    // get the object
+						System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.toString());
+					}
+				}
+				
+				System.out.println("ChildInstance = "+ttt.toString());
+			}
+		}
+	}
 
 	/**
 	 * @param args
@@ -295,7 +345,7 @@ public class SimpleExample {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SimpleExample se = new SimpleExample();
-        se.createOntModel();
+//        se.createOntModel();
 		OntModel onmo = null;
         try {
         	onmo = se.loadDB2nd();
@@ -305,7 +355,7 @@ public class SimpleExample {
 		}
 		
 		//access every subclass of a class
-		OntResource mor = onmo.getOntResource("http://www.w3.org/2002/07/owl#Thing");		
+		/*OntResource mor = onmo.getOntResource("http://www.w3.org/2002/07/owl#Thing");		
 		if (mor.canAs(OntClass.class)){
 			OntClass rootClass = mor.as(OntClass.class);
 			ExtendedIterator<OntClass> it = rootClass.listSubClasses();
@@ -332,69 +382,12 @@ public class SimpleExample {
 		se.CreateandGetRes(OGO_PREFIX+"#pubm1", OGO_PREFIX+"#Pubmed", onmo, 0);
 		se.addObjProperty(onmo, PROMOTER_PREFIX+"#temp1", PROMOTER_PREFIX+"#isBelongedTo", OGO_PREFIX+"#gene1");
 		se.modifyProperty(onmo, PROMOTER_PREFIX+"#temp1", PROMOTER_PREFIX+"#hasReference", OGO_PREFIX+"#pubm1");
-	    OntResource mor1 = onmo.getOntResource(PROMOTER_PREFIX+"#Promoter");	
-		if (mor1.canAs(OntClass.class)){
-			OntClass rootClass = mor1.as(OntClass.class);
-			ExtendedIterator<? extends OntResource> it2 = rootClass.listInstances();
-			while(it2.hasNext()){
-				OntResource tt = it2.next();
-				Individual ttt = null;
-				if (tt.canAs(Individual.class)){
-					ttt = tt.as(Individual.class);
-					 //access the RDF 3-mer 
-					StmtIterator stmtI = ttt.listProperties();
-					while(stmtI.hasNext()){
-						Statement stmt = stmtI.nextStatement();
-						Resource subject   = stmt.getSubject();   // get the subject
-						Property predicate = stmt.getPredicate(); // get the predicate
-						RDFNode object = stmt.getObject();    // get the object
-						System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.asResource());
-					}
-				}
-				
-				System.out.println("ChildInstance = "+ttt.getURI());
-			}
-		}
-		se.modifyProperty(onmo, OGO_PREFIX+"#pubm1", PROMOTER_PREFIX+"#Link", "KILL");
-		 OntResource mor2 = onmo.getOntResource(OGO_PREFIX+"#Pubmed");	
-			if (mor2.canAs(OntClass.class)){
-				OntClass rootClass = mor2.as(OntClass.class);
-				ExtendedIterator<? extends OntResource> it2 = rootClass.listInstances();
-				while(it2.hasNext()){
-					OntResource tt = it2.next();
-					Individual ttt = null;
-					if (tt.canAs(Individual.class)){
-						ttt = tt.as(Individual.class);
-						 //access the RDF 3-mer 
-						StmtIterator stmtI = tt.listProperties();
-						while(stmtI.hasNext()){
-							Statement stmt = stmtI.nextStatement();
-							
-							Resource subject   = stmt.getSubject();   // get the subject
-							Property predicate = stmt.getPredicate(); // get the predicate
-							RDFNode object = stmt.getObject();    // get the object
-							System.out.println(subject+"->"+predicate+"->"+object);
-						}
-					}
-					
-					System.out.println("ChildInstance = "+ttt.getURI());
-				}
-			}
-			
-			 List rules = Rule.rulesFromURL("myrules.txt");  
-			 GenericRuleReasoner reasoner = new GenericRuleReasoner(rules);
-			 reasoner.setOWLTranslation(true);               
-			 reasoner.setTransitiveClosureCaching(true);
-			    
-			 InfModel infmodel = ModelFactory.createInfModel(reasoner, onmo);
-			 infmodel.write(System.out, "N-TRIPLE");
-			  
-			 Resource resource_2=infmodel.getResource(PROMOTER_PREFIX+"#Promoter");
-			 ExtendedIterator iter_2=infmodel.listStatements(resource_2 ,null, (RDFNode)null);
-			 while(iter_2.hasNext()){
-			     System.out.println(iter_2.next());
-			 }  
-
+		se.modifyProperty(onmo, OGO_PREFIX+"#pubm1", PROMOTER_PREFIX+"#Link", "KILL");*/
+//		se.testListIndividual(onmo, PROMOTER_PREFIX+"#Promoter");
+//		se.testListIndividual(onmo, OGO_PREFIX+"#Pubmed");	
+//		se.testListIndividual(onmo, OGO_PREFIX+"#Gene");	
+		se.testListIndividual(onmo, NCBI_PREFIX+"#NCBI_1");
+		se.doquery(onmo, null);
 	}
 
 }
