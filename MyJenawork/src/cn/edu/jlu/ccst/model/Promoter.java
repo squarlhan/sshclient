@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Promoter {
 	
-	private String id;
 	private String name;
 	private Homology homology;
 	private Gene gene;
@@ -20,11 +19,10 @@ public class Promoter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Promoter(String id, String name, Homology homology, Gene gene,
+	public Promoter(String name, Homology homology, Gene gene,
 			List<Reference> references, List<Resource> resources,
 			List<Keyword> keywords, List<mRNA> mrnas) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.homology = homology;
 		this.gene = gene;
@@ -34,21 +32,13 @@ public class Promoter {
 		this.mrnas = mrnas;
 	}
 	
-	public Promoter(String id, String name, Homology homology, Gene gene) {
+	public Promoter( String name, Homology homology, Gene gene) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.homology = homology;
 		this.gene = gene;
 	}
 	
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}
