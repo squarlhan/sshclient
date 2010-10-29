@@ -8,10 +8,12 @@ public class Homology {
 	}
 
 	private String name;
+	private String id;
 
-	public Homology(String name) {
+	public Homology(String name, String id) {
 		super();
 		this.name = name;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -20,6 +22,14 @@ public class Homology {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	
