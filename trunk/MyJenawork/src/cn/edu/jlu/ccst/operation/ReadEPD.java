@@ -90,6 +90,7 @@ public class ReadEPD {
 				if(lines[0].trim().equalsIgnoreCase("ID")){
 					temppromoter = new Promoter();
 					temppromoter.setName(lines[1].trim());
+					result.add(temppromoter);
 				}
 				//construct taxonomy object
 				if(lines[0].trim().equalsIgnoreCase("OS")){
@@ -100,39 +101,55 @@ public class ReadEPD {
 					if(fnind!=-1){
 						taxname = lines[1].substring(0, fnind).trim();
 					}
-					String taxid = this.searchID(taxname);
-					taxonomy.setId(taxid);					
+//					String taxid = this.searchID(taxname);
+//					taxonomy.setId(taxid);					
 				}
 				//construct homology object
 				if(lines[0].trim().equalsIgnoreCase("HG")){
 					homology = new Homology();
 					String[] homos = lines[1].split(";");
 					if (homos.length >= 2) {
-						homology.setName(homos[1].trim());
+						homology.setName(homos[1].trim().substring(0, homos[1].trim().length()-1));
 						String[] ids = homos[0].trim().split(" ");
 						if (this.isNumeric(ids[2])) {
 							homology.setId(ids[2]);
 						}
 					}
+					temppromoter.setHomology(homology);
 				}
-				//construct one resource object
+				//construct one resource object or Gene objects
 				if(lines[0].trim().equalsIgnoreCase("DR")){					
-					String[] drs = lines[1].split(";");					
-					if (drs.length >= 2&&drs[0].trim()=="RefSeq") {
+					String[] drs = lines[1].split(";");						 					
+					// add some genes to the promoter
+					if (drs.length >= 2&&drs[0].trim().equalsIgnoreCase("EMBL")){
+						Gene gene = new Gene();
+						gene.setId(drs[1].trim());
+						gene.setTaxonomy(taxonomy);
+						gene.getPromoters().add(temppromoter);
+						temppromoter.getGenes().add(gene);
+					}
+					if (drs.length >= 2&&drs[0].trim().equalsIgnoreCase("RefSeq")) {
+						//add some resources to the promoter
 						resource = new Resource();
 						resource.setDataset("DBTSS");
 						resource.setLink("http://dbtss.hgc.jp/cgi-bin/home.cgi?NMID=");
-						resource.setId(drs[1].trim());
+						resource.setId(drs[1].trim().substring(0, drs[1].trim().length()-1));
+						temppromoter.getResources().add(resource);
+						//add mRNA to the promoter
+						mRNA mrna = new mRNA();
+						mrna.setId(drs[1].trim().substring(0, drs[1].trim().length()-1));
+						temppromoter.getMrnas().add(mrna);
 					}
 				}
 				//construct one reference object
 				if(lines[0].trim().equalsIgnoreCase("RN")){								
 					reference = new Reference();
+					temppromoter.getReferences().add(reference);
 				}
 				if(lines[0].trim().equalsIgnoreCase("RX")){								
 					String[] ids = lines[1].split(";");	
-					if (ids.length >= 2&&this.isNumeric(ids[1].trim())) {
-						reference.setPubmed(ids[1].trim());
+					if (ids.length >= 2&&this.isNumeric(ids[1].trim().substring(0, ids[1].trim().length()-1))) {
+						reference.setPubmed(ids[1].trim().substring(0, ids[1].trim().length()-1));
 					}
 				}
 				if(lines[0].trim().equalsIgnoreCase("RA")){
@@ -153,6 +170,7 @@ public class ReadEPD {
 					}else
 						reference.setLocation(reference.getLocation()+lines[1].trim());				
 				}
+				
 				
 			}
 			br.close();
@@ -178,9 +196,10 @@ public class ReadEPD {
 		// TODO Auto-generated method stub
 //		ReadEPD re = new ReadEPD();
 //		System.out.println(re.searchID("soybean"));
-		System.out.println("asdf(asdf)".indexOf('('));
-		System.out.println("asdf(asdf)".substring(0, "asdf(asdf)".indexOf('(')).trim());
-
+		ReadEPD re = new ReadEPD();
+		List<Promoter> result = re.getPromoters("test.txt");
+		System.out.println("Over!");
+		
 	}
 
 }
