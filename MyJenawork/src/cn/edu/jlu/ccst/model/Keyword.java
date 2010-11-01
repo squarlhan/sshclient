@@ -2,12 +2,14 @@ package cn.edu.jlu.ccst.model;
 
 public class Keyword {
 	
+	private String keyword;
+	
 	public Keyword() {
 		super();
 		// TODO Auto-generated constructor stub
+		keyword = "";
 	}
 
-	private String keyword;
 
 	public String getKeyword() {
 		return keyword;

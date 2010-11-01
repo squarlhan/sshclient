@@ -2,12 +2,13 @@ package cn.edu.jlu.ccst.model;
 
 public class GO {
 
+	private String id;
+	
 	public GO() {
 		super();
 		// TODO Auto-generated constructor stub
+		id = "";
 	}
-
-	private String id;
 
 	public GO(String id) {
 		super();

@@ -1,5 +1,6 @@
 package cn.edu.jlu.ccst.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Promoter {
@@ -17,6 +18,13 @@ public class Promoter {
 	public Promoter() {
 		super();
 		// TODO Auto-generated constructor stub
+		name = "";
+		homology = new Homology();
+		gene = new Gene();
+		references = new ArrayList();
+		resources = new ArrayList();
+		keywords = new ArrayList();
+		mrnas = new ArrayList();
 	}
 
 	public Promoter(String name, Homology homology, Gene gene,
