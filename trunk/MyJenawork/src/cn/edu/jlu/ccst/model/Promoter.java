@@ -7,7 +7,7 @@ public class Promoter {
 	
 	private String name;
 	private Homology homology;
-	private Gene gene;
+	private List<Gene> genes;
 	private List<Reference> references;
 	private List<Resource> resources;
 	private List<Keyword> keywords;
@@ -20,31 +20,30 @@ public class Promoter {
 		// TODO Auto-generated constructor stub
 		name = "";
 		homology = new Homology();
-		gene = new Gene();
+		genes = new ArrayList();
 		references = new ArrayList();
 		resources = new ArrayList();
 		keywords = new ArrayList();
 		mrnas = new ArrayList();
 	}
 
-	public Promoter(String name, Homology homology, Gene gene,
+	public Promoter(String name, Homology homology, List<Gene> genes,
 			List<Reference> references, List<Resource> resources,
 			List<Keyword> keywords, List<mRNA> mrnas) {
 		super();
 		this.name = name;
 		this.homology = homology;
-		this.gene = gene;
+		this.genes = genes;
 		this.references = references;
 		this.resources = resources;
 		this.keywords = keywords;
 		this.mrnas = mrnas;
 	}
 	
-	public Promoter( String name, Homology homology, Gene gene) {
+	public Promoter( String name, Homology homology) {
 		super();
 		this.name = name;
 		this.homology = homology;
-		this.gene = gene;
 	}
 	
 	public String getName() {
@@ -59,11 +58,11 @@ public class Promoter {
 	public void setHomology(Homology homology) {
 		this.homology = homology;
 	}
-	public Gene getGene() {
-		return gene;
+	public List<Gene> getGenes() {
+		return genes;
 	}
-	public void setGene(Gene gene) {
-		this.gene = gene;
+	public void setGenes(List<Gene> genes) {
+		this.genes = genes;
 	}
 	public List<Reference> getReferences() {
 		return references;
