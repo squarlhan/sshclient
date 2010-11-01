@@ -2,16 +2,20 @@ package cn.edu.jlu.ccst.model;
 
 public class Reference {
 	
-	public Reference() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	private String pubmed;
 	private String auther;
 	private String title;
 	private String location;
 	
-	
+	public Reference() {
+		super();
+		// TODO Auto-generated constructor stub
+		pubmed = "";
+		auther = "";
+		title = "";
+		location = "";
+	}
+		
 	public Reference(String pubmed, String auther, String title, String location) {
 		super();
 		this.pubmed = pubmed;

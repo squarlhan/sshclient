@@ -1,5 +1,6 @@
 package cn.edu.jlu.ccst.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Gene {
@@ -24,6 +25,13 @@ public class Gene {
 	public Gene() {
 		super();
 		// TODO Auto-generated constructor stub
+		id = "";
+		name = "";
+		go = new GO();
+		taxonomy = new Taxonomy();
+		mrnas = new ArrayList();
+		proteins = new ArrayList();
+		promoters = new ArrayList();
 	}
 
 

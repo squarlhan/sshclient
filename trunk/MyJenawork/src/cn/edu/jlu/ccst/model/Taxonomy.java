@@ -2,13 +2,15 @@ package cn.edu.jlu.ccst.model;
 
 public class Taxonomy {
 	
+	private String id;
+	private String name;
 	public Taxonomy() {
 		super();
 		// TODO Auto-generated constructor stub
+		id = "";
+		name = "";
 	}
-	private String id;
-	private String name;
-	public Taxonomy(String id, String name) {
+		public Taxonomy(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;

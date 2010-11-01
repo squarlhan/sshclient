@@ -2,14 +2,17 @@ package cn.edu.jlu.ccst.model;
 
 public class Resource {
 	
-	public Resource() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	private String dataset;
 	private String id;
 	private String link;
 	
+	public Resource() {
+		super();
+		// TODO Auto-generated constructor stub
+		dataset = "";
+		id = "";
+		link = "";
+	}
 	
 	public Resource(String dataset, String id, String link) {
 		super();

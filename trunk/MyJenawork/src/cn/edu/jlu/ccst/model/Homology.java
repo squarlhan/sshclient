@@ -2,13 +2,15 @@ package cn.edu.jlu.ccst.model;
 
 public class Homology {
 
+	private String name;
+	private String id;
+	
 	public Homology() {
 		super();
 		// TODO Auto-generated constructor stub
+		name = "";
+		id = "";
 	}
-
-	private String name;
-	private String id;
 
 	public Homology(String name, String id) {
 		super();
