@@ -95,14 +95,14 @@ public class ReadEPD {
 				//construct taxonomy object
 				if(lines[0].trim().equalsIgnoreCase("OS")){
 					taxonomy = new Taxonomy();					
-					String taxname = lines[1].trim();
+					String taxname = lines[1].trim().substring(0, lines[1].trim().length()-1);
 					taxonomy.setName(taxname);
 					int fnind = lines[1].indexOf('(');
 					if(fnind!=-1){
 						taxname = lines[1].substring(0, fnind).trim();
 					}
-//					String taxid = this.searchID(taxname);
-//					taxonomy.setId(taxid);					
+					String taxid = this.searchID(taxname);
+					taxonomy.setId(taxid);					
 				}
 				//construct homology object
 				if(lines[0].trim().equalsIgnoreCase("HG")){
@@ -170,6 +170,13 @@ public class ReadEPD {
 					}else
 						reference.setLocation(reference.getLocation()+lines[1].trim());				
 				}
+				if(lines[0].trim().equalsIgnoreCase("KW")){								
+					String[] kws = lines[1].trim().substring(0, lines[1].trim().length()-1).split(",");
+					for(String kw:kws){
+						Keyword keyword = new Keyword(kw.trim());
+						temppromoter.getKeywords().add(keyword);
+					}
+				}
 				
 				
 			}
@@ -185,7 +192,7 @@ public class ReadEPD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Gene:"+result.size());
+		System.out.println("promoter:"+result.size());
 		return result;	
 	}
 
