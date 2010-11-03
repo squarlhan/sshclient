@@ -67,6 +67,38 @@ public class ReadEPD {
         return null;
     }
 	/**
+	 * mapping the GO term from the gene_acc
+	 * @param gene_acc
+	 * @return
+	 */
+	public List<String> searchGO(String gene_acc){
+		Connection con = null;
+	    Statement stmt = null;
+	    String url = "jdbc:mysql://localhost/tempdata";
+	    String user = "root";
+	    String pwd = "root";
+	    try {       
+	          Class.forName("com.mysql.jdbc.Driver").newInstance();
+	          con = DriverManager.getConnection(url,user,pwd);
+	          stmt = con.createStatement();
+	    } catch (Exception e){
+	          // your installation of JDBC Driver Failed
+	          e.printStackTrace();
+	    }
+	    List<String> result = new ArrayList();
+        String sql1 = "select DISTINCT go_id from gene2go where geneid in (" +
+        		"select DISTINCT geneid from gene2acc where gen_acc = '"+gene_acc+"');";
+        try{
+            ResultSet rs = stmt.executeQuery(sql1);          
+            if(rs.next()){  
+            	result.add(rs.getString(1).trim());
+            }
+        }catch(Exception e){
+           e.printStackTrace();
+        }
+        return result;
+    }
+	/**
 	 * get promoters from the genebank file
 	 * @param addr
 	 * @return
@@ -123,10 +155,17 @@ public class ReadEPD {
 					// add some genes to the promoter
 					if (drs.length >= 2&&drs[0].trim().equalsIgnoreCase("EMBL")){
 						Gene gene = new Gene();
-						gene.setId(drs[1].trim());
+						String gene_acc = drs[1].trim();
+						gene.setId(gene_acc);
 						gene.setTaxonomy(taxonomy);
 						gene.getPromoters().add(temppromoter);
 						temppromoter.getGenes().add(gene);
+						List<String> goids = this.searchGO(gene_acc);
+						List<GO> gos = new ArrayList();
+						for(String goid : goids){
+							gos.add(new GO(goid));
+						}
+						gene.setGos(gos);
 					}
 					if (drs.length >= 2&&drs[0].trim().equalsIgnoreCase("RefSeq")) {
 						//add some resources to the promoter
@@ -204,7 +243,7 @@ public class ReadEPD {
 //		ReadEPD re = new ReadEPD();
 //		System.out.println(re.searchID("soybean"));
 		ReadEPD re = new ReadEPD();
-		List<Promoter> result = re.getPromoters("test.txt");
+		List<Promoter> result = re.getPromoters("epd104.dat");
 		System.out.println("Over!");
 		
 	}
