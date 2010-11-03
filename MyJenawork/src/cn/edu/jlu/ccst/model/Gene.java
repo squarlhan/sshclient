@@ -7,17 +7,16 @@ public class Gene {
 	
 	private String id;
 	private String name;
-	private GO go;
+	private List<GO> gos;
 	private Taxonomy taxonomy;
 	private List<mRNA> mrnas;
 	private List<Protein> proteins;
 	private List<Promoter> promoters;
 	
-	public Gene(String id, String name, GO go, Taxonomy taxonomy) {
+	public Gene(String id, String name, Taxonomy taxonomy) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.go = go;
 		this.taxonomy = taxonomy;
 	}
 	
@@ -27,7 +26,7 @@ public class Gene {
 		// TODO Auto-generated constructor stub
 		id = "";
 		name = "";
-		go = new GO();
+		gos = new ArrayList();
 		taxonomy = new Taxonomy();
 		mrnas = new ArrayList();
 		proteins = new ArrayList();
@@ -35,13 +34,13 @@ public class Gene {
 	}
 
 
-	public Gene(String id, String name, GO go,
+	public Gene(String id, String name, List<GO> gos,
 			Taxonomy taxonomy, List<mRNA> mrnas, List<Protein> proteins,
 			List<Promoter> promoters) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.go = go;
+		this.gos = gos;
 		this.taxonomy = taxonomy;
 		this.mrnas = mrnas;
 		this.proteins = proteins;
@@ -61,11 +60,11 @@ public class Gene {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public GO getGo() {
-		return go;
+	public List getGos() {
+		return gos;
 	}
-	public void setGo(GO go) {
-		this.go = go;
+	public void setGos(List<GO> gos) {
+		this.gos = gos;
 	}
 	public Taxonomy getTaxonomy() {
 		return taxonomy;

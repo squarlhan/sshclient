@@ -1,0 +1,102 @@
+ID   MM_GPT_5     standard; single; VRT.
+XX
+AC   EP59001;
+XX
+DT   15-MAR-1999 (Rel. 59, created)
+DT   19-JAN-2000 (Rel. 61, Last annotation update).
+XX
+DE   UDP-GlcNAc:dolichol phosphate N-acetylglucosamine-1-phosphate
+DE   transferase (GPT), DPAGT2 or GNPTA gene.
+OS   Mus musculus (house mouse).
+XX
+HG   Homology group 233; Mouse GlcNAc-1-phosphate transferase
+AP   Alternative promoter #5 of 5; 5' exon 1; site 1; major promoter.
+NP   none.
+XX
+DR   EPD; EP59005; MM_GPT_1; alternative promoter; [-513; +].
+DR   EPD; EP59004; MM_GPT_2; alternative promoter; [-200; +].
+DR   EPD; EP59003; MM_GPT_3; alternative promoter; [-141; +].
+DR   EPD; EP59002; MM_GPT_4; alternative promoter; [-7; +].
+DR   EMBL; U03603.1; [-1376, 209].
+DR   SWISS-PROT; P42867; GPT_MOUSE.
+DR   TRANSFAC; R22536; MOUSE$DPAGT1_01; [-176, -145]; by position.
+DR   TRANSFAC; R22537; MOUSE$DPAGT1_02; [-458, -427]; by position.
+DR   TRANSFAC; R22538; MOUSE$DPAGT1_03; [-94, -60]; by position.
+DR   MGD; MGI:1196396; DPAGT2.
+XX
+RN   [1]
+RX   MEDLINE; 8043075.
+RA   Rajput B., Ma J., Vijay I.K.;
+RT   "Structure and organization of mouse GlcNAc-1-phosphate
+RT   transferase  gene";
+RL   J. Biol. Chem. 269:9590-9597(1994).
+XX
+ME   Primer extension with homologous sequence ladder [1].
+XX
+SE   tagttctttcgcaattaagatccgggtggaaacaatgggtaggtgcagcGGGCAGAGCCG
+XX
+TX   6. Vertebrate promoters
+TX   6.1. Chromosomal genes
+TX   6.1.4. Enzymes
+TX   6.1.4.3. Amino acid metabolism
+TX   6.1.4.3.2. Miscellaneous
+XX
+KW   Glycosyltransferase, Transmembrane, Glycoprotein.
+XX
+FP   Mm GPT           P5+:+S  EM:U03603.1          1+      1377; 59001.233 059*5
+XX
+DO        Experimental evidence: 6h
+DO        Expression/Regulation: housekeeping gene
+RF        JBC269:9590
+//
+*----------------------------------------------------------------------*
+*    6.1.4.4. Vitamin, steroid, porphyrin metabolism                   *
+*----------------------------------------------------------------------*
+XX
+ID   MA_HMGC     standard; single; VRT.
+XX
+AC   EP11116;
+XX
+DT   ??-APR-1987 (Rel. 11, created)
+DT   07-OCT-2002 (Rel. 72, Last annotation update).
+XX
+DE   3-Hydroxy-3-methylglutaryl coenzyme A synthase cytoplasmic
+OS   Mesocricetus auratus (golden hamster).
+XX
+HG   none.
+AP   none.
+NP   none.
+XX
+DR   EMBL; M11869.1; [-528, 63].
+DR   TRANSFAC; R19470; HA$HMGCR_07; [-273, -247]; by position.
+DR   TRANSFAC; R19471; HA$HMGCR_08; [-306, -284]; by position.
+DR   TRANSFAC; R21204; MESAU$HMGCOAR_04; [-259, -243]; by position.
+DR   TRANSFAC; R21205; MESAU$HMGCOAR_05; [-282, -258]; by position.
+XX
+RN   [1]
+RX   MEDLINE; 2869036.
+RA   Gil G., Brown M.S., Goldstein J.L.;
+RT   "Cytoplasmic 3-hydroxy-3-methylglutaryl coenzyme A synthase from
+RT   the hamster: II. Isolation of the gene and characterization of the
+RT   5' flanking region";
+RL   J. Biol. Chem. 261:3717-3724(1986).
+XX
+ME   Nuclease protection with homologous sequence ladder [1].
+ME   Sequencing of a full-length cDNA [1].
+ME   Primer extension with homologous sequence ladder [1].
+XX
+SE   gggagtcgggtgggtcggtggctataaagctgctgagggcgggaggcacAGTGCACTGTG
+XX
+TX   6. Vertebrate promoters
+TX   6.1. Chromosomal genes
+TX   6.1.4. Enzymes
+TX   6.1.4.4. Vitamin, steroid, porphyrin metabolism
+XX
+KW   HMG-CoA synthetase, Synthetase.
+XX
+FP   Ma HMG-CoA synt. cp :+S  EM:M11869.1          1+       529; 11116.
+XX
+DO        Experimental evidence: 3h,5,6h
+DO        Expression/Regulation: housekeeping gene;-cholesterol
+RF        JBC261:3717
+//
