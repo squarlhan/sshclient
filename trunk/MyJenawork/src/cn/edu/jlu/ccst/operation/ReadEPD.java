@@ -167,13 +167,19 @@ public class ReadEPD {
 						}
 						gene.setGos(gos);
 					}
-					if (drs.length >= 2&&drs[0].trim().equalsIgnoreCase("RefSeq")) {
-						//add some resources to the promoter
-						resource = new Resource();
-						resource.setDataset("DBTSS");
-						resource.setLink("http://dbtss.hgc.jp/cgi-bin/home.cgi?NMID=");
-						resource.setId(drs[1].trim().substring(0, drs[1].trim().length()-1));
-						temppromoter.getResources().add(resource);
+					if (drs.length >= 2
+							&& drs[0].trim().equalsIgnoreCase("RefSeq")) {
+						// add some resources to the promoter
+						// as the dataset of dbtss only has 3 species in EPD
+						if (taxonomy.getId() == "9606"
+								|| taxonomy.getId() == "10090"
+								|| taxonomy.getId() == "7955") {
+							resource = new Resource();
+							resource.setDataset("DBTSS");
+							resource.setLink("http://dbtss.hgc.jp/cgi-bin/home.cgi?NMID=");
+							resource.setId(drs[1].trim().substring(0,drs[1].trim().length() - 1));
+							temppromoter.getResources().add(resource);
+						}
 						//add mRNA to the promoter
 						mRNA mrna = new mRNA();
 						mrna.setId(drs[1].trim().substring(0, drs[1].trim().length()-1));
