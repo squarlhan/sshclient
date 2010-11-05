@@ -1,0 +1,139 @@
+3885	Phaseolus vulgaris (kidney bean)
+3847	Glycine max (soybean)
+3702	Arabidopsis thaliana (thale cress)
+4565	Triticum aestivum (wheat)
+4039	Daucus carota (carrot)
+4102	Petunia hybrida (e.g. Petunia strain Mitchell)
+4097	Nicotiana tabacum (common tobacco)
+4577	Zea mays (maize)
+4498	Avena sativa (oat)
+4530	Oryza sativa (rice)
+4513	Hordeum vulgare (barley)
+4232	Helianthus annuus (common sunflower)
+3888	Pisum sativum (pea)
+3824	Canavalia gladiata (sword bean)
+3708	Brassica napus (rape)
+3645	Bertholletia excelsa (Brazil nut)
+3350	Pinus thunbergii (Japanese black pine)
+3728	Sinapis alba (white mustard)
+4092	Nicotiana plumbaginifolia (curled-leaved tobacco)
+3562	Spinacia oleracea
+3895	Sesbania rostrata
+3879	Medicago sativa (alfalfa)
+4227	Flaveria trinervia
+4558	Sorghum vulgare
+3663	Cucurbita pepo (zucchini)
+4081	Lycopersicon esculentum (tomato)
+3981	Hevea brasiliensis (para rubber tree)
+4151	Antirrhinum majus (snapdragon)
+4043	Petroselinum crispum (parsley)
+4113	Solanum tuberosum (potato)
+4082	Lycopersicon peruvianum (Peruvian tomato)
+3988	Ricinus communis (castor bean)
+358	Agrobacterium tumefaciens
+10821	Maize streak virus
+10641	Cauliflower mosaic virus
+6239	Caenorhabditis elegans
+7227	Drosophila melanogaster (fruit fly)
+7237	Drosophila pseudoobscura (fruit fly)
+7121	Antheraea yamamai
+7091	Bombyx mori (silkworm)
+7120	Antheraea polyphemus (polyphemus moth)
+7004	Locusta migratoria (migratory locust)
+7154	Chironomus thummi (midge)
+7238	Drosophila sechellia (fruit fly)
+7240	Drosophila simulans (fruit fly)
+7226	Drosophila mauritiana (fruit fly)
+7233	Drosophila orena (fruit fly)
+7231	Drosophila mulleri (fruit fly)
+7230	Drosophila mojavensis (fruit fly)
+7054	Photinus pyralis (North American firefly)
+7221	Drosophila funebris (fruit fly)
+7244	Drosophila virilis (fruit fly)
+7224	Drosophila hydei (fruit fly)
+7386	Sarcophaga peregrina
+7153	Chironomus tentans
+46015	Autographa californica nuclear polyhedrosis virus
+6500	Aplysia californica (California sea hare)
+7654	Lytechinus variegatus (green urchin)
+7668	Strongylocentrotus purpuratus
+7660	Psammechinus miliaris (sand urchin)
+7653	Lytechinus pictus (painted urchin)
+7656	Paracentrotus lividus (common urchin)
+7671	Strongylocentrotus droebachiensis
+8355	Xenopus laevis (African clawed frog)
+10090	Mus musculus (house mouse)
+10116	Rattus norvegicus (Norway rat)
+9031	Gallus gallus (chicken)
+9606	Homo sapiens (human)
+8354	Xenopus borealis (Kenyan clawed frog)
+857570	Salmo gairdneri (rainbow trout)
+8855	Cairina moschata (muscovy duck)
+10029	Cricetulus griseus (Chinese hamster)
+9823	Sus scrofa (pig)
+9913	Bos taurus (cattle)
+8364	Xenopus tropicalis (western clawed frog)
+9091	Coturnix coturnix (quail)
+9940	Ovis aries (sheep)
+10036	Mesocricetus auratus (golden hamster)
+30637	Spalax ehrenbergi (mole rat)
+9986	Oryctolagus cuniculus (rabbit)
+9711	Halichoerus grypus (gray seal)
+9796	Equus caballus (horse)
+9555	Papio anubis (olive baboon)
+9925	Capra hircus (goat)
+9598	Pan troglodytes (chimpanzee)
+8839	Anas platyrhynchos (mallard, domestic duck)
+9983	Lepus europaeus (European hare)
+9541	Macaca cynomolgus (macaque)
+9509	Ateles geoffroyi (black-handed spider monkey)
+9593	Gorilla gorilla (gorilla)
+9600	Pongo pygmaeus (orangutan)
+9505	Aotus trivirgatus (douroucouli)
+9683	Felis silvestris (wild cat)
+10141	Cavia porcellus (domestic guinea pig)
+11801	Moloney murine leukemia virus
+11783	Friend mink cell focus-forming virus
+11791	AKV murine leukemia virus
+11837	Xenotropic murine leukemia virus
+11809	Moloney murine sarcoma virus
+11840	Gibbon ape leukemia virus
+11970	Simian sarcoma virus
+11824	Gardner-Arnstein feline leukemia oncovirus B
+11757	Mouse mammary tumor virus
+11901	Bovine leukemia virus
+11908	Human T-cell leukemia virus type I
+11909	Human T-cell leukemia virus type II
+11886	Rous sarcoma virus (Avian)
+11864	Avian leukosis virus
+11948	Rous associated virus type 2 (Avian)
+11836	Spleen necrosis virus
+11676	Human immunodeficiency virus type 1
+11709	Human immunodeficiency virus type 2
+11942	Simian AIDS retrovirus SRV-1
+11723	Simian immunodeficiency virus
+11741	Visna lentivirus
+10359	Human cytomegalovirus
+10366	Murine cytomegalovirus
+10298	Human herpesvirus 1
+10310	Human herpesvirus 2
+10376	Human herpesvirus 4 (Epstein-Barr virus)
+10381	Herpesvirus saimiri
+10515	Human adenovirus type 2
+28285	Human adenovirus type 5
+10519	Human adenovirus type 7
+28282	Human adenovirus type 12
+413684	Simian adenovirus (7P)
+10559	Bovine papillomavirus type 1
+333761	Human papillomavirus type 18
+333760	Human papillomavirus type 16
+10804	Adeno-associated virus 2
+10799	Parvovirus H1 (Murine)
+10798	Human parvovirus B19
+10633	Simian virus 40
+10632	Human polyomavirus JCV
+10634	Mouse polyomavirus
+10629	Papovavirus BKV
+10407	Human hepatitis B virus
+10406	Ground squirrel hepatitis virus
+12639	Duck hepatitis B virus
