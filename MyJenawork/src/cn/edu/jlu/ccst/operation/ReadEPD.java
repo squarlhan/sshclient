@@ -250,7 +250,7 @@ public class ReadEPD {
 //		ReadEPD re = new ReadEPD();
 //		System.out.println(re.searchID("soybean"));
 		ReadEPD re = new ReadEPD();
-		List<Promoter> result = re.getPromoters("epd104.dat");
+		List<Promoter> result = re.getPromoters("test.txt");
 		System.out.println("Over!");
 		
 	}

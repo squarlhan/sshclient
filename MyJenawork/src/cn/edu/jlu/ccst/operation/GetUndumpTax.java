@@ -155,14 +155,75 @@ public class GetUndumpTax {
 		
 		return result;
 	}
-
+    /**
+     * Return a taxonomy tree from tax to root
+     * @param tax
+     * @return
+     */
+	public List<Taxonomy> GetTaxTree(Taxonomy tax){
+		List<Taxonomy> result = new ArrayList();
+		Connection con = null;
+	    Statement stmt = null;
+	    String url = "jdbc:mysql://localhost/tempdata";
+	    String user = "root";
+	    String pwd = "root";
+		result.add(tax);
+        String papid = "";
+        String papname = "";
+		
+		try {       
+	          Class.forName("com.mysql.jdbc.Driver").newInstance();
+	          con = DriverManager.getConnection(url,user,pwd);
+	          stmt = con.createStatement();		 
+	    } catch (Exception e){
+	          // your installation of JDBC Driver Failed
+	          e.printStackTrace();
+	    }
+		
+		while (!tax.getId().trim().equals("1")) {
+			ResultSet rs;
+			String sql1 = "select dad_id from taxdad where tax_id='" + tax.getId() + "	" + "';";	
+			
+			try {
+				rs = stmt.executeQuery(sql1);
+				if (rs.next()) {
+					papid = rs.getString(1).trim();
+				}
+				String sql2 = "select Name from taxonomy where ID='" + papid +"	" + "';";
+				
+				rs = stmt.executeQuery(sql2);
+				if (rs.next()) {
+					papname = rs.getString(1).trim();
+				}
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			Taxonomy newtax = new Taxonomy(papid, papname);
+			result.add(newtax);
+			tax = newtax;
+			System.out.println("New One: "+result.size()+":"+papid+" <==> "+papname);  
+		}
+		try {
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		GetUndumpTax myobj = new GetUndumpTax();
-		myobj.dealwithfile("epd104.dat", "alltax.txt");
+		//myobj.dealwithfile("epd104.dat", "alltax.txt");
+		Taxonomy tax = new Taxonomy("9606", "Homo sapiens");
+		List<Taxonomy> rs = myobj.GetTaxTree(tax);
+		System.out.println("END!");
 
 	}
 
