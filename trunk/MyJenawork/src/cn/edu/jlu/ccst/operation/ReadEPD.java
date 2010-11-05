@@ -46,25 +46,26 @@ public class ReadEPD {
 	    String url = "jdbc:mysql://localhost/tempdata";
 	    String user = "root";
 	    String pwd = "root";
+	    String result = null;
 	    try {       
 	          Class.forName("com.mysql.jdbc.Driver").newInstance();
 	          con = DriverManager.getConnection(url,user,pwd);
 	          stmt = con.createStatement();
+	          String str = "	"+sn+"	";
+			  String sql1 = "select ID from taxonomy where Name='" + str + "';";
+
+			  ResultSet rs = stmt.executeQuery(sql1);
+			  if (rs.next()) {
+				  result = rs.getString(1).trim();
+			  }
+			  con.close();
 	    } catch (Exception e){
 	          // your installation of JDBC Driver Failed
 	          e.printStackTrace();
 	    }
-        String str = "	"+sn+"	";
-        String sql1 = "select ID from taxonomy where Name='"+str+"';";
-        try{
-            ResultSet rs = stmt.executeQuery(sql1);          
-            if(rs.next()){  
-                return rs.getString(1).trim();
-            }
-        }catch(Exception e){
-           e.printStackTrace();
-        }
-        return null;
+        
+        
+        return result;
     }
 	/**
 	 * mapping the GO term from the gene_acc
