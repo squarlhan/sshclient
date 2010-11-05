@@ -17,6 +17,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hp.hpl.jena.ontology.OntClass;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntResource;
+
+import cn.edu.jlu.ccst.example.SimpleExample;
 import cn.edu.jlu.ccst.model.GO;
 import cn.edu.jlu.ccst.model.Gene;
 import cn.edu.jlu.ccst.model.Homology;
@@ -248,6 +253,27 @@ public class GetUndumpTax {
 		return result;
 	}
 	/**
+	 * Add taxonomy information to Ontology
+	 * @param tasxes
+	 */
+    public void GenerateNewTax(List<Taxonomy> taxes){
+    	SimpleExample se = new SimpleExample();
+    	List<Taxonomy> newtaxes = new ArrayList();
+		OntModel onmo = null;
+        try {
+      	    onmo = se.loadDB2nd();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+    	for(Taxonomy tax:taxes){
+    		OntResource fatherRes = onmo.getOntResource("http://um.es/ncbi.owl#NCBI_"+tax.getId().trim());
+    		if(fatherRes==null){
+    			newtaxes.add(tax);
+    			System.out.println("New One: "+newtaxes.size()+":"+tax.getId()+" <==> "+tax.getName());  
+			}
+    	}
+	}
+	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -256,6 +282,7 @@ public class GetUndumpTax {
 		//myobj.dealwithfile("epd104.dat", "alltax.txt");
 		Taxonomy tax = new Taxonomy("9606", "Homo sapiens");
 		List<Taxonomy> rs = myobj.GetEpdTax("alltax.txt");
+		myobj.GenerateNewTax(rs);
 		System.out.println("END!");
 
 	}
