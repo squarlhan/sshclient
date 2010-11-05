@@ -215,6 +215,39 @@ public class GetUndumpTax {
 		return result;
 	}
 	/**
+	 * Get all the species of EPD from a preprocessed file
+	 * @param addr
+	 * @return
+	 */
+	public List<Taxonomy> GetEpdTax(String addr){
+		List<Taxonomy> result = new ArrayList();
+		File file = new File(addr);
+		try {
+			InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
+			BufferedReader br = new BufferedReader(insr);
+			String line;
+			Taxonomy taxonomy;
+			while ((line = br.readLine()) != null) {
+				line = line.trim();
+				String[] lines = line.split("	");
+				taxonomy = new Taxonomy(lines[0], lines[1]);
+				result.add(taxonomy);
+			}
+			br.close();
+			insr.close();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -222,7 +255,7 @@ public class GetUndumpTax {
 		GetUndumpTax myobj = new GetUndumpTax();
 		//myobj.dealwithfile("epd104.dat", "alltax.txt");
 		Taxonomy tax = new Taxonomy("9606", "Homo sapiens");
-		List<Taxonomy> rs = myobj.GetTaxTree(tax);
+		List<Taxonomy> rs = myobj.GetEpdTax("alltax.txt");
 		System.out.println("END!");
 
 	}
