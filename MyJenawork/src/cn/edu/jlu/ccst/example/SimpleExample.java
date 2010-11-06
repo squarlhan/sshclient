@@ -386,8 +386,8 @@ public class SimpleExample {
 //		se.testListIndividual(onmo, PROMOTER_PREFIX+"#Promoter");
 //		se.testListIndividual(onmo, OGO_PREFIX+"#Pubmed");	
 //		se.testListIndividual(onmo, OGO_PREFIX+"#Gene");	
-		se.testListIndividual(onmo, NCBI_PREFIX+"#NCBI_1");
-		se.doquery(onmo, null);
+		se.testListIndividual(onmo, NCBI_PREFIX+"#NCBI_10519");
+		//se.doquery(onmo, null);
 	}
 
 }

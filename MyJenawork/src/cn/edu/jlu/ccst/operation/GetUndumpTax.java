@@ -17,20 +17,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntResource;
 
 import cn.edu.jlu.ccst.example.SimpleExample;
-import cn.edu.jlu.ccst.model.GO;
-import cn.edu.jlu.ccst.model.Gene;
-import cn.edu.jlu.ccst.model.Homology;
-import cn.edu.jlu.ccst.model.Keyword;
-import cn.edu.jlu.ccst.model.Promoter;
-import cn.edu.jlu.ccst.model.Reference;
-import cn.edu.jlu.ccst.model.Resource;
-import cn.edu.jlu.ccst.model.Taxonomy;
-import cn.edu.jlu.ccst.model.mRNA;
+import cn.edu.jlu.ccst.model.*;
 
 public class GetUndumpTax {
 	
@@ -209,7 +202,7 @@ public class GetUndumpTax {
 			Taxonomy newtax = new Taxonomy(papid, papname);
 			result.add(newtax);
 			tax = newtax;
-			System.out.println("New One: "+result.size()+":"+papid+" <==> "+papname);  
+//			System.out.println("New One: "+result.size()+":"+papid+" <==> "+papname);  
 		}
 		try {
 			con.close();
@@ -259,6 +252,7 @@ public class GetUndumpTax {
     public void GenerateNewTax(List<Taxonomy> taxes){
     	SimpleExample se = new SimpleExample();
     	List<Taxonomy> newtaxes = new ArrayList();
+    	String labeluri = "http://www.w3.org/2000/01/rdf-schema#label";
 		OntModel onmo = null;
         try {
       	    onmo = se.loadDB2nd();
@@ -266,11 +260,69 @@ public class GetUndumpTax {
 			e.printStackTrace();
 		}
     	for(Taxonomy tax:taxes){
-    		OntResource fatherRes = onmo.getOntResource("http://um.es/ncbi.owl#NCBI_"+tax.getId().trim());
-    		if(fatherRes==null){
-    			newtaxes.add(tax);
-    			System.out.println("New One: "+newtaxes.size()+":"+tax.getId()+" <==> "+tax.getName());  
+    		String newuri = se.NCBI_PREFIX+"#NCBI_"+tax.getId().trim();
+    		OntResource myRes = onmo.getOntResource(newuri);
+    		if(myRes==null){   			 
+    			int count =0;
+    			OntClass c1 = onmo.createClass(newuri);
+    			Individual i1 = onmo.createIndividual(newuri, onmo.getOntClass(newuri));
+    			c1.addLabel(tax.getName().trim(), "EN");
+    			i1.addLabel(tax.getName().trim(), "EN");
+    			count++;
+    			List<OntClass> classtree = new ArrayList();
+    			classtree.add(c1);
+    			newtaxes = this.GetTaxTree(tax);
+    			for(int i = 1; i<=newtaxes.size()-1; i++){
+    				String newtaxuri = se.NCBI_PREFIX+"#NCBI_"+newtaxes.get(i).getId().trim();
+    				OntResource tempRes = onmo.getOntResource(newtaxuri);
+    				if(tempRes == null){
+    					OntClass ctemp = onmo.createClass(newtaxuri);
+    					Individual itemp = onmo.createIndividual(newtaxuri, onmo.getOntClass(newtaxuri));
+    					ctemp.addLabel(newtaxes.get(i).getName().trim(), "EN");
+    					itemp.addLabel(newtaxes.get(i).getName().trim(), "EN");
+    					count++;
+    					classtree.add(ctemp);
+    				}else{
+    					OntResource fatherRes = onmo.getOntResource(se.NCBI_PREFIX+"#NCBI_"+newtaxes.get(i+1).getId().trim());
+    					if(fatherRes!=null&&fatherRes.canAs(OntClass.class)){
+    						OntClass fatherClass = fatherRes.as(OntClass.class);
+    						classtree.add(fatherClass);
+    					}
+    					break;
+    				}
+    			}
+    			
+    			for(int i = 0; i<=classtree.size()-2;i++){
+    				classtree.get(i+1).addSubClass(classtree.get(i));
+    			}
+    			System.out.println("New One: "+count+":"+tax.getId()+" <==> "+tax.getName()); 
 			}
+    	}
+	}
+    /**
+     * Create individual for each class and add label
+     * @param taxes
+     */
+    public void GenerateNewIdv(List<Taxonomy> taxes){
+    	SimpleExample se = new SimpleExample();
+    	List<Taxonomy> newtaxes = new ArrayList();
+    	String labeluri = "http://www.w3.org/2000/01/rdf-schema#label";
+		OntModel onmo = null;
+        try {
+      	    onmo = se.loadDB2nd();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+    	for(Taxonomy tax:taxes){   		
+    		newtaxes = this.GetTaxTree(tax);
+    		for(int i = 0; i<=newtaxes.size()-2;i++){
+    			String newuri = se.NCBI_PREFIX+"#NCBI_"+newtaxes.get(i).getId().trim();
+    			String papuri = se.NCBI_PREFIX+"#NCBI_"+newtaxes.get(i+1).getId().trim();
+    			Individual itemp = onmo.createIndividual(newuri, onmo.getOntClass(newuri));
+    			itemp.addLabel(newtaxes.get(i).getName().trim(), "EN");
+    			//OntClass ctemp = (OntClass) se.CreateandGetRes(newuri, papuri, onmo, 3);
+    			//ctemp.addLabel(newtaxes.get(i).getName().trim(), "EN");
+    		}			
     	}
 	}
 	/**
@@ -280,9 +332,8 @@ public class GetUndumpTax {
 		// TODO Auto-generated method stub
 		GetUndumpTax myobj = new GetUndumpTax();
 		//myobj.dealwithfile("epd104.dat", "alltax.txt");
-		Taxonomy tax = new Taxonomy("9606", "Homo sapiens");
 		List<Taxonomy> rs = myobj.GetEpdTax("alltax.txt");
-		myobj.GenerateNewTax(rs);
+		myobj.GenerateNewIdv(rs);
 		System.out.println("END!");
 
 	}
