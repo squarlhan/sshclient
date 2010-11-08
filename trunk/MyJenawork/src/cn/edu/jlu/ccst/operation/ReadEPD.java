@@ -52,7 +52,7 @@ public class ReadEPD {
 	          con = DriverManager.getConnection(url,user,pwd);
 	          stmt = con.createStatement();
 	          String str = "	"+sn+"	";
-			  String sql1 = "select ID from taxonomy where Name='" + str + "';";
+			  String sql1 = "select id from epdtax where name='" + str + "';";
 
 			  ResultSet rs = stmt.executeQuery(sql1);
 			  if (rs.next()) {
@@ -122,18 +122,21 @@ public class ReadEPD {
 				//construct promoter object
 				if(lines[0].trim().equalsIgnoreCase("ID")){
 					temppromoter = new Promoter();
-					temppromoter.setName(lines[1].trim());
+					temppromoter.setName(lines[1].trim());					
 					result.add(temppromoter);
+				}
+				//construct epd resource object
+				if(lines[0].trim().equalsIgnoreCase("AC")){
+					Resource re = new Resource();
+					re.setDataset("EPD");
+					re.setId(lines[1].trim().substring(0, lines[1].trim().length()-1));
+					temppromoter.getResources().add(re);
 				}
 				//construct taxonomy object
 				if(lines[0].trim().equalsIgnoreCase("OS")){
 					taxonomy = new Taxonomy();					
 					String taxname = lines[1].trim().substring(0, lines[1].trim().length()-1);
 					taxonomy.setName(taxname);
-					int fnind = lines[1].indexOf('(');
-					if(fnind!=-1){
-						taxname = lines[1].substring(0, fnind).trim();
-					}
 					String taxid = this.searchID(taxname);
 					taxonomy.setId(taxid);					
 				}
@@ -173,8 +176,7 @@ public class ReadEPD {
 						// add some resources to the promoter
 						// as the dataset of dbtss only has 3 species in EPD
 						if (taxonomy.getId() == "9606"
-								|| taxonomy.getId() == "10090"
-								|| taxonomy.getId() == "7955") {
+								|| taxonomy.getId() == "10090") {
 							resource = new Resource();
 							resource.setDataset("DBTSS");
 							resource.setLink("http://dbtss.hgc.jp/cgi-bin/home.cgi?NMID=");
@@ -216,6 +218,7 @@ public class ReadEPD {
 					}else
 						reference.setLocation(reference.getLocation()+lines[1].trim());				
 				}
+				//construct some keywords objects
 				if(lines[0].trim().equalsIgnoreCase("KW")){								
 					String[] kws = lines[1].trim().substring(0, lines[1].trim().length()-1).split(",");
 					for(String kw:kws){
