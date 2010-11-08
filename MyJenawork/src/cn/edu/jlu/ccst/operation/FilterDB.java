@@ -118,7 +118,51 @@ public class FilterDB {
 						}
 					}
 				}else{
-					
+					for(String embl: embls){
+						ResultSet rs;
+						String sql0 = "select count(distinct geneid, rna_acc, pro_acc) " +
+								"from epdgene where rna_acc = '"+embl+"';";
+						rs = stmt.executeQuery(sql0);
+						int num = 0;
+						if (rs.next()) {
+							num = rs.getInt(1);
+						}
+						if(num == 1){
+							String sql1 = "select distinct geneid, rna_acc, pro_acc from epdgene " +
+							        "where rna_acc = '"+embl+"';";
+							rs = stmt.executeQuery(sql1);
+							if (rs.next()) {
+								gene_id = rs.getString(1).trim();
+								rna_acc = rs.getString(2).trim();
+								pro_acc = rs.getString(3).trim();
+							}
+							String sql2 = "select distinct go_id, go_term from epdgo " +
+							        "where geneid = '"+gene_id+"';";
+							rs = stmt.executeQuery(sql2);
+							if (rs.next()) {
+								go_id = rs.getString(1).trim();
+								gene_name = rs.getString(2).trim();
+							}else{
+								go_id = "-";
+								gene_name = "-";
+							}
+							
+						}else{
+							gene_id = embl;
+							go_id = "-";
+							gene_name = "-";
+							rna_acc = "-";
+							pro_acc = "-";
+						}
+						String sql3 = "insert into  epddata go_id values( " +
+				                 "'"+epd_id+"',"+
+				                 "'"+gene_id+"',"+
+				                 "'"+rna_acc+"',"+
+				                 "'"+pro_acc+"',"+
+				                 "'"+go_id+"',"+
+				                 "'"+gene_name+"')";
+				        stmt.execute(sql3);	
+					}
 				}
 			}
 			br.close();
@@ -163,13 +207,13 @@ public class FilterDB {
 	    }
 	    for(Taxonomy tax: alltax){
 	    	String sql1 = "insert into epdgene " +
-	    			"select distinct tax_id,geneid,rna_acc, pro_acc gen_acc from gene2acc " +
+	    			"select distinct tax_id,geneid,rna_acc, pro_acc, gen_acc from gene2acc " +
 	    			"where tax_id = '"+tax.getId()+"' and gen_acc!='-';";
 	    	String sql2 = "insert into epdgo " +
 			        "select distinct tax_id,geneid,go_id,go_term from gene2go " +
 			        "where tax_id = '"+tax.getId()+"' ;";
 	    	String sql3 = "insert into epdrefseq " +
-	                "select distinct tax_id,geneid,rna_acc, pro_acc gen_acc from gene2refseq " +
+	                "select distinct tax_id,geneid,rna_acc, pro_acc, gen_acc from gene2refseq " +
 	                "where tax_id = '"+tax.getId()+"' and gen_acc!='-';";
 	    	try {
 				stmt.execute(sql1);
