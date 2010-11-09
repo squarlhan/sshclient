@@ -1,102 +1,343 @@
-ID   MM_GPT_5     standard; single; VRT.
+ID   DM_ACT1_2     standard; multiple; ART.
 XX
-AC   EP59001;
+AC   EP23021;
 XX
-DT   15-MAR-1999 (Rel. 59, created)
-DT   19-JAN-2000 (Rel. 61, Last annotation update).
+DT   ??-MAY-1990 (Rel. 23, created)
+DT   18-DEC-2006 (Rel. 89, Last annotation update).
 XX
-DE   UDP-GlcNAc:dolichol phosphate N-acetylglucosamine-1-phosphate
-DE   transferase (GPT), DPAGT2 or GNPTA gene.
-OS   Mus musculus (house mouse).
+DE   Actin cytoplasmic [5C].
+OS   Drosophila melanogaster (fruit fly).
 XX
-HG   Homology group 233; Mouse GlcNAc-1-phosphate transferase
-AP   Alternative promoter #5 of 5; 5' exon 1; site 1; major promoter.
+HG   none.
+AP   Alternative promoter #2 of 2; 5' exon 2; site 1.
 NP   none.
 XX
-DR   EPD; EP59005; MM_GPT_1; alternative promoter; [-513; +].
-DR   EPD; EP59004; MM_GPT_2; alternative promoter; [-200; +].
-DR   EPD; EP59003; MM_GPT_3; alternative promoter; [-141; +].
-DR   EPD; EP59002; MM_GPT_4; alternative promoter; [-7; +].
-DR   EMBL; U03603.1; [-1376, 209].
-DR   SWISS-PROT; P42867; GPT_MOUSE.
-DR   TRANSFAC; R22536; MOUSE$DPAGT1_01; [-176, -145]; by position.
-DR   TRANSFAC; R22537; MOUSE$DPAGT1_02; [-458, -427]; by position.
-DR   TRANSFAC; R22538; MOUSE$DPAGT1_03; [-94, -60]; by position.
-DR   MGD; MGI:1196396; DPAGT2.
+DR   GENOME; NC_004354.3; NC_004354; [-5796019, 16626808].
+DR   EPD; EP23020; DM_ACT1_1; alternative promoter; [unknown].
+DR   EMBL; AE014298.4; [-5796019, 16626808].
+DR   EMBL; M32055.1; [-451, 19].
+DR   EMBL; M13586.1; [-441, 339].
+DR   EMBL; M20378.1; [-441, 89].
+DR   EMBL; X06383.1; [-315, 966].
+DR   SWISS-PROT; P10987; ACT1_DROME.
+DR   TRANSFAC; R02597; DROME$AC5C_03; [-329, -312]; by position.
+DR   FLYBASE; FBgn0000042; Act5C.
 XX
 RN   [1]
-RX   MEDLINE; 8043075.
-RA   Rajput B., Ma J., Vijay I.K.;
-RT   "Structure and organization of mouse GlcNAc-1-phosphate
-RT   transferase  gene";
-RL   J. Biol. Chem. 269:9590-9597(1994).
+RX   MEDLINE; 3123314.
+RA   Vigoreaux J.O., Tobin S.L.;
+RT   "Stage-specific selection of alternative transcriptional
+RT   initiation sites from the 5C actin gene of Drosophila
+RT   melanogaster.";
+RL   Genes Dev. 1:1161-1171(1987).
+RN   [2]
+RX   MEDLINE; 3130297.
+RA   Bond-Matthews B., Davidson N.;
+RT   "Transcription from each of the Drosophila act5C leader exons in
+RT   driven by a separate functional promoter";
+RL   Gene 62:289-300(1988).
 XX
-ME   Primer extension with homologous sequence ladder [1].
+ME   Nuclease protection [1].
+ME   Primer extension [1].
 XX
-SE   tagttctttcgcaattaagatccgggtggaaacaatgggtaggtgcagcGGGCAGAGCCG
+SE   gattgaaaaacgcagttaactggcattcaacattcaccagccactttcaGTCGGTTTATT
 XX
-TX   6. Vertebrate promoters
-TX   6.1. Chromosomal genes
-TX   6.1.4. Enzymes
-TX   6.1.4.3. Amino acid metabolism
-TX   6.1.4.3.2. Miscellaneous
+TX   3. Arthropode promoters
+TX   3.1. Chromosomal genes
+TX   3.1.2. Structural proteins
+TX   3.1.2.3. Contractile proteins
+TX   3.1.2.3.1. Actin
 XX
-KW   Glycosyltransferase, Transmembrane, Glycoprotein.
+KW   Structural protein, Contractile protein, Multigene family.
 XX
-FP   Mm GPT           P5+:+S  EM:U03603.1          1+      1377; 59001.233 059*5
+FP   Dm[ 5C] actin  E2P2 :+M  EU:NC_004354.3       1+   5796020; 23021.    031*2
 XX
-DO        Experimental evidence: 6h
-DO        Expression/Regulation: housekeeping gene
-RF        JBC269:9590
+DO        Experimental evidence: 3,6
+DO        Expression/Regulation: embryo > larva > pupa
+RF        GDev1:1161     Gene62:289
 //
-*----------------------------------------------------------------------*
-*    6.1.4.4. Vitamin, steroid, porphyrin metabolism                   *
-*----------------------------------------------------------------------*
+ID   DM_ACT5     standard; single; ART.
 XX
-ID   MA_HMGC     standard; single; VRT.
+AC   EP23022;
 XX
-AC   EP11116;
+DT   ??-MAY-1990 (Rel. 23, created)
+DT   27-SEP-2006 (Rel. 88, Last annotation update).
 XX
-DT   ??-APR-1987 (Rel. 11, created)
-DT   07-OCT-2002 (Rel. 72, Last annotation update).
-XX
-DE   3-Hydroxy-3-methylglutaryl coenzyme A synthase cytoplasmic
-OS   Mesocricetus auratus (golden hamster).
+DE   actin muscle [87E]
+OS   Drosophila melanogaster (fruit fly).
 XX
 HG   none.
 AP   none.
 NP   none.
 XX
-DR   EMBL; M11869.1; [-528, 63].
-DR   TRANSFAC; R19470; HA$HMGCR_07; [-273, -247]; by position.
-DR   TRANSFAC; R19471; HA$HMGCR_08; [-306, -284]; by position.
-DR   TRANSFAC; R21204; MESAU$HMGCOAR_04; [-259, -243]; by position.
-DR   TRANSFAC; R21205; MESAU$HMGCOAR_05; [-282, -258]; by position.
+DR   GENOME; NT_033777.2; NT_033777; [-9251706, 18653347].
+DR   EMBL; AC003923.1; [21314, -61079].
+DR   EMBL; AE014297.2; [-9251706, 18653347].
+DR   EMBL; X12452.1; [-347, 2577].
+DR   SWISS-PROT; P10981; ACT5_DROME.
+DR   FLYBASE; FBgn0000046; Act87E.
+DR   RefSeq; NM_057743.3.
+DR   RefSeq; NM_169525.1.
+DR   ENSEMBL; CG18290.
+DR   TRANSCRIPTOME; DMe003341.
 XX
 RN   [1]
-RX   MEDLINE; 2869036.
-RA   Gil G., Brown M.S., Goldstein J.L.;
-RT   "Cytoplasmic 3-hydroxy-3-methylglutaryl coenzyme A synthase from
-RT   the hamster: II. Isolation of the gene and characterization of the
-RT   5' flanking region";
-RL   J. Biol. Chem. 261:3717-3724(1986).
+RX   MEDLINE; 2840338.
+RA   Manseau L.J., Ganetzky B., Craig E.A.;
+RT   "Molecular and Genetic Characterization of the Drosophila
+RT   melanogaster 87E Actin Gene Region";
+RL   Genetics 119:407-420(1988).
+RN   [2]
+RX   MEDLINE; 12176937.
+RA   Stapleton M., Liao GC., Brokstein P., Hong L., Carninci P.,
+RA   Shiraki T., Hayashizaki Y., Champe M., Pacleb J., Wan K., Yu C.,
+RA   Carlson J., George R., Celniker S., and Rubin GM.;
+RT   "The Drosophila Gene Collection: Identification of Putative Full-
+RT   Length cDNAs for 70% of D. melanogaster Genes";
+RL   Genome Res. 12:1294-1300(2002).
 XX
-ME   Nuclease protection with homologous sequence ladder [1].
 ME   Sequencing of a full-length cDNA [1].
-ME   Primer extension with homologous sequence ladder [1].
+ME   Primer extension [1].
+ME   Berkeley Drosophila Genome Project.
+ME   Oligo-capping [2].
 XX
-SE   gggagtcgggtgggtcggtggctataaagctgctgagggcgggaggcacAGTGCACTGTG
+SE   gagggtcgccagaatggtataaatattagcgcatctcggtccagcgaccACTCGCAGTTC
 XX
-TX   6. Vertebrate promoters
-TX   6.1. Chromosomal genes
-TX   6.1.4. Enzymes
-TX   6.1.4.4. Vitamin, steroid, porphyrin metabolism
+FL             BDGP
+IF    0   A    12
+IF   +2   T    2
+IF   +4   G    4
 XX
-KW   HMG-CoA synthetase, Synthetase.
+TX   3. Arthropode promoters
+TX   3.1. Chromosomal genes
+TX   3.1.2. Structural proteins
+TX   3.1.2.3. Contractile proteins
+TX   3.1.2.3.1. Actin
 XX
-FP   Ma HMG-CoA synt. cp :+S  EM:M11869.1          1+       529; 11116.
+KW   Structural protein, Contractile protein, Multigene family.
 XX
-DO        Experimental evidence: 3h,5,6h
-DO        Expression/Regulation: housekeeping gene;-cholesterol
-RF        JBC261:3717
+FP   Dm[87E] actin muscle:+S  EU:NT_033777.2       1+   9251707; 23022.
+XX
+DO        Experimental evidence: 5,6,14
+DO        Expression/Regulation: intersegmental muscle
+RF        Gnts119:407    GnmR12:1294
+//
+ID   DM_CNA1_3     standard; single; ART.
+XX
+AC   EP77004;
+XX
+DT   04-DEC-2003 (Rel. 77, created)
+DT   28-SEP-2006 (Rel. 88, Last annotation update).
+XX
+DE   Salivary glue protein Sgs-4 precursor.
+OS   Drosophila melanogaster (fruit fly).
+XX
+HG   none.
+AP   Alternative promoter #3 of 3; 5' exon 1; site 3.
+NP   none.
+XX
+DR   EPD; EP77002; DM_CNA1_1; alternative promoter; [-12490; +].
+DR   EPD; EP77003; DM_CNA1_2; alternative promoter; [-1028; +].
+DR   EMBL; AE014298.4; [-22102146, 320681].
+DR   SWISS-PROT; P12252; PDE4B_DROME.
+DR   SWISS-PROT; P23938; NG1_DROME.
+DR   SWISS-PROT; P26023; PIG1_DROME.
+DR   SWISS-PROT; Q00725; SGS4_DROME.
+DR   SPTREMBL; Q8IRU3.
+DR   SPTREMBL; Q8I0A3.
+DR   SPTREMBL; Q8IGV2.
+DR   SPTREMBL; O76917.
+DR   SPTREMBL; Q9U1K7.
+DR   SPTREMBL; Q9V3X3.
+DR   SPTREMBL; Q95SA5.
+DR   SPTREMBL; Q9W4U2.
+DR   SPTREMBL; Q24042.
+DR   SPTREMBL; Q9W4U3.
+DR   SPTREMBL; Q8IRV4.
+DR   SPTREMBL; Q8IRV5.
+DR   SPTREMBL; Q9W4U5.
+DR   SPTREMBL; Q9W4U6.
+DR   SPTREMBL; Q9W4U7.
+DR   SPTREMBL; Q9W4U8.
+DR   SPTREMBL; Q8I072.
+DR   SPTREMBL; Q9N9Y9.
+DR   FLYBASE; FBgn0003374; Sgs4.
+DR   FLYBASE; FBgn0028369; kirre.
+DR   FLYBASE; FBgn0029642; CG3592.
+DR   FLYBASE; FBgn0052793; CG32793.
+DR   FLYBASE; FBgn0040355; CG3526.
+DR   FLYBASE; FBgn0002933; ng1.
+DR   FLYBASE; FBgn0029643; CG14420.
+DR   FLYBASE; FBgn0052794; CG32794.
+DR   FLYBASE; FBgn0029644; CG14421.
+DR   FLYBASE; FBgn0040356; CG12498.
+DR   FLYBASE; FBgn0029645; CG14422.
+DR   FLYBASE; FBgn0029646; CG14423.
+DR   FLYBASE; FBgn0029647; CG17959.
+DR   FLYBASE; FBgn0029648; CG3603.
+DR   FLYBASE; FBgn0046781; BcDNA:LD23922.
+DR   FLYBASE; FBgn0046782; BcDNA:LD21171.
+DR   FLYBASE; FBgn0040396; CG3939.
+DR   FLYBASE; FBgn0025643; CG3588.
+DR   FLYBASE; FBgn0025645; CG3598.
+DR   FLYBASE; FBgn0003086; Pig1.
+DR   FLYBASE; FBgn0000479; dnc.
+DR   RefSeq; NM_057307.2.
+DR   RefSeq; NM_057329.3.
+DR   RefSeq; NM_057369.3.
+DR   RefSeq; NM_080320.2.
+DR   RefSeq; NM_080322.2.
+DR   RefSeq; NM_130674.1.
+DR   RefSeq; NM_130679.2.
+DR   RefSeq; NM_130680.2.
+DR   RefSeq; NM_130683.1.
+DR   RefSeq; NM_130684.1.
+DR   RefSeq; NM_130685.1.
+DR   RefSeq; NM_130686.1.
+DR   RefSeq; NM_130687.1.
+DR   RefSeq; NM_130688.1.
+DR   RefSeq; NM_130689.1.
+DR   RefSeq; NM_130690.1.
+DR   RefSeq; NM_130692.2.
+DR   RefSeq; NM_166953.1.
+DR   RefSeq; NM_166954.1.
+DR   RefSeq; NM_166955.1.
+DR   RefSeq; NM_166956.1.
+DR   RefSeq; NM_166957.1.
+DR   RefSeq; NM_166958.1.
+DR   RefSeq; NM_166959.1.
+DR   RefSeq; NM_166960.1.
+DR   RefSeq; NM_166961.1.
+DR   RefSeq; NM_166962.1.
+DR   RefSeq; NM_166963.1.
+DR   RefSeq; NM_166964.1.
+DR   RefSeq; NM_166965.1.
+DR   RefSeq; NM_166966.1.
+DR   RefSeq; NM_166967.1.
+DR   RefSeq; NM_166968.1.
+DR   RefSeq; NM_166969.1.
+DR   RefSeq; NM_166970.1.
+DR   RefSeq; NM_166971.1.
+DR   RefSeq; NM_057307.2.
+DR   RefSeq; NM_057329.3.
+DR   RefSeq; NM_057369.3.
+DR   RefSeq; NM_080320.2.
+DR   RefSeq; NM_080322.2.
+DR   RefSeq; NM_130674.1.
+DR   RefSeq; NM_130679.2.
+DR   RefSeq; NM_130680.2.
+DR   RefSeq; NM_130683.1.
+DR   RefSeq; NM_130684.1.
+DR   RefSeq; NM_130685.1.
+DR   RefSeq; NM_130686.1.
+DR   RefSeq; NM_130687.1.
+DR   RefSeq; NM_130688.1.
+DR   RefSeq; NM_130689.1.
+DR   RefSeq; NM_130690.1.
+DR   RefSeq; NM_130692.2.
+DR   RefSeq; NM_166953.1.
+DR   RefSeq; NM_166954.1.
+DR   RefSeq; NM_166955.1.
+DR   RefSeq; NM_166956.1.
+DR   RefSeq; NM_166957.1.
+DR   RefSeq; NM_166958.1.
+DR   RefSeq; NM_166959.1.
+DR   RefSeq; NM_166960.1.
+DR   RefSeq; NM_166961.1.
+DR   RefSeq; NM_166962.1.
+DR   RefSeq; NM_166963.1.
+DR   RefSeq; NM_166964.1.
+DR   RefSeq; NM_166965.1.
+DR   RefSeq; NM_166966.1.
+DR   RefSeq; NM_166967.1.
+DR   RefSeq; NM_166968.1.
+DR   RefSeq; NM_166969.1.
+DR   RefSeq; NM_166970.1.
+DR   RefSeq; NM_166971.1.
+DR   RefSeq; NM_057307.2.
+DR   RefSeq; NM_057329.3.
+DR   RefSeq; NM_057369.3.
+DR   RefSeq; NM_080320.2.
+DR   RefSeq; NM_080322.2.
+DR   RefSeq; NM_130674.1.
+DR   RefSeq; NM_130679.2.
+DR   RefSeq; NM_130680.2.
+DR   RefSeq; NM_130683.1.
+DR   RefSeq; NM_130684.1.
+DR   RefSeq; NM_130685.1.
+DR   RefSeq; NM_130686.1.
+DR   RefSeq; NM_130687.1.
+DR   RefSeq; NM_130688.1.
+DR   RefSeq; NM_130689.1.
+DR   RefSeq; NM_130690.1.
+DR   RefSeq; NM_130692.2.
+DR   RefSeq; NM_166953.1.
+DR   RefSeq; NM_166954.1.
+DR   RefSeq; NM_166955.1.
+DR   RefSeq; NM_166956.1.
+DR   RefSeq; NM_166957.1.
+DR   RefSeq; NM_166958.1.
+DR   RefSeq; NM_166959.1.
+DR   RefSeq; NM_166960.1.
+DR   RefSeq; NM_166961.1.
+DR   RefSeq; NM_166962.1.
+DR   RefSeq; NM_166963.1.
+DR   RefSeq; NM_166964.1.
+DR   RefSeq; NM_166965.1.
+DR   RefSeq; NM_166966.1.
+DR   RefSeq; NM_166967.1.
+DR   RefSeq; NM_166968.1.
+DR   RefSeq; NM_166969.1.
+DR   RefSeq; NM_166970.1.
+DR   RefSeq; NM_166971.1.
+DR   ENSEMBL; CG3603.
+DR   ENSEMBL; CG14420.
+DR   ENSEMBL; CG14421.
+DR   ENSEMBL; CG14422.
+DR   ENSEMBL; CG14423.
+DR   ENSEMBL; CG3526.
+DR   ENSEMBL; CG10781.
+DR   ENSEMBL; CG10790.
+DR   ENSEMBL; CG17959.
+DR   ENSEMBL; CG3653.
+DR   ENSEMBL; CG3592.
+DR   ENSEMBL; CG12498.
+DR   ENSEMBL; CG3588.
+DR   ENSEMBL; CG3598.
+DR   ENSEMBL; CG3939.
+DR   ENSEMBL; CG32498.
+DR   ENSEMBL; CG32793.
+DR   ENSEMBL; CG12181.
+DR   ENSEMBL; CG32794.
+DR   TRANSCRIPTOME; DMe000002.
+XX
+RN   [1]
+RX   MEDLINE; 12176937.
+RA   Stapleton M., Liao GC., Brokstein P., Hong L., Carninci P.,
+RA   Shiraki T., Hayashizaki Y., Champe M., Pacleb J., Wan K., Yu C.,
+RA   Carlson J., George R., Celniker S., and Rubin GM.;
+RT   "The Drosophila Gene Collection: Identification of Putative Full-
+RT   Length cDNAs for 70% of D. melanogaster Genes";
+RL   Genome Res. 12:1294-1300(2002).
+XX
+ME   Berkeley Drosophila Genome Project.
+ME   Oligo-capping [1].
+XX
+SE   tgtcatttctgtatatagtgtattcgggtatattaaaacggtcactatgAGTCAGCCACG
+XX
+FL             BDGP
+IF    0   A    13
+XX
+TX   3. Arthropode promoters
+TX   3.1. Chromosomal genes
+TX   3.1.7. Unclassified
+XX
+KW   Alternative initiation, cAMP, Signal, Repeat, Hydrolase,
+KW   Alternative splicing.
+XX
+FP   Dm DNC_3            :+S  EM:AE014298.4        1+  22102147; 77004.    117*3
+XX
+DO        Experimental evidence: 14
+DO        Expression/Regulation:
+RF        GnmR12:1294
 //

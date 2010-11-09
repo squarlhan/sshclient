@@ -90,36 +90,47 @@ public class FilterDB {
 					int genno = 0;
 					if(refseqs.size()>0){
 						for(String ref_acc: refseqs){
-							String sql1 = "select distinct geneid, rna_acc, pro_acc from epdrefseq " +
-									"where rna_acc = '"+ref_acc+"';";
 							ResultSet rs;
-							rs = stmt.executeQuery(sql1);
+							boolean flag = true;
+							String sql0 = "select count(distinct geneid, rna_acc, pro_acc) from epdrefseq " +
+							        "where rna_acc = '"+ref_acc+"';";
+							rs = stmt.executeQuery(sql0);
 							if (rs.next()) {
-								gene_id = rs.getString(1).trim();
-								rna_acc = rs.getString(2).trim();
-								pro_acc = rs.getString(3).trim();
+								int iflag = rs.getInt(1);
+								flag = iflag==1?true:false;
 							}
-							String sql2 = "select distinct go_id, go_term from epdgo " +
-							        "where geneid = '"+gene_id+"';";
-							rs = stmt.executeQuery(sql2);
-							if (rs.next()) {
-								go_id = rs.getString(1).trim();
-								gene_name = rs.getString(2).trim();
-							}else{
-								go_id = "-";
-								gene_name = "-";
-							}
-							String sql3 = "insert into epddata values( " +
-							        "'"+epd_id+"',"+
-							        "'"+gene_id+"',"+
-							        "'"+rna_acc+"',"+
-							        "'"+pro_acc+"',"+
-							        "'"+go_id+"',"+
-							        "'"+gene_name+"')";
-							stmt.execute(sql3);	
-							genno++;
+							if(flag){
+								String sql1 = "select distinct geneid, rna_acc, pro_acc from epdrefseq "
+										+ "where rna_acc = '" + ref_acc + "';";
+
+								rs = stmt.executeQuery(sql1);
+								if (rs.next()) {
+									gene_id = rs.getString(1).trim();
+									rna_acc = rs.getString(2).trim();
+									pro_acc = rs.getString(3).trim();
+								}
+								String sql2 = "select distinct go_id, go_term from epdgo "
+										+ "where geneid = '" + gene_id + "';";
+								rs = stmt.executeQuery(sql2);
+								if (rs.next()) {
+									go_id = rs.getString(1).trim();
+									gene_name = rs.getString(2).trim();
+								} else {
+									go_id = "-";
+									gene_name = "-";
+								}
+								String sql3 = "insert into epddata values( "
+										+ "'" + epd_id + "'," + "'" + gene_id
+										+ "'," + "'" + rna_acc + "'," + "'"
+										+ pro_acc + "'," + "'" + go_id + "',"
+										+ "'" + gene_name + "')";
+								stmt.execute(sql3);
+								genno++;
+							}							
 						}
-					} else {
+//						System.out.println("genno:"+genno);
+					} 
+					if(genno==0){
 						for (String embl : embls) {
 							ResultSet rs;
 							String sql0 = "select count(distinct geneid, rna_acc, pro_acc) "
@@ -188,7 +199,7 @@ public class FilterDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("totel:"+ prono +" promoters and "+ tolno+"genes");
+		System.out.println("totel:"+ prono +" promoters and "+ tolno+" genes!");
 	}
 
 	/**
@@ -277,6 +288,7 @@ public class FilterDB {
 		// TODO Auto-generated method stub
 		FilterDB myobj = new FilterDB();
 		myobj.generateepdgene("test.txt");
+//		myobj.generateepdgene("epd104.dat");
 		//myobj.filtergeneandgo(myobj.GetEpdTax("alltax.txt"));
 		System.out.println("//");
 	}
