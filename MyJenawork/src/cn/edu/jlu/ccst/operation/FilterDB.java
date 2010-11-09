@@ -107,7 +107,7 @@ public class FilterDB {
 								go_id = "-";
 								gene_name = "-";
 							}
-							String sql3 = "insert into  epddata go_id values( " +
+							String sql3 = "insert into epddata values( " +
 							        "'"+epd_id+"',"+
 							        "'"+gene_id+"',"+
 							        "'"+rna_acc+"',"+
@@ -154,7 +154,7 @@ public class FilterDB {
 							rna_acc = "-";
 							pro_acc = "-";
 						}
-						String sql3 = "insert into  epddata go_id values( " +
+						String sql3 = "insert into epddata values( " +
 				                 "'"+epd_id+"',"+
 				                 "'"+gene_id+"',"+
 				                 "'"+rna_acc+"',"+
@@ -272,7 +272,8 @@ public class FilterDB {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		FilterDB myobj = new FilterDB();
-		myobj.filtergeneandgo(myobj.GetEpdTax("alltax.txt"));
+		myobj.generateepdgene("epd104.dat");
+		//myobj.filtergeneandgo(myobj.GetEpdTax("alltax.txt"));
 		System.out.println("//");
 	}
 
