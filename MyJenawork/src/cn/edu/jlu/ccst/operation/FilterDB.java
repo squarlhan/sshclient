@@ -45,7 +45,8 @@ public class FilterDB {
 	          // your installation of JDBC Driver Failed
 	          e.printStackTrace();
 	    }
-        
+        int prono = 0;
+        int tolno = 0;
 		File file = new File(addr);
 		try {
 			InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
@@ -86,6 +87,7 @@ public class FilterDB {
 					}
 				}
 				if(lines[0].trim().equalsIgnoreCase("//")){
+					int genno = 0;
 					if(refseqs.size()>0){
 						for(String ref_acc: refseqs){
 							String sql1 = "select distinct geneid, rna_acc, pro_acc from epdrefseq " +
@@ -114,55 +116,58 @@ public class FilterDB {
 							        "'"+pro_acc+"',"+
 							        "'"+go_id+"',"+
 							        "'"+gene_name+"')";
-							stmt.execute(sql3);							  
+							stmt.execute(sql3);	
+							genno++;
 						}
-					}
-				}else{
-					for(String embl: embls){
-						ResultSet rs;
-						String sql0 = "select count(distinct geneid, rna_acc, pro_acc) " +
-								"from epdgene where rna_acc = '"+embl+"';";
-						rs = stmt.executeQuery(sql0);
-						int num = 0;
-						if (rs.next()) {
-							num = rs.getInt(1);
-						}
-						if(num == 1){
-							String sql1 = "select distinct geneid, rna_acc, pro_acc from epdgene " +
-							        "where rna_acc = '"+embl+"';";
-							rs = stmt.executeQuery(sql1);
+					} else {
+						for (String embl : embls) {
+							ResultSet rs;
+							String sql0 = "select count(distinct geneid, rna_acc, pro_acc) "
+									+ "from epdgene where rna_acc = '"+embl+ "';";
+							rs = stmt.executeQuery(sql0);
+							int num = 0;
 							if (rs.next()) {
-								gene_id = rs.getString(1).trim();
-								rna_acc = rs.getString(2).trim();
-								pro_acc = rs.getString(3).trim();
+								num = rs.getInt(1);
 							}
-							String sql2 = "select distinct go_id, go_term from epdgo " +
-							        "where geneid = '"+gene_id+"';";
-							rs = stmt.executeQuery(sql2);
-							if (rs.next()) {
-								go_id = rs.getString(1).trim();
-								gene_name = rs.getString(2).trim();
-							}else{
+							if (num == 1) {
+								String sql1 = "select distinct geneid, rna_acc, pro_acc from epdgene "
+										+ "where rna_acc = '" + embl + "';";
+								rs = stmt.executeQuery(sql1);
+								if (rs.next()) {
+									gene_id = rs.getString(1).trim();
+									rna_acc = rs.getString(2).trim();
+									pro_acc = rs.getString(3).trim();
+								}
+								String sql2 = "select distinct go_id, go_term from epdgo "
+										+ "where geneid = '" + gene_id + "';";
+								rs = stmt.executeQuery(sql2);
+								if (rs.next()) {
+									go_id = rs.getString(1).trim();
+									gene_name = rs.getString(2).trim();
+								} else {
+									go_id = "-";
+									gene_name = "-";
+								}
+
+							} else {
+								gene_id = embl;
 								go_id = "-";
 								gene_name = "-";
+								rna_acc = "-";
+								pro_acc = "-";
 							}
-							
-						}else{
-							gene_id = embl;
-							go_id = "-";
-							gene_name = "-";
-							rna_acc = "-";
-							pro_acc = "-";
+							String sql3 = "insert into epddata values( " + "'"
+									+ epd_id + "'," + "'" + gene_id + "',"
+									+ "'" + rna_acc + "'," + "'" + pro_acc
+									+ "'," + "'" + go_id + "'," + "'"
+									+ gene_name + "')";
+							stmt.execute(sql3);
+							genno++;
 						}
-						String sql3 = "insert into epddata values( " +
-				                 "'"+epd_id+"',"+
-				                 "'"+gene_id+"',"+
-				                 "'"+rna_acc+"',"+
-				                 "'"+pro_acc+"',"+
-				                 "'"+go_id+"',"+
-				                 "'"+gene_name+"')";
-				        stmt.execute(sql3);	
-					}
+					}	
+					prono++;
+					tolno+=genno;
+					System.out.println("promoter:"+ prono +";sum gene "+ genno);
 				}
 			}
 			br.close();
@@ -183,8 +188,7 @@ public class FilterDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println("promoter:");
+		System.out.println("totel:"+ prono +" promoters and "+ tolno+"genes");
 	}
 
 	/**
@@ -272,7 +276,7 @@ public class FilterDB {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		FilterDB myobj = new FilterDB();
-		myobj.generateepdgene("epd104.dat");
+		myobj.generateepdgene("test.txt");
 		//myobj.filtergeneandgo(myobj.GetEpdTax("alltax.txt"));
 		System.out.println("//");
 	}
