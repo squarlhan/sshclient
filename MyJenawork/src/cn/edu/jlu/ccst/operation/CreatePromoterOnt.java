@@ -54,24 +54,23 @@ public class CreatePromoterOnt {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		for(Promoter pro: pros){
 			// Create new individual of promoter;
 			Individual newproidv = (Individual) se.CreateandGetRes(
 					promoteruri + "_" + pro.getName(),
-					promoteruri, onmo, 1);
+					promoteruri, onmo, 0);
 			// Create the relation between promoter and homology
 			if(pro.getHomology().getId().trim().length()>0){
 				Individual homoidv = (Individual) se.CreateandGetRes(
 						homologyuri + "_" + pro.getHomology().getId(),
-						homologyuri, onmo, 1);
+						homologyuri, onmo, 0);
 				se.addObjProperty(onmo, newproidv.getURI(), hashomologyuri, homoidv.getURI());
 			}
 			//create the reference individual and the relation to promoter
 			for(Reference ref : pro.getReferences()){
 				Individual refidv = (Individual) se.CreateandGetRes(
 						referenceuri + "_" + ref.getPubmed(),
-						referenceuri, onmo, 1);
+						referenceuri, onmo, 0);
 				se.addDataProperty(onmo, refidv.getURI(), authoruri, ref.getAuther());
 				se.addDataProperty(onmo, refidv.getURI(), titleuri, ref.getTitle());
 				se.addDataProperty(onmo, refidv.getURI(), iduri, ref.getPubmed());
@@ -82,7 +81,7 @@ public class CreatePromoterOnt {
 			for(Resource res : pro.getResources()){
 				Individual residv = (Individual) se.CreateandGetRes(
 						resourceuri + "_" + res.getId(),
-						resourceuri, onmo, 1);
+						resourceuri, onmo, 0);
 				se.addDataProperty(onmo, residv.getURI(), nameuri, res.getDataset());
 				se.addDataProperty(onmo, residv.getURI(), linkuri, res.getLink());
 				se.addDataProperty(onmo, residv.getURI(), iduri, res.getId());
@@ -92,7 +91,7 @@ public class CreatePromoterOnt {
 			for(Keyword kwd : pro.getKeywords()){
 				Individual kwdidv = (Individual) se.CreateandGetRes(
 						keyworduri + "_" + kwd.getKeyword(),
-						keyworduri, onmo, 1);
+						keyworduri, onmo, 0);
 				se.addDataProperty(onmo, kwdidv.getURI(), nameuri, kwd.getKeyword());
 				se.addObjProperty(onmo, newproidv.getURI(), haskeyworduri, kwdidv.getURI());
 			}
@@ -102,7 +101,7 @@ public class CreatePromoterOnt {
 				//create the gene individual and the relation to promoter
 				Individual genidv = (Individual) se.CreateandGetRes(
 						geneuri + "_" + gen.getId(),
-						geneuri, onmo, 1);
+						geneuri, onmo, 0);
 				se.addDataProperty(onmo, genidv.getURI(), iduri, gen.getId());
 				se.addObjProperty(onmo, genidv.getURI(), haspromoteruri, newproidv.getURI());
 				se.addObjProperty(onmo, newproidv.getURI(), isbelongeduri, genidv.getURI());
@@ -110,13 +109,13 @@ public class CreatePromoterOnt {
 				for(GO ngo: gen.getGos()){
 					Individual goidv = (Individual) se.CreateandGetRes(
 							se.OGO_PREFIX + "#GO_" + ngo.getId(),
-							gouri, onmo, 1);
+							gouri, onmo, 0);
 					se.addObjProperty(onmo, genidv.getURI(), hasgouri, goidv.getURI());
 				}
 				//create or get the taxonomy individual and the relation to gene
 				Individual taxidv = (Individual) se.CreateandGetRes(
 						se.NCBI_PREFIX + "#NCBI_" + gen.getTaxonomy().getId(),
-						taxonomyuri, onmo, 1);
+						taxonomyuri, onmo, 0);
 				se.addObjProperty(onmo, genidv.getURI(), fromspeciesuri, taxidv.getURI());
 				//create the mRNA and protein individual and the relation to gene
 				for(int i = 0; i<=gen.getMrnas().size()-1; i++){
@@ -124,7 +123,7 @@ public class CreatePromoterOnt {
 					if(!rnaid.equals("-")){
 						Individual rnaidv = (Individual) se.CreateandGetRes(
 							mrnauri + "_" + rnaid,
-							mrnauri, onmo, 1);
+							mrnauri, onmo, 0);
 						se.addDataProperty(onmo, rnaidv.getURI(), iduri, rnaid);
 					    se.addObjProperty(onmo, genidv.getURI(), istranscribeduri, rnaidv.getURI());
 					    se.addObjProperty(onmo, newproidv.getURI(), activeuri, rnaidv.getURI());
@@ -132,7 +131,7 @@ public class CreatePromoterOnt {
 					    if(!prnid.equals("-")){
 					    	Individual prnidv = (Individual) se.CreateandGetRes(
 									proteinuri + "_" + rnaid,
-									proteinuri, onmo, 1);
+									proteinuri, onmo, 0);
 							se.addDataProperty(onmo, prnidv.getURI(), iduri, prnid);
 							se.addObjProperty(onmo, genidv.getURI(), isexpresseduri, prnidv.getURI());
 							se.addObjProperty(onmo, rnaidv.getURI(), istranslateduri, prnidv.getURI());
@@ -148,6 +147,13 @@ public class CreatePromoterOnt {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+//		FilterDB myobj = new FilterDB();
+//		myobj.generateepdgene("epd104.dat1");
+		
+		ReadEPD re = new ReadEPD();
+		List<Promoter> pros= re.getPromoters("test.txt");
+		CreatePromoterOnt cpo = new CreatePromoterOnt();
+		cpo.creatOnt(pros);
 
 	}
 
