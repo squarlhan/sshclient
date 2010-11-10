@@ -60,7 +60,7 @@ public class Gene {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List getGos() {
+	public List<GO> getGos() {
 		return gos;
 	}
 	public void setGos(List<GO> gos) {
