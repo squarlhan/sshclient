@@ -123,7 +123,8 @@ public class FilterDB {
 										+ "'" + epd_id + "'," + "'" + gene_id
 										+ "'," + "'" + rna_acc + "'," + "'"
 										+ pro_acc + "'," + "'" + go_id + "',"
-										+ "'" + gene_name + "')";
+										+ "\"" + gene_name + "\" );";
+								System.out.println(sql3);
 								stmt.execute(sql3);
 								genno++;
 							}							
@@ -170,8 +171,8 @@ public class FilterDB {
 							String sql3 = "insert into epddata values( " + "'"
 									+ epd_id + "'," + "'" + gene_id + "',"
 									+ "'" + rna_acc + "'," + "'" + pro_acc
-									+ "'," + "'" + go_id + "'," + "'"
-									+ gene_name + "')";
+									+ "'," + "'" + go_id + "'," + "\""
+									+ gene_name + "\" );";
 							stmt.execute(sql3);
 							genno++;
 						}
