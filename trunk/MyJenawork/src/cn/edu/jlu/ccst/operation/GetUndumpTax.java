@@ -50,7 +50,8 @@ public class GetUndumpTax {
 			  if (rs.next()) {
 				  result = rs.getString(1).trim();
 			  }
-			  con.close();
+			  stmt.close();
+	          con.close();
 	    } catch (Exception e){
 	          // your installation of JDBC Driver Failed
 	          e.printStackTrace();
@@ -205,7 +206,8 @@ public class GetUndumpTax {
 //			System.out.println("New One: "+result.size()+":"+papid+" <==> "+papname);  
 		}
 		try {
-			con.close();
+			stmt.close();
+            con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

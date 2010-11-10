@@ -51,14 +51,14 @@ public class ReadEPD {
 	          Class.forName("com.mysql.jdbc.Driver").newInstance();
 	          con = DriverManager.getConnection(url,user,pwd);
 	          stmt = con.createStatement();
-	          String str = "	"+sn+"	";
-			  String sql1 = "select id from epdtax where name='" + str + "';";
+			  String sql1 = "select tax_id from epdtax where tax_name='" + sn + "';";
 
 			  ResultSet rs = stmt.executeQuery(sql1);
 			  if (rs.next()) {
 				  result = rs.getString(1).trim();
 			  }
-			  con.close();
+			  stmt.close();
+	          con.close();
 	    } catch (Exception e){
 	          // your installation of JDBC Driver Failed
 	          e.printStackTrace();
@@ -94,11 +94,104 @@ public class ReadEPD {
             if(rs.next()){  
             	result.add(rs.getString(1).trim());
             }
+            stmt.close();
+            con.close();
         }catch(Exception e){
            e.printStackTrace();
         }
         return result;
     }
+	/**
+	 * Get all the gene information from DB regarding the promoter
+	 * @param epdid
+	 * @param tax
+	 * @return
+	 */
+	public List<Gene> searchGene(String epdid, Taxonomy tax){
+		List<Gene> result = new ArrayList();
+		List<EpdData> dbresult = new ArrayList();
+		Connection con = null;
+	    Statement stmt = null;
+	    String url = "jdbc:mysql://localhost/tempdata";
+	    String user = "root";
+	    String pwd = "root";
+	    try {       
+	          Class.forName("com.mysql.jdbc.Driver").newInstance();
+	          con = DriverManager.getConnection(url,user,pwd);
+	          stmt = con.createStatement();
+			  String sql1 = "select distinct * from epddata where epd_id='" + epdid + "';";
+
+			  ResultSet rs ;
+			  rs = stmt.executeQuery(sql1);
+			  while (rs.next()) {
+				  String eid = rs.getString(1).trim();
+				  String gid = rs.getString(2).trim();
+				  String rid = rs.getString(3).trim();
+				  String pid = rs.getString(4).trim();
+				  dbresult.add(new EpdData(eid,gid,rid,pid));
+			  }
+			  for(EpdData edt : dbresult){
+				  boolean flag = true;
+				  if(result.size()==0){
+					  Gene gene = new Gene();
+					  gene.setId(edt.getGeneid());
+					  mRNA mrna = new mRNA();
+					  mrna.setId(edt.getMrnaid());
+					  Protein protein = new Protein();
+					  protein.setId(edt.getProteinid());
+					  gene.getMrnas().add(mrna);
+					  gene.getProteins().add(protein);
+					  gene.setTaxonomy(tax);
+					  String sql2 = "select distinct go_id from epdgo where geneid='" + gene.getId() + "';";
+					  rs = stmt.executeQuery(sql2);
+					  while (rs.next()) {
+						  GO ngo = new GO(rs.getString(1).trim());
+						  gene.getGos().add(ngo);
+					  }
+					  result.add(gene);
+				  }else{
+					  for(int i = 0; i<= result.size()-1; i++){
+						  if(result.get(i).getId().equals(edt.getGeneid())){
+							  mRNA mrna = new mRNA();
+							  mrna.setId(edt.getMrnaid());
+							  Protein protein = new Protein();
+							  protein.setId(edt.getProteinid());
+							  result.get(i).getMrnas().add(mrna);
+							  result.get(i).getProteins().add(protein);
+							  flag = false;
+							  break;							  
+						  }
+					  }
+					  if(flag){
+						  Gene gene = new Gene();
+						  gene.setId(edt.getGeneid());
+						  mRNA mrna = new mRNA();
+						  mrna.setId(edt.getMrnaid());
+						  Protein protein = new Protein();
+						  protein.setId(edt.getProteinid());
+						  gene.getMrnas().add(mrna);
+						  gene.getProteins().add(protein);
+						  gene.setTaxonomy(tax);
+						  String sql2 = "select distinc go_id from epdgo where geneid='" + gene.getId() + "';";
+						  rs = stmt.executeQuery(sql2);
+						  while (rs.next()) {
+							  GO ngo = new GO(rs.getString(1).trim());
+							  gene.getGos().add(ngo);
+						  }
+						  result.add(gene);
+					  }
+				  }
+			  }
+			  
+			  stmt.close();
+	          con.close();
+	    } catch (Exception e){
+	          // your installation of JDBC Driver Failed
+	          e.printStackTrace();
+	    }
+	    
+		return result;
+	}
 	/**
 	 * get promoters from the genebank file
 	 * @param addr
@@ -116,6 +209,7 @@ public class ReadEPD {
 			Homology homology = new Homology();
 			Reference reference = new Reference();
 			Resource resource = new Resource();
+			String epdid = "";
 			while ((line = br.readLine()) != null) {
 				line = line.trim();
 				String[] lines = line.split("   ");
@@ -128,8 +222,10 @@ public class ReadEPD {
 				//construct epd resource object
 				if(lines[0].trim().equalsIgnoreCase("AC")){
 					Resource re = new Resource();
-					re.setDataset("EPD");
-					re.setId(lines[1].trim().substring(0, lines[1].trim().length()-1));
+					re.setDataset("EPD");					
+					epdid = lines[1].trim().substring(0, lines[1].trim().length()-1);
+					re.setId(epdid);
+					re.setLink("http://www.epd.isb-sib.ch/cgi-bin/get_doc?db=epd&format=nice&entry="+epdid);
 					temppromoter.getResources().add(re);
 				}
 				//construct taxonomy object
@@ -157,7 +253,7 @@ public class ReadEPD {
 				if(lines[0].trim().equalsIgnoreCase("DR")){					
 					String[] drs = lines[1].split(";");						 					
 					// add some genes to the promoter
-					if (drs.length >= 2&&drs[0].trim().equalsIgnoreCase("EMBL")){
+					/*if (drs.length >= 2&&drs[0].trim().equalsIgnoreCase("EMBL")){
 						Gene gene = new Gene();
 						String gene_acc = drs[1].trim();
 						gene.setId(gene_acc);
@@ -170,7 +266,7 @@ public class ReadEPD {
 							gos.add(new GO(goid));
 						}
 						gene.setGos(gos);
-					}
+					}*/
 					if (drs.length >= 2
 							&& drs[0].trim().equalsIgnoreCase("RefSeq")) {
 						// add some resources to the promoter
@@ -178,15 +274,15 @@ public class ReadEPD {
 						if (taxonomy.getId() == "9606"
 								|| taxonomy.getId() == "10090") {
 							resource = new Resource();
-							resource.setDataset("DBTSS");
-							resource.setLink("http://dbtss.hgc.jp/cgi-bin/home.cgi?NMID=");
+							resource.setDataset("DBTSS");							
 							resource.setId(drs[1].trim().substring(0,drs[1].trim().length() - 1));
+							resource.setLink("http://dbtss.hgc.jp/cgi-bin/home.cgi?NMID="+resource.getId());
 							temppromoter.getResources().add(resource);
 						}
 						//add mRNA to the promoter
-						mRNA mrna = new mRNA();
+						/*mRNA mrna = new mRNA();
 						mrna.setId(drs[1].trim().substring(0, drs[1].trim().length()-1));
-						temppromoter.getMrnas().add(mrna);
+						temppromoter.getMrnas().add(mrna);*/
 					}
 				}
 				//construct one reference object
@@ -225,10 +321,14 @@ public class ReadEPD {
 						Keyword keyword = new Keyword(kw.trim());
 						temppromoter.getKeywords().add(keyword);
 					}
-				}
-				
-				
+				}				
 			}
+			//construct gene and the relative objects
+			List<Gene> genes = this.searchGene(epdid,taxonomy);
+			for(Gene gene: genes){
+				temppromoter.getMrnas().addAll(gene.getMrnas());
+			}
+			temppromoter.setGenes(genes);
 			br.close();
 			insr.close();
 		} catch (UnsupportedEncodingException e) {
