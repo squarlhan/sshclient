@@ -321,14 +321,18 @@ public class ReadEPD {
 						Keyword keyword = new Keyword(kw.trim());
 						temppromoter.getKeywords().add(keyword);
 					}
-				}				
+				}
+				//construct gene and the relative objects
+				if(lines[0].trim().equalsIgnoreCase("//")){	
+					List<Gene> genes = this.searchGene(epdid,taxonomy);
+				    for(Gene gene: genes){
+					    temppromoter.getMrnas().addAll(gene.getMrnas());
+				    }
+				    temppromoter.setGenes(genes);
+				}
+				
 			}
-			//construct gene and the relative objects
-			List<Gene> genes = this.searchGene(epdid,taxonomy);
-			for(Gene gene: genes){
-				temppromoter.getMrnas().addAll(gene.getMrnas());
-			}
-			temppromoter.setGenes(genes);
+			
 			br.close();
 			insr.close();
 		} catch (UnsupportedEncodingException e) {
