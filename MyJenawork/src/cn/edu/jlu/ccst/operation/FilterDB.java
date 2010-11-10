@@ -109,23 +109,17 @@ public class FilterDB {
 									rna_acc = rs.getString(2).trim();
 									pro_acc = rs.getString(3).trim();
 								}
-								String sql2 = "select distinct go_id, go_term from epdgo "
-										+ "where geneid = '" + gene_id + "';";
-								rs = stmt.executeQuery(sql2);
-								if (rs.next()) {
-									go_id = rs.getString(1).trim();
-									gene_name = rs.getString(2).trim();
-								} else {
-									go_id = "-";
-									gene_name = "-";
-								}
-								String sql3 = "insert into epddata values( "
+								
+								go_id = "-";
+								gene_name = "-";
+								
+								String sql2 = "insert into epddata values( "
 										+ "'" + epd_id + "'," + "'" + gene_id
 										+ "'," + "'" + rna_acc + "'," + "'"
 										+ pro_acc + "'," + "'" + go_id + "',"
 										+ "\"" + gene_name + "\" );";
-								System.out.println(sql3);
-								stmt.execute(sql3);
+								System.out.println(sql2);
+								stmt.execute(sql2);
 								genno++;
 							}							
 						}
@@ -150,16 +144,8 @@ public class FilterDB {
 									rna_acc = rs.getString(2).trim();
 									pro_acc = rs.getString(3).trim();
 								}
-								String sql2 = "select distinct go_id, go_term from epdgo "
-										+ "where geneid = '" + gene_id + "';";
-								rs = stmt.executeQuery(sql2);
-								if (rs.next()) {
-									go_id = rs.getString(1).trim();
-									gene_name = rs.getString(2).trim();
-								} else {
-									go_id = "-";
-									gene_name = "-";
-								}
+								go_id = "-";
+								gene_name = "-";
 
 							} else {
 								gene_id = embl;
@@ -168,12 +154,12 @@ public class FilterDB {
 								rna_acc = "-";
 								pro_acc = "-";
 							}
-							String sql3 = "insert into epddata values( " + "'"
+							String sql2= "insert into epddata values( " + "'"
 									+ epd_id + "'," + "'" + gene_id + "',"
 									+ "'" + rna_acc + "'," + "'" + pro_acc
 									+ "'," + "'" + go_id + "'," + "\""
 									+ gene_name + "\" );";
-							stmt.execute(sql3);
+							stmt.execute(sql2);
 							genno++;
 						}
 					}	
