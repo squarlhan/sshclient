@@ -54,6 +54,7 @@ public class CreatePromoterOnt {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		int index = 1;
 		for(Promoter pro: pros){
 			// Create new individual of promoter;
 			Individual newproidv = se.CreateandGetIdv(
@@ -140,7 +141,7 @@ public class CreatePromoterOnt {
 					
 				}
 			}
-			int index = 1;
+			
 			System.out.println(index+++".	"+"Promoter: "+pro.getName()+" finished!");
 		}
 	}
