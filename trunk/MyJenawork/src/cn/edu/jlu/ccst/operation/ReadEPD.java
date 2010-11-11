@@ -172,7 +172,7 @@ public class ReadEPD {
 						  gene.getMrnas().add(mrna);
 						  gene.getProteins().add(protein);
 						  gene.setTaxonomy(tax);
-						  String sql2 = "select distinc go_id from epdgo where geneid='" + gene.getId() + "';";
+						  String sql2 = "select distinct go_id from epdgo where geneid='" + gene.getId() + "';";
 						  rs = stmt.executeQuery(sql2);
 						  while (rs.next()) {
 							  GO ngo = new GO(rs.getString(1).trim());
