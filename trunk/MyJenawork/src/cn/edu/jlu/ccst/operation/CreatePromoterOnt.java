@@ -140,6 +140,8 @@ public class CreatePromoterOnt {
 					
 				}
 			}
+			int index = 1;
+			System.out.println(index+++".	"+"Promoter: "+pro.getName()+" finished!");
 		}
 	}
 	/**
@@ -147,8 +149,8 @@ public class CreatePromoterOnt {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		FilterDB myobj = new FilterDB();
-		myobj.generateepdgene("epd104.dat");
+//		FilterDB myobj = new FilterDB();
+//		myobj.generateepdgene("epd104.dat");
 		
 		ReadEPD re = new ReadEPD();
 		List<Promoter> pros= re.getPromoters("epd104.dat");
