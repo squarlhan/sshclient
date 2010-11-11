@@ -399,7 +399,19 @@ public class SimpleExample {
 //		se.testListIndividual(onmo, PROMOTER_PREFIX+"#Promoter");
 //		se.testListIndividual(onmo, OGO_PREFIX+"#Pubmed");	
 //		se.testListIndividual(onmo, OGO_PREFIX+"#Gene");	
-		se.testListIndividual(onmo, NCBI_PREFIX+"#NCBI_10519");
+		OntResource ose = se.CreateandGetRes(PROMOTER_PREFIX+"#Homology_98", PROMOTER_PREFIX+"#Homology", onmo, 0);
+		if (ose.canAs(Individual.class)){
+			Individual osei = ose.as(Individual.class);
+			 //access the RDF 3-mer 
+			StmtIterator stmtI = osei.listProperties();
+			while(stmtI.hasNext()){
+				Statement stmt = stmtI.nextStatement();
+				Resource subject   = stmt.getSubject();   // get the subject
+				Property predicate = stmt.getPredicate(); // get the predicate
+				RDFNode object = stmt.getObject();    // get the object
+				System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.toString());
+			}
+		}
 		//se.doquery(onmo, null);
 	}
 

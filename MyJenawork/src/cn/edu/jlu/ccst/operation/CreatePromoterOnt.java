@@ -155,6 +155,7 @@ public class CreatePromoterOnt {
 		
 		ReadEPD re = new ReadEPD();
 		List<Promoter> pros= re.getPromoters("epd104.dat");
+//		List<Promoter> pros= re.getPromoters("test.txt");
 		CreatePromoterOnt cpo = new CreatePromoterOnt();
 		cpo.creatOnt(pros);
 

@@ -274,8 +274,8 @@ public class FilterDB {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		FilterDB myobj = new FilterDB();
-		myobj.generateepdgene("test.txt");
-//		myobj.generateepdgene("epd104.dat");
+//		myobj.generateepdgene("test.txt");
+		myobj.generateepdgene("epd104.dat");
 		//myobj.filtergeneandgo(myobj.GetEpdTax("alltax.txt"));
 		System.out.println("//");
 	}
