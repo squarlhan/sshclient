@@ -251,6 +251,19 @@ public class SimpleExample {
 		}
     }
     /**
+     * create or get individual if the uri exist. 
+     */
+    public Individual CreateandGetIdv(String newuri, String typeuri, OntModel onmo){
+    	Individual newres = null; 
+    	newres = onmo.getIndividual(newuri);
+    	if(newres != null )return newres;
+		else {
+			
+				newres = onmo.createIndividual(newuri, onmo.getOntClass(typeuri));		
+			}
+		return newres;
+    }
+    /**
      * modefi the property of a individual
      * @param onmo
      * @param idvuri
