@@ -14,6 +14,13 @@ import java.util.List;
 
 public class DeleteRow {
 
+	/**
+	 * delete the rows from microarray data which is intervals between genes.
+	 * @param addr microarray data address
+	 * @param resultaddr result address
+	 * @param keywords how to distinguish gene row and interval row
+	 * @return the list of result
+	 */
 	public List<String> deleteRowsBy(String addr, String resultaddr, String keywords){
 		
 		List<String> result = new ArrayList();
@@ -64,8 +71,22 @@ public class DeleteRow {
 			BufferedWriter output = new BufferedWriter(new FileWriter(resultfile));
 			for(int i=0;i<=filecontent.size()-1;i++){
 				if(!filecontent.get(i).contains(keywords)){
-					result.add(filecontent.get(i));
-					output.write(filecontent.get(i)+"\n");
+					String item = "";
+					String[] lines = filecontent.get(i).trim().split("	");
+					String[] ids = lines[0].trim().split("_");
+					if(ids[0].equalsIgnoreCase("id")||ids[0].length()==5){
+						item = ids[0]+"\t"+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
+					}
+					if(ids[1].length()==5){
+						item = ids[1]+"\t"+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
+					}
+					if(ids.length>2&&ids[2].length()==5){
+						item = ids[2]+"\t"+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
+					}
+					if(item.length()>1){
+						result.add(item);
+						output.write(item+"\n");
+					}					
 				}
 			}
 			output.close();
@@ -83,7 +104,7 @@ public class DeleteRow {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		DeleteRow dr = new DeleteRow();
-		dr.deleteRowsBy("F:/GDS3123.txt", "F:/Gene_GDS3123.txt", "/direction");
+		dr.deleteRowsBy("F:/GDS3123.txt", "F:/Gene_GDS31231.txt", "IG_");
 
 	}
 
