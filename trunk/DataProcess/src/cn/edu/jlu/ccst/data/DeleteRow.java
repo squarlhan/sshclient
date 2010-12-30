@@ -74,14 +74,16 @@ public class DeleteRow {
 					String item = "";
 					String[] lines = filecontent.get(i).trim().split("	");
 					String[] ids = lines[0].trim().split("_");
-					if(ids[0].equalsIgnoreCase("id")||ids[0].length()==5){
-						item = ids[0]+"\t"+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
+					if(ids[0].equalsIgnoreCase("id")||(ids[0].length()==5&&ids[0].startsWith("b"))){
+						item = ids[0]+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
 					}
 					if(ids[1].length()==5){
-						item = ids[1]+"\t"+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
+						item = ids[1]+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
 					}
 					if(ids.length>2&&ids[2].length()==5){
-						item = ids[2]+"\t"+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
+						System.out.println(lines.length);
+						item = ids[2]+"\t"+lines[2]+"\t"+lines[3]+"\t"+lines[4]+"\t"+lines[5]+"\t"+lines[6]+"\t"+lines[7];
+						
 					}
 					if(item.length()>1){
 						result.add(item);
@@ -104,7 +106,7 @@ public class DeleteRow {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		DeleteRow dr = new DeleteRow();
-		dr.deleteRowsBy("F:/GDS3123.txt", "F:/Gene_GDS31231.txt", "IG_");
+		dr.deleteRowsBy("F:/GDS3123.soft", "F:/Gene_GDS31231.soft", "IG_");
 
 	}
 
