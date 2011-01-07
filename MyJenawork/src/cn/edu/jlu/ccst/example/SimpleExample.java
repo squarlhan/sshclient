@@ -297,7 +297,16 @@ public class SimpleExample {
 		Query query = QueryFactory.create(querystatement);
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
+		while(results.hasNext()){
+			String aa = results.next().toString();
+			int index1 = aa.indexOf("#");
+			int index2 = aa.lastIndexOf(">");
+			String bb = aa.substring(index1+1, index2);
+			System.out.println("saf"+bb);
+		}
 		ResultSetFormatter.out(System.out, results, query);
+		
+		
 		qe.close();
 		return results;
     }
@@ -399,20 +408,20 @@ public class SimpleExample {
 //		se.testListIndividual(onmo, PROMOTER_PREFIX+"#Promoter");
 //		se.testListIndividual(onmo, OGO_PREFIX+"#Pubmed");	
 //		se.testListIndividual(onmo, OGO_PREFIX+"#Gene");	
-		OntResource ose = se.CreateandGetRes(PROMOTER_PREFIX+"#Homology_98", PROMOTER_PREFIX+"#Homology", onmo, 0);
-		if (ose.canAs(Individual.class)){
-			Individual osei = ose.as(Individual.class);
-			 //access the RDF 3-mer 
-			StmtIterator stmtI = osei.listProperties();
-			while(stmtI.hasNext()){
-				Statement stmt = stmtI.nextStatement();
-				Resource subject   = stmt.getSubject();   // get the subject
-				Property predicate = stmt.getPredicate(); // get the predicate
-				RDFNode object = stmt.getObject();    // get the object
-				System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.toString());
-			}
-		}
-		//se.doquery(onmo, null);
+//		OntResource ose = se.CreateandGetRes(PROMOTER_PREFIX+"#Promoter_HS_PTBP1", PROMOTER_PREFIX+"#Promoter", onmo, 0);
+//		if (ose.canAs(Individual.class)){
+//			Individual osei = ose.as(Individual.class);
+//			 //access the RDF 3-mer 
+//			StmtIterator stmtI = osei.listProperties();
+//			while(stmtI.hasNext()){
+//				Statement stmt = stmtI.nextStatement();
+//				Resource subject   = stmt.getSubject();   // get the subject
+//				Property predicate = stmt.getPredicate(); // get the predicate
+//				RDFNode object = stmt.getObject();    // get the object
+//				System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.toString());
+//			}
+//		}
+		se.doquery(onmo, null);
 	}
 
 }
