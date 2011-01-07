@@ -300,6 +300,7 @@ public class SimpleExample {
      */
     public ResultSet doquery(OntModel onmo, String keyword){
     	//Culicinae
+    	System.out.println(keyword);
     	String querystatement = 
     	    "PREFIX rdfsch: <http://www.w3.org/2000/01/rdf-schema#>" +
 			"SELECT ?x " +
@@ -310,9 +311,37 @@ public class SimpleExample {
 		Query query = QueryFactory.create(querystatement);
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
-		ResultSetFormatter.out(System.out, results, query);
+		//ResultSetFormatter.out(System.out, results, query);
 		qe.close();
 		return results;
+    }
+    
+    public List<String> doquery1(OntModel onmo, String keyword){
+    	//Culicinae
+    	List<String> resultlist = new ArrayList();
+    	String querystatement = 
+    	    "PREFIX rdfsch: <http://www.w3.org/2000/01/rdf-schema#>" +
+			"SELECT ?x " +
+			"WHERE {" +
+			"      ?x rdfsch:label \""+keyword+"\" . " +
+			"      }";
+
+		Query query = QueryFactory.create(querystatement);
+		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
+		ResultSet results = qe.execSelect();
+		//ResultSetFormatter.out(System.out, results, query);
+		while(results.hasNext()){
+			String aa = results.next().toString();
+			System.out.println("aaaaa"+aa);
+			int index1 = aa.indexOf("#");
+			int index2 = aa.lastIndexOf(">");
+			String bb = aa.substring(index1+1, index2);
+			resultlist.add(bb);
+			System.out.println(bb);
+		}
+		qe.close();
+		resultlist.add("END");
+		return resultlist;
     }
     /**
      * do reasoner for the ontology

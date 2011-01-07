@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <s:form action="user!addUser.action">
         <s:textfield name="user.username" label = "ÐÕÃû"/><br>
-        <s:textfield name="keyword" label = "ÂÒÆß°ËÔã"/><br>
+        <s:textfield name="mykeyword" label = "ÂÒÆß°ËÔã"/><br>
         <s:password  name="user.password" label = "ÃÜÂë"/><br>
     	<s:submit value="Ìá½»"/>
     	<s:reset  value="ÖØÖÃ"/>
