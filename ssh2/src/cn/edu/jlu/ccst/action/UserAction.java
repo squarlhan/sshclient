@@ -1,10 +1,13 @@
 package cn.edu.jlu.ccst.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.hp.hpl.jena.query.ResultSet;
 import com.opensymphony.xwork2.ActionSupport;
 import cn.edu.jlu.ccst.model.User;
 import cn.edu.jlu.ccst.service.SimpleExample;
@@ -17,14 +20,24 @@ public class UserAction extends ActionSupport {
 	private UserService userService; 
 	private User user;
 	private SimpleExample se;
-	private String keyword;
+	private String mykeyword;
+	private List<String> resultlist;
 
-	public String getKeyword() {
-		return keyword;
+	public List<String> getResultlist() {
+		return resultlist;
 	}
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
+	public void setResultlist(List<String> resultlist) {
+		this.resultlist = resultlist;
+	}
+
+	
+	public String getMykeyword() {
+		return mykeyword;
+	}
+
+	public void setMykeyword(String mykeyword) {
+		this.mykeyword = mykeyword;
 	}
 
 	public SimpleExample getSe() {
@@ -59,7 +72,7 @@ public class UserAction extends ActionSupport {
 		}
 		userService.save(user);
 		try {
-			se.doquery(se.loadDB2nd(), null);
+			resultlist = se.doquery1(se.loadDB2nd(), mykeyword);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
