@@ -297,6 +297,7 @@ public class SimpleExample {
 		Query query = QueryFactory.create(querystatement);
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
+		List ll = ResultSetFormatter.toList(results);
 		while(results.hasNext()){
 			String aa = results.next().toString();
 			int index1 = aa.indexOf("#");
