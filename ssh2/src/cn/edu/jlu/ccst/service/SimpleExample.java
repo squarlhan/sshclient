@@ -307,7 +307,7 @@ public class SimpleExample {
 			"WHERE {" +
 			"      ?x rdfsch:label \""+keyword+"\" . " +
 			"      }";
-
+    	
 		Query query = QueryFactory.create(querystatement);
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
@@ -325,7 +325,7 @@ public class SimpleExample {
 			"WHERE {" +
 			"      ?x rdfsch:label \""+keyword+"\" . " +
 			"      }";
-
+    	
 		Query query = QueryFactory.create(querystatement);
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
