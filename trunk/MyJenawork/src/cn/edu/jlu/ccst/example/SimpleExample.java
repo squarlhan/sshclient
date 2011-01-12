@@ -293,18 +293,25 @@ public class SimpleExample {
 			"WHERE {" +
 			"      ?x rdfsch:label \"Culicinae\" . " +
 			"      }";
-
+    	querystatement = 
+    	    "PREFIX po: <http://miuras.inf.um.es/ontologies/promoter.owl#>" +
+    	    "PREFIX na: <http://miuras.inf.um.es/ontologies/OGO.owl#>" +
+			"SELECT ?u  ?au " +
+			"WHERE {" +
+			"      ?u a po:Reference ;" +
+			"       po:Author ?au . " +
+			"      }";
 		Query query = QueryFactory.create(querystatement);
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
-		List ll = ResultSetFormatter.toList(results);
-		while(results.hasNext()){
-			String aa = results.next().toString();
-			int index1 = aa.indexOf("#");
-			int index2 = aa.lastIndexOf(">");
-			String bb = aa.substring(index1+1, index2);
-			System.out.println("saf"+bb);
-		}
+//		List ll = ResultSetFormatter.toList(results);
+//		while(results.hasNext()){
+//			String aa = results.next().toString();
+//			int index1 = aa.indexOf("#");
+//			int index2 = aa.lastIndexOf(">");
+//			String bb = aa.substring(index1+1, index2);
+//			System.out.println("saf"+bb);
+//		}
 		ResultSetFormatter.out(System.out, results, query);
 		
 		
