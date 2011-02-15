@@ -14,11 +14,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import distance.EucDistance;
 import listeners.ConsoleIterationListener;
 
 /**
@@ -27,7 +30,7 @@ import listeners.ConsoleIterationListener;
  */
 public class RunAlgorithm {
 
-    private String inputpath;
+    private Collection<InteractionData> inputs;
     private String outpath;
     private AffinityPropagationAlgorithm af = new SmartPropagationAlgorithm();
     private double lambda;
@@ -41,8 +44,8 @@ public class RunAlgorithm {
     private Integer steps = null;
     private AffinityConnectingMethod connMode;
 
-    public RunAlgorithm(String inputpath, String outpath, double lambda, int iterations, Integer convits, double preferences, String kind) {
-        this.inputpath = inputpath;
+    public RunAlgorithm(Collection<InteractionData> inputs, String outpath, double lambda, int iterations, Integer convits, double preferences, String kind) {
+        this.inputs = inputs;
         this.outpath = outpath;
         this.lambda = lambda;
         this.iterations = iterations;
@@ -73,37 +76,17 @@ public class RunAlgorithm {
         af.setConnectingMode(AffinityPropagationAlgorithm.AffinityConnectingMethod.ORIGINAL);
         af.addIterationListener(new ConsoleIterationListener(iterations));
 
-        Collection<InteractionData> ints = new HashSet<InteractionData>();
-
-        Scanner scanner = null;
-
-        try {
-            File inputSim = new File(inputpath);
-            scanner = new Scanner(inputSim);
-
-            while (scanner.hasNextLine()) {
-
-                String line = scanner.nextLine();
-                String[] tokens = line.split("\\s+");
-                String from = tokens[0];
-                String to = tokens[1];
-                Double sim = Double.parseDouble(tokens[2]);
-                ints.add(new InteractionData(from, to, sim));
-                nodeNames.add(from);
-                nodeNames.add(to);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(RunAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (scanner != null) {
-                scanner.close();
-            }
+        Iterator iter = inputs.iterator();
+        while(iter.hasNext()){
+        	InteractionData temp = (InteractionData)iter.next();
+        	nodeNames.add(temp.getFrom());
+            nodeNames.add(temp.getTo());
         }
         //    af.setN(ints.size());
-        af.setN(nodeNames.size() + 1);
+        af.setN(nodeNames.size()+1);
 
         af.init();
-        for (InteractionData intData : ints) {
+        for (InteractionData intData : inputs) {
             //     System.out.println(intData.getFrom() + " " + intData.getTo() + " " + intData.getSim());
             Double val;
             if (takeLog) {
@@ -115,8 +98,8 @@ public class RunAlgorithm {
             } else {
                 val = intData.getSim();
             }
-            Integer source = Integer.valueOf(intData.getFrom());
-            Integer target = Integer.valueOf(intData.getTo());
+            int source = (int)Double.valueOf(intData.getFrom()).doubleValue();
+            int target = (int)Double.valueOf(intData.getTo()).doubleValue();
             af.setSimilarityInt(source, target, val);
             //   af.setSimilarityInt(target, source, val);
             //af.setSimilarityInt(Integer.valueOf(intData.getFrom()), Integer.valueOf(intData.getTo()), val);
