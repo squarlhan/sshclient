@@ -12,9 +12,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
@@ -31,7 +33,7 @@ import listeners.ConsoleIterationListener;
 public class RunAlgorithm {
 
     private Collection<InteractionData> inputs;
-    private String outpath;
+   // private String outpath;
     private AffinityPropagationAlgorithm af = new SmartPropagationAlgorithm();
     private double lambda;
     private int iterations;
@@ -44,9 +46,8 @@ public class RunAlgorithm {
     private Integer steps = null;
     private AffinityConnectingMethod connMode;
 
-    public RunAlgorithm(Collection<InteractionData> inputs, String outpath, double lambda, int iterations, Integer convits, double preferences, String kind) {
+    public RunAlgorithm(Collection<InteractionData> inputs, double lambda, int iterations, Integer convits, double preferences, String kind) {
         this.inputs = inputs;
-        this.outpath = outpath;
         this.lambda = lambda;
         this.iterations = iterations;
         this.preferences = preferences;
@@ -83,7 +84,7 @@ public class RunAlgorithm {
             nodeNames.add(temp.getTo());
         }
         //    af.setN(ints.size());
-        af.setN(nodeNames.size()+1);
+        af.setN(nodeNames.size()+0);
 
         af.init();
         for (InteractionData intData : inputs) {
@@ -98,8 +99,8 @@ public class RunAlgorithm {
             } else {
                 val = intData.getSim();
             }
-            int source = (int)Double.valueOf(intData.getFrom()).doubleValue();
-            int target = (int)Double.valueOf(intData.getTo()).doubleValue();
+            int source = (int)Double.valueOf(intData.getFrom()).doubleValue()-1;
+            int target = (int)Double.valueOf(intData.getTo()).doubleValue()-1;
             af.setSimilarityInt(source, target, val);
             //   af.setSimilarityInt(target, source, val);
             //af.setSimilarityInt(Integer.valueOf(intData.getFrom()), Integer.valueOf(intData.getTo()), val);
@@ -119,54 +120,30 @@ public class RunAlgorithm {
         af.setConstPreferences(pref);
     }
 
-    public void run() {
-        FileOutputStream fos = null;
-        BufferedOutputStream bos = null;
-        BufferedWriter bw = null;
-        try {
-            File outputCenters = new File(outpath);
-            fos = new FileOutputStream(outputCenters);
-            bos = new BufferedOutputStream(fos);
-            bw = new BufferedWriter(new OutputStreamWriter(bos));
-            System.out.println(kind);
-            if (kind.equals("centers")) {
-                Map<Integer, ClusterInteger> clusters = af.doClusterAssocInt();
-                //Map<Integer, Cluster<Integer>> clusters = af.doClusterAssocInt();
-                if (clusters != null) {
-                    for (Integer clustName : clusters.keySet()) {
-                        //for (Integer clustName : clusters.keySet()) {
-                        bw.append(clustName + "\n");
-                    }
-                }
-            } else {
-                Map<Integer, Integer> clusters = af.doClusterInt();
-                if (clusters != null) {
-                    for (Entry<Integer, Integer> entry : clusters.entrySet()) {
-                        bw.append(entry.getValue() + "\n");
-                    }
-                }/*
-                Map<String, String> clusters = af.doCluster();
-                if (clusters != null) {
-                for (Entry<String, String> entry : clusters.entrySet()) {
-                bw.append(entry.getKey() + " " + entry.getValue() + "\n");
-                }
-                }*/
-            }
+	public List<Integer> run() {
 
-        } catch (IOException ex) {
-            Logger.getLogger(RunAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                bw.close();
-                bos.close();
-                fos.close();
-            } catch (IOException ex) {
-                Logger.getLogger(RunAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+		List<Integer> classes = new ArrayList(); 
+		System.out.println(kind);
+		if (kind.equals("centers")) {
+			Map<Integer, ClusterInteger> clusters = af.doClusterAssocInt();
+			if (clusters != null) {
+				for (Integer clustName : clusters.keySet()) {
+					classes.add(clustName);
+				}
+			}
+		} else {
+			Map<Integer, Integer> clusters = af.doClusterInt();
+			if (clusters != null) {
+				for (Entry<Integer, Integer> entry : clusters.entrySet()) {
+					classes.add(entry.getValue());
+				}
+			}
+		}
+		return classes;
 
-    void setTakeLog(boolean takeLog) {
+	}
+
+    public void setTakeLog(boolean takeLog) {
         this.takeLog = takeLog;
     }
 }
