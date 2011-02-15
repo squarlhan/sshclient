@@ -1,7 +1,11 @@
 package affinitymain;
 
 import algorithm.abs.AffinityPropagationAlgorithm.AffinityConnectingMethod;
+
+import java.util.Collection;
 import java.util.Map;
+
+import distance.EucDistance;
 
 /**
  *
@@ -37,13 +41,13 @@ public class Main {
 //        Integer convits = getConvits(map);
 //        Double preferences = getPreferences(map);
         
-        String filepath = "data/cities.txt";
+        Collection<InteractionData> inputs = EucDistance.getunEucMatrix(EucDistance.getData("data/b.txt"));
         String outpath = "data/out.txt";
         Double lambda = 0.9;
         Integer iterations = 1000;
       
         Integer convits = getConvits(map);
-        Double preferences = -300.25;
+        Double preferences = -0.1;
         
         String kind = getOutputKind(map);
         AffinityConnectingMethod connMode = getConnMode(map);
@@ -51,7 +55,7 @@ public class Main {
         boolean refine = getRefine(map);
         Integer steps = getSteps(map);
 
-        RunAlgorithm alg = new RunAlgorithm(filepath, outpath, lambda, iterations, convits, preferences, kind);
+        RunAlgorithm alg = new RunAlgorithm(inputs, outpath, lambda, iterations, convits, preferences, kind);
         alg.setTakeLog(takeLog);
         alg.setConnMode(connMode);
         alg.setSteps(steps);
