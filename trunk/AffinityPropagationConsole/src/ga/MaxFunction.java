@@ -49,6 +49,7 @@ public class MaxFunction
   public double evaluate(IChromosome a_subject) {
     int total = 0;
 
+    System.out.println(a_subject.size());
     for (int i = 0; i < a_subject.size(); i++) {
       BooleanGene value = (BooleanGene) a_subject.getGene(a_subject.size() -
           (i + 1));
