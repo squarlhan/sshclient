@@ -36,7 +36,7 @@ public class Bin2Dec {
 		// TODO Auto-generated method stub
 
 		Double delta = (3 - 0) / (Math.pow(2, 2) - 1);
-		String s = "0011001101100110";
+		String s = "0011001101100110";   
 		for (int i = 0; i <= s.length() - 2; i += 2) {
 			int r = 0;
 			int mul = 1;
