@@ -38,19 +38,8 @@ public class SimpleExample {
     gaConf.setPreservFittestIndividual(true);
     gaConf.setKeepPopulationSizeConstant(false);
     Genotype genotype = null;
-    int chromeSize;
-    if (args.length > 0) {
-      chromeSize = Integer.parseInt(args[0]);
-    }
-    else {
-      chromeSize = 16;
-    }
+    int chromeSize = 60;    
     double maxFitness = Math.pow(2.0, (double) chromeSize) - 1;
-    if (chromeSize > 32) {
-      System.err.println("This example does not handle " +
-                         "Chromosomes greater than 32 bits in length.");
-      System.exit( -1);
-    }
     try {
       IChromosome sampleChromosome = new Chromosome(gaConf,
           new BooleanGene(gaConf), chromeSize);
