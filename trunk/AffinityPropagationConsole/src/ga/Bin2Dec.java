@@ -3,14 +3,16 @@ package ga;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jgap.Genotype;
 import org.jgap.IChromosome;
+import org.jgap.Population;
 import org.jgap.impl.BooleanGene;
 
 public class Bin2Dec {
 	
 	
-	public List<Double> binstr2decstr(IChromosome chr, int acc, Double qmax, Double qmin){
-		List<Double> result = new ArrayList();
+	public static Double[] binstr2decstr(IChromosome chr, int acc, Double qmax, Double qmin){
+		Double[] result = new Double[chr.size()/acc];
 		if(chr.size()%acc!=0){
 			System.err.println("The input value is wrong from Class Bin2Dec!");
 			return null;
@@ -23,11 +25,24 @@ public class Bin2Dec {
 					 r += mul * (((BooleanGene) chr.getGene(i+j)).booleanValue() ? 1 : 0);
 					 mul *= 2;
 				}
-				result.add(delta*r+qmin);
+				result[i/acc]= delta*r+qmin;
 			}
 		}
 		return result;
 	}
+	
+	public static Double[][] binlst2declst(Genotype genotype, int acc, Double qmax, Double qmin){
+		
+		Population pop = genotype.getPopulation();
+		IChromosome[] chrs = (IChromosome[]) pop.getChromosomes().toArray();
+		Double[][] results = new Double[chrs.length][chrs[0].size()/acc];
+		for(int i = 0; i<=chrs.length; i++){
+			results[i] = Bin2Dec.binstr2decstr(chrs[i], acc, qmax, qmin);			
+		}
+		return results;
+	}
+
+	
 
 	/**
 	 * @param args

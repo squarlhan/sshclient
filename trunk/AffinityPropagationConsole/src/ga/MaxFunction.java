@@ -9,6 +9,8 @@
  */
 package ga;
 
+import java.util.List;
+
 import org.jgap.*;
 import org.jgap.impl.*;
 
@@ -50,6 +52,7 @@ public class MaxFunction
     int total = 0;
 
     System.out.println(a_subject.size());
+    //List<Double> chrdou = Bin2Dec.binstr2decstr(a_subject, 10, 5.12, -5.12);
     for (int i = 0; i < a_subject.size(); i++) {
       BooleanGene value = (BooleanGene) a_subject.getGene(a_subject.size() -
           (i + 1));
