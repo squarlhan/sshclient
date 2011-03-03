@@ -49,18 +49,15 @@ public class MaxFunction
    * @since 2.0
    */
   public double evaluate(IChromosome a_subject) {
-    int total = 0;
-
-    System.out.println(a_subject.size());
-    //List<Double> chrdou = Bin2Dec.binstr2decstr(a_subject, 10, 5.12, -5.12);
-    for (int i = 0; i < a_subject.size(); i++) {
-      BooleanGene value = (BooleanGene) a_subject.getGene(a_subject.size() -
-          (i + 1));
-      if (value.booleanValue()) {
-        total += Math.pow(2.0, (double) i);
-      }
+    double total = 0;
+    
+    Double[] decs = Bin2Dec.binstr2decstr(a_subject, 20, 5.12, -5.12);
+    for (int i = 0; i < decs.length; i++) {
+      
+        total += Math.pow(decs[i], 2.0);
+      
     }
 
-    return total;
+    return 3*Math.pow(5.12, 2.0)-total;
   }
 }
