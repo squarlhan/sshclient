@@ -9,6 +9,8 @@
  */
 package ga;
 
+import java.text.DecimalFormat;
+
 import org.jgap.*;
 import org.jgap.impl.*;
 
@@ -33,18 +35,18 @@ public class SimpleExample {
    * @since 2.0
    */
   public static void main(String[] args) {
-    int numEvolutions = 500;
+    int numEvolutions = 100;
     Configuration gaConf = new DefaultConfiguration();
     gaConf.setPreservFittestIndividual(true);
     gaConf.setKeepPopulationSizeConstant(false);
     Genotype genotype = null;
     int chromeSize = 60;    
-    double maxFitness = Math.pow(2.0, (double) chromeSize) - 1;
+    double maxFitness = 3*Math.pow( 5.12, 2.0);
     try {
       IChromosome sampleChromosome = new Chromosome(gaConf,
           new BooleanGene(gaConf), chromeSize);
       gaConf.setSampleChromosome(sampleChromosome);
-      gaConf.setPopulationSize(20);
+      gaConf.setPopulationSize(40);
       gaConf.setFitnessFunction(new MaxFunction());
       genotype = Genotype.randomInitialGenotype(gaConf);
     }
@@ -53,7 +55,7 @@ public class SimpleExample {
       System.exit( -2);
     }
     int progress = 0;
-    int percentEvolution = numEvolutions / 100;
+    int percentEvolution = numEvolutions / 10;
     for (int i = 0; i < numEvolutions; i++) {
       genotype.evolve();
       // Print progress.
@@ -64,15 +66,22 @@ public class SimpleExample {
         double fitness = fittest.getFitnessValue();
         System.out.println("Currently fittest Chromosome has fitness " +
                            fitness);
-        if (fitness >= maxFitness) {
-          break;
-        }
+//        if (fitness >= maxFitness) {
+//          break;
+//        }
       }
     }
     // Print summary.
     // --------------
     IChromosome fittest = genotype.getFittestChromosome();
+    Double[] fited = Bin2Dec.binstr2decstr(fittest, 20, 5.12, -5.12);
     System.out.println("Fittest Chromosome has fitness " +
                        fittest.getFitnessValue());
+    DecimalFormat myformat=new DecimalFormat("#0.00");
+    for (int i = 0; i < fited.length; i++) {
+        
+    	System.out.println(myformat.format(fited[i]));
+      
+    }
   }
 }
