@@ -51,7 +51,7 @@ public class MaxFunction
   public double evaluate(IChromosome a_subject) {
     double total = 0;
     
-    Double[] decs = Bin2Dec.binstr2decstr(a_subject, 20, 5.12, -5.12);
+    double[] decs = Bin2Dec.binstr2decstr(a_subject, 20, 5.12, -5.12);
     for (int i = 0; i < decs.length; i++) {
       
         total += Math.pow(decs[i], 2.0);
