@@ -62,6 +62,14 @@ public class Bin2Dec {
 			System.out.print(delta * r + 0);
 			System.out.print("/");
 		}
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.print("//////////");
 	}
 
 }
