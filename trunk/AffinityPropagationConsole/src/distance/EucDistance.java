@@ -110,17 +110,17 @@ public class EucDistance {
 	
 	/**
 	 * read distance matrix from unformatted file
-	 * @param mydata
+	 * @param datamatrix
 	 * @return
 	 */
-	public static Collection<InteractionData> getunEucMatrix(double[][] mydata){
+	public static Collection<InteractionData> getunEucMatrix(double[][] datamatrix){
 		Collection<InteractionData> ints = new HashSet<InteractionData>();
-		int row = mydata.length;
-		int col = mydata[0].length;
+		int row = datamatrix.length;
+		int col = datamatrix[0].length;
 		for(int i = 0; i<= row-1; i++){
 			for(int j = 0;j<= col-1; j++){
 				ints.add(new InteractionData(String.valueOf(i+1), 
-						String.valueOf(j+1), mydata[i][j]));
+						String.valueOf(j+1), datamatrix[i][j]));
 			}		
 		}
 		return ints;

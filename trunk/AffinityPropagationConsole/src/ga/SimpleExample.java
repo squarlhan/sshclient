@@ -74,7 +74,7 @@ public class SimpleExample {
     // Print summary.
     // --------------
     IChromosome fittest = genotype.getFittestChromosome();
-    Double[] fited = Bin2Dec.binstr2decstr(fittest, 20, 5.12, -5.12);
+    double[] fited = Bin2Dec.binstr2decstr(fittest, 20, 5.12, -5.12);
     System.out.println("Fittest Chromosome has fitness " +
                        fittest.getFitnessValue());
     DecimalFormat myformat=new DecimalFormat("#0.00");

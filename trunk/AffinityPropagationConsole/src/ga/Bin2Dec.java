@@ -11,8 +11,8 @@ import org.jgap.impl.BooleanGene;
 public class Bin2Dec {
 	
 	
-	public static Double[] binstr2decstr(IChromosome chr, int acc, Double qmax, Double qmin){
-		Double[] result = new Double[chr.size()/acc];
+	public static double[] binstr2decstr(IChromosome chr, int acc, Double qmax, Double qmin){
+		double[] result = new double[chr.size()/acc];
 		if(chr.size()%acc!=0){
 			System.err.println("The input value is wrong from Class Bin2Dec!");
 			return null;
@@ -31,11 +31,11 @@ public class Bin2Dec {
 		return result;
 	}
 	
-	public static Double[][] binlst2declst(Genotype genotype, int acc, Double qmax, Double qmin){
+	public static double[][] binlst2declst(Genotype genotype, int acc, Double qmax, Double qmin){
 		
 		Population pop = genotype.getPopulation();
 		IChromosome[] chrs = (IChromosome[]) pop.getChromosomes().toArray();
-		Double[][] results = new Double[chrs.length][chrs[0].size()/acc];
+		double[][] results = new double[chrs.length][chrs[0].size()/acc];
 		for(int i = 0; i<=chrs.length; i++){
 			results[i] = Bin2Dec.binstr2decstr(chrs[i], acc, qmax, qmin);			
 		}
