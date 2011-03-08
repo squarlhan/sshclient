@@ -99,8 +99,10 @@ public class RunAlgorithm {
             } else {
                 val = intData.getSim();
             }
-            int source = (int)Double.valueOf(intData.getFrom()).doubleValue()-1;
-            int target = (int)Double.valueOf(intData.getTo()).doubleValue()-1;
+            int source = (int)Double.valueOf(intData.getFrom()).doubleValue();
+            int target = (int)Double.valueOf(intData.getTo()).doubleValue();
+            System.out.print(source+"///"+target);
+            System.out.print("\\"+val+"\n");
             af.setSimilarityInt(source, target, val);
             //   af.setSimilarityInt(target, source, val);
             //af.setSimilarityInt(Integer.valueOf(intData.getFrom()), Integer.valueOf(intData.getTo()), val);

@@ -85,9 +85,9 @@ public class EucDistance {
 		int row = mydata.length;
 		for(int i = 0; i<= row-1; i++){
 			for(int j = 0; j<= row-1; j++){
-				ints.add(new InteractionData(String.valueOf(i), 
-						String.valueOf(j), 
-						-1*getDistance(mydata[i],mydata[j])));
+				Double dis = getDistance(mydata[i],mydata[j]) == 0?0.9:getDistance(mydata[i],mydata[j]);
+				ints.add(new InteractionData(String.valueOf(i), String.valueOf(j), 	-1*dis));
+				//System.out.println(-1*getDistance(mydata[i],mydata[j]));
 			}
 		}
 		return ints;
