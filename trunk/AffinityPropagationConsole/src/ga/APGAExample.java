@@ -22,10 +22,23 @@ import distance.EucDistance;
 public class APGAExample {
 	
 	
-	public static List<Double> calcObjectValue(Genotype genotype, List<Integer> results, double[][] datamatrix, double lamda){
+	public static double getfit(IChromosome a_subject) {
+	    double total = 0;
+	    
+	    double[] decs = Bin2Dec.binstr2decstr(a_subject, 20, 5.12, -5.12);
+	    for (int i = 0; i < decs.length; i++) {
+	      
+	        total += Math.pow(decs[i], 2.0);
+	      
+	    }
+
+	    return 3*Math.pow(5.12, 2.0)-total;
+	  }
+	
+	
+	public static  List<Double> calcObjectValue(Genotype genotype, List<Integer> results, double[][] datamatrix, double lamda){
 		Population pop = genotype.getPopulation();
-		IChromosome[] chrs = (IChromosome[]) pop.getChromosomes().toArray();
-		APFunction apf = new APFunction();
+		List<IChromosome> chrs = pop.getChromosomes();
 		List<Double> objects = new ArrayList();
 		Set<Integer> centers = new HashSet();
 		centers.addAll(results);
@@ -34,7 +47,7 @@ public class APGAExample {
 		while(iter.hasNext()){
 			int a = (Integer)iter.next();
 			//do something to get the objective value
-			Double dis = apf.getfit(chrs[a]);
+			Double dis = getfit(chrs.get(a));
 			centerObjects.put(a, dis);
 		}
 		for(int i=0; i <= datamatrix.length-1; i++){
@@ -182,9 +195,10 @@ public class APGAExample {
 			IChromosome sampleChromosome = new Chromosome(gaConf,
 					new BooleanGene(gaConf), chromeSize);
 			gaConf.setSampleChromosome(sampleChromosome);
-			gaConf.setPopulationSize(40);
-			gaConf.setFitnessFunction(new APFunction());
+			gaConf.setPopulationSize(4);	
+			gaConf.setFitnessFunction(new APFunction(genotype));
 			genotype = Genotype.randomInitialGenotype(gaConf);
+			//genotype.getConfiguration().setFitnessFunction(new APFunction(genotype));
 		} catch (InvalidConfigurationException e) {
 			e.printStackTrace();
 			System.exit(-2);
@@ -197,7 +211,7 @@ public class APGAExample {
 			double[][] chromatrix = Bin2Dec.binlst2declst(genotype, 20, 5.12,-5.12);
 			Collection<InteractionData> inputs = EucDistance.calcEucMatrix(chromatrix);
 			Double lambda = 0.9;
-			Integer iterations = 500;
+			Integer iterations = 100;
 
 			Integer convits = getConvits(map);
 			Double preferences = -0.1;

@@ -34,10 +34,11 @@ public class Bin2Dec {
 	public static double[][] binlst2declst(Genotype genotype, int acc, Double qmax, Double qmin){
 		
 		Population pop = genotype.getPopulation();
-		IChromosome[] chrs = (IChromosome[]) pop.getChromosomes().toArray();
-		double[][] results = new double[chrs.length][chrs[0].size()/acc];
-		for(int i = 0; i<=chrs.length; i++){
-			results[i] = Bin2Dec.binstr2decstr(chrs[i], acc, qmax, qmin);			
+		List<IChromosome> chrlist = pop.getChromosomes();
+		//IChromosome[] chrs = new IChromosome[chrlist.size()];
+		double[][] results = new double[chrlist.size()][chrlist.get(0).size()/acc];
+		for(int i = 0; i<=chrlist.size()-1; i++){
+			results[i] = Bin2Dec.binstr2decstr(chrlist.get(i), acc, qmax, qmin);			
 		}
 		return results;
 	}
