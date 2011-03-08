@@ -34,6 +34,6 @@ public class APFunction
 			  break;
 		  }
 	  }
-	    return fit;
+	    return 12;
 	  }
 }
