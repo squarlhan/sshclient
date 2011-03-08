@@ -234,7 +234,7 @@ public class APGAExample {
 			List<Double> objests = calcObjectValue(genotype, results, chromatrix, 0.9);
 
 			//Start GA
-			genotype.evolve();
+			genotype.evolve(true);
 			// Print progress.
 			// ---------------
 			if (percentEvolution > 0 && i % percentEvolution == 0) {

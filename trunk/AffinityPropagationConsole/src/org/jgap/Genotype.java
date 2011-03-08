@@ -226,6 +226,12 @@ public class Genotype
     Population newPop = breeder.evolve(getPopulation(), getConfiguration());
     setPopulation(newPop);
   }
+  
+  public synchronized void evolve(boolean ap) {
+	    IBreeder breeder = getConfiguration().getBreeder();
+	    Population newPop = breeder.evolve(getPopulation(), getConfiguration(), ap);
+	    setPopulation(newPop);
+	  }
 
   /**
    * Evolves this Genotype the specified number of times. This is
