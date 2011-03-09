@@ -80,13 +80,27 @@ public class EucDistance {
 	 * @param mydata
 	 * @return
 	 */
-	public static Collection<InteractionData> calcEucMatrix(double[][] mydata){
+	public static double[][] calcEucMatrix(double[][] mydata){
+		double[][] result =  new double[mydata.length][mydata.length];
+		for(int i = 0; i<= mydata.length-1; i++){
+			for(int j = 0; j<= mydata.length-1; j++){
+				Double dis = getDistance(mydata[i],mydata[j]) == 0?0.9:getDistance(mydata[i],mydata[j]);
+				result[i][j] = -1*dis;
+			}
+		}
+		return result;
+	}
+	/**
+	 * calculate the Eucl-distance of the data 
+	 * @param mydata
+	 * @return
+	 */
+	public static Collection<InteractionData> transEucMatrix(double[][] dis){
 		Collection<InteractionData> ints = new HashSet<InteractionData>();
-		int row = mydata.length;
+		int row = dis.length;
 		for(int i = 0; i<= row-1; i++){
 			for(int j = 0; j<= row-1; j++){
-				Double dis = getDistance(mydata[i],mydata[j]) == 0?0.9:getDistance(mydata[i],mydata[j]);
-				ints.add(new InteractionData(String.valueOf(i), String.valueOf(j), 	-1*dis));
+				ints.add(new InteractionData(String.valueOf(i), String.valueOf(j), 	dis[i][j]));
 				//System.out.println(-1*getDistance(mydata[i],mydata[j]));
 			}
 		}

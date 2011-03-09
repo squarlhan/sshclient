@@ -31,9 +31,9 @@ public class Bin2Dec {
 		return result;
 	}
 	
-	public static double[][] binlst2declst(Genotype genotype, int acc, Double qmax, Double qmin){
+	public static double[][] binlst2declst(Population pop, int acc, Double qmax, Double qmin){
 		
-		Population pop = genotype.getPopulation();
+		
 		List<IChromosome> chrlist = pop.getChromosomes();
 		//IChromosome[] chrs = new IChromosome[chrlist.size()];
 		double[][] results = new double[chrlist.size()][chrlist.get(0).size()/acc];

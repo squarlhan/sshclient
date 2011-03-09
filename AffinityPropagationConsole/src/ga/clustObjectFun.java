@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.jgap.Genotype;
+import org.jgap.IChromosome;
+import org.jgap.Population;
+
 import affinitymain.CommandLineParser;
 import affinitymain.InteractionData;
 import affinitymain.RunAlgorithm;
@@ -54,10 +58,42 @@ public class clustObjectFun {
 
         alg.setParemeters();
         results = alg.run();
-        calcObjectValue(results, datamatrix, 0.9);
+        //calcObjectValue(results, datamatrix, 0.9);
     }
 
-    private static AffinityConnectingMethod getConnMode(Map<String, String> map) {
+    public static  List<Double> calcObjectValue(Population pop, List<Integer> results, double[][] datamatrix, double lamda){
+    	APFunction apf = new APFunction();
+		List<IChromosome> chrs = pop.getChromosomes();
+		List<Double> objects = new ArrayList();
+		Set<Integer> centers = new HashSet();
+		centers.addAll(results);
+		Map<Integer, Double> centerObjects = new HashMap();
+		Iterator iter = centers.iterator();
+		while(iter.hasNext()){
+			int a = (Integer)iter.next();
+			//do something to get the objective value
+			Double dis = apf.evaluate(chrs.get(a));
+			centerObjects.put(a, dis);
+		}
+		for(int i=0; i <= datamatrix.length-1; i++){
+			double object;
+			if(i==results.get(i)){
+				object = centerObjects.get(i);
+			}else{
+				double s = 1/(1+datamatrix[i][results.get(i)]);
+				object = ((1-lamda)*s+lamda)*centerObjects.get(results.get(i));
+			}
+			objects.add(object);
+			pop.getChromosome(i).setFitnessValue(object);
+		}
+		/*for(double a : objects){
+        	System.out.println(a);
+        }*/
+
+		return objects;
+	}
+	
+	public static AffinityConnectingMethod getConnMode(Map<String, String> map) {
         String modeStr = map.get("conn");
         if (modeStr == null) {
             return AffinityConnectingMethod.ORIGINAL;
@@ -70,7 +106,7 @@ public class clustObjectFun {
         }
     }
 
-    private static String getOutputKind(Map<String, String> map) {
+	public static String getOutputKind(Map<String, String> map) {
         String kind = map.get("kind");
         if (kind == null) {
             return "clusters";
@@ -83,7 +119,7 @@ public class clustObjectFun {
         }
     }
 
-    private static Double getPreferences(Map<String, String> map) {
+	public static Double getPreferences(Map<String, String> map) {
         String lamStr = map.get("p");
         if (lamStr == null) {
             System.out.println("You have to set preferences (p)!");
@@ -98,7 +134,7 @@ public class clustObjectFun {
         }
     }
 
-    private static Double getLambda(Map<String, String> map) {
+	public static Double getLambda(Map<String, String> map) {
         String lamStr = map.get("lam");
         if (lamStr == null) {
             System.out.println("You have to set lambda (lam)!");
@@ -112,7 +148,7 @@ public class clustObjectFun {
         }
     }
 
-    private static Integer getIterations(Map<String, String> map) {
+	public static Integer getIterations(Map<String, String> map) {
         try {
             return Integer.valueOf(map.get("it"));
         } catch (NumberFormatException e) {
@@ -120,7 +156,7 @@ public class clustObjectFun {
         }
     }
 
-    private static Integer getConvits(Map<String, String> map) {
+	public static Integer getConvits(Map<String, String> map) {
         try {
             return Integer.valueOf(map.get("con"));
         } catch (NumberFormatException e) {
@@ -128,15 +164,15 @@ public class clustObjectFun {
         }
     }
 
-    private static String getFilepath(Map<String, String> map) {
+	public static String getFilepath(Map<String, String> map) {
         return map.get("in");
     }
 
-    private static String getFoutput(Map<String, String> map) {
+	public static String getFoutput(Map<String, String> map) {
         return map.get("out");
     }
 
-    private static boolean getRefine(Map<String, String> map) {
+	public static boolean getRefine(Map<String, String> map) {
         String ref = map.get("ref");
         if (ref == null) {
             return true;
@@ -147,7 +183,7 @@ public class clustObjectFun {
         }
     }
 
-    private static Integer getSteps(Map<String, String> map) {
+	public static Integer getSteps(Map<String, String> map) {
         String depthStr = map.get("dep");
         if (depthStr == null) {
             return null;
@@ -160,7 +196,7 @@ public class clustObjectFun {
         }
     }
 
-    private static boolean getTakeLog(Map<String, String> map) {
+	public static boolean getTakeLog(Map<String, String> map) {
         String getLog = map.get("log");
         if (getLog == null) {
             return false;
@@ -170,31 +206,4 @@ public class clustObjectFun {
             return false;
         }
     }
-
-
-	public static List<Double> calcObjectValue(List<Integer> results, double[][] datamatrix, double lamda){
-		List<Double> objects = new ArrayList();
-		Set<Integer> centers = new HashSet();
-		centers.addAll(results);
-		Map<Integer, Double> centerObjects = new HashMap();
-		Iterator iter = centers.iterator();
-		while(iter.hasNext()){
-			int a = (Integer)iter.next();
-			//do something to get the objective value
-			centerObjects.put(a, 0.12);
-		}
-		for(int i=0; i <= datamatrix.length-1; i++){
-			if(i==results.get(i)){
-				objects.add(centerObjects.get(i));
-			}else{
-				double s = 1/(1+datamatrix[i][results.get(i)]);
-				objects.add(((1-lamda)*s+lamda)*centerObjects.get(results.get(i)));
-			}
-		}
-		for(double a : objects){
-        	System.out.println(a);
-        }
-
-		return objects;
-	}
 }

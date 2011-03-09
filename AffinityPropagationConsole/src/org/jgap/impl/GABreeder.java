@@ -9,9 +9,22 @@
  */
 package org.jgap.impl;
 
+import ga.Bin2Dec;
+import ga.clustObjectFun;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 import org.jgap.*;
 import org.jgap.audit.*;
 import org.jgap.event.*;
+
+import affinitymain.CommandLineParser;
+import affinitymain.InteractionData;
+import affinitymain.RunAlgorithm;
+import algorithm.abs.AffinityPropagationAlgorithm.AffinityConnectingMethod;
+import distance.EucDistance;
 
 public class GABreeder
     extends BreederBase {
@@ -93,7 +106,7 @@ public class GABreeder
           IEvolutionMonitor.MONITOR_EVENT_BEFORE_UPDATE_CHROMOSOMES1,
           a_conf.getGenerationNr(), new Object[]{pop});
     }
-    updateChromosomes(pop, a_conf);
+    updateChromosomes(pop, a_conf,ap);
     if (monitorActive) {
       // Monitor that fitness value of chromosomes is being updated.
       // -----------------------------------------------------------
@@ -166,7 +179,7 @@ public class GABreeder
           IEvolutionMonitor.MONITOR_EVENT_BEFORE_UPDATE_CHROMOSOMES2,
           a_conf.getGenerationNr(), new Object[]{pop});
     }
-    updateChromosomes(pop, a_conf);
+    updateChromosomes(pop, a_conf, ap);
     if (monitorActive) {
       // Monitor that fitness value of chromosomes is being updated.
       // -----------------------------------------------------------
@@ -484,4 +497,38 @@ public class GABreeder
       }
     }
   }
+  protected void updateChromosomes(Population a_pop, Configuration a_conf, boolean ap) {
+	    int currentPopSize = a_pop.size();
+		double[][] chromatrix = Bin2Dec.binlst2declst(a_pop, 20, 5.12,-5.12);
+		double[][] dis = EucDistance.calcEucMatrix(chromatrix);
+		Collection<InteractionData> inputs = EucDistance.transEucMatrix(dis);
+		Double lambda = 0.9;
+		Integer iterations = 100;
+		clustObjectFun cof = new clustObjectFun();
+		Integer convits = null;
+		Double preferences = -0.1;
+
+		String kind = "clusters";
+		AffinityConnectingMethod connMode = AffinityConnectingMethod.ORIGINAL;
+		boolean takeLog = false;
+		boolean refine = true;
+		Integer steps = null;
+
+		RunAlgorithm alg = new RunAlgorithm(inputs, lambda, iterations,
+				convits, preferences, kind);
+		alg.setTakeLog(takeLog);
+		alg.setConnMode(connMode);
+		alg.setSteps(steps);
+		alg.setRefine(refine);
+
+		alg.setParemeters();
+		List<Integer> results = alg.run();
+		List<Double> objests = cof.calcObjectValue(a_pop, results, dis, 0.9);
+//		for (int i = 0; i < currentPopSize; i++) {
+//	      IChromosome chrom = a_pop.getChromosome(i);
+//	      System.out.print(chrom.getFitnessValue()+";");
+//		}
+//		System.out.print("\n");
+	    
+	  }
 }
