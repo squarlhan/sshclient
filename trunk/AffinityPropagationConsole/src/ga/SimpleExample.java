@@ -35,6 +35,7 @@ public class SimpleExample {
    * @since 2.0
    */
   public static void main(String[] args) {
+	 long startTime=System.currentTimeMillis();
     int numEvolutions = 100;
     Configuration gaConf = new DefaultConfiguration();
     gaConf.setPreservFittestIndividual(true);
@@ -83,5 +84,7 @@ public class SimpleExample {
     	System.out.println(myformat.format(fited[i]));
       
     }
+    long endTime=System.currentTimeMillis();
+    System.out.println("程序运行时间： "+(endTime-startTime)+"ms");
   }
 }
