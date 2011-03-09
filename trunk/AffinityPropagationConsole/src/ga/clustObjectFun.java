@@ -62,7 +62,7 @@ public class clustObjectFun {
     }
 
     public static  List<Double> calcObjectValue(Population pop, List<Integer> results, double[][] datamatrix, double lamda){
-    	APFunction apf = new APFunction();
+    	MaxFunction mf = new MaxFunction();
 		List<IChromosome> chrs = pop.getChromosomes();
 		List<Double> objects = new ArrayList();
 		Set<Integer> centers = new HashSet();
@@ -72,7 +72,7 @@ public class clustObjectFun {
 		while(iter.hasNext()){
 			int a = (Integer)iter.next();
 			//do something to get the objective value
-			Double dis = apf.evaluate(chrs.get(a));
+			Double dis = mf.evaluate(chrs.get(a));
 			centerObjects.put(a, dis);
 		}
 		for(int i=0; i <= datamatrix.length-1; i++){
