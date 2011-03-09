@@ -50,7 +50,12 @@ public class MaxFunction
    */
   public double evaluate(IChromosome a_subject) {
     double total = 0;
-    
+    try {
+		Thread.sleep(1000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     double[] decs = Bin2Dec.binstr2decstr(a_subject, 20, 5.12, -5.12);
     for (int i = 0; i < decs.length; i++) {
       
