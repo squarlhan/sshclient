@@ -40,7 +40,7 @@ public class APGAExample {
 					new BooleanGene(gaConf), chromeSize);
 			gaConf.setSampleChromosome(sampleChromosome);
 			gaConf.setPopulationSize(4);	
-			gaConf.setFitnessFunction(new APFunction());
+			gaConf.setFitnessFunction(new MaxFunction());
 			genotype = Genotype.randomInitialGenotype(gaConf);
 			//genotype.getConfiguration().setFitnessFunction(new APFunction(genotype));
 		} catch (InvalidConfigurationException e) {
