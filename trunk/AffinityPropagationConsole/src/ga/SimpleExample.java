@@ -46,7 +46,7 @@ public class SimpleExample {
       IChromosome sampleChromosome = new Chromosome(gaConf,
           new BooleanGene(gaConf), chromeSize);
       gaConf.setSampleChromosome(sampleChromosome);
-      gaConf.setPopulationSize(40);
+      gaConf.setPopulationSize(4);
       gaConf.setFitnessFunction(new MaxFunction());
       genotype = Genotype.randomInitialGenotype(gaConf);
     }

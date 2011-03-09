@@ -101,8 +101,6 @@ public class RunAlgorithm {
             }
             int source = (int)Double.valueOf(intData.getFrom()).doubleValue();
             int target = (int)Double.valueOf(intData.getTo()).doubleValue();
-            System.out.print(source+"///"+target);
-            System.out.print("\\"+val+"\n");
             af.setSimilarityInt(source, target, val);
             //   af.setSimilarityInt(target, source, val);
             //af.setSimilarityInt(Integer.valueOf(intData.getFrom()), Integer.valueOf(intData.getTo()), val);
@@ -118,14 +116,14 @@ public class RunAlgorithm {
             pref = preferences;
         }
 
-        System.out.println("pref: " + pref);
+//        System.out.println("pref: " + pref);
         af.setConstPreferences(pref);
     }
 
 	public List<Integer> run() {
 
 		List<Integer> classes = new ArrayList(); 
-		System.out.println(kind);
+		//System.out.println(kind);
 		if (kind.equals("centers")) {
 			Map<Integer, ClusterInteger> clusters = af.doClusterAssocInt();
 			if (clusters != null) {
