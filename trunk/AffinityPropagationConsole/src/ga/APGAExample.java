@@ -28,7 +28,7 @@ public class APGAExample {
 	
 	public static void main(String[] args) {
 		long startTime=System.currentTimeMillis();
-		int numEvolutions = 100;
+		int numEvolutions = 200;
 		Configuration gaConf = new DefaultConfiguration();
 		gaConf.setPreservFittestIndividual(true);
 		gaConf.setKeepPopulationSizeConstant(false);
@@ -39,7 +39,7 @@ public class APGAExample {
 			IChromosome sampleChromosome = new Chromosome(gaConf,
 					new BooleanGene(gaConf), chromeSize);
 			gaConf.setSampleChromosome(sampleChromosome);
-			gaConf.setPopulationSize(4);	
+			gaConf.setPopulationSize(40);	
 			gaConf.setFitnessFunction(new MaxFunction());
 			genotype = Genotype.randomInitialGenotype(gaConf);
 			//genotype.getConfiguration().setFitnessFunction(new APFunction(genotype));
