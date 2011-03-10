@@ -63,6 +63,6 @@ public class MaxFunction
       
     }
 
-    return 3*Math.pow(5.12, 2.0)-total;
+    return 100*Math.pow(5.12, 2.0)-total;
   }
 }

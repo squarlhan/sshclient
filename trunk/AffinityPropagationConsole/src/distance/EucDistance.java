@@ -82,11 +82,16 @@ public class EucDistance {
 	 */
 	public static double[][] calcEucMatrix(double[][] mydata){
 		double[][] result =  new double[mydata.length][mydata.length];
+		double sum = 0;
 		for(int i = 0; i<= mydata.length-1; i++){
 			for(int j = 0; j<= mydata.length-1; j++){
 				Double dis = getDistance(mydata[i],mydata[j]) == 0?0.9:getDistance(mydata[i],mydata[j]);
 				result[i][j] = -1*dis;
+				sum+=-1*dis;
 			}
+		}
+		for(int i = 0; i<= mydata.length-1; i++){
+			result[i][i] = sum/(i*(i-1));
 		}
 		return result;
 	}
