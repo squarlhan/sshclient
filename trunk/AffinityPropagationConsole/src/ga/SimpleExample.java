@@ -102,9 +102,9 @@ public class SimpleExample {
 				double[] fited = Bin2Dec
 						.binstr2decstr(fittest, 20, 5.12, -5.12);
 				System.out.println("Fittest Chromosome has fitness "
-						+ fittest.getFitnessValue());
+						+ (maxFitness-fittest.getFitnessValue()));
 				output.write("Fittest Chromosome has fitness "
-						+ fittest.getFitnessValue()+"\n");
+						+ (maxFitness-fittest.getFitnessValue())+"\n");
 				DecimalFormat myformat = new DecimalFormat("#0.00");
 				for (int i = 0; i < fited.length; i++) {
 
