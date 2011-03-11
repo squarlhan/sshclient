@@ -96,9 +96,9 @@ public class APGAExample {
 		IChromosome fittest = genotype.getFittestChromosome();
 		double[] fited = Bin2Dec.binstr2decstr(fittest, 20, 5.12, -5.12);
 		System.out.println("Fittest Chromosome has fitness "
-				+ (fittest.getFitnessValue()-maxFitness));
+				+ (maxFitness-fittest.getFitnessValue()));
 		output.write("Fittest Chromosome has fitness "
-				+ (fittest.getFitnessValue()-maxFitness)+"\n");
+				+ (maxFitness-fittest.getFitnessValue())+"\n");
 		DecimalFormat myformat = new DecimalFormat("#0.00");
 		for (int i = 0; i < fited.length; i++) {
 

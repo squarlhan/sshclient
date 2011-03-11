@@ -523,7 +523,7 @@ public class GABreeder
 
 		alg.setParemeters();
 		List<Integer> results = alg.run();
-		List<Double> objests = cof.calcObjectValue(a_pop, results, dis, 0.9);
+		List<Double> objests = cof.calcObjectValue(a_pop, results, dis, 0.7);
 //		for (int i = 0; i < currentPopSize; i++) {
 //	      IChromosome chrom = a_pop.getChromosome(i);
 //	      System.out.print(chrom.getFitnessValue()+";");
