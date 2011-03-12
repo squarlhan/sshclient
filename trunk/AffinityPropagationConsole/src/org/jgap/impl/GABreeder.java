@@ -502,11 +502,11 @@ public class GABreeder
 		double[][] chromatrix = Bin2Dec.binlst2declst(a_pop, 20, 5.12,-5.12);
 		double[][] dis = EucDistance.calcEucMatrix(chromatrix);
 		Collection<InteractionData> inputs = EucDistance.transEucMatrix(dis);
-		Double lambda = 0.7;
+		Double lambda = 0.6;
 		Integer iterations = 100;
 		clustObjectFun cof = new clustObjectFun();
 		Integer convits = null;
-		Double preferences = -0.1;
+		Double preferences = dis[0][0];
 
 		String kind = "clusters";
 		AffinityConnectingMethod connMode = AffinityConnectingMethod.ORIGINAL;

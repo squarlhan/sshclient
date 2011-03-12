@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -81,17 +84,19 @@ public class EucDistance {
 	 * @return
 	 */
 	public static double[][] calcEucMatrix(double[][] mydata){
-		double[][] result =  new double[mydata.length][mydata.length];
-		double sum = 0;
-		for(int i = 0; i<= mydata.length-1; i++){
-			for(int j = 0; j<= mydata.length-1; j++){
+		int len = mydata.length;
+		double[][] result =  new double[len][len];
+		double[] allresult = new double[len*len];
+		for(int i = 0; i<= len-1; i++){
+			for(int j = 0; j<= len-1; j++){
 				Double dis = getDistance(mydata[i],mydata[j]) == 0?0.9:getDistance(mydata[i],mydata[j]);
 				result[i][j] = -1*dis;
-				sum+=-1*dis;
+				allresult[i*len+j] = -1*dis;
 			}
 		}
+		Arrays.sort(allresult);
 		for(int i = 0; i<= mydata.length-1; i++){
-			result[i][i] = sum/(i*(i-1));
+			result[i][i] = allresult[(len*len-len)/2];
 		}
 		return result;
 	}
