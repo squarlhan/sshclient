@@ -51,7 +51,7 @@ public class MaxFunction
   public double evaluate(IChromosome a_subject) {
     double total = 0;
     try {
-		Thread.sleep(1000);
+		Thread.sleep(0);
 	} catch (InterruptedException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
