@@ -22,12 +22,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <s:form action="user!addUser.action">
+    <s:form action="userac!addUser.action">
         <s:textfield name="user.username" label = "ÐÕÃû"/><br>
         <s:textfield name="mykeyword" label = "ÂÒÆß°ËÔã"/><br>
         <s:password  name="user.password" label = "ÃÜÂë"/><br>
     	<s:submit value="Ìá½»"/>
     	<s:reset  value="ÖØÖÃ"/>
+    	<s:label value = "Culicinae"/>
     </s:form>
   </body>
 </html>
