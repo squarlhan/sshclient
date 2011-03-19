@@ -22,6 +22,15 @@ public class UserAction extends ActionSupport {
 	private SimpleExample se;
 	private String mykeyword;
 	private List<String> resultlist;
+	private List<User> userlist;
+
+	public List<User> getUserlist() {
+		return userlist;
+	}
+
+	public void setUserlist(List<User> userlist) {
+		this.userlist = userlist;
+	}
 
 	public List<String> getResultlist() {
 		return resultlist;
@@ -71,6 +80,7 @@ public class UserAction extends ActionSupport {
 			return ERROR;
 		}
 		userService.save(user);
+		userlist = userService.findall();
 		try {
 			resultlist = se.doquery1(se.loadDB2nd(), mykeyword);
 		} catch (ClassNotFoundException e) {
