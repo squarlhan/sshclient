@@ -36,5 +36,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </tr>
      </s:iterator>
   </table>
+  
+  <table align="center" width="100%" id="tb1">
+    <tr bgcolor="#4A708B">
+		    <th>USERNAME</th>
+			<th>PASSWORD</th>
+	  </tr>
+    <s:iterator id="users" value="userlist" status="index1">
+       
+     <tr  align="center" bgcolor="<s:if test="#index1.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
+       <td><s:property value="username"/></td>
+       <td><s:property value="password"/></td>
+     </tr>
+     </s:iterator>
+  </table>
   </body>
 </html>
