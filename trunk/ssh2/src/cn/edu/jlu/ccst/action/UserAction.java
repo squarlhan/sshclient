@@ -15,7 +15,6 @@ import cn.edu.jlu.ccst.model.User;
 import cn.edu.jlu.ccst.service.SimpleExample;
 import cn.edu.jlu.ccst.service.UserService;
 
-
 @Component("userAction")
 @Scope("prototype")
 public class UserAction extends ActionSupport {
@@ -88,9 +87,9 @@ public class UserAction extends ActionSupport {
 		 */
 
 		ActionContext.getContext().getSession()
-				.put("USERNAME", "user.getUsername()");
+				.put("USERNAME", user.getUsername());
 		ActionContext.getContext().getSession()
-				.put("PASSWORD", "user.getPassword()");
+				.put("PASSWORD", user.getPassword());
 
 		if (userServiceImpl.exits(user.getUsername())) {
 			User person = userServiceImpl.findBYusername(user);

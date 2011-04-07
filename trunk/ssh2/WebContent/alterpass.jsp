@@ -10,19 +10,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-String username=request.getSession().getAttribute("USERNAME");
-String password=request.getSession().getAttribute("PASSWORD");
-%>
+
 <s:form action="alter!alterpass.action">
-<s:textfield name="user.username" value="username"/>
-<s:textfield name="user.password" value="password"/>
+	<s:textfield name="user.username" value="username" />
+	<s:textfield name="user.password" value="password" />
 	<s:password name="currentpassword" label="current password" />
 	<s:password name="newpassword" label="new password" />
 	<s:password name="renewpassword" label="confirm new password" />
 	<s:submit value="Submit" />
 
 </s:form>
-
+<table>
+	<tr align="center">
+		<td><label><%=request.getSession().getAttribute("USERNAME")%></label>
+		</td>
+		<td><label><%=request.getSession().getAttribute("PASSWORD")%></label>
+		</td>
+	</tr>
+	<tr align="center">
+		<td><s:textfield name="newuser.username" id="un" /></td>
+		<td><s:textfield name="newuser.password" id="up" /></td>
+	</tr>
+</table>
+<script language="javascript">
+	function init() {
+		document.getElementById("un").value =
+<%=session.getAttribute("USERNAME")%>
+	;
+		document.getElementById("up").value =
+<%=session.getAttribute("PASSWORD")%>
+	;
+	}
+	init();
+</script>
 </body>
 </html>
