@@ -20,7 +20,13 @@ public class User implements Serializable{
 	@GeneratedValue
 	private int id;
 	private String username;
+	private String surname;
+	private String givenname;
 	private String password;
+	private String organization;
+	private String phone;
+	
+	
 	
 	public int getId() {
 		return id;
@@ -45,4 +51,39 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setGivenname(String givenname) {
+		this.givenname = givenname;
+	}
+
+	public String getGivenname() {
+		return givenname;
+	}
+
+	
+
 }

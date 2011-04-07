@@ -41,6 +41,6 @@
 	<!-- 用注解方式注入bean -->
 	<context:annotation-config />
 	<context:component-scan base-package="cn.edu.jlu.ccst" />
-	
+
 
 </beans>
