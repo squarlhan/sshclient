@@ -20,8 +20,8 @@
 			<result name="input">/regist.jsp</result>
 		</action>
 		<action name="alter" class="alterAction">
-			<result name="SUCCESS">/success.jsp</result>
-			<result name="ERROR">/error.jsp</result>
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 	</package>
 

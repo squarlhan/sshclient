@@ -1,7 +1,5 @@
 package cn.edu.jlu.ccst.action;
 
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;

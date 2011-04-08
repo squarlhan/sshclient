@@ -77,7 +77,6 @@ public class UserServiceImpl {
 			// update
 			em.merge(person);
 		}
-
 	}
 
 	// 判断用户是否存在
@@ -110,22 +109,30 @@ public class UserServiceImpl {
 	@SuppressWarnings("unchecked")
 	public User findBYusername(User user) {
 
-		 /* userlist = new ArrayList(); for(User u: userlist){
-		 
-		 * int id = 0; userlist = findAll(); for (java.util.Iterator<User> ul =
-		 * userlist.iterator(); ul.hasNext();) { User u = (User) ul.next(); if
-		 * (u.getUsername().equals(user.getUsername())) { id = u.getId(); } }
-		 * return id;
-		 */
+	
 		Query query = getEntityManager().createQuery(
 				"select u FROM User u where u.username = username");
 		userlist = query.getResultList();
 		for (User u : userlist) {
 			if (u.getUsername().equals(user.getUsername())) {
 				return u;
-			} 
+			}
 		}
 		return null;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public int findID(User user) {
+		Query query = getEntityManager().createQuery(
+				"select u FROM User u where u.username = username");
+		userlist = query.getResultList();
+		for (User u : userlist) {
+			if (u.getUsername().equals(user.getUsername())) {
+				return u.getId();
+			}
+		}
+		return 0;
 
 	}
 
