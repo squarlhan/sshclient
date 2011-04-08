@@ -82,14 +82,12 @@ public class UserServiceImpl {
 	// 判断用户是否存在
 
 	public boolean exits(String username) {
-		/*
-		 * userlist = findAll(); for (java.util.Iterator<User> ul =
-		 * userlist.iterator(); ul.hasNext();) { User u = (User) ul.next(); if
-		 * (u.getUsername().equals(username)) { return true; } }
-		 */
 		Query query = getEntityManager().createQuery(
-				"select u FROM User u where u.username = username");
-		if (query != null) {
+				"select u FROM User u where u.username = '"+username+"'");
+		System.out.println(query.getResultList().size());
+		List<User> userlist=findAll();
+		System.out.println(userlist.size());
+		if (query.getResultList().size() >= 1) {
 			return true;
 		} else {
 			return false;

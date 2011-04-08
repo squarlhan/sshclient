@@ -2,26 +2,8 @@
 <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
 	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
-	<field name="user.username">
-		<field-validator type="requiredstring" short-circuit="true">
-			<param name="trim">true</param>
-			<message>用户名必填</message>
-		</field-validator>
-		<field-validator type="email">
-			<message>用户名必须是电子邮箱格式</message>
-		</field-validator>
-	</field>
-	<field name="user.surname">
-		<field-validator type="requiredstring" short-circuit="true">
-			<param name="trim">true</param>
-			<message>昵称必填</message>
-		</field-validator>
-		<field-validator type="regex">
-			<param name="expression"><![CDATA[(\w{4,25})]]></param>
-			<message>4-25字母数字</message>
-		</field-validator>
-	</field>
-	<field name="user.password">
+
+	<field name="currentpassword">
 		<field-validator type="requiredstring" short-circuit="true">
 			<param name="trim">true</param>
 			<message>密码必填，4-25字母数字</message>
@@ -31,13 +13,27 @@
 			<message>4-25字母数字</message>
 		</field-validator>
 	</field>
-	<!-- <field name="repassword">
-
-		<field-validator type="fieldexpression">
-			<param name="expression"><![CDATA[(repassword==user.password)]]></param>
-			<message>confirm和password一致</message>
+	<field name="newpassword">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message>密码必填，4-25字母数字</message>
 		</field-validator>
-	</field> -->
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\w{4,25})]]></param>
+			<message>4-25字母数字</message>
+		</field-validator>
+	</field>
+	<field name="renewpassword">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message>密码必填，4-25字母数字</message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[(renewpassword==newpassword)]]></param>
+			<message>4-25字母数字</message>
+		</field-validator>
+	</field>
+	
 
-
+	
 </validators>

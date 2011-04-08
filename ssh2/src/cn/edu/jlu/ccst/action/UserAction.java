@@ -84,14 +84,15 @@ public class UserAction extends ActionSupport {
 		 * user.getUsername()); map.put("PASSWORD", user.getPassword());
 		 */
 
-		ActionContext.getContext().getSession()
-				.put("USERNAME", user.getUsername());
-		ActionContext.getContext().getSession()
-				.put("PASSWORD", user.getPassword());
+		
 
 		if (userServiceImpl.exits(user.getUsername())) {
 			User person = userServiceImpl.findBYusername(user);
 			if (user.getPassword().equals(person.getPassword())) {
+				ActionContext.getContext().getSession()
+				.put("USERNAME", user.getUsername());
+		ActionContext.getContext().getSession()
+				.put("PASSWORD", user.getPassword());
 				return SUCCESS;
 			} else {
 				return ERROR;
