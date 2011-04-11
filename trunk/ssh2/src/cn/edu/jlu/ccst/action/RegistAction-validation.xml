@@ -31,13 +31,13 @@
 			<message>4-25字母数字</message>
 		</field-validator>
 	</field>
-	<!-- <field name="repassword">
+	<!--  <field name="repassword">
 
 		<field-validator type="fieldexpression">
 			<param name="expression"><![CDATA[(repassword==user.password)]]></param>
-			<message>confirm和password一致</message>
+			<message>confirm和password不一致</message>
 		</field-validator>
-	</field> -->
-
+	</field> 
+-->
 
 </validators>

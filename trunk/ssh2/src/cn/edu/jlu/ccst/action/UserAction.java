@@ -19,12 +19,13 @@ public class UserAction extends ActionSupport {
 
 	private static final String REGIST = "regist";
 	private static final String FORGET = "forget";
+
 	private UserService userService;
 	private UserServiceImpl userServiceImpl;
 	private User user;
 	private SimpleExample se;
 	private String mykeyword;
-
+	
 	@Resource
 	public void setUserServiceImpl(UserServiceImpl userServiceImpl) {
 		this.userServiceImpl = userServiceImpl;
@@ -68,14 +69,6 @@ public class UserAction extends ActionSupport {
 		this.userService = userService;
 	}
 
-	/*
-	 * public String addUser() { if (userServiceImpl.exits(user.getUsername()))
-	 * { return ERROR; } userServiceImpl.save(user); userlist =
-	 * userService.findall(); try { resultlist = se.doquery1(se.loadDB2nd(),
-	 * mykeyword); } catch (ClassNotFoundException e) { // TODO Auto-generated
-	 * catch block e.printStackTrace(); } return SUCCESS; }
-	 */
-
 	public String login() {
 
 		/*
@@ -88,6 +81,7 @@ public class UserAction extends ActionSupport {
 
 		if (userServiceImpl.exits(user.getUsername())) {
 			User person = userServiceImpl.findBYusername(user);
+			user=person;
 			if (user.getPassword().equals(person.getPassword())) {
 				ActionContext.getContext().getSession()
 				.put("USERNAME", user.getUsername());
@@ -101,6 +95,8 @@ public class UserAction extends ActionSupport {
 			return ERROR;
 		}
 	}
+	
+	
 
 	public String regist() {
 		return REGIST;
@@ -110,4 +106,5 @@ public class UserAction extends ActionSupport {
 		return FORGET;
 	}
 
+	
 }

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -49,7 +49,7 @@
 		<s:label value="Culicinae" /> 
 	</s:form>
 	<input name="submit" type="button" value="Regist" onclick="window.location.href='regist.jsp'"/>
-	<input name="submit" type="button" value="ForgetPassword" onclick="window.location.href='forgetpassword.jsp'"/>
+	<input name="submit" type="button" value="ForgetPassword" onclick="window.location.href='forgetPassword.jsp'"/>
 
 </table>
 </body>
