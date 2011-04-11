@@ -25,7 +25,7 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="forgetpass" class="forgetpassAction">
-			<result name="success">/alterpass.jsp</result>
+			<result name="success">/sendsuc.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="logoff" class="logoffAction">
