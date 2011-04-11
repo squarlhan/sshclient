@@ -43,9 +43,10 @@
 	<context:component-scan base-package="cn.edu.jlu.ccst" />
 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="localhost" />
-		<property name="username" value="username" />
-		<property name="password" value="password" />
+		<property name="host" value="smtp.163.com" />
+		<property name="username" value="ykwolf.hi" />
+		<property name="password" value="1988825" />
+		<property name="defaultEncoding" value="UTF-8"/>
 	</bean>
 	
 

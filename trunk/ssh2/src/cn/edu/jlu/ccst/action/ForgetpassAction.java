@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import cn.edu.jlu.ccst.dao.UserServiceImpl;
 import cn.edu.jlu.ccst.model.User;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Component("forgetpassAction")
@@ -24,6 +25,7 @@ public class ForgetpassAction extends ActionSupport {
 	public static final String allChar = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static final String letterChar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static final String numberChar = "0123456789";
+
 	public String cap;
 
 	@Resource
@@ -53,13 +55,11 @@ public class ForgetpassAction extends ActionSupport {
 		return user;
 	}
 
-	public void sendMail() throws Exception {
+	public String sendMail() throws Exception {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		Properties props = new Properties();
 		props.put("mail.smtp.host ", "stmp.163.com");
 		props.put("mail.smtp.auth ", "true ");
-		// props.put("mail.smtp.user ", "ykwolf.hi ");
-		// props.put("mail.smtp.password ", "1988825 ");
 		mailMessage.setTo(user.getUsername());
 		mailMessage.setFrom("ykwolf.hi@163.com");
 		mailMessage.setSubject("captcha");
@@ -68,10 +68,16 @@ public class ForgetpassAction extends ActionSupport {
 
 		mailSender.send(mailMessage);
 		System.out.println("send success!");
+		User person = userServiceImpl.findBYusername(user);
+		person.setCaptcha(cap);
+		userServiceImpl.update(person.getId());
+
+		
+		return SUCCESS;
 
 	}
 
-	public String forgetPass() {
+	/*public String forgetPass() {
 		User person = userServiceImpl.findBYusername(user);
 		person.setPassword(cap);
 		if (captcha.equals(person.getPassword())) {
@@ -81,9 +87,8 @@ public class ForgetpassAction extends ActionSupport {
 		}
 
 	}
-
+*/
 	public String generateString(int length) {
-
 		StringBuffer sb = new StringBuffer();
 		Random random = new Random();
 		for (int i = 0; i < length; i++) {

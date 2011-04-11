@@ -22,7 +22,6 @@ function forgetpass() {
 <body>
 <s:form action="actionName!methodName">
 	<s:textfield name="user.username" label="username" />
-	<s:textfield name="captcha" label="captcha" />
 	<s:submit value="SendMail" onClick="sendmail()" />
 	<s:submit value="Submit" onClick="forgetpass()" />
 	<s:reset value="Reset" />

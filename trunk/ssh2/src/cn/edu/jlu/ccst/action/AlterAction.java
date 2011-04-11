@@ -55,9 +55,8 @@ public UserServiceImpl getUserServiceImpl(){
 		user.setUsername(username);
 		String password=(String)ActionContext.getContext().getSession().get("PASSWORD");
 		user.setPassword(password);
-		if (user.getPassword().equals(currentpassword)) {
-			user.setPassword(newpassword);
-			User person=userServiceImpl.findBYusername(user);
+		User person=userServiceImpl.findBYusername(user);
+		if (person.getPassword().equals(currentpassword)||person.getCaptcha().equals(currentpassword)) {
 			person.setPassword(newpassword);
 			user=person;
 			userServiceImpl.update(userServiceImpl.findID(person));

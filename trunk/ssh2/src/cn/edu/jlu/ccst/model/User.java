@@ -25,6 +25,7 @@ public class User implements Serializable{
 	private String password;
 	private String organization;
 	private String phone;
+	private String captcha;
 	
 	
 	
@@ -82,6 +83,14 @@ public class User implements Serializable{
 
 	public String getGivenname() {
 		return givenname;
+	}
+
+	public void setCaptcha(String captcha) {
+		this.captcha = captcha;
+	}
+
+	public String getCaptcha() {
+		return captcha;
 	}
 
 	
