@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -51,5 +51,6 @@
 	
 </table>
 <input name="submit" type="button" value="Alter Password" onclick="window.location.href='alterpass.jsp'"/>
+<input name="submit" type="button" value="Log off" onclick="window.location.href='logoff.jsp'"/>
 </body>
 </html>

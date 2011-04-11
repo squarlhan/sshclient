@@ -5,12 +5,13 @@
 
 <struts>
 	<include file="struts-default.xml" />
-	<constant name="struts.i18n.encoding" value="GB18030" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.objectFactory" value="spring" />
 	<package name="struts2" extends="struts-default" namespace="/">
 
 		<action name="userac" class="userAction">
 			<result name="success">/success.jsp</result>
+			<result name="logoff">/logoffsuc.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>
@@ -21,6 +22,14 @@
 		</action>
 		<action name="alter" class="alterAction">
 			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="forgetpass" class="forgetpassAction">
+			<result name="success">/alterpass.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="logoff" class="logoffAction">
+			<result name="success">/logoffsuc.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>

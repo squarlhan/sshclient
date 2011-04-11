@@ -57,7 +57,6 @@ public class UserServiceImpl {
 		return em;
 	}
 
-	// 根据用户ID查找用户
 	public User findBYid(int id) {
 		return em.find(User.class, id);
 	}
@@ -79,7 +78,7 @@ public class UserServiceImpl {
 		}
 	}
 
-	// 判断用户是否存在
+	
 
 	public boolean exits(String username) {
 		Query query = getEntityManager().createQuery(
@@ -103,7 +102,7 @@ public class UserServiceImpl {
 		return user;
 	}
 
-	// 根据用户名查找User
+	
 	@SuppressWarnings("unchecked")
 	public User findBYusername(User user) {
 
