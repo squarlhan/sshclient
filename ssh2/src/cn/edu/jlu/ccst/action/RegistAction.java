@@ -15,6 +15,7 @@ public class RegistAction extends ActionSupport {
 	private UserService userService;
 	private UserServiceImpl userServiceImpl;
 	private User user;
+	private String tip;
 
 
 	@Resource
@@ -42,10 +43,12 @@ public class RegistAction extends ActionSupport {
 		 * user.setQuestion(question); user.setAnswer(answer);
 		 */
 		if (userServiceImpl.exits(user.getUsername())) {
+			tip="The username is exist!";
 			return ERROR;
 		}
 		userService.save(user);
 		userServiceImpl.setUserlist(userService.findall()) ;
+		tip="Regist successfully!Please login before you search!";
 		return SUCCESS;
 	}
 
@@ -56,5 +59,13 @@ public class RegistAction extends ActionSupport {
 
 	public UserServiceImpl getUserServiceImpl() {
 		return userServiceImpl;
+	}
+
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+
+	public String getTip() {
+		return tip;
 	}
 }

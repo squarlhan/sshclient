@@ -9,6 +9,17 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<script type="text/javascript" language="javascript">
+  function init(){
+    var curuser = <%=request.getSession().getAttribute("USERNAME")%>;
+    var curpass = <%=request.getSession().getAttribute("PASSWORD")%>;
+    if(curuser == null||curpass == null){
+    	tip="Please login first!";
+    	self.location = "/ssh2/index.jsp";
+    }
+  }
+  init();
+</script>
 <base href="<%=basePath%>">
 
 <title>ERROR</title>
@@ -25,13 +36,12 @@
 </head>
 
 <body>
-<div style="color: red;">The USERNAME or PASSWORD you input is not
-correct</div>
-<br>
+<div style="color: red;"><s:property value="tip" /></div>
+
 <div style="color: red;">Please input again!</div>
 <br>
 
-<table align="center" width="100%" id="tb1">
+<!-- <table align="center" width="100%" id="tb1">
 	<s:form action="alter">
 		<s:submit value="Alter password" />
 		<s:property value="user.username" />
@@ -49,10 +59,21 @@ correct</div>
 			bgcolor="<s:if test="#index1.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
 			<td><s:property value="username" /></td>
 			<td><s:property value="password" /></td>
-
 		</tr>
 	</s:iterator>
-</table>
+</table> -->
+
+<input name="submit" type="button" value="Login"
+		onclick="window.location.href='index.jsp'" />
+<input name="submit" type="button" value="Regist"
+		onclick="window.location.href='regist.jsp'" />
+<input name="submit" type="button" value="Alter Password"
+	onclick="window.location.href='alterpass.jsp'" />
+<input name="submit" type="button" value="Alter Account"
+	onclick="window.location.href='alteraccount.jsp'" />
+<input name="submit" type="button" value="Log off"
+	onclick="window.location.href='logoff.jsp'" />
+
 
 </body>
 </html>

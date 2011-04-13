@@ -19,5 +19,6 @@
 	<s:submit value="Submit" />
 	<s:reset value="Reset" />
 </s:form>
+<input name="submit" type="button" value="Logoff" onclick="window.location.href='logoff.jsp'"/>
 </body>
 </html>

@@ -52,18 +52,9 @@ public class LogoffAction extends ActionSupport{
 	}
 
 	public String logoff() {
-		String username=(String)ActionContext.getContext().getSession().get("USERNAME");
-		user.setUsername(username);
-		String password=(String)ActionContext.getContext().getSession().get("PASSWORD");
-		user.setPassword(password);
-		if (username.equals(user.getUsername())
-				&& password.equals(user.getPassword())) {
-			
-			userServiceImpl.remove(userServiceImpl.findID(user));
-			return SUCCESS;
-		} else {
-			return ERROR;
-		}
+		ActionContext.getContext().getSession().remove("USERNAME");
+		ActionContext.getContext().getSession().remove("PASSWORD");
+		return SUCCESS;
 	}
 
 }

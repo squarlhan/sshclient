@@ -23,13 +23,18 @@
 		<action name="alter" class="alterAction">
 			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
+			<result name="input">/alterpass.jsp</result>
 		</action>
 		<action name="forgetpass" class="forgetpassAction">
 			<result name="success">/sendsuc.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="logoff" class="logoffAction">
-			<result name="success">/logoffsuc.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="alteraccount" class="alteraccountAction">
+			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>
