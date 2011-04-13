@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
 	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
@@ -6,31 +6,31 @@
 	<field name="currentpassword">
 		<field-validator type="requiredstring" short-circuit="true">
 			<param name="trim">true</param>
-			<message>ÃÜÂë±ØÌî£¬4-25×ÖÄ¸Êý×Ö</message>
+			<message>å¯†ç å¿…å¡«ï¼Œ4-25å­—æ¯æ•°å­—</message>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{4,25})]]></param>
-			<message>4-25×ÖÄ¸Êý×Ö</message>
+			<message>4-25å­—æ¯æ•°å­—</message>
 		</field-validator>
 	</field>
 	<field name="newpassword">
 		<field-validator type="requiredstring" short-circuit="true">
 			<param name="trim">true</param>
-			<message>ÃÜÂë±ØÌî£¬4-25×ÖÄ¸Êý×Ö</message>
+			<message>å¯†ç å¿…å¡«ï¼Œ4-25å­—æ¯æ•°å­—</message>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{4,25})]]></param>
-			<message>4-25×ÖÄ¸Êý×Ö</message>
+			<message>4-25å­—æ¯æ•°å­—</message>
 		</field-validator>
 	</field>
 	<field name="renewpassword">
 		<field-validator type="requiredstring" short-circuit="true">
 			<param name="trim">true</param>
-			<message>ÃÜÂë±ØÌî£¬4-25×ÖÄ¸Êý×Ö</message>
+			<message>å¯†ç å¿…å¡«ï¼Œ4-25å­—æ¯æ•°å­—</message>
 		</field-validator>
 		<field-validator type="fieldexpression">
 			<param name="expression"><![CDATA[(renewpassword==newpassword)]]></param>
-			<message>4-25×ÖÄ¸Êý×Ö</message>
+			<message>4-25å­—æ¯æ•°å­—</message>
 		</field-validator>
 	</field>
 	

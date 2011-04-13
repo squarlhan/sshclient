@@ -17,14 +17,17 @@ public class AlterAction extends ActionSupport {
 	private User user;
 	private String currentpassword;
 	private UserServiceImpl userServiceImpl;
+	private String tip;
 	
-@Resource
-	public void setUserServiceImpl(UserServiceImpl userServiceImpl){
-		this.userServiceImpl=userServiceImpl;
+	@Resource
+	public void setUserServiceImpl(UserServiceImpl userServiceImpl) {
+		this.userServiceImpl = userServiceImpl;
 	}
-public UserServiceImpl getUserServiceImpl(){
-	return userServiceImpl;
-}
+
+	public UserServiceImpl getUserServiceImpl() {
+		return userServiceImpl;
+	}
+
 	public void setNewpassword(String newpassword) {
 		this.newpassword = newpassword;
 	}
@@ -51,17 +54,25 @@ public UserServiceImpl getUserServiceImpl(){
 	}
 
 	public String alterpass() {
-		String username=(String)ActionContext.getContext().getSession().get("USERNAME");
+		String username = (String) ActionContext.getContext().getSession()
+				.get("USERNAME");
 		user.setUsername(username);
-		String password=(String)ActionContext.getContext().getSession().get("PASSWORD");
+		String password = (String) ActionContext.getContext().getSession()
+				.get("PASSWORD");
 		user.setPassword(password);
-		User person=userServiceImpl.findBYusername(user);
-		if (person.getPassword().equals(currentpassword)||person.getCaptcha().equals(currentpassword)) {
+		User person = userServiceImpl.findBYusername(user);
+		if (person.getPassword().equals(currentpassword)
+				|| person.getCaptcha().equals(currentpassword)) {
 			person.setPassword(newpassword);
-			user=person;
+
 			userServiceImpl.update(userServiceImpl.findID(person));
+			user = person;
+			ActionContext.getContext().getSession()
+					.put("PASSWORD", user.getPassword());
+			setTip("You have altered your password successfully!");
 			return SUCCESS;
 		} else {
+			tip="The password is not correct!";
 			return ERROR;
 		}
 	}
@@ -73,5 +84,17 @@ public UserServiceImpl getUserServiceImpl(){
 	public String getCurrentpassword() {
 		return currentpassword;
 	}
+
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+
+	public String getTip() {
+		return tip;
+	}
+
+	
+
+	
 
 }

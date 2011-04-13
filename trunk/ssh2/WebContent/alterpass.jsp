@@ -17,9 +17,12 @@
 	<s:password name="newpassword" label="new password" />
 	<s:password name="renewpassword" label="confirm new password" />
 	<s:submit value="Submit" />
+	
 
 </s:form>
-<table>
+
+<input name="submit" type="button" value="Logoff" onclick="window.location.href='logoff.jsp'"/>
+<!--  <table>
 	<tr align="center">
 		<td><label><%=request.getSession().getAttribute("USERNAME")%></label>
 		</td>
@@ -27,8 +30,22 @@
 		</td>
 	</tr>
 	
-</table>
+</table>-->
+
+
 
 
 </body>
+
+<script type="text/javascript" language="javascript">
+  function init(){
+    var curuser = <%=request.getSession().getAttribute("USERNAME")%>;
+    var curpass = <%=request.getSession().getAttribute("PASSWORD")%>;
+    if(curuser == null||curpass == null){
+    	tip="Please login first!";
+    	self.location = "/ssh2/index.jsp";
+    }
+  }
+  init();
+</script>
 </html>

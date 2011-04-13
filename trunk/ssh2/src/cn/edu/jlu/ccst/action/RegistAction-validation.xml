@@ -37,7 +37,7 @@
 			<param name="expression"><![CDATA[(repassword==user.password)]]></param>
 			<message>confirmºÍpassword²»Ò»ÖÂ</message>
 		</field-validator>
-	</field> 
--->
+	</field> -->
+
 
 </validators>

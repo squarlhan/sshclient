@@ -25,6 +25,8 @@ public class UserAction extends ActionSupport {
 	private User user;
 	private SimpleExample se;
 	private String mykeyword;
+	private String tip;
+	
 	
 	@Resource
 	public void setUserServiceImpl(UserServiceImpl userServiceImpl) {
@@ -85,11 +87,14 @@ public class UserAction extends ActionSupport {
 				.put("USERNAME", user.getUsername());
 		ActionContext.getContext().getSession()
 				.put("PASSWORD", user.getPassword());
+		tip="Login Successfully!";
 				return SUCCESS;
 			} else {
+				tip="The USERNAME or PASSWORD you input is not correct";
 				return ERROR;
 			}
 		} else {
+			tip="The USERNAME or PASSWORD you input is not correct";
 			return ERROR;
 		}
 	}
@@ -102,6 +107,14 @@ public class UserAction extends ActionSupport {
 
 	public String forgetPassword() {
 		return FORGET;
+	}
+
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+
+	public String getTip() {
+		return tip;
 	}
 
 	

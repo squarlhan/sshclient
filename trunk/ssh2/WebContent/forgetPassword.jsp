@@ -15,16 +15,29 @@ function forgetpass() {
 	targetForm = document.forms[0];
 	targetForm.action = "forgetpass!forgetPass";
 }
+
+function init(){
+  var curuser = <%=request.getSession().getAttribute("USERNAME")%>;
+  var curpass = <%=request.getSession().getAttribute("PASSWORD")%>;
+  if(curuser == null||curpass == null){
+	  tip="Please login first!";
+  	self.location = "/ssh2/index.jsp";
+  }
+}
+init();
+
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><s:text name="forgetpasswordPage" /></title>
 </head>
 <body>
+
 <s:form action="actionName!methodName">
 	<s:textfield name="user.username" label="username" />
 	<s:submit value="SendMail" onClick="sendmail()" />
 	<s:submit value="Submit" onClick="forgetpass()" />
 	<s:reset value="Reset" />
 </s:form>
+
 </body>
 </html> 
