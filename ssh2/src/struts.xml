@@ -37,6 +37,10 @@
 			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="search" class="searchAction">
+			<result name="success">/Result.jsp</result>
+			<result name="error">/success.jsp</result>
+		</action>
 	</package>
 
 </struts>
