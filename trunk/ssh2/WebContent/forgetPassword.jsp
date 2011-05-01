@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript" language="javascript"><!--
 function sendmail() {
 	targetForm = document.forms[0];
 	targetForm.action = "forgetpass!sendMail";
@@ -15,7 +15,7 @@ function forgetpass() {
 	targetForm = document.forms[0];
 	targetForm.action = "forgetpass!forgetPass";
 }
-
+/*
 function init(){
   var curuser = <%=request.getSession().getAttribute("USERNAME")%>;
   var curpass = <%=request.getSession().getAttribute("PASSWORD")%>;
@@ -24,8 +24,7 @@ function init(){
   	self.location = "/ssh2/index.jsp";
   }
 }
-init();
-
+init();*/
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><s:text name="forgetpasswordPage" /></title>
