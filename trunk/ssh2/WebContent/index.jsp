@@ -16,10 +16,10 @@
 	var result = false;
 	function checkuser() {
 		var uname = document.all.user.username.value;
-		if (uname=="") {
+		if (uname == "") {
 			document.getElementById("unameMsg").innerHTML = "<font color='red'>用户名不能为空！</font>";
 			return false;
-		}else if(uname.length<4||uname.length>25){
+		} else if (uname.length<4||uname.length>25) {
 			document.getElementById("unameMsg").innerHTML = "<font color='red'>用户名4-25字符，请重新输入！</font>";
 			return false;
 		} else {
@@ -50,7 +50,6 @@
 		}
 
 	}
-	
 </script>
 <base href="<%=basePath%>">
 
@@ -64,25 +63,23 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 </head>
-
 <body>
-
 <table align="center" width="100%" id="tb1">
-	<s:form action="userac!login.action" >
-	<s:property value="tip" />
+	<s:form action="userac!login.action">
+		<s:property value="tip" />
 		<s:textfield name="user.username" label="username"
 			onblur="checkuser()" />
 		<s:div id="unameMsg" />
 		<s:password name="user.password" label="password" />
+		<s:radio name="type" label="role" labelposition="top"
+			list="{'user' , 'admin'}" />
 		<s:submit value="login" />
 		<s:reset value="reset" />
-		<s:label value="Culicinae" />
 	</s:form>
 	<input name="submit" type="button" value="Regist"
 		onclick="window.location.href='regist.jsp'" />
 	<input name="submit" type="button" value="ForgetPassword"
 		onclick="window.location.href='forgetPassword.jsp'" />
-
 </table>
 </body>
 </html>

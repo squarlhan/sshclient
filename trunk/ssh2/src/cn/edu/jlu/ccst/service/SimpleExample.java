@@ -51,11 +51,11 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 public class SimpleExample {
 
 	public static final String DB_URL = "jdbc:mysql://localhost:3306/"; // URL
-																		// of
-																		// the
-																		// database
+	// of
+	// the
+	// database
 	public static final String DB_SCHEMA = "promoter"; // name of the database
-														// schema.
+	// schema.
 	public static final String DB_USER = "root"; // database user name
 	public static final String DB_PASSWD = "root"; // database user password
 	public static final String TYPE_DB = "MySQL"; // database type
@@ -77,7 +77,6 @@ public class SimpleExample {
 																							// pc
 
 	private PersistentOntology po;
- 
 
 	public PersistentOntology getPo() {
 		return po;
@@ -378,874 +377,867 @@ public class SimpleExample {
 		return results;
 	}
 
-	public List<String> Query_To_List(OntModel onmo, Query query,List<String> resultlist,String begin,String end) {
+	public List<String> Query_To_List(OntModel onmo, Query query,
+			List<String> resultlist1, String begin, String end) {
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
 		// ResultSetFormatter.out(System.out, results, query);
 		while (results.hasNext()) {
 			String aa = results.next().toString();
-			String bb = getSubString(aa,begin,end);
-			resultlist.add(bb);
+			String bb = getSubString(aa, begin, end);
+			resultlist1.add(bb);
 			System.out.println(bb);
 		}
 		qe.close();
-		//resultlist.add("END");
-		return resultlist;
+		// resultlist.add("END");
+		return resultlist1;
 	}
-	
-	//得到字符串子串
-	public String getSubString(String s,String a,String b){
+
+	// 得到字符串子串
+	public String getSubString(String s, String a, String b) {
 		int index1 = s.indexOf(a);
 		int index2 = s.lastIndexOf(b);
-		String ss = s.substring(index1+1, index2);
+		String ss;
+		if(a.equals("=")&&b.equals("@")){
+			String[] sarray = s.split("\"");
+			ss = sarray[1];
+//			ss = s.substring(index1 + 3, index2-1);
+		}
+		else if(a.equals("\\")&&b.equals("\\")){
+			ss = s.substring(index1+5,index2-4);
+		}else{
+			ss = s.substring(index1+1,index2);
+		}
 		return ss;
 	}
 
 	// keyword----Gene 返回Gene列表
-	public List<String> Query_Gene(String keyword) throws ClassNotFoundException {
-		//?Gene_name Pre_label:label keyword
-		List<String> Gene_list=new ArrayList();
-		Gene_list=null;
-		SimpleExample se = new SimpleExample();
+	public List<String> Query_Gene(String keyword)
+			throws ClassNotFoundException {
+		// ?Gene_name Pre_label:label keyword
+		List<String> Gene_list = new ArrayList();
 		String querystatement = "PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
 				+ "SELECT ?Gene  "
 				+ "WHERE {"
 				+ "?Gene Pre_label:label \""
 				+ keyword + "\"@EN ." + "}";
 		Query query = QueryFactory.create(querystatement);
-		if(query.hasAggregators())
-		    Gene_list=Query_To_List(se.loadDB2nd(),query,Gene_list,"#",">");
+		if (query.hasAggregators())
+			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
+					">");
 		return Gene_list;
 	}
-	//keyword----Promoter 返回Promoter列表
-	public List<String> Query_Promoter(String keyword) throws ClassNotFoundException
-	{
+
+	// keyword----Promoter 返回Promoter列表
+	public List<String> Query_Promoter(String keyword)
+			throws ClassNotFoundException {
 		List<String> Promoter_list = new ArrayList();
-		Promoter_list=null;
-		SimpleExample se = new SimpleExample();
 		String querystatement = "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-			+"PREFIX Pre_string:<http://www.w3.org/2001/XMLSchema#>"
+				+ "PREFIX Pre_string:<http://www.w3.org/2001/XMLSchema#>"
 				+ "SELECT ?Promoter  "
 				+ "WHERE {"
 				+ "?Promoter Pre_Name:Name \"Promoter_"
-				+ keyword + "\"^^Pre_string:string ." + "}";
+				+ keyword
+				+ "\"^^Pre_string:string ." + "}";
 		Query query = QueryFactory.create(querystatement);
-		Promoter_list=Query_To_List(se.loadDB2nd(),query,Promoter_list,"#",">");
+		if (query.hasAggregators())
+			Promoter_list = Query_To_List(loadDB2nd(), query, Promoter_list,
+					"#", ">");
 		return Promoter_list;
 	}
-	//keyword----Taxonomy 返回Taxonomy列表
-	public List<String> Query_Taxonomy(String keyword) throws ClassNotFoundException
-	{
+
+	// keyword----Taxonomy 返回Taxonomy列表
+	public List<String> Query_Taxonomy(String keyword)
+			throws ClassNotFoundException {
 		List<String> Taxonomy_list = new ArrayList();
-		Taxonomy_list=null;
-		SimpleExample se = new SimpleExample();
 		String querystatement = "PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
 				+ "SELECT ?Taxonomy  "
 				+ "WHERE {"
-				+ "?Taxonomy Pre_label:label \""
-				+ keyword + "\" ." + "}";
+				+ "?Taxonomy Pre_label:label \"" + keyword + "\"@EN ." + "}";
 		Query query = QueryFactory.create(querystatement);
-		Taxonomy_list=Query_To_List(se.loadDB2nd(),query,Taxonomy_list,"#",">");
+		// if (query.hasAggregators())
+		Taxonomy_list = Query_To_List(loadDB2nd(), query, Taxonomy_list,
+				"#", ">");
 		return Taxonomy_list;
 	}
-	//Taxonomy----Gene
-	public List<String> Query_GeneByTax(List<String> Taxonomy) throws ClassNotFoundException
-	{
+
+	// Taxonomy----Gene
+	public List<String> Query_GeneByTax(List<String> Taxonomy)
+			throws ClassNotFoundException {
 		List<String> Gene_list = new ArrayList();
-		Gene_list = null;
-		SimpleExample se = new SimpleExample();
 		int size = Taxonomy.size();
 		int i = 0;
-		while(i<size){
-		String Tax=Taxonomy.get(i);
-		String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-			+"PREFIX Pre_Tax:<http://um.es/ncbi.owl#>"
-			+"SELECT ?gene "
-			+"WHERE {"
-			+"?gene Pre_fromSpecies:fromSpecies Pre_Tax:"+Tax+"  ."+
-			"}";
-		Query query = QueryFactory.create(querystatement);
-		Gene_list=Query_To_List(se.loadDB2nd(),query,Gene_list,"#",">");
-		i++;
-		}
-		return Gene_list;
-	}
-	//keyword----Keywords 返回Keyword列表
-	public List<String> Query_KeywordBykey(List<String> Keywords) throws ClassNotFoundException
-	{
-		List<String> Keyword_list = new ArrayList();
-		Keyword_list = null;
-		SimpleExample se = new SimpleExample();
-		int size = Keywords.size();
-		int i = 0;
-		while(i<size){
-			String key=Keywords.get(i);
-			String querystatement=
-				"PREFIX Pre_string:<http://www.w3.org/2001/XMLSchema#>"+
-				"PREFIX Pre_Keywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?Keyword "+
-				"WHERE {"+
-				"?Keyword Pre_Keywords:Keywords \""+key+"\"^^Pre_string:string"+"  ."+
-				"}";
+		while (i < size) {
+			String Tax = Taxonomy.get(i);
+			String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Tax:<http://um.es/ncbi.owl#>"
+					+ "SELECT ?gene "
+					+ "WHERE {"
+					+ "?gene Pre_fromSpecies:fromSpecies Pre_Tax:"
+					+ Tax
+					+ "  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Keyword_list=Query_To_List(se.loadDB2nd(),query,Keyword_list,"#",">");
-			i++;
-		}
-		return Keyword_list;
-	}
-	//Keyword----Promoter 返回Promoter_list列表
-	public List<String> Query_ProByKey(List<String> Keyword) throws ClassNotFoundException
-	{
-		List<String> Promoter_list = new ArrayList();
-		Promoter_list = null;
-		SimpleExample se = new SimpleExample();
-		int size = Keyword.size();
-		int i = 0;
-		while(i<size)
-		{
-			String key=Keyword.get(i);
-			String querystatement=
-				"PREFIX Pre_hasKeywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Keyword:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?promoter "+
-				"WHERE {"+
-				"?promoter Pre_hasKeywords:hasKeywords Pre_Keyword:"+key+"  ."+
-				"}";
-			Query query = QueryFactory.create(querystatement);
-			Promoter_list=Query_To_List(se.loadDB2nd(),query,Promoter_list,"#",">");
-			i++;
-		}
-		return Promoter_list;
-	}
-	//Promoter----Gene返回Gene列表
-	public List<String> Query_GeneByPro(List<String> Promoter) throws ClassNotFoundException
-	{
-		List<String> Gene_list = new ArrayList();
-		Gene_list = null;
-		SimpleExample se = new SimpleExample();
-		int size = Promoter.size();
-		int i = 0;
-		while(i<size)
-		{
-			String promoter=Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_isBelongedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?gene "+
-				"WHERE {"+
-				"Pre_Promoter:"+promoter+" Pre_isBelongedTo:isBelongedTo ?gene  ."+
-				"}";
-			Query query = QueryFactory.create(querystatement);
-			Gene_list=Query_To_List(se.loadDB2nd(),query,Gene_list,"#",">");
+			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
+					">");
 			i++;
 		}
 		return Gene_list;
 	}
 
-	// Gene----Gene_id 返回Gene_id 列表
-	public List<String> Query_Gene_id(List<String> Gene) throws ClassNotFoundException {
-		List<String> Gene_id_list=new ArrayList();
-		Gene_id_list=null;
-		SimpleExample se = new SimpleExample();
+	// keyword----Keywords 返回Keyword列表
+	public List<String> Query_KeywordBykey(List<String> Keywords)
+			throws ClassNotFoundException {
+		List<String> Keyword_list = new ArrayList();
+		int size = Keywords.size();
+		int i = 0;
+		while (i < size) {
+			String key = Keywords.get(i);
+			String querystatement = "PREFIX Pre_string:<http://www.w3.org/2001/XMLSchema#>"
+					+ "PREFIX Pre_Keywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?Keyword "
+					+ "WHERE {"
+					+ "?Keyword Pre_Keywords:Keywords \""
+					+ key
+					+ "\"^^Pre_string:string" + "  ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			if (query.hasAggregators())
+				Keyword_list = Query_To_List(loadDB2nd(), query,
+						Keyword_list, "#", ">");
+			i++;
+		}
+		return Keyword_list;
+	}
+
+	// Keyword----Promoter 返回Promoter_list列表
+	public List<String> Query_ProByKey(List<String> Keyword)
+			throws ClassNotFoundException {
+		List<String> Promoter_list = new ArrayList();
+		int size = Keyword.size();
+		int i = 0;
+		while (i < size) {
+			String key = Keyword.get(i);
+			String querystatement = "PREFIX Pre_hasKeywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Keyword:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?promoter "
+					+ "WHERE {"
+					+ "?promoter Pre_hasKeywords:hasKeywords Pre_Keyword:"
+					+ key + "  ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Promoter_list = Query_To_List(loadDB2nd(), query, Promoter_list,
+					"#", ">");
+			i++;
+		}
+		return Promoter_list;
+	}
+
+	// Promoter----Gene返回Gene列表
+	public List<String> Query_GeneByPro(List<String> Promoter)
+			throws ClassNotFoundException {
+		List<String> Gene_list = new ArrayList();
+		int size = Promoter.size();
+		int i = 0;
+		while (i < size) {
+			String promoter = Promoter.get(i);
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_isBelongedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?gene "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ promoter
+					+ " Pre_isBelongedTo:isBelongedTo ?gene  ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
+					">");
+			i++;
+		}
+		return Gene_list;
+	}
+
+	// Gene----Gene_name 返回Gene_name列表
+	public List<String> Query_Gene_name(List<String> Gene)
+			throws ClassNotFoundException {
+		List<String> Gene_name_list = new ArrayList();
 		int size = Gene.size();
 		int i = 0;
-		while(i<size){
-		String gene=Gene.get(i);
-		String querystatement =
-		 "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-			"PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-			+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-			+ "SELECT ?Gene_id  " + "WHERE {"
-			+ "Pre_Name:"+gene+" Pre_Identifier:Identifier ?Gene_id ." + "}";
-		Query query = QueryFactory.create(querystatement);
-		Gene_id_list=Query_To_List(se.loadDB2nd(),query,Gene_id_list,"\"","\"");
-		i++;
+		while (i < size) {
+			String gene = Gene.get(i);
+			String querystatement = "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Gene_name  "
+					+ "WHERE {"
+					+ "Pre_Gene:"
+					+ gene
+					+ " Pre_Name:Name ?Gene_name ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Gene_name_list = Query_To_List(loadDB2nd(), query,
+					Gene_name_list, "=", "@");
+			i++;
+		}
+		return Gene_name_list;
+	}
+
+	// Gene----Gene_id 返回Gene_id 列表
+	public List<String> Query_Gene_id(List<String> Gene)
+			throws ClassNotFoundException {
+		List<String> Gene_id_list = new ArrayList();
+		int size = Gene.size();
+		int i = 0;
+		while (i < size) {
+			String gene = Gene.get(i);
+			String querystatement = "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Gene_id  "
+					+ "WHERE {"
+					+ "Pre_Name:"
+					+ gene
+					+ " Pre_Identifier:Identifier ?Gene_id ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Gene_id_list = Query_To_List(loadDB2nd(), query, Gene_id_list,
+					"#", ">");
+			i++;
 		}
 		return Gene_id_list;
 	}
 
 	// Gene--fromSpcies--Taxonomy 返回Taxonomy列表
-	public List<String> Query_Taxonomy(List<String> Gene) throws ClassNotFoundException {
-		List<String> Taxonomy_list=new ArrayList();
-		Taxonomy_list=null;
-		SimpleExample se = new SimpleExample();
+	public List<String> Query_Taxonomy(List<String> Gene)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_list = new ArrayList();
 		int size = Gene.size();
-		int i=0;
-		while(i<size){
-			String gene=Gene.get(i);
+		int i = 0;
+		while (i < size) {
+			String gene = Gene.get(i);
 			String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-				+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-				+ "SELECT ?Taxonomy "
-				+ "WHERE {"
-				+ "Pre_Gene:"+gene
-				+ " Pre_fromSpecies:fromSpecies ?Taxonomy ." + "}";
+					+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Taxonomy "
+					+ "WHERE {"
+					+ "Pre_Gene:"
+					+ gene
+					+ " Pre_fromSpecies:fromSpecies ?Taxonomy ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Taxonomy_list=Query_To_List(se.loadDB2nd(),query,Taxonomy_list,"#",">");
+			Taxonomy_list = Query_To_List(loadDB2nd(), query, Taxonomy_list,
+					"#", ">");
 			i++;
 		}
 		return Taxonomy_list;
 	}
 
 	// Taxonomy----Tax_label 返回Tax_label_list列表
-	public List<String> Query_Tax_label(List<String> Taxonomy) throws ClassNotFoundException
-    {
-		List<String> Taxonomy_label_list=new ArrayList();
-		Taxonomy_label_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Taxonomy.size();
-		int i=0;
-		while(i<size)
-		{
-			String taxonomy=Taxonomy.get(i);
-			String querystatement=
-	    		"PREFIX Pre_Tax_label:<http://www.w3.org/2000/01/rdf-schema#>"+
-	    		"PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"+
-	    		"SELECT ?Tax_label  "+
-	    		"WHERE {"+
-	    		"Pre_Tax_name:"+Taxonomy+" Pre_Tax_label:label ?Tax_label  ."+
-	    		"}";
-	    	Query query = QueryFactory.create(querystatement);
-	    	Taxonomy_label_list=Query_To_List(se.loadDB2nd(),query,Taxonomy_label_list,"\"","\"");
-	    	i++;			
-		}
-    	return Taxonomy_label_list;
-    }
-	//Taxonomy----Tax_id 返回Tax_id_list列表
-	public List<String> Query_Tax_id(List<String> Taxonomy) throws ClassNotFoundException
-	{
-		List<String> Taxonomy_id_list = new ArrayList();
-		Taxonomy_id_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Taxonomy.size();
+	public List<String> Query_Tax_label(List<String> Taxonomy)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_label_list = new ArrayList();
+		int size = Taxonomy.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String taxonomy = Taxonomy.get(i);
-			String querystatement=
-				"PREFIX Pre_Tax_id:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"+
-				"SELECT ?Tax_id "+
-				"WHERE  {"+
-				"Pre_Tax_name:"+taxonomy+" Pre_Tax_id:Identifier ?Tax_id   ."+
-				"}";
+			String querystatement = "PREFIX Pre_Tax_label:<http://www.w3.org/2000/01/rdf-schema#>"
+					+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
+					+ "SELECT ?Tax_label  "
+					+ "WHERE {"
+					+ "Pre_Tax_name:"
+					+ taxonomy + " Pre_Tax_label:label ?Tax_label  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Taxonomy_id_list=Query_To_List(se.loadDB2nd(),query,Taxonomy_id_list,"#",">");
+			Taxonomy_label_list = Query_To_List(loadDB2nd(), query,
+					Taxonomy_label_list, "=", "@");
+			i++;
+		}
+		return Taxonomy_label_list;
+	}
+
+	// Taxonomy----Tax_id 返回Tax_id_list列表
+	public List<String> Query_Tax_id(List<String> Taxonomy)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_id_list = new ArrayList();
+		int size = Taxonomy.size();
+		int i = 0;
+		while (i < size) {
+			String taxonomy = Taxonomy.get(i);
+			String querystatement = "PREFIX Pre_Tax_id:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
+					+ "SELECT ?Tax_id "
+					+ "WHERE  {"
+					+ "Pre_Tax_name:"
+					+ taxonomy + " Pre_Tax_id:Identifier ?Tax_id   ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Taxonomy_id_list = Query_To_List(loadDB2nd(), query,
+					Taxonomy_id_list, "#", ">");
 			i++;
 		}
 		return Taxonomy_id_list;
 	}
-	
-	//Gene-hasGo-Go 返回Go_list别表
-	public List<String> Query_Go(List<String> Gene) throws ClassNotFoundException
-	{
-		List<String> Go_list=new ArrayList();
-		Go_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Gene.size();
+
+	// Gene-hasGo-Go 返回Go_list别表
+	public List<String> Query_Go(List<String> Gene)
+			throws ClassNotFoundException {
+		List<String> Go_list = new ArrayList();
+		int size = Gene.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String gene = Gene.get(i);
-			String querystatement=
-				"PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_hasGO:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_G0:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?Go_term "+
-				"WHERE  {"+
-				"Pre_Gene:"+gene+"Pre_hasGO:hasGO ?Go_term  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_hasGO:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Go_term "
+					+ "WHERE  {"
+					+ "Pre_Gene:"
+					+ gene
+					+ " Pre_hasGO:hasGO ?Go_term  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Go_list=Query_To_List(se.loadDB2nd(),query,Go_list,"#",">");
+			Go_list = Query_To_List(loadDB2nd(), query, Go_list, "#", ">");
 			i++;
 		}
 		return Go_list;
 	}
-	
-	//Go----Go_item 返回Go_item_list列表
-	public List<String> Query_Go_item(List<String> Go) throws ClassNotFoundException
-	{
+
+	// Go----Go_item 返回Go_item_list列表
+	public List<String> Query_Go_item(List<String> Go)
+			throws ClassNotFoundException {
 		List<String> Go_item_list = new ArrayList();
-		Go_item_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Go.size();
+		int size = Go.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String go = Go.get(i);
-			String querystatement=
-				"PREFIX Pre_Go:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Item:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?Go_item  "+
-				"WHERE  {"+
-				"Pre_Go:"+go+" Pre_Item:GO_Item ?Go_item  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Go:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Item:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?Go_item  "
+					+ "WHERE  {"
+					+ "Pre_Go:"
+					+ go
+					+ " Pre_Item:GO_Item ?Go_item  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Go_item_list = Query_To_List(se.loadDB2nd(),query,Go_item_list,"\"","\"");
+			Go_item_list = Query_To_List(loadDB2nd(), query, Go_item_list,
+					"=", "@");
 			i++;
 		}
 		return Go_item_list;
 	}
-	
-	//Gene--isExpressedto--Protein返回Protein_listliebiao
-	public List<String> Query_Protein(List<String> Gene) throws ClassNotFoundException
-	{
+
+	// Gene--isExpressedto--Protein返回Protein_listliebiao
+	public List<String> Query_Protein(List<String> Gene)
+			throws ClassNotFoundException {
 		List<String> Protein_list = new ArrayList();
-		Protein_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Gene.size();
+		int size = Gene.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String gene = Gene.get(i);
-			String querystatement=
-				"PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Protein:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_IsExpressedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#>isExpressedTo"+
-				"SELECT ?protein  "+
-				"WHERE  {"+
-				"Pre_Gene:"+gene+" Pre_IsExpressedTo:isExpressedTo ?protein  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Protein:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_IsExpressedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?protein  "
+					+ "WHERE  {"
+					+ "Pre_Gene:"
+					+ gene
+					+ " Pre_IsExpressedTo:isExpressedTo ?protein  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Protein_list = Query_To_List(se.loadDB2nd(),query,Protein_list,"#",">");
-			i++;		
+			Protein_list = Query_To_List(loadDB2nd(), query, Protein_list,
+					"#", ">");
+			i++;
 		}
 		return Protein_list;
 	}
-	
-	//Protein----Protein_name 返回Protein_name_list列表
-	public List<String> Query_Protein_name(List<String> Protein) throws ClassNotFoundException
-	{
+
+	// Protein----Protein_name 返回Protein_name_list列表
+	public List<String> Query_Protein_name(List<String> Protein)
+			throws ClassNotFoundException {
 		List<String> Protein_name_list = new ArrayList();
-		Protein_name_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Protein.size();
+		int size = Protein.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String protein = Protein.get(i);
-			String querystatement=
-				"PREFIX Pre_Protein:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Protein_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?Protein_name  "+
-				"WHERE  {"+
-				"Pre_Protein:"+protein+" Pre_Protein_Name:Name ?Protein_name  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Protein:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Protein_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Protein_name  "
+					+ "WHERE  {"
+					+ "Pre_Protein:"
+					+ protein + " Pre_Protein_Name:Name ?Protein_name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Protein_name_list = Query_To_List(se.loadDB2nd(),query,Protein_name_list,"\"","\"");
+			Protein_name_list = Query_To_List(loadDB2nd(), query,
+					Protein_name_list, "=", "@");
 			i++;
 		}
 		return Protein_name_list;
 	}
-	
-	//Protein----Protein_id返回Protein_id_list
-	public List<String> Query_Protein_id(List<String> Protein) throws ClassNotFoundException
-	{
+
+	// Protein----Protein_id返回Protein_id_list
+	public List<String> Query_Protein_id(List<String> Protein)
+			throws ClassNotFoundException {
 		List<String> Protein_id_list = new ArrayList();
-		Protein_id_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Protein.size();
+		int size = Protein.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String protein = Protein.get(i);
-			String querystatement=
-				"PREFIX Pre_Protein:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?Protein_id  "+
-				"WHERE  {"+
-				"Pre_Protein:"+protein+" Pre_Identifier:Identifier ?Protein_id  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Protein:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Protein_id  "
+					+ "WHERE  {"
+					+ "Pre_Protein:"
+					+ protein
+					+ " Pre_Identifier:Identifier ?Protein_id  ."
+					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Protein_id_list = Query_To_List(se.loadDB2nd(),query,Protein_id_list,"#",">");
-				
+			Protein_id_list = Query_To_List(loadDB2nd(), query,
+					Protein_id_list, "#", ">");
+
 		}
 		return Protein_id_list;
 	}
-	
-	//Gene--isTranscribedto--mRNA 返回mRNA_list
-	public List<String> Query_mRNA(List<String> Gene) throws ClassNotFoundException
-	{
-		List<String> mRNA_list=new ArrayList();
-		mRNA_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Gene.size();
+
+	// Gene--isTranscribedto--mRNA 返回mRNA_list
+	public List<String> Query_mRNA(List<String> Gene)
+			throws ClassNotFoundException {
+		List<String> mRNA_list = new ArrayList();
+		int size = Gene.size();
 		int i = 0;
-		while(i<size)
-		{
-			String gene=Gene.get(i);
-			String querystatement=
-				"PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_isTranscribedto:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?mRNA"+
-				"WHERE {"+
-				"Pre_Gene:"+gene+" Pre_isTranscribedto:isTranscribedeto ?mRNA  ."+
-				"}";
+		while (i < size) {
+			String gene = Gene.get(i);
+			String querystatement = "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_isTranscribedto:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?mRNA"
+					+ "WHERE {"
+					+ "Pre_Gene:"
+					+ gene
+					+ " Pre_isTranscribedto:isTranscribedeto ?mRNA  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_list = Query_To_List(se.loadDB2nd(),query,mRNA_list,"#",">");
-			i++;	
+			mRNA_list = Query_To_List(loadDB2nd(), query, mRNA_list, "#",
+					">");
+			i++;
 		}
 		return mRNA_list;
 	}
 
-	//mRNA----mRNA_name 返回mRNA_name_list
-	public List<String> Query_mRNA_name(List<String> mRNA) throws ClassNotFoundException
-	{
+	// mRNA----mRNA_name 返回mRNA_name_list
+	public List<String> Query_mRNA_name(List<String> mRNA)
+			throws ClassNotFoundException {
 		List<String> mRNA_name_list = new ArrayList();
-		mRNA_name_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=mRNA.size();
+		int size = mRNA.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String mrna = mRNA.get(i);
-			String querystatement=
-				"PREFIX Pre_mRNA:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?mRNA_name  "+
-				"WHERE {"+
-				"Pre_nRNA:"+mrna+" Pre_Name:Name ?mRNA_name  ."+
-				"}";
+			String querystatement = "PREFIX Pre_mRNA:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?mRNA_name  "
+					+ "WHERE {"
+					+ "Pre_nRNA:"
+					+ mrna
+					+ " Pre_Name:Name ?mRNA_name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_name_list = Query_To_List(se.loadDB2nd(),query,mRNA_name_list,"\"","\"");
+			mRNA_name_list = Query_To_List(loadDB2nd(), query,
+					mRNA_name_list, "=", "@");
 			i++;
 		}
 		return mRNA_name_list;
 	}
-	//mRNA----mRNA_id 返回mRNA_id_list
-	public List<String> Query_mRNA_id(List<String> mRNA) throws ClassNotFoundException
-	{
+
+	// mRNA----mRNA_id 返回mRNA_id_list
+	public List<String> Query_mRNA_id(List<String> mRNA)
+			throws ClassNotFoundException {
 		List<String> mRNA_id_list = new ArrayList();
-		mRNA_id_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=mRNA.size();
+		int size = mRNA.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String mrna = mRNA.get(i);
-			String querystatement=
-				"PREFIX Pre_mRNA:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?mRNA_id  "+
-				"WHERE {"+
-				"Pre_mRNA:"+mrna+" Pre_Identifier:Identifier ?mRNA_id  ."+
-				"}";
+			String querystatement = "PREFIX Pre_mRNA:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?mRNA_id  "
+					+ "WHERE {"
+					+ "Pre_mRNA:"
+					+ mrna
+					+ " Pre_Identifier:Identifier ?mRNA_id  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_id_list = Query_To_List(se.loadDB2nd(),query,mRNA_id_list,"#",">");
-			i++;				
-		}	
+			mRNA_id_list = Query_To_List(loadDB2nd(), query, mRNA_id_list,
+					"#", ">");
+			i++;
+		}
 		return mRNA_id_list;
 	}
-	//Gene--hasPromoter--Promoter 返回Promoter_list
-	public List<String> Query_Promoter(List<String> Gene) throws ClassNotFoundException
-	{
+
+	// Gene--hasPromoter--Promoter 返回Promoter_list
+	public List<String> Query_Promoter(List<String> Gene)
+			throws ClassNotFoundException {
 		List<String> Promoter_list = new ArrayList();
-		Promoter_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Gene.size();
+		int size = Gene.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String gene = Gene.get(i);
-			String querystatement=
-				"PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_hasPromoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?Promoter "+
-				"WHERE {"+
-				"Pre_Gene:"+gene+" Pre_hasPromoter:hasPromoter ?Promoter  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_hasPromoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?Promoter "
+					+ "WHERE {"
+					+ "Pre_Gene:"
+					+ gene
+					+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Promoter_list = Query_To_List(se.loadDB2nd(),query,Promoter_list,"#",">");
+			Promoter_list = Query_To_List(loadDB2nd(), query, Promoter_list,
+					"#", ">");
 			i++;
 		}
 		return Promoter_list;
 	}
-	//Promoter----Promoter_name 返回Promoter_name_list
-	public List<String> Query_Promoter_name(List<String> Promoter) throws ClassNotFoundException
-	{
+
+	// Promoter----Promoter_name 返回Promoter_name_list
+	public List<String> Query_Promoter_name(List<String> Promoter)
+			throws ClassNotFoundException {
 		List<String> Promoter_name_list = new ArrayList();
-		Promoter_name_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Promoter.size();
+		int size = Promoter.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String promoter = Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?Promoter_name "+
-				"WHERE {"+
-				"Pre_Promoter:"+promoter+" Pre_Name:Name ?Promoter_name  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Promoter_name "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ promoter + " Pre_Name:Name ?Promoter_name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Promoter_name_list = Query_To_List(se.loadDB2nd(),query,Promoter_name_list,"\"","\"");
+			Promoter_name_list = Query_To_List(loadDB2nd(), query,
+					Promoter_name_list, "=", "@");
 			i++;
 		}
-		return Promoter_name_list;				
+		return Promoter_name_list;
 	}
-	
-	//Promoter--isBelongedTo--Gene 返回Gene_list
-	public List<String> Query_GeneByP(List<String> Promoter) throws ClassNotFoundException
-	{
+
+	// Promoter--isBelongedTo--Gene 返回Gene_list
+	public List<String> Query_GeneByP(List<String> Promoter)
+			throws ClassNotFoundException {
 		List<String> Gene_list = new ArrayList();
-		Gene_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Promoter.size();
+		int size = Promoter.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String promoter = Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_isBelongedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?gene  "+
-				"WHERE {"+
-				"Pre_Promoter:"+promoter+"Pre_isBelongedTo:isBelongedTo ?gene  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_isBelongedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?gene  "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ promoter
+					+ "Pre_isBelongedTo:isBelongedTo ?gene  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Gene_list = Query_To_List(se.loadDB2nd(),query,Gene_list,"#",">");
+			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
+					">");
 			i++;
 		}
 		return Gene_list;
 	}
-	//Promoter--active--mRNA 返回mRNA_list
-	public List<String> Query_mRNAByP(List<String> Promoter) throws ClassNotFoundException
-	{
+
+	// Promoter--active--mRNA 返回mRNA_list
+	public List<String> Query_mRNAByP(List<String> Promoter)
+			throws ClassNotFoundException {
 		List<String> mRNA_list = new ArrayList();
-		mRNA_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Promoter.size();
+		int size = Promoter.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String promoter = Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_active:<http://miuras.inf.um.es/ontologies/promoter.owl>"+
-				"SELECT ?mRNA  "+
-				"WHERE {"+
-				"Pre_Promoter:"+promoter+"Pre_active:active ?mRNA  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_active:<http://miuras.inf.um.es/ontologies/promoter.owl>"
+					+ "SELECT ?mRNA  "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ promoter
+					+ "Pre_active:active ?mRNA  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_list = Query_To_List(se.loadDB2nd(),query,mRNA_list,"#",">");
+			mRNA_list = Query_To_List(loadDB2nd(), query, mRNA_list, "#",
+					">");
 			i++;
 		}
 		return mRNA_list;
 	}
-	//Promoter--hasKeyword--Keyword 返回Keyword_list
-	public List<String> Query_Keyword(List<String> Promoter) throws ClassNotFoundException
-	{
+
+	// Promoter--hasKeyword--Keyword 返回Keyword_list
+	public List<String> Query_Keyword(List<String> Promoter)
+			throws ClassNotFoundException {
 		List<String> Keyword_list = new ArrayList();
-		Keyword_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Promoter.size();
+		int size = Promoter.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String promoter = Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_hasKeywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?Keyword  "+
-				"WHERE {"+
-				"Pre_Promoter:"+promoter+"Pre_hasKeywords:hasKeywords ?Keyword ."+
-				"}";
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_hasKeywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?Keyword  "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ promoter + " Pre_hasKeywords:hasKeywords ?Keyword ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Keyword_list = Query_To_List(se.loadDB2nd(),query,Keyword_list,"#",">");
+			Keyword_list = Query_To_List(loadDB2nd(), query, Keyword_list,
+					"#", ">");
 			i++;
 		}
-		return Keyword_list;		
+		return Keyword_list;
 	}
-	//Keyword----keyword返回Keyword_keyword_list
-	public List<String> Query_Keyword_Keywords(List<String> Keyword) throws ClassNotFoundException
-	{
+
+	// Keyword----keyword返回Keyword_keyword_list
+	public List<String> Query_Keyword_Keywords(List<String> Keyword)
+			throws ClassNotFoundException {
 		List<String> Keyword_Keywords_list = new ArrayList();
-		Keyword_Keywords_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Keyword.size();
+		int size = Keyword.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String keyword = Keyword.get(i);
-			String querystatement=
-				"PREFIX Pre_Keyword:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Keywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?keywords  "+
-				"WHERE {"+
-				"Pre_Keyword:"+keyword+"Pre_Keywords:Keywords ?keywords  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Keyword:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Keywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?keywords  "
+					+ "WHERE {"
+					+ "Pre_Keyword:"
+					+ keyword + " Pre_Keywords:Keywords ?keywords  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Keyword_Keywords_list = Query_To_List(se.loadDB2nd(),query,Keyword_Keywords_list,"\"","\"");
+			Keyword_Keywords_list = Query_To_List(loadDB2nd(), query,
+					Keyword_Keywords_list, "=", "@");
 			i++;
 		}
 		return Keyword_Keywords_list;
 	}
-	//Promoter--hasResource--Resource 返回Resource_list
-	public List<String> Query_Resource(List<String> Promoter) throws ClassNotFoundException
-	{
+
+	// Promoter--hasResource--Resource 返回Resource_list
+	public List<String> Query_Resource(List<String> Promoter)
+			throws ClassNotFoundException {
 		List<String> Resource_list = new ArrayList();
-		Resource_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Promoter.size();
+		int size = Promoter.size();
 		int i = 0;
-		while(i<size)
-		{
-			String promoter=Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_hasResource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?Resource  "+
-				"WHERE {"+
-				"Pre_Promoter:"+promoter+" Pre_hasResource:hasResource ?Resource  ."+
-				"}";
+		while (i < size) {
+			String promoter = Promoter.get(i);
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_hasResource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Resource  "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ promoter
+					+ " Pre_hasResource:hasResource ?Resource  ."
+					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_list = Query_To_List(se.loadDB2nd(),query,Resource_list,"#",">");
+			Resource_list = Query_To_List(loadDB2nd(), query, Resource_list,
+					"#", ">");
 			i++;
 		}
 		return Resource_list;
 	}
-	//Resource----Name 返回Resource_name_list
-	public List<String> Query_Resource_name(List<String> Resource) throws ClassNotFoundException
-	{
+
+	// Resource----Name 返回Resource_name_list
+	public List<String> Query_Resource_name(List<String> Resource)
+			throws ClassNotFoundException {
 		List<String> Resource_name_list = new ArrayList();
-		Resource_name_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Resource.size();
+		int size = Resource.size();
 		int i = 0;
-		while(i<size)
-		{
-			String resource=Resource.get(i);
-			String querystatement=
-				"PREFIX Pre_Resource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?name  "+
-				"WHERE {"+
-				"Pre_Resource:"+resource+" Pre_Name:Name ?name  ."+
-				"}";
+		while (i < size) {
+			String resource = Resource.get(i);
+			String querystatement = "PREFIX Pre_Resource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?name  "
+					+ "WHERE {"
+					+ "Pre_Resource:"
+					+ resource
+					+ " Pre_Name:Name ?name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_name_list = Query_To_List(se.loadDB2nd(),query,Resource_name_list,"#",">");
+			Resource_name_list = Query_To_List(loadDB2nd(), query,
+					Resource_name_list, "=", "@");
 			i++;
 		}
-		return Resource_name_list;		
+		return Resource_name_list;
 	}
-	//Resource----ID 返回Resource_id_list
-	public List<String> Query_Resource_id(List<String> Resource) throws ClassNotFoundException
-	{
+
+	// Resource----ID 返回Resource_id_list
+	public List<String> Query_Resource_id(List<String> Resource)
+			throws ClassNotFoundException {
 		List<String> Resource_id_list = new ArrayList();
-		Resource_id_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Resource.size();
+		int size = Resource.size();
 		int i = 0;
-		while(i<size)
-		{
-			String resource=Resource.get(i);
-			String querystatement=
-				"PREFIX Pre_Resource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?id  "+
-				"WHERE {"+
-				"Pre_Resource:"+resource+" Pre_Identifier:Identifier ?id  ."+
-				"}";
+		while (i < size) {
+			String resource = Resource.get(i);
+			String querystatement = "PREFIX Pre_Resource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?id  "
+					+ "WHERE {"
+					+ "Pre_Resource:"
+					+ resource
+					+ " Pre_Identifier:Identifier ?id  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_id_list = Query_To_List(se.loadDB2nd(),query,Resource_id_list,"#",">");
+			Resource_id_list = Query_To_List(loadDB2nd(), query,
+					Resource_id_list, "=", "@");
 			i++;
 		}
-		return Resource_id_list;		
+		return Resource_id_list;
 	}
-	//Resource----link 返回Resource_link_list
-	public List<String> Query_Resource_link(List<String> Resource) throws ClassNotFoundException
-	{
+
+	// Resource----link 返回Resource_link_list
+	public List<String> Query_Resource_link(List<String> Resource)
+			throws ClassNotFoundException {
 		List<String> Resource_link_list = new ArrayList();
-		Resource_link_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Resource.size();
+		int size = Resource.size();
 		int i = 0;
-		while(i<size)
-		{
-			String resource=Resource.get(i);
-			String querystatement=
-				"PREFIX Pre_Resource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"PREFIX Pre_Link:<http://miuras.inf.um.es/ontologies/promoter.owl>"+
-				"SELECT ?link  "+
-				"WHERE {"+
-				"Pre_Resource:"+resource+" Pre_Link:Link ?link  ."+
-				"}";
+		while (i < size) {
+			String resource = Resource.get(i);
+			String querystatement = "PREFIX Pre_Resource:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Link:<http://miuras.inf.um.es/ontologies/promoter.owl>"
+					+ "SELECT ?link  "
+					+ "WHERE {"
+					+ "Pre_Resource:"
+					+ resource
+					+ " Pre_Link:Link ?link  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_link_list = Query_To_List(se.loadDB2nd(),query,Resource_link_list,"\"","\"");
+			Resource_link_list = Query_To_List(loadDB2nd(), query,
+					Resource_link_list, "=", "@");
 			i++;
 		}
-		return Resource_link_list;		
+		return Resource_link_list;
 	}
-	//Promoter--hasHomology--Homology 返回Homology_list
-	public List<String> Query_Homology(List<String> Promoter) throws ClassNotFoundException
-	{
+
+	// Promoter--hasHomology--Homology 返回Homology_list
+	public List<String> Query_Homology(List<String> Promoter)
+			throws ClassNotFoundException {
 		List<String> Homology_list = new ArrayList();
-		Homology_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Promoter.size();
+		int size = Promoter.size();
 		int i = 0;
-		while(i<size)
-		{
-			String promoter=Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_hasHomology:<http://miuras.inf.um.es/ontologies/promoter.owl#>hasHomolgy"+
-				"SELECT ?homology  "+
-				"WHERE  {"+
-				"Pre_Promoter:"+promoter+" Pre_hasHomolgy:hasHomolgy ?homology  ."+
-				"}";
+		while (i < size) {
+			String promoter = Promoter.get(i);
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_hasHomology:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?homology  "
+					+ "WHERE  {"
+					+ "Pre_Promoter:"
+					+ promoter
+					+ " Pre_hasHomology:hasHomology ?homology  ."
+					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Homology_list=Query_To_List(se.loadDB2nd(),query,Homology_list,"#",">");
+			Homology_list = Query_To_List(loadDB2nd(), query, Homology_list,
+					"#", ">");
 			i++;
-		}			
+		}
 		return Homology_list;
 	}
-	//Homology----name返回Homology_name_list
-	public List<String> Query_Homology_name(List<String> Homology) throws ClassNotFoundException
-	{
+
+	// Homology----name返回Homology_name_list
+	public List<String> Query_Homology_name(List<String> Homology)
+			throws ClassNotFoundException {
 		List<String> Homology_name_list = new ArrayList();
-		Homology_name_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Homology.size();
+		int size = Homology.size();
 		int i = 0;
-		while(i<size)
-		{
-			String homology=Homology.get(i);
-			String querystatement=
-				"PREFIX Pre_Homology:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?name  "+
-				"WHERE  {"+
-				"Pre_Homology:"+homology+" Pre_Name:Name ?name  ."+
-				"}";
+		while (i < size) {
+			String homology = Homology.get(i);
+			String querystatement = "PREFIX Pre_Homology:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?name  "
+					+ "WHERE  {"
+					+ "Pre_Homology:"
+					+ homology + " Pre_Name:Name ?name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Homology_name_list=Query_To_List(se.loadDB2nd(),query,Homology_name_list,"\"","\"");
+			Homology_name_list = Query_To_List(loadDB2nd(), query,
+					Homology_name_list, "=", "@");
 			i++;
 		}
 		return Homology_name_list;
 	}
-	//Promoter--hasReference--Reference
-	public List<String> Query_Reference(List<String> Promoter) throws ClassNotFoundException
-	{
+
+	// Promoter--hasReference--Reference
+	public List<String> Query_Reference(List<String> Promoter)
+			throws ClassNotFoundException {
 		List<String> Reference_list = new ArrayList();
-		Reference_list=null;
-		SimpleExample se = new SimpleExample();
-		int size=Promoter.size();
+		int size = Promoter.size();
 		int i = 0;
-		while(i<size)
-		{
-			String promoter=Promoter.get(i);
-			String querystatement=
-				"PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_hasReference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?reference  "+
-				"WHERE {"+
-				"Pre_Promoter:"+promoter+" Pre_hasReference:hasReference ?reference ."+
-				"}";
+		while (i < size) {
+			String promoter = Promoter.get(i);
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_hasReference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?reference  "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ promoter
+					+ " Pre_hasReference:hasReference ?reference ."
+					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_list=Query_To_List(se.loadDB2nd(),query,Reference_list,"#",">");
+			Reference_list = Query_To_List(loadDB2nd(), query,
+					Reference_list, "#", ">");
 			i++;
 		}
 		return Reference_list;
 	}
-	//Reference----id 返回Reference_id_list
-	public List<String> Query_Reference_id(List<String> Reference) throws ClassNotFoundException
-	{
+
+	// Reference----id 返回Reference_id_list
+	public List<String> Query_Reference_id(List<String> Reference)
+			throws ClassNotFoundException {
 		List<String> Reference_id_list = new ArrayList();
-		Reference_id_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Reference.size();
+		int size = Reference.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String reference = Reference.get(i);
-			String querystatement=
-				"PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"+
-				"SELECT ?identifier "+
-				"WHERE {"+
-				"Pre_Reference:"+reference+" Pre_Identifier:Identifier ?identifier  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?identifier "
+					+ "WHERE {"
+					+ "Pre_Reference:"
+					+ reference
+					+ " Pre_Identifier:Identifier ?identifier  ."
+					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_id_list=Query_To_List(se.loadDB2nd(),query,Reference_id_list,"#",">");
+			Reference_id_list = Query_To_List(loadDB2nd(), query,
+					Reference_id_list, "=", "@");
 			i++;
 		}
 		return Reference_id_list;
 	}
-	//Reference----author返回Reference_author_list
-	public List<String> Query_Reference_author(List<String> Reference) throws ClassNotFoundException
-	{
+
+	// Reference----author返回Reference_author_list
+	public List<String> Query_Reference_author(List<String> Reference)
+			throws ClassNotFoundException {
 		List<String> Reference_author_list = new ArrayList();
-		Reference_author_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Reference.size();
+		int size = Reference.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String reference = Reference.get(i);
-			String querystatement=
-				"PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Author:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?author "+
-				"WHERE {"+
-				"Pre_Reference:"+reference+" Pre_Author:Author ?author  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Author:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?author "
+					+ "WHERE {"
+					+ "Pre_Reference:"
+					+ reference + " Pre_Author:Author ?author  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_author_list=Query_To_List(se.loadDB2nd(),query,Reference_author_list,"\"","\"");
+			Reference_author_list = Query_To_List(loadDB2nd(), query,
+					Reference_author_list, "=", "@");
 			i++;
 		}
 		return Reference_author_list;
 	}
-	//Reference----Title返回Reference_title_list
-	public List<String> Query_Reference_title(List<String> Reference) throws ClassNotFoundException
-	{
+
+	// Reference----Title返回Reference_title_list
+	public List<String> Query_Reference_title(List<String> Reference)
+			throws ClassNotFoundException {
 		List<String> Reference_title_list = new ArrayList();
-		Reference_title_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Reference.size();
+		int size = Reference.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String reference = Reference.get(i);
-			String querystatement=
-				"PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Title:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?title "+
-				"WHERE {"+
-				"Pre_Reference:"+reference+" Pre_Title:Title ?title  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Title:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?title "
+					+ "WHERE {"
+					+ "Pre_Reference:"
+					+ reference + " Pre_Title:Title ?title  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_title_list=Query_To_List(se.loadDB2nd(),query,Reference_title_list,"\"","\"");
+			Reference_title_list = Query_To_List(loadDB2nd(), query,
+					Reference_title_list, "=", "^^");
 			i++;
 		}
 		return Reference_title_list;
 	}
-	//Reference----Location返回Reference_location_list
-	public List<String> Query_Reference_location(List<String> Reference) throws ClassNotFoundException
-	{
+
+	// Reference----Location返回Reference_location_list
+	public List<String> Query_Reference_location(List<String> Reference)
+			throws ClassNotFoundException {
 		List<String> Reference_location_list = new ArrayList();
-		Reference_location_list = null;
-		SimpleExample se = new SimpleExample();
-		int size=Reference.size();
+		int size = Reference.size();
 		int i = 0;
-		while(i<size)
-		{
+		while (i < size) {
 			String reference = Reference.get(i);
-			String querystatement=
-				"PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"PREFIX Pre_Location:<http://miuras.inf.um.es/ontologies/promoter.owl#>"+
-				"SELECT ?location "+
-				"WHERE {"+
-				"Pre_Reference:"+reference+" Pre_Location:Location ?location  ."+
-				"}";
+			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Location:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?location "
+					+ "WHERE {"
+					+ "Pre_Reference:"
+					+ reference + " Pre_Location:Location ?location  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_location_list=Query_To_List(se.loadDB2nd(),query,Reference_location_list,"#",">");
+			Reference_location_list = Query_To_List(loadDB2nd(), query,
+					Reference_location_list, "#", ">");
 			i++;
 		}
 		return Reference_location_list;
 	}
-	
-
 
 	/**
 	 * do reasoner for the ontology
@@ -1310,7 +1302,7 @@ public class SimpleExample {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SimpleExample se = new SimpleExample();
 		// se.createOntModel();
@@ -1375,7 +1367,7 @@ public class SimpleExample {
 		// System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.toString());
 		// }
 		// }
-		//se.Query_Gene("Gene");
+		// se.Query_Gene("Gene");
 	}
-
+*/
 }
