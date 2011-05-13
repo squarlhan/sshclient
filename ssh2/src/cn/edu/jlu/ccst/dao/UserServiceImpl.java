@@ -83,9 +83,9 @@ public class UserServiceImpl {
 	public boolean exits(String username) {
 		Query query = getEntityManager().createQuery(
 				"select u FROM User u where u.username = '"+username+"'");
-		System.out.println(query.getResultList().size());
+		//System.out.println(query.getResultList().size());
 		List<User> userlist=findAll();
-		System.out.println(userlist.size());
+		//System.out.println(userlist.size());
 		if (query.getResultList().size() >= 1) {
 			return true;
 		} else {

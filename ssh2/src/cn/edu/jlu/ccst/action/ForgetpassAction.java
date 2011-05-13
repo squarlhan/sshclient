@@ -25,7 +25,7 @@ public class ForgetpassAction extends ActionSupport {
 	public static final String allChar = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static final String letterChar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static final String numberChar = "0123456789";
-
+	private String tip;
 	public String cap;
 
 	@Resource
@@ -65,29 +65,27 @@ public class ForgetpassAction extends ActionSupport {
 		mailMessage.setSubject("captcha");
 		cap = generateString(6);
 		mailMessage.setText("Your current password is:" + cap);
-
-		mailSender.send(mailMessage);
-		System.out.println("send success!");
-		User person = userServiceImpl.findBYusername(user);
-		person.setCaptcha(cap);
-		userServiceImpl.update(person.getId());
-
-		
-		return SUCCESS;
-
-	}
-
-	/*public String forgetPass() {
-		User person = userServiceImpl.findBYusername(user);
-		person.setPassword(cap);
-		if (captcha.equals(person.getPassword())) {
+		if (userServiceImpl.exits(user.getUsername())) {
+			mailSender.send(mailMessage);
+			System.out.println("send success!");
+			User person = userServiceImpl.findBYusername(user);
+			person.setCaptcha(cap);
+			userServiceImpl.update(person.getId());
 			return SUCCESS;
 		} else {
+			setTip("The USERNAME you input is not exist");
 			return ERROR;
 		}
-
 	}
-*/
+
+	/*
+	 * public String forgetPass() { User person =
+	 * userServiceImpl.findBYusername(user); person.setPassword(cap); if
+	 * (captcha.equals(person.getPassword())) { return SUCCESS; } else { return
+	 * ERROR; }
+	 * 
+	 * }
+	 */
 	public String generateString(int length) {
 		StringBuffer sb = new StringBuffer();
 		Random random = new Random();
@@ -103,6 +101,14 @@ public class ForgetpassAction extends ActionSupport {
 
 	public String getCaptcha() {
 		return captcha;
+	}
+
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+
+	public String getTip() {
+		return tip;
 	}
 
 }
