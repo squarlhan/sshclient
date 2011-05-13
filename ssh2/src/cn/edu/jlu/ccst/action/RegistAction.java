@@ -37,11 +37,6 @@ public class RegistAction extends ActionSupport {
 	}
 
 	public String addUser() {
-		/*
-		 * user.setUsername(username); user.setPassword(password);
-		 * user.setSurname(surname); user.setRepassword(repassword);
-		 * user.setQuestion(question); user.setAnswer(answer);
-		 */
 		if (userServiceImpl.exits(user.getUsername())) {
 			tip="The username is exist!";
 			return ERROR;

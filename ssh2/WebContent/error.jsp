@@ -37,32 +37,8 @@
 
 <body>
 <div style="color: red;"><s:property value="tip" /></div>
-
 <div style="color: red;">Please input again!</div>
 <br>
-
-<!-- <table align="center" width="100%" id="tb1">
-	<s:form action="alter">
-		<s:submit value="Alter password" />
-		<s:property value="user.username" />
-		<s:property value="user.password" />
-	</s:form>
-
-	<tr bgcolor="#4A708B">
-		<th>USERNAME</th>
-		<th>SURNAME</th>
-	</tr>
-	<s:iterator id="users" value="UserServiceImpl.getUserlist()"
-		status="index1">
-
-		<tr align="center"
-			bgcolor="<s:if test="#index1.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
-			<td><s:property value="username" /></td>
-			<td><s:property value="password" /></td>
-		</tr>
-	</s:iterator>
-</table> -->
-
 <input name="submit" type="button" value="Login"
 		onclick="window.location.href='index.jsp'" />
 <input name="submit" type="button" value="Regist"

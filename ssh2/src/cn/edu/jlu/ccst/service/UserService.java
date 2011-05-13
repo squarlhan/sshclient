@@ -45,14 +45,4 @@ public class UserService {
 		return userServiceImpl.getUserlist();
 	}
 
-	/*public void setUserlist(List<User> userlist) {
-		this.userlist = userlist;
-	}
-
-	public List<User> getUserlist() {
-		return userlist;
-	}*/
-
-	
-
 }

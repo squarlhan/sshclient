@@ -38,23 +38,7 @@
 	}
 	init();
 	
-	function Search_gene() {
-		targetForm = document.forms[0];
-		targetForm.action = "search!Search_Gene";
-	}
-	function Search_promoter() {
-		targetForm = document.forms[0];
-		targetForm.action = "search!Search_Promoter";
-	}
-	function Search_taxonomy() {
-		targetForm = document.forms[0];
-		targetForm.action = "search!Search_Taxonomy";
-	}
-	function Search_keyword() {
-		targetForm = document.forms[0];
-		targetForm.action = "search!Search_Keyword";
-	}
-
+	
 	function init(){
 	  var curuser = <%=request.getSession().getAttribute("USERNAME")%>;
 	  var curpass = <%=request.getSession().getAttribute("PASSWORD")%>;
@@ -63,16 +47,33 @@
 	  	self.location = "/ssh2/index.jsp";
 	  }
 	}
+	
 </script>
+<script type="text/javascript" language="javascript">
+function Search_gene() {
+	targetForm = document.forms[0];
+	targetForm.action = "search!Search_Gene";
+}
+function Search_promoter() {
+	targetForm = document.forms[0];
+	targetForm.action = "search!Search_Promoter";
+}
+function Search_taxonomy() {
+	targetForm = document.forms[0];
+	targetForm.action = "search!Search_Taxonomy";
+}
+function Search_keyword() {
+	targetForm = document.forms[0];
+	targetForm.action = "search!Search_Keyword";
+}
 
+</script>
 </head>
 
 <body>
 
 <tr align="center">
 	<td><label><%=request.getSession().getAttribute("USERNAME")%></label>
-	</td>
-	<td><label><%=request.getSession().getAttribute("PASSWORD")%></label>
 	</td>
 </tr>
 <div style="color: green;"><s:property value="tip" /></div>
@@ -115,10 +116,10 @@
 	<s:submit value="Search_Promoter" onClick="Search_promoter()" />
 	<s:textfield name="Taxonomy_name" label="Taxonomy_Name"/>
 	<s:submit value="Search_Taxonomy" onClick="Search_taxonomy()"/>
-	<s:textfield name="Keyword" label="Keyword"/>
+	<s:textfield name="Keywords" label="Keywords"/>
 	<s:submit value="Search_Keyword" onClick="Search_keyword()"/>
 	<s:reset value="Reset" />
-	<s:label value="Culicinae" />
+	<s:label value="Phaseolus vulgaris (kidney bean)" />
 </s:form>
 
 </body>

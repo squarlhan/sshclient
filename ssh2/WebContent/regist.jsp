@@ -11,7 +11,7 @@
 <s:form action="regist!addUser.action" validate="true">
 	<s:textfield name="user.username" label="Username" />
 	<s:textfield name="user.surname" label="Surname" />
-	<s:textfield name="user.givenname" label="Givenname"/>
+	<s:textfield name="user.givenname" label="Givenname" />
 	<s:password name="user.password" label="Password" />
 	<s:password name="repassword" label="Confirm" />
 	<s:textfield name="user.organization" label="Organization" />
@@ -19,6 +19,7 @@
 	<s:submit value="Submit" />
 	<s:reset value="Reset" />
 </s:form>
-<input name="submit" type="button" value="Logoff" onclick="window.location.href='logoff.jsp'"/>
+<input name="submit" type="button" value="back"
+	onclick="window.location.href='index.jsp'" />
 </body>
 </html>

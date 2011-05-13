@@ -26,8 +26,7 @@ public class UserAction extends ActionSupport {
 	private SimpleExample se;
 	private String mykeyword;
 	private String tip;
-	
-	
+
 	@Resource
 	public void setUserServiceImpl(UserServiceImpl userServiceImpl) {
 		this.userServiceImpl = userServiceImpl;
@@ -72,34 +71,26 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String login() {
-
-		/*
-		 * ActionContext ac = ActionContext.getContext(); Map<String, Object>
-		 * map = (Map<String, Object>)ac.getSession(); map.put("USERNAME",
-		 * user.getUsername()); map.put("PASSWORD", user.getPassword());
-		 */
-
 		if (userServiceImpl.exits(user.getUsername())) {
-			User person = userServiceImpl.findBYusername(user);
-			user=person;
-			if (user.getPassword().equals(person.getPassword())||user.getPassword().equals(person.getCaptcha())) {
+			User person = userServiceImpl.findBYusername(user);			
+			if (user.getPassword().equals(person.getPassword())
+					|| user.getPassword().equals(person.getCaptcha())) {
 				ActionContext.getContext().getSession()
-				.put("USERNAME", user.getUsername());
-		ActionContext.getContext().getSession()
-				.put("PASSWORD", user.getPassword());
-		tip="Login Successfully!";
+						.put("USERNAME", user.getUsername());
+				ActionContext.getContext().getSession()
+						.put("PASSWORD", user.getPassword());
+				tip = "Login Successfully!";
+				user = person;
 				return SUCCESS;
 			} else {
-				tip="The USERNAME or PASSWORD you input is not correct";
+				tip = "The PASSWORD you input is not correct";
 				return ERROR;
 			}
 		} else {
-			tip="The USERNAME or PASSWORD you input is not correct";
+			tip = "The USERNAME you input is not correct";
 			return ERROR;
 		}
 	}
-	
-	
 
 	public String regist() {
 		return REGIST;
@@ -117,5 +108,4 @@ public class UserAction extends ActionSupport {
 		return tip;
 	}
 
-	
 }
