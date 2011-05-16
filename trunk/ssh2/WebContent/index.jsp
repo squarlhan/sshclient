@@ -80,6 +80,8 @@
 		onclick="window.location.href='regist.jsp'" />
 	<input name="submit" type="button" value="ForgetPassword"
 		onclick="window.location.href='forgetPassword.jsp'" />
+	<input name="submit" type="button" value="Search"
+		onClick="window.location.href='search.jsp'" />
 </table>
 </body>
 </html>

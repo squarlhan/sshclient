@@ -233,8 +233,6 @@ public class SearchAction extends ActionSupport {
 				setResultlist_Gene(Gene);
 			} else {
 				setResultlist_Gene(Gene);
-				// 得到Gene_id列表resultlist_Gene_id
-				//setResultlist_Gene_id(se.Query_Gene_id(Gene));
 				// 得到Go查询结果
 				List<String> Go = se.Query_Go(Gene);
 				if (Go.size() == 0) {
@@ -256,8 +254,6 @@ public class SearchAction extends ActionSupport {
 					setResultlist_Protein(Protein);
 					// 得到Protein_name列表resultlist_Protein_name
 					setResultlist_Protein_name(se.Query_Protein_name(Protein));
-					// 得到Protein_id列表resultlist_Protein_id
-					//setResultlist_Protein_id(se.Query_Protein_id(Protein));
 				}
 				// 得到mRNA查询结果
 				List<String> mRNA = se.Query_mRNA(Gene);

@@ -39,7 +39,7 @@
 		</action>
 		<action name="search" class="searchAction">
 			<result name="success">/Result.jsp</result>
-			<result name="error">/success.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 	</package>
 
