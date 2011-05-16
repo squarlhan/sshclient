@@ -9,17 +9,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<script type="text/javascript" language="javascript">
-  function init(){
-    var curuser = <%=request.getSession().getAttribute("USERNAME")%>;
-    var curpass = <%=request.getSession().getAttribute("PASSWORD")%>;
-    if(curuser == null||curpass == null){
-    	tip="Please login first!";
-    	self.location = "/ssh2/index.jsp";
-    }
-  }
-  init();
-</script>
+
 <base href="<%=basePath%>">
 
 <title>ERROR</title>

@@ -50,31 +50,30 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 @Component("se")
 public class SimpleExample {
 
-	public static final String DB_URL = "jdbc:mysql://localhost:3306/"; // URL
-	// of
-	// the
-	// database
-	public static final String DB_SCHEMA = "promoter"; // name of the database
-	// schema.
+	public static final String DB_URL = "jdbc:mysql://localhost:3306/";
+	// URL of the database
+	public static final String DB_SCHEMA = "promoter";
+	// name of the database schema.
 	public static final String DB_USER = "root"; // database user name
 	public static final String DB_PASSWD = "root"; // database user password
 	public static final String TYPE_DB = "MySQL"; // database type
 	public static final String DB_Driver = "com.mysql.jdbc.Driver";
+	private static final String uriOntology = "file:E:/promoter/ontologies/promoter.owl";
 
 	public static final String PROMOTER_PREFIX = "http://miuras.inf.um.es/ontologies/promoter.owl";
 	public static final String OGO_PREFIX = "http://miuras.inf.um.es/ontologies/OGO.owl";
 	public static final String ECO_PREFIX = "http://um.es/eco.owl";
 	public static final String GO_PREFIX = "http://um.es/go.owl";
 	public static final String NCBI_PREFIX = "http://um.es/ncbi.owl";
-	private static final String uriOntology = "file:E:/promoter/ontologies/promoter.owl"; // Where
-																							// the
-																							// ontology
-																							// file
-																							// is
-																							// located
-																							// in
-																							// your
-																							// pc
+	// Where
+	// the
+	// ontology
+	// file
+	// is
+	// located
+	// in
+	// your
+	// pc
 
 	private PersistentOntology po;
 
@@ -122,7 +121,7 @@ public class SimpleExample {
 	 * @return
 	 * @throws ClassNotFoundException
 	 */
-	public OntModel loadDB2nd() throws ClassNotFoundException {
+	public OntModel CreatOntoModel() throws ClassNotFoundException {
 		Class.forName(DB_Driver); // Load the Driver
 
 		ModelMaker maker = po.getRDBMaker(DB_URL + DB_SCHEMA, DB_USER,
@@ -131,17 +130,7 @@ public class SimpleExample {
 		OntModelSpec spec = new OntModelSpec(OntModelSpec.OWL_MEM);
 		spec.setImportModelMaker(maker);
 		OntModel m = ModelFactory.createOntologyModel(spec, base);
-
-		// IDBConnection conn = new DBConnection( DB_URL+DB_SCHEMA, DB_USER,
-		// DB_PASSWD, TYPE_DB );
-		// ModelMaker maker = ModelFactory.createModelRDBMaker( conn );
-		// OntModelSpec spec = new OntModelSpec(OntModelSpec.OWL_MEM);
-		// spec.setImportModelMaker(maker);
-		// Model model = maker.createModel( uriOntology, false );
-		// OntModel m = ModelFactory.createOntologyModel(spec,model);
-
 		return m;
-		// conn.close();
 	}
 
 	private OntModel loadDB(ModelMaker maker, String source) {
@@ -381,7 +370,6 @@ public class SimpleExample {
 			List<String> resultlist1, String begin, String end) {
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet results = qe.execSelect();
-		// ResultSetFormatter.out(System.out, results, query);
 		while (results.hasNext()) {
 			String aa = results.next().toString();
 			String bb = getSubString(aa, begin, end);
@@ -389,24 +377,23 @@ public class SimpleExample {
 			System.out.println(bb);
 		}
 		qe.close();
-		// resultlist.add("END");
 		return resultlist1;
 	}
-
+	
+	
 	// 得到字符串子串
 	public String getSubString(String s, String a, String b) {
 		int index1 = s.indexOf(a);
 		int index2 = s.lastIndexOf(b);
 		String ss;
-		if(a.equals("=")&&b.equals("@")){
+		if (a.equals("=") && b.equals("@")) {
 			String[] sarray = s.split("\"");
 			ss = sarray[1];
-//			ss = s.substring(index1 + 3, index2-1);
-		}
-		else if(a.equals("\\")&&b.equals("\\")){
-			ss = s.substring(index1+5,index2-4);
-		}else{
-			ss = s.substring(index1+1,index2);
+			// ss = s.substring(index1 + 3, index2-1);
+		} else if (a.equals("\\") && b.equals("\\")) {
+			ss = s.substring(index1 + 5, index2 - 4);
+		} else {
+			ss = s.substring(index1 + 1, index2);
 		}
 		return ss;
 	}
@@ -422,9 +409,7 @@ public class SimpleExample {
 				+ "?Gene Pre_label:label \""
 				+ keyword + "\"@EN ." + "}";
 		Query query = QueryFactory.create(querystatement);
-		if (query.hasAggregators())
-			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
-					">");
+		Gene_list = Query_To_List(CreatOntoModel(), query, Gene_list, "#", ">");
 		return Gene_list;
 	}
 
@@ -440,9 +425,8 @@ public class SimpleExample {
 				+ keyword
 				+ "\"^^Pre_string:string ." + "}";
 		Query query = QueryFactory.create(querystatement);
-		if (query.hasAggregators())
-			Promoter_list = Query_To_List(loadDB2nd(), query, Promoter_list,
-					"#", ">");
+		Promoter_list = Query_To_List(CreatOntoModel(), query, Promoter_list,
+				"#", ">");
 		return Promoter_list;
 	}
 
@@ -450,13 +434,13 @@ public class SimpleExample {
 	public List<String> Query_Taxonomy(String keyword)
 			throws ClassNotFoundException {
 		List<String> Taxonomy_list = new ArrayList();
-		String querystatement = "PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
+		String querystatement = 
+				"PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
 				+ "SELECT ?Taxonomy  "
 				+ "WHERE {"
 				+ "?Taxonomy Pre_label:label \"" + keyword + "\"@EN ." + "}";
 		Query query = QueryFactory.create(querystatement);
-		// if (query.hasAggregators())
-		Taxonomy_list = Query_To_List(loadDB2nd(), query, Taxonomy_list,
+		Taxonomy_list = Query_To_List(CreatOntoModel(), query, Taxonomy_list,
 				"#", ">");
 		return Taxonomy_list;
 	}
@@ -477,7 +461,7 @@ public class SimpleExample {
 					+ Tax
 					+ "  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
+			Gene_list = Query_To_List(CreatOntoModel(), query, Gene_list, "#",
 					">");
 			i++;
 		}
@@ -501,7 +485,7 @@ public class SimpleExample {
 					+ "\"^^Pre_string:string" + "  ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			if (query.hasAggregators())
-				Keyword_list = Query_To_List(loadDB2nd(), query,
+				Keyword_list = Query_To_List(CreatOntoModel(), query,
 						Keyword_list, "#", ">");
 			i++;
 		}
@@ -523,8 +507,8 @@ public class SimpleExample {
 					+ "?promoter Pre_hasKeywords:hasKeywords Pre_Keyword:"
 					+ key + "  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Promoter_list = Query_To_List(loadDB2nd(), query, Promoter_list,
-					"#", ">");
+			Promoter_list = Query_To_List(CreatOntoModel(), query,
+					Promoter_list, "#", ">");
 			i++;
 		}
 		return Promoter_list;
@@ -546,7 +530,7 @@ public class SimpleExample {
 					+ promoter
 					+ " Pre_isBelongedTo:isBelongedTo ?gene  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
+			Gene_list = Query_To_List(CreatOntoModel(), query, Gene_list, "#",
 					">");
 			i++;
 		}
@@ -569,7 +553,7 @@ public class SimpleExample {
 					+ gene
 					+ " Pre_Name:Name ?Gene_name ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Gene_name_list = Query_To_List(loadDB2nd(), query,
+			Gene_name_list = Query_To_List(CreatOntoModel(), query,
 					Gene_name_list, "=", "@");
 			i++;
 		}
@@ -593,7 +577,7 @@ public class SimpleExample {
 					+ gene
 					+ " Pre_Identifier:Identifier ?Gene_id ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Gene_id_list = Query_To_List(loadDB2nd(), query, Gene_id_list,
+			Gene_id_list = Query_To_List(CreatOntoModel(), query, Gene_id_list,
 					"#", ">");
 			i++;
 		}
@@ -616,8 +600,8 @@ public class SimpleExample {
 					+ gene
 					+ " Pre_fromSpecies:fromSpecies ?Taxonomy ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Taxonomy_list = Query_To_List(loadDB2nd(), query, Taxonomy_list,
-					"#", ">");
+			Taxonomy_list = Query_To_List(CreatOntoModel(), query,
+					Taxonomy_list, "#", ">");
 			i++;
 		}
 		return Taxonomy_list;
@@ -638,7 +622,7 @@ public class SimpleExample {
 					+ "Pre_Tax_name:"
 					+ taxonomy + " Pre_Tax_label:label ?Tax_label  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Taxonomy_label_list = Query_To_List(loadDB2nd(), query,
+			Taxonomy_label_list = Query_To_List(CreatOntoModel(), query,
 					Taxonomy_label_list, "=", "@");
 			i++;
 		}
@@ -660,7 +644,7 @@ public class SimpleExample {
 					+ "Pre_Tax_name:"
 					+ taxonomy + " Pre_Tax_id:Identifier ?Tax_id   ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Taxonomy_id_list = Query_To_List(loadDB2nd(), query,
+			Taxonomy_id_list = Query_To_List(CreatOntoModel(), query,
 					Taxonomy_id_list, "#", ">");
 			i++;
 		}
@@ -683,7 +667,7 @@ public class SimpleExample {
 					+ gene
 					+ " Pre_hasGO:hasGO ?Go_term  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Go_list = Query_To_List(loadDB2nd(), query, Go_list, "#", ">");
+			Go_list = Query_To_List(CreatOntoModel(), query, Go_list, "#", ">");
 			i++;
 		}
 		return Go_list;
@@ -705,7 +689,7 @@ public class SimpleExample {
 					+ go
 					+ " Pre_Item:GO_Item ?Go_item  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Go_item_list = Query_To_List(loadDB2nd(), query, Go_item_list,
+			Go_item_list = Query_To_List(CreatOntoModel(), query, Go_item_list,
 					"=", "@");
 			i++;
 		}
@@ -729,7 +713,7 @@ public class SimpleExample {
 					+ gene
 					+ " Pre_IsExpressedTo:isExpressedTo ?protein  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Protein_list = Query_To_List(loadDB2nd(), query, Protein_list,
+			Protein_list = Query_To_List(CreatOntoModel(), query, Protein_list,
 					"#", ">");
 			i++;
 		}
@@ -751,7 +735,7 @@ public class SimpleExample {
 					+ "Pre_Protein:"
 					+ protein + " Pre_Protein_Name:Name ?Protein_name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Protein_name_list = Query_To_List(loadDB2nd(), query,
+			Protein_name_list = Query_To_List(CreatOntoModel(), query,
 					Protein_name_list, "=", "@");
 			i++;
 		}
@@ -775,7 +759,7 @@ public class SimpleExample {
 					+ " Pre_Identifier:Identifier ?Protein_id  ."
 					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Protein_id_list = Query_To_List(loadDB2nd(), query,
+			Protein_id_list = Query_To_List(CreatOntoModel(), query,
 					Protein_id_list, "#", ">");
 
 		}
@@ -798,7 +782,7 @@ public class SimpleExample {
 					+ gene
 					+ " Pre_isTranscribedto:isTranscribedeto ?mRNA  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_list = Query_To_List(loadDB2nd(), query, mRNA_list, "#",
+			mRNA_list = Query_To_List(CreatOntoModel(), query, mRNA_list, "#",
 					">");
 			i++;
 		}
@@ -821,7 +805,7 @@ public class SimpleExample {
 					+ mrna
 					+ " Pre_Name:Name ?mRNA_name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_name_list = Query_To_List(loadDB2nd(), query,
+			mRNA_name_list = Query_To_List(CreatOntoModel(), query,
 					mRNA_name_list, "=", "@");
 			i++;
 		}
@@ -844,7 +828,7 @@ public class SimpleExample {
 					+ mrna
 					+ " Pre_Identifier:Identifier ?mRNA_id  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_id_list = Query_To_List(loadDB2nd(), query, mRNA_id_list,
+			mRNA_id_list = Query_To_List(CreatOntoModel(), query, mRNA_id_list,
 					"#", ">");
 			i++;
 		}
@@ -859,16 +843,19 @@ public class SimpleExample {
 		int i = 0;
 		while (i < size) {
 			String gene = Gene.get(i);
-			String querystatement = "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "PREFIX Pre_hasPromoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?Promoter "
-					+ "WHERE {"
-					+ "Pre_Gene:"
-					+ gene
-					+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
+			String querystatement = 
+				"PREFIX Pre_Gene:" +
+				"<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+				+ "PREFIX Pre_hasPromoter:" +
+				"<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+				+ "SELECT ?Promoter "
+				+ "WHERE {"
+				+ "Pre_Gene:"
+				+ gene
+				+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Promoter_list = Query_To_List(loadDB2nd(), query, Promoter_list,
-					"#", ">");
+			Promoter_list = Query_To_List(CreatOntoModel(), query,
+					Promoter_list, "#", ">");
 			i++;
 		}
 		return Promoter_list;
@@ -889,7 +876,7 @@ public class SimpleExample {
 					+ "Pre_Promoter:"
 					+ promoter + " Pre_Name:Name ?Promoter_name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Promoter_name_list = Query_To_List(loadDB2nd(), query,
+			Promoter_name_list = Query_To_List(CreatOntoModel(), query,
 					Promoter_name_list, "=", "@");
 			i++;
 		}
@@ -912,7 +899,7 @@ public class SimpleExample {
 					+ promoter
 					+ "Pre_isBelongedTo:isBelongedTo ?gene  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Gene_list = Query_To_List(loadDB2nd(), query, Gene_list, "#",
+			Gene_list = Query_To_List(CreatOntoModel(), query, Gene_list, "#",
 					">");
 			i++;
 		}
@@ -935,7 +922,7 @@ public class SimpleExample {
 					+ promoter
 					+ "Pre_active:active ?mRNA  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			mRNA_list = Query_To_List(loadDB2nd(), query, mRNA_list, "#",
+			mRNA_list = Query_To_List(CreatOntoModel(), query, mRNA_list, "#",
 					">");
 			i++;
 		}
@@ -955,9 +942,11 @@ public class SimpleExample {
 					+ "SELECT ?Keyword  "
 					+ "WHERE {"
 					+ "Pre_Promoter:"
-					+ promoter + " Pre_hasKeywords:hasKeywords ?Keyword ." + "}";
+					+ promoter
+					+ " Pre_hasKeywords:hasKeywords ?Keyword ."
+					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Keyword_list = Query_To_List(loadDB2nd(), query, Keyword_list,
+			Keyword_list = Query_To_List(CreatOntoModel(), query, Keyword_list,
 					"#", ">");
 			i++;
 		}
@@ -979,7 +968,7 @@ public class SimpleExample {
 					+ "Pre_Keyword:"
 					+ keyword + " Pre_Keywords:Keywords ?keywords  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Keyword_Keywords_list = Query_To_List(loadDB2nd(), query,
+			Keyword_Keywords_list = Query_To_List(CreatOntoModel(), query,
 					Keyword_Keywords_list, "=", "@");
 			i++;
 		}
@@ -1003,8 +992,8 @@ public class SimpleExample {
 					+ " Pre_hasResource:hasResource ?Resource  ."
 					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_list = Query_To_List(loadDB2nd(), query, Resource_list,
-					"#", ">");
+			Resource_list = Query_To_List(CreatOntoModel(), query,
+					Resource_list, "#", ">");
 			i++;
 		}
 		return Resource_list;
@@ -1026,7 +1015,7 @@ public class SimpleExample {
 					+ resource
 					+ " Pre_Name:Name ?name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_name_list = Query_To_List(loadDB2nd(), query,
+			Resource_name_list = Query_To_List(CreatOntoModel(), query,
 					Resource_name_list, "=", "@");
 			i++;
 		}
@@ -1049,7 +1038,7 @@ public class SimpleExample {
 					+ resource
 					+ " Pre_Identifier:Identifier ?id  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_id_list = Query_To_List(loadDB2nd(), query,
+			Resource_id_list = Query_To_List(CreatOntoModel(), query,
 					Resource_id_list, "=", "@");
 			i++;
 		}
@@ -1072,7 +1061,7 @@ public class SimpleExample {
 					+ resource
 					+ " Pre_Link:Link ?link  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Resource_link_list = Query_To_List(loadDB2nd(), query,
+			Resource_link_list = Query_To_List(CreatOntoModel(), query,
 					Resource_link_list, "=", "@");
 			i++;
 		}
@@ -1096,8 +1085,8 @@ public class SimpleExample {
 					+ " Pre_hasHomology:hasHomology ?homology  ."
 					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Homology_list = Query_To_List(loadDB2nd(), query, Homology_list,
-					"#", ">");
+			Homology_list = Query_To_List(CreatOntoModel(), query,
+					Homology_list, "#", ">");
 			i++;
 		}
 		return Homology_list;
@@ -1118,7 +1107,7 @@ public class SimpleExample {
 					+ "Pre_Homology:"
 					+ homology + " Pre_Name:Name ?name  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Homology_name_list = Query_To_List(loadDB2nd(), query,
+			Homology_name_list = Query_To_List(CreatOntoModel(), query,
 					Homology_name_list, "=", "@");
 			i++;
 		}
@@ -1142,7 +1131,7 @@ public class SimpleExample {
 					+ " Pre_hasReference:hasReference ?reference ."
 					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_list = Query_To_List(loadDB2nd(), query,
+			Reference_list = Query_To_List(CreatOntoModel(), query,
 					Reference_list, "#", ">");
 			i++;
 		}
@@ -1166,7 +1155,7 @@ public class SimpleExample {
 					+ " Pre_Identifier:Identifier ?identifier  ."
 					+ "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_id_list = Query_To_List(loadDB2nd(), query,
+			Reference_id_list = Query_To_List(CreatOntoModel(), query,
 					Reference_id_list, "=", "@");
 			i++;
 		}
@@ -1188,7 +1177,7 @@ public class SimpleExample {
 					+ "Pre_Reference:"
 					+ reference + " Pre_Author:Author ?author  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_author_list = Query_To_List(loadDB2nd(), query,
+			Reference_author_list = Query_To_List(CreatOntoModel(), query,
 					Reference_author_list, "=", "@");
 			i++;
 		}
@@ -1210,7 +1199,7 @@ public class SimpleExample {
 					+ "Pre_Reference:"
 					+ reference + " Pre_Title:Title ?title  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_title_list = Query_To_List(loadDB2nd(), query,
+			Reference_title_list = Query_To_List(CreatOntoModel(), query,
 					Reference_title_list, "=", "^^");
 			i++;
 		}
@@ -1232,7 +1221,7 @@ public class SimpleExample {
 					+ "Pre_Reference:"
 					+ reference + " Pre_Location:Location ?location  ." + "}";
 			Query query = QueryFactory.create(querystatement);
-			Reference_location_list = Query_To_List(loadDB2nd(), query,
+			Reference_location_list = Query_To_List(CreatOntoModel(), query,
 					Reference_location_list, "#", ">");
 			i++;
 		}
@@ -1302,72 +1291,47 @@ public class SimpleExample {
 	/**
 	 * @param args
 	 */
-	/*public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		SimpleExample se = new SimpleExample();
-		// se.createOntModel();
-		OntModel onmo = null;
-		try {
-			onmo = se.loadDB2nd();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// access every subclass of a class
-		OntResource mor = onmo
-				.getOntResource("http://www.w3.org/2002/07/owl#Thing");
-		if (mor.canAs(OntClass.class)) {
-			OntClass rootClass = mor.as(OntClass.class);
-			ExtendedIterator<OntClass> it = rootClass.listSubClasses();
-			while (it.hasNext()) {
-				OntClass childClass = it.next();
-				System.out.println("ChildCC = " + childClass.getURI());
-			}
-		}
-		// access all the Object Property
-		ExtendedIterator<ObjectProperty> it = onmo.listObjectProperties();
-		while (it.hasNext()) {
-			ObjectProperty subprop = it.next();
-			System.out.println("ChildOP = " + subprop.getURI());
-		}
-		// access all the Data Property
-		ExtendedIterator<DatatypeProperty> it1 = onmo.listDatatypeProperties();
-		while (it1.hasNext()) {
-			DatatypeProperty subprop = it1.next();
-			System.out.println("ChildDP = " + subprop.getURI());
-		}
-		// access every individual of a class
-		se.CreateandGetRes(PROMOTER_PREFIX + "#temp1", PROMOTER_PREFIX
-				+ "#Promoter", onmo, 0);
-		se.CreateandGetRes(OGO_PREFIX + "#gene1", OGO_PREFIX + "#Gene", onmo, 0);
-		se.CreateandGetRes(OGO_PREFIX + "#pubm1", OGO_PREFIX + "#Pubmed", onmo,
-				0);
-		se.addObjProperty(onmo, PROMOTER_PREFIX + "#temp1", PROMOTER_PREFIX
-				+ "#isBelongedTo", OGO_PREFIX + "#gene1");
-		se.modifyProperty(onmo, PROMOTER_PREFIX + "#temp1", PROMOTER_PREFIX
-				+ "#hasReference", OGO_PREFIX + "#pubm1");
-		se.modifyProperty(onmo, OGO_PREFIX + "#pubm1", PROMOTER_PREFIX
-				+ "#Link", "KILL");
-		// se.testListIndividual(onmo, PROMOTER_PREFIX+"#Promoter");
-		// se.testListIndividual(onmo, OGO_PREFIX+"#Pubmed");
-		// se.testListIndividual(onmo, OGO_PREFIX+"#Gene");
-		// OntResource ose =
-		// se.CreateandGetRes(PROMOTER_PREFIX+"#Promoter_HS_PTBP1",
-		// PROMOTER_PREFIX+"#Promoter", onmo, 0);
-		// if (ose.canAs(Individual.class)){
-		// Individual osei = ose.as(Individual.class);
-		// //access the RDF 3-mer
-		// StmtIterator stmtI = osei.listProperties();
-		// while(stmtI.hasNext()){
-		// Statement stmt = stmtI.nextStatement();
-		// Resource subject = stmt.getSubject(); // get the subject
-		// Property predicate = stmt.getPredicate(); // get the predicate
-		// RDFNode object = stmt.getObject(); // get the object
-		// System.out.println(subject.toString()+"->"+predicate.toString()+"->"+object.toString());
-		// }
-		// }
-		// se.Query_Gene("Gene");
-	}
-*/
+	/*
+	 * public static void main(String[] args) { // TODO Auto-generated method
+	 * stub SimpleExample se = new SimpleExample(); // se.createOntModel();
+	 * OntModel onmo = null; try { onmo = se.CreatOntoModel(); } catch
+	 * (ClassNotFoundException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); }
+	 * 
+	 * // access every subclass of a class OntResource mor = onmo
+	 * .getOntResource("http://www.w3.org/2002/07/owl#Thing"); if
+	 * (mor.canAs(OntClass.class)) { OntClass rootClass =
+	 * mor.as(OntClass.class); ExtendedIterator<OntClass> it =
+	 * rootClass.listSubClasses(); while (it.hasNext()) { OntClass childClass =
+	 * it.next(); System.out.println("ChildCC = " + childClass.getURI()); } } //
+	 * access all the Object Property ExtendedIterator<ObjectProperty> it =
+	 * onmo.listObjectProperties(); while (it.hasNext()) { ObjectProperty
+	 * subprop = it.next(); System.out.println("ChildOP = " + subprop.getURI());
+	 * } // access all the Data Property ExtendedIterator<DatatypeProperty> it1
+	 * = onmo.listDatatypeProperties(); while (it1.hasNext()) { DatatypeProperty
+	 * subprop = it1.next(); System.out.println("ChildDP = " +
+	 * subprop.getURI()); } // access every individual of a class
+	 * se.CreateandGetRes(PROMOTER_PREFIX + "#temp1", PROMOTER_PREFIX +
+	 * "#Promoter", onmo, 0); se.CreateandGetRes(OGO_PREFIX + "#gene1",
+	 * OGO_PREFIX + "#Gene", onmo, 0); se.CreateandGetRes(OGO_PREFIX + "#pubm1",
+	 * OGO_PREFIX + "#Pubmed", onmo, 0); se.addObjProperty(onmo, PROMOTER_PREFIX
+	 * + "#temp1", PROMOTER_PREFIX + "#isBelongedTo", OGO_PREFIX + "#gene1");
+	 * se.modifyProperty(onmo, PROMOTER_PREFIX + "#temp1", PROMOTER_PREFIX +
+	 * "#hasReference", OGO_PREFIX + "#pubm1"); se.modifyProperty(onmo,
+	 * OGO_PREFIX + "#pubm1", PROMOTER_PREFIX + "#Link", "KILL"); //
+	 * se.testListIndividual(onmo, PROMOTER_PREFIX+"#Promoter"); //
+	 * se.testListIndividual(onmo, OGO_PREFIX+"#Pubmed"); //
+	 * se.testListIndividual(onmo, OGO_PREFIX+"#Gene"); // OntResource ose = //
+	 * se.CreateandGetRes(PROMOTER_PREFIX+"#Promoter_HS_PTBP1", //
+	 * PROMOTER_PREFIX+"#Promoter", onmo, 0); // if
+	 * (ose.canAs(Individual.class)){ // Individual osei =
+	 * ose.as(Individual.class); // //access the RDF 3-mer // StmtIterator stmtI
+	 * = osei.listProperties(); // while(stmtI.hasNext()){ // Statement stmt =
+	 * stmtI.nextStatement(); // Resource subject = stmt.getSubject(); // get
+	 * the subject // Property predicate = stmt.getPredicate(); // get the
+	 * predicate // RDFNode object = stmt.getObject(); // get the object //
+	 * System
+	 * .out.println(subject.toString()+"->"+predicate.toString()+"->"+object
+	 * .toString()); // } // } // se.Query_Gene("Gene"); }
+	 */
 }

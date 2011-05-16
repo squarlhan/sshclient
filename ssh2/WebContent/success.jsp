@@ -24,19 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 <script type="text/javascript" language="javascript">
-	function init() {
-		var curuser =
-<%=request.getSession().getAttribute("USERNAME")%>
-	;
-		var curpass =
-<%=request.getSession().getAttribute("PASSWORD")%>
-	;
-		if (curuser == null || curpass == null) {
-			tip = "Please login first!";
-			self.location = "/ssh2/index.jsp";
-		}
-	}
-	init();
+	
 	
 	
 	function init(){
@@ -47,27 +35,9 @@
 	  	self.location = "/ssh2/index.jsp";
 	  }
 	}
-	
+	init();
 </script>
-<script type="text/javascript" language="javascript">
-function Search_gene() {
-	targetForm = document.forms[0];
-	targetForm.action = "search!Search_Gene";
-}
-function Search_promoter() {
-	targetForm = document.forms[0];
-	targetForm.action = "search!Search_Promoter";
-}
-function Search_taxonomy() {
-	targetForm = document.forms[0];
-	targetForm.action = "search!Search_Taxonomy";
-}
-function Search_keyword() {
-	targetForm = document.forms[0];
-	targetForm.action = "search!Search_Keyword";
-}
 
-</script>
 </head>
 
 <body>
@@ -108,19 +78,9 @@ function Search_keyword() {
 	onclick="window.location.href='alteraccount.jsp'" />
 <input name="submit" type="button" value="Log off"
 	onclick="window.location.href='logoff.jsp'" />
+<input name="submit" type="button" value="Search" onClick="window.location.href='search.jsp'"/>
 
-<s:form action="actionName!methodName">
-	<s:textfield name="Gene_name" label="Gene_Name" />
-	<s:submit value="Search Gene" onClick="Search_gene()" />
-	<s:textfield name="Promoter_name" label="Promoter_Name" />
-	<s:submit value="Search_Promoter" onClick="Search_promoter()" />
-	<s:textfield name="Taxonomy_name" label="Taxonomy_Name"/>
-	<s:submit value="Search_Taxonomy" onClick="Search_taxonomy()"/>
-	<s:textfield name="Keywords" label="Keywords"/>
-	<s:submit value="Search_Keyword" onClick="Search_keyword()"/>
-	<s:reset value="Reset" />
-	<s:label value="Phaseolus vulgaris (kidney bean)" />
-</s:form>
+
 
 </body>
 </html>
