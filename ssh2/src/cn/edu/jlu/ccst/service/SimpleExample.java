@@ -366,7 +366,7 @@ public class SimpleExample {
 		return results;
 	}
 
-	//查询结果为数组
+	// 查询结果为数组
 	public List<String> Query_To_List(OntModel onmo, Query query,
 			List<String> resultlist1, String begin, String end) {
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
@@ -380,14 +380,14 @@ public class SimpleExample {
 		qe.close();
 		return resultlist1;
 	}
-	//查询结果为字符串
-	public String Query_To_String(OntModel onmo,Query query){
+
+	// 查询结果为字符串
+	public String Query_To_String(OntModel onmo, Query query) {
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
 		ResultSet result = qe.execSelect();
 		return result.toString();
 	}
-	
-	
+
 	// 得到字符串子串
 	public String getSubString(String s, String a, String b) {
 		int index1 = s.indexOf(a);
@@ -442,12 +442,12 @@ public class SimpleExample {
 			throws ClassNotFoundException {
 		List<String> Taxonomy_list = new ArrayList();
 		String querystatement = "PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
-			+ "SELECT ?Taxonomy  "
-			+ "WHERE {"
-			+ "?Taxonomy Pre_label:label \"" + keyword + "\"@EN ." + "}";
-	Query query = QueryFactory.create(querystatement);
-	Taxonomy_list = Query_To_List(CreatOntoModel(), query, Taxonomy_list,
-			"#", ">");
+				+ "SELECT ?Taxonomy  "
+				+ "WHERE {"
+				+ "?Taxonomy Pre_label:label \"" + keyword + "\"@EN ." + "}";
+		Query query = QueryFactory.create(querystatement);
+		Taxonomy_list = Query_To_List(CreatOntoModel(), query, Taxonomy_list,
+				"#", ">");
 		return Taxonomy_list;
 	}
 
@@ -565,18 +565,20 @@ public class SimpleExample {
 		}
 		return Gene_name_list;
 	}
-	public List<String> Query_Gene_name(String Gene) throws ClassNotFoundException{
+
+	public List<String> Query_Gene_name(String Gene)
+			throws ClassNotFoundException {
 		List<String> Gene_name_list = new ArrayList();
 		String querystatement = "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-			+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-			+ "SELECT ?Gene_name  "
-			+ "WHERE {"
-			+ "Pre_Gene:"
-			+ Gene
-			+ " Pre_Name:Name ?Gene_name ." + "}";
+				+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+				+ "SELECT ?Gene_name  "
+				+ "WHERE {"
+				+ "Pre_Gene:"
+				+ Gene
+				+ " Pre_Name:Name ?Gene_name ." + "}";
 		Query query = QueryFactory.create(querystatement);
-		Gene_name_list = Query_To_List(CreatOntoModel(), query,
-				Gene_name_list, "=", "@");
+		Gene_name_list = Query_To_List(CreatOntoModel(), query, Gene_name_list,
+				"=", "@");
 		return Gene_name_list;
 	}
 
@@ -863,16 +865,12 @@ public class SimpleExample {
 		int i = 0;
 		while (i < size) {
 			String gene = Gene.get(i);
-			String querystatement = 
-				"PREFIX Pre_Gene:" +
-				"<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-				+ "PREFIX Pre_hasPromoter:" +
-				"<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-				+ "SELECT ?Promoter "
-				+ "WHERE {"
-				+ "Pre_Gene:"
-				+ gene
-				+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
+			String querystatement = "PREFIX Pre_Gene:"
+					+ "<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_hasPromoter:"
+					+ "<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "SELECT ?Promoter " + "WHERE {" + "Pre_Gene:" + gene
+					+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Promoter_list = Query_To_List(CreatOntoModel(), query,
 					Promoter_list, "#", ">");
