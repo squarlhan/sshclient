@@ -3,6 +3,7 @@ package cn.edu.jlu.ccst.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -48,6 +49,7 @@ public class SearchAction extends ActionSupport {
 	private SimpleExample se;
 	private List<String> resultlist_Gene;
 	private List<String> resultlist_Gene_id;
+	private List<String> resultlist_Gene_name;
 	private List<String> resultlist_Taxonomy;
 	private List<String> resultlist_Tax_label;
 	private List<String> resultlist_Tax_id;
@@ -214,7 +216,7 @@ public class SearchAction extends ActionSupport {
 		}//Gene
 	}
 
-	public String Search_Taxonomy() throws ClassNotFoundException {
+/*	public String Search() throws ClassNotFoundException {
 		List<String> Taxonomy = se.Query_Taxonomy(Taxonomy_name);
 		if (Taxonomy.size() == 0) {
 			tip = "wrong Taxonomy name!";
@@ -341,8 +343,47 @@ public class SearchAction extends ActionSupport {
 					}
 				}//Promoter
 			}//Gene
-			return SUCCESS;
+			}return SUCCESS;
 		}//Taxonomy
+	}*/
+	public String Search() throws ClassNotFoundException{
+		List<String> Taxonomy = se.Query_Taxonomy(Taxonomy_name);
+		if (Taxonomy.size() == 0) {
+			tip = "wrong Taxonomy name!";
+			return ERROR;
+		} else {
+			List<String> Gene = se.Query_GeneByTax(Taxonomy);
+			
+			setResultlist_Gene(Gene);
+			String gene=Gene.toString();
+			List<String> resultlist=new ArrayList();
+			resultlist.add(gene);
+			setResultlist_Gene(resultlist);
+			
+			/*if(Gene.size() == 0){
+				tip="No Gene!";
+				return ERROR;
+			}else{
+				setResultlist_Gene(Gene);
+				List<String> Gene_name=new ArrayList();
+				int size = Gene.size();
+				int i = 0;
+				while(i<size){
+					String gene=Gene.get(i);
+					List<String> gene_name = se.Query_Gene_name(gene);				
+					if(gene_name.size()==0){
+						Gene_name.add(i, "");
+					}else if(gene_name.size()==1){
+						String name=gene_name.toString();
+						Gene_name.add(i,name);
+					}else{
+						String name=gene_name.toString();
+						Gene_name.add(i,name);
+					}
+					
+				}*/
+				return SUCCESS;
+			}		
 	}
 	public String Search_Promoter() throws ClassNotFoundException{
 		List<String> Promoter=se.Query_Promoter(Promoter_name);
@@ -924,6 +965,14 @@ public class SearchAction extends ActionSupport {
 
 	public OntModel getOnmo() {
 		return onmo;
+	}
+
+	public void setResultlist_Gene_name(List<String> resultlist_Gene_name) {
+		this.resultlist_Gene_name = resultlist_Gene_name;
+	}
+
+	public List<String> getResultlist_Gene_name() {
+		return resultlist_Gene_name;
 	}
 
 }

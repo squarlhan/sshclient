@@ -366,6 +366,7 @@ public class SimpleExample {
 		return results;
 	}
 
+	//查询结果为数组
 	public List<String> Query_To_List(OntModel onmo, Query query,
 			List<String> resultlist1, String begin, String end) {
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
@@ -378,6 +379,12 @@ public class SimpleExample {
 		}
 		qe.close();
 		return resultlist1;
+	}
+	//查询结果为字符串
+	public String Query_To_String(OntModel onmo,Query query){
+		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
+		ResultSet result = qe.execSelect();
+		return result.toString();
 	}
 	
 	
@@ -434,14 +441,13 @@ public class SimpleExample {
 	public List<String> Query_Taxonomy(String keyword)
 			throws ClassNotFoundException {
 		List<String> Taxonomy_list = new ArrayList();
-		String querystatement = 
-				"PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
-				+ "SELECT ?Taxonomy  "
-				+ "WHERE {"
-				+ "?Taxonomy Pre_label:label \"" + keyword + "\"@EN ." + "}";
-		Query query = QueryFactory.create(querystatement);
-		Taxonomy_list = Query_To_List(CreatOntoModel(), query, Taxonomy_list,
-				"#", ">");
+		String querystatement = "PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
+			+ "SELECT ?Taxonomy  "
+			+ "WHERE {"
+			+ "?Taxonomy Pre_label:label \"" + keyword + "\"@EN ." + "}";
+	Query query = QueryFactory.create(querystatement);
+	Taxonomy_list = Query_To_List(CreatOntoModel(), query, Taxonomy_list,
+			"#", ">");
 		return Taxonomy_list;
 	}
 
@@ -557,6 +563,20 @@ public class SimpleExample {
 					Gene_name_list, "=", "@");
 			i++;
 		}
+		return Gene_name_list;
+	}
+	public List<String> Query_Gene_name(String Gene) throws ClassNotFoundException{
+		List<String> Gene_name_list = new ArrayList();
+		String querystatement = "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+			+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+			+ "SELECT ?Gene_name  "
+			+ "WHERE {"
+			+ "Pre_Gene:"
+			+ Gene
+			+ " Pre_Name:Name ?Gene_name ." + "}";
+		Query query = QueryFactory.create(querystatement);
+		Gene_name_list = Query_To_List(CreatOntoModel(), query,
+				Gene_name_list, "=", "@");
 		return Gene_name_list;
 	}
 
