@@ -26,15 +26,12 @@
 </script>
 </head>
 <body>
-<s:form action="search!Search_Taxonomy.action">
-	<s:textfield name="Gene_name" label="Gene_Name" />
-	<s:submit value="Search_Gene" onClick="Search_gene()" />
-	<s:textfield name="Promoter_name" label="Promoter_Name" />
-	<s:submit value="Search_Promoter" onClick="Search_promoter()" />
+<s:form action="search!Search.action">
+	<s:textfield name="Gene_name" label="Gene_Name" />	
+	<s:textfield name="Promoter_name" label="Promoter_Name" />	
 	<s:textfield name="Taxonomy_name" label="Taxonomy_Name" />
-	<s:submit value="Search_Taxonomy" />
 	<s:textfield name="Keywords" label="Keywords" />
-	<s:submit value="Search_Keyword" onClick="Search_keyword()" />
+	<s:submit value="Search" />
 	<s:reset value="Reset" />
 	<s:label value="Phaseolus vulgaris (kidney bean)" />
 </s:form>
