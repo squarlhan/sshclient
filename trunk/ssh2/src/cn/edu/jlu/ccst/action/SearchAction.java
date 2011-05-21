@@ -290,12 +290,11 @@ public class SearchAction extends ActionSupport {
 	 */
 	public String Search() throws ClassNotFoundException {
 		List<String> Taxonomy = gt.Query_Taxonomy(Taxonomy_name);
-		/*if (Taxonomy.size() == 0) {
+		if (Taxonomy.size() == 0) {
 			tip = "wrong Taxonomy name!";
 			return ERROR;
 		} else {
-			List<String> Gene = se.Query_GeneByTax(Taxonomy);
-			setResultlist_Gene(Gene);*/
+			setResultlist_Taxonomy(Taxonomy);
 			// String gene=Gene.toString();
 			// List<String> resultlist=new ArrayList();
 			// resultlist.add(gene);
@@ -314,6 +313,7 @@ public class SearchAction extends ActionSupport {
 			 * }
 			 */
 			return SUCCESS;
+		}
 		
 	}
 
