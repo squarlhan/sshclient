@@ -380,7 +380,8 @@ public class SimpleExample {
 		qe.close();
 		return resultlist1;
 	}
-
+	
+	
 	// 查询结果为字符串
 	public String Query_To_String(OntModel onmo, Query query) {
 		QueryExecution qe = QueryExecutionFactory.create(query, onmo);
@@ -437,19 +438,7 @@ public class SimpleExample {
 		return Promoter_list;
 	}
 
-	// keyword----Taxonomy 返回Taxonomy列表
-	public List<String> Query_Taxonomy(String keyword)
-			throws ClassNotFoundException {
-		List<String> Taxonomy_list = new ArrayList();
-		String querystatement = "PREFIX Pre_label:<http://www.w3.org/2000/01/rdf-schema#>"
-				+ "SELECT ?Taxonomy  "
-				+ "WHERE {"
-				+ "?Taxonomy Pre_label:label \"" + keyword + "\"@EN ." + "}";
-		Query query = QueryFactory.create(querystatement);
-		Taxonomy_list = Query_To_List(CreatOntoModel(), query, Taxonomy_list,
-				"#", ">");
-		return Taxonomy_list;
-	}
+	
 
 	// Taxonomy----Gene
 	public List<String> Query_GeneByTax(List<String> Taxonomy)
@@ -865,12 +854,20 @@ public class SimpleExample {
 		int i = 0;
 		while (i < size) {
 			String gene = Gene.get(i);
-			String querystatement = "PREFIX Pre_Gene:"
-					+ "<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "PREFIX Pre_hasPromoter:"
-					+ "<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?Promoter " + "WHERE {" + "Pre_Gene:" + gene
-					+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
+
+			String querystatement = 
+				"PREFIX Pre_Gene:" +
+				"<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+				+ "PREFIX Pre_hasPromoter:" +
+				"<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+				+ "SELECT ?Promoter "
+				+ "WHERE {"
+				+ "Pre_Gene:"
+				+ gene
+				+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
+
+			
+
 			Query query = QueryFactory.create(querystatement);
 			Promoter_list = Query_To_List(CreatOntoModel(), query,
 					Promoter_list, "#", ">");

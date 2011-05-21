@@ -27,8 +27,8 @@
 </head>
 <body>
 <s:form action="search!Search.action">
-	<s:textfield name="Gene_name" label="Gene_Name" />	
-	<s:textfield name="Promoter_name" label="Promoter_Name" />	
+	<s:textfield name="Gene_name" label="Gene_Name" />
+	<s:textfield name="Promoter_name" label="Promoter_Name" />
 	<s:textfield name="Taxonomy_name" label="Taxonomy_Name" />
 	<s:textfield name="Keywords" label="Keywords" />
 	<s:submit value="Search" />

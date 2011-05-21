@@ -29,7 +29,7 @@ public class UserServiceImpl {
 
 	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
-		Query query = getEntityManager().createQuery("select u FROM User u");
+		Query query = em.createQuery("select u FROM User u");
 		return query.getResultList();
 	}
 
@@ -84,7 +84,7 @@ public class UserServiceImpl {
 		Query query = getEntityManager().createQuery(
 				"select u FROM User u where u.username = '"+username+"'");
 		//System.out.println(query.getResultList().size());
-		List<User> userlist=findAll();
+		//List<User> userlist=findAll();
 		//System.out.println(userlist.size());
 		if (query.getResultList().size() >= 1) {
 			return true;
