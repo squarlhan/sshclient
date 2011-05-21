@@ -30,7 +30,16 @@ public class GetTaxonomy {
 			"select t.ID from Taxonomy t where t.Name like '%"+keyword.trim()+"%'";	
 		javax.persistence.Query query = em.createQuery(querystatement);
 		System.out.println(query.getResultList());
-		Taxonomy_list = query.getResultList();
+		List<String> Id=query.getResultList();
+		int size = Id.size();
+		int i = 0;
+		while(i<size){
+			String tax = "NCBI_";
+			String id = Id.get(i);
+			String Taxonomy = tax.concat(id);
+			Taxonomy_list.add(Taxonomy);
+			i++;
+		}
 		return Taxonomy_list;
 	}
 	
