@@ -161,6 +161,7 @@ public class SearchAction extends ActionSupport {
 			List<String> name = gt.Query_Taxonomy_label(Taxonomy);
 			List<String> Gene = gg.Query_GeneByTax(Taxonomy);
 			setResultlist_Gene(Gene);
+			setResultlist_Gene_name(gg.Query_Gene_name(Gene));
 			// String gene=Gene.toString();
 			// List<String> resultlist=new ArrayList();
 			// resultlist.add(gene);

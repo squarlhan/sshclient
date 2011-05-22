@@ -40,7 +40,7 @@ public class GetGene {
 			String Tax = Taxonomy.get(i);
 			String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
 					+ "PREFIX Pre_Tax:<http://um.es/ncbi.owl#>"
-					+ "SELECT ?gene "
+					+ "SELECT DISTINCT ?gene "
 					+ "WHERE {"
 					+ "?gene Pre_fromSpecies:fromSpecies Pre_Tax:"
 					+ Tax.trim()
@@ -88,7 +88,7 @@ public class GetGene {
 					+ "SELECT ?Gene_name  "
 					+ "WHERE {"
 					+ "Pre_Gene:"
-					+ gene
+					+ gene.trim()
 					+ " Pre_Name:Name ?Gene_name ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Gene_name_list = se.Query_To_List(se.CreatOntoModel(), query,
