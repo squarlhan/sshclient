@@ -110,6 +110,27 @@ public class GetTaxonomy {
 		return Taxonomy_label_list;
 	}
 
+	// Taxonomy----Tax_id 返回Tax_id_list列表
+	public List<String> Query_Tax_id(List<String> Taxonomy)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_id_list = new ArrayList();
+		int size = Taxonomy.size();
+		int i = 0;
+		while (i < size) {
+			String taxonomy = Taxonomy.get(i);
+			String querystatement = "PREFIX Pre_Tax_id:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
+					+ "SELECT ?Tax_id "
+					+ "WHERE  {"
+					+ "Pre_Tax_name:"
+					+ taxonomy + " Pre_Tax_id:Identifier ?Tax_id   ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Taxonomy_id_list = se.Query_To_List(se.CreatOntoModel(), query,
+					Taxonomy_id_list, "#", ">");
+			i++;
+		}
+		return Taxonomy_id_list;
+	}
 	@Resource
 	public void setSe(SimpleExample se) {
 		this.se = se;
