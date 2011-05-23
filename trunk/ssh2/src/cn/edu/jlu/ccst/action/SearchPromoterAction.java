@@ -36,22 +36,23 @@ public class SearchPromoterAction extends ActionSupport{
 			setTip("There is no Promoter for this Gene!");
 			return ERROR;
 		}else{
-			setResultlist_Promoter(Promoter);
+			setResultlist_Promoter(gp.Query_Promoter(Gene));
 			return SUCCESS;
 		}
 		
 	}
-	public void setResultlist_Promoter(List<String> resultlist_Promoter) {
-		this.resultlist_Promoter = resultlist_Promoter;
-	}
-	public List<String> getResultlist_Promter() {
-		return resultlist_Promoter;
-	}
+	
 	public void setTip(String tip) {
 		this.tip = tip;
 	}
 	public String getTip() {
 		return tip;
+	}
+	public void setResultlist_Promoter(List<String> resultlist_Promoter) {
+		this.resultlist_Promoter = resultlist_Promoter;
+	}
+	public List<String> getResultlist_Promoter() {
+		return resultlist_Promoter;
 	}
 
 }
