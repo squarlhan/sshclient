@@ -66,8 +66,6 @@ public class SearchAction extends ActionSupport {
 	private List<String> resultlist_mRNA;
 	private List<String> resultlist_mRNA_name;
 	private List<String> resultlist_mRNA_id;
-	private List<String> resultlist_Promoter;
-	private List<String> resultlist_Promoter_name;
 	private List<String> resultlist_Keyword;
 	private List<String> resultlist_Keyword_keywords;
 	private List<String> resultlist_Resource;
@@ -160,28 +158,16 @@ public class SearchAction extends ActionSupport {
 		} else {
 			List<String> name = gt.Query_Taxonomy_label(Taxonomy);
 			List<String> Gene = gg.Query_GeneByTax(Taxonomy);
-			setResultlist_Gene(Gene);
-			setResultlist_Gene_name(gg.Query_Gene_name(Gene));
-			// String gene=Gene.toString();
-			// List<String> resultlist=new ArrayList();
-			// resultlist.add(gene);
-			// setResultlist_Gene(resultlist);
-
-			/*
-			 * if(Gene.size() == 0){ tip="No Gene!"; return ERROR; }else{
-			 * setResultlist_Gene(Gene); List<String> Gene_name=new ArrayList();
-			 * int size = Gene.size(); int i = 0; while(i<size){ String
-			 * gene=Gene.get(i); List<String> gene_name =
-			 * se.Query_Gene_name(gene); if(gene_name.size()==0){
-			 * Gene_name.add(i, ""); }else if(gene_name.size()==1){ String
-			 * name=gene_name.toString(); Gene_name.add(i,name); }else{ String
-			 * name=gene_name.toString(); Gene_name.add(i,name); }
-			 * 
-			 * }
-			 */
-			return SUCCESS;
+			if (Gene.size() == 0) {
+				tip = "There is no Gene for this taxonomy!";
+				return ERROR;
+			} else {
+				setResultlist_Gene(Gene);
+				setResultlist_Gene_name(gg.Query_Gene_name(Gene));
+				return SUCCESS;
+			}
 		}
-		
+
 	}
 
 	public void setTip(String tip) {
@@ -347,15 +333,6 @@ public class SearchAction extends ActionSupport {
 		return resultlist_mRNA_id;
 	}
 
-	public void setResultlist_Promoter_name(
-			List<String> resultlist_Promoter_name) {
-		this.resultlist_Promoter_name = resultlist_Promoter_name;
-	}
-
-	public List<String> getResultlist_Promoter_name() {
-		return resultlist_Promoter_name;
-	}
-
 	public void setResultlist_Keyword(List<String> resultlist_Keyword) {
 		this.resultlist_Keyword = resultlist_Keyword;
 	}
@@ -467,13 +444,6 @@ public class SearchAction extends ActionSupport {
 		return resultlist_Reference_location;
 	}
 
-	public List<String> getResultlist_Promoter() {
-		return resultlist_Promoter;
-	}
-
-	public void setResultlist_Promoter(List<String> resultlist_Promoter) {
-		this.resultlist_Promoter = resultlist_Promoter;
-	}
 
 	public List<String> getKeywords() {
 		return Keywords;
@@ -519,7 +489,8 @@ public class SearchAction extends ActionSupport {
 	public GetGene getGg() {
 		return gg;
 	}
-@Resource
+
+	@Resource
 	public void setGg(GetGene gg) {
 		this.gg = gg;
 	}

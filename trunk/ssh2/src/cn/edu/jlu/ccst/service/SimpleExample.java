@@ -478,27 +478,7 @@ public class SimpleExample {
 
 	
 
-	// Taxonomy----Tax_id 返回Tax_id_list列表
-	public List<String> Query_Tax_id(List<String> Taxonomy)
-			throws ClassNotFoundException {
-		List<String> Taxonomy_id_list = new ArrayList();
-		int size = Taxonomy.size();
-		int i = 0;
-		while (i < size) {
-			String taxonomy = Taxonomy.get(i);
-			String querystatement = "PREFIX Pre_Tax_id:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
-					+ "SELECT ?Tax_id "
-					+ "WHERE  {"
-					+ "Pre_Tax_name:"
-					+ taxonomy + " Pre_Tax_id:Identifier ?Tax_id   ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Taxonomy_id_list = Query_To_List(CreatOntoModel(), query,
-					Taxonomy_id_list, "#", ">");
-			i++;
-		}
-		return Taxonomy_id_list;
-	}
+	
 
 	// Gene-hasGo-Go 返回Go_list别表
 	public List<String> Query_Go(List<String> Gene)
@@ -684,35 +664,7 @@ public class SimpleExample {
 		return mRNA_id_list;
 	}
 
-	// Gene--hasPromoter--Promoter 返回Promoter_list
-	public List<String> Query_Promoter(List<String> Gene)
-			throws ClassNotFoundException {
-		List<String> Promoter_list = new ArrayList();
-		int size = Gene.size();
-		int i = 0;
-		while (i < size) {
-			String gene = Gene.get(i);
-
-			String querystatement = 
-				"PREFIX Pre_Gene:" +
-				"<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-				+ "PREFIX Pre_hasPromoter:" +
-				"<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-				+ "SELECT ?Promoter "
-				+ "WHERE {"
-				+ "Pre_Gene:"
-				+ gene
-				+ " Pre_hasPromoter:hasPromoter ?Promoter  ." + "}";
-
-			
-
-			Query query = QueryFactory.create(querystatement);
-			Promoter_list = Query_To_List(CreatOntoModel(), query,
-					Promoter_list, "#", ">");
-			i++;
-		}
-		return Promoter_list;
-	}
+	
 
 	// Promoter----Promoter_name 返回Promoter_name_list
 	public List<String> Query_Promoter_name(List<String> Promoter)
