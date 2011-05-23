@@ -36,7 +36,7 @@ public class SearchPromoterAction extends ActionSupport{
 			setTip("There is no Promoter for this Gene!");
 			return ERROR;
 		}else{
-			setResultlist_Promoter(gp.Query_Promoter(Gene));
+			setResultlist_Promoter(Promoter);
 			return SUCCESS;
 		}
 		

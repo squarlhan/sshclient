@@ -12,7 +12,7 @@
 	<s:iterator id="result_Promoter" value="resultlist_Promoter" status="index">
 		<tr align="center"
 			bgcolor="<s:if test="#index.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
-			<td><s:property value="result_promoter" /></td>
+			<td><s:property value="result_Promoter" /></td>
 		</tr>
 	</s:iterator>
 </table>
