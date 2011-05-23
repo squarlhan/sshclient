@@ -48,7 +48,7 @@ public class GetPromoter {
 				"<http://miuras.inf.um.es/ontologies/OGO.owl#>"
 				+ "PREFIX Pre_hasPromoter:" +
 				"<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-				+ "SELECT ?Promoter "
+				+ "SELECT DISTINCT ?Promoter "
 				+ "WHERE {"
 				+ "Pre_Gene:"
 				+ Gene.trim()
