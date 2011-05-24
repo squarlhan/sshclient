@@ -17,6 +17,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 @Component("geneDetailsAction")
 public class GeneDetailsAction extends ActionSupport {
+
+	private String tip;
+	private String Gene;
+
 	private GetPromoter gp;
 	private GetGO gG;
 	private GetTaxonomy gt;
@@ -154,9 +158,6 @@ public class GeneDetailsAction extends ActionSupport {
 	public void setPresult(List<String> presult) {
 		Presult = presult;
 	}
-
-	private String tip;
-	private String Gene;
 
 	public String getGene() {
 		return Gene;

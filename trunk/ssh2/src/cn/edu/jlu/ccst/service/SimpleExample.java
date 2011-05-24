@@ -509,8 +509,6 @@ public class SimpleExample {
 		return Gene_list;
 	}
 
-	
-
 	// Promoter--hasKeyword--Keyword 返回Keyword_list
 	public List<String> Query_Keyword(List<String> Promoter)
 			throws ClassNotFoundException {
@@ -696,120 +694,7 @@ public class SimpleExample {
 		return Homology_name_list;
 	}
 
-	// Promoter--hasReference--Reference
-	public List<String> Query_Reference(List<String> Promoter)
-			throws ClassNotFoundException {
-		List<String> Reference_list = new ArrayList();
-		int size = Promoter.size();
-		int i = 0;
-		while (i < size) {
-			String promoter = Promoter.get(i);
-			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_hasReference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?reference  "
-					+ "WHERE {"
-					+ "Pre_Promoter:"
-					+ promoter
-					+ " Pre_hasReference:hasReference ?reference ."
-					+ "}";
-			Query query = QueryFactory.create(querystatement);
-			Reference_list = Query_To_List(CreatOntoModel(), query,
-					Reference_list, "#", ">");
-			i++;
-		}
-		return Reference_list;
-	}
-
-	// Reference----id 返回Reference_id_list
-	public List<String> Query_Reference_id(List<String> Reference)
-			throws ClassNotFoundException {
-		List<String> Reference_id_list = new ArrayList();
-		int size = Reference.size();
-		int i = 0;
-		while (i < size) {
-			String reference = Reference.get(i);
-			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "SELECT ?identifier "
-					+ "WHERE {"
-					+ "Pre_Reference:"
-					+ reference
-					+ " Pre_Identifier:Identifier ?identifier  ."
-					+ "}";
-			Query query = QueryFactory.create(querystatement);
-			Reference_id_list = Query_To_List(CreatOntoModel(), query,
-					Reference_id_list, "=", "@");
-			i++;
-		}
-		return Reference_id_list;
-	}
-
-	// Reference----author返回Reference_author_list
-	public List<String> Query_Reference_author(List<String> Reference)
-			throws ClassNotFoundException {
-		List<String> Reference_author_list = new ArrayList();
-		int size = Reference.size();
-		int i = 0;
-		while (i < size) {
-			String reference = Reference.get(i);
-			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_Author:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?author "
-					+ "WHERE {"
-					+ "Pre_Reference:"
-					+ reference + " Pre_Author:Author ?author  ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Reference_author_list = Query_To_List(CreatOntoModel(), query,
-					Reference_author_list, "=", "@");
-			i++;
-		}
-		return Reference_author_list;
-	}
-
-	// Reference----Title返回Reference_title_list
-	public List<String> Query_Reference_title(List<String> Reference)
-			throws ClassNotFoundException {
-		List<String> Reference_title_list = new ArrayList();
-		int size = Reference.size();
-		int i = 0;
-		while (i < size) {
-			String reference = Reference.get(i);
-			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_Title:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?title "
-					+ "WHERE {"
-					+ "Pre_Reference:"
-					+ reference + " Pre_Title:Title ?title  ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Reference_title_list = Query_To_List(CreatOntoModel(), query,
-					Reference_title_list, "=", "^^");
-			i++;
-		}
-		return Reference_title_list;
-	}
-
-	// Reference----Location返回Reference_location_list
-	public List<String> Query_Reference_location(List<String> Reference)
-			throws ClassNotFoundException {
-		List<String> Reference_location_list = new ArrayList();
-		int size = Reference.size();
-		int i = 0;
-		while (i < size) {
-			String reference = Reference.get(i);
-			String querystatement = "PREFIX Pre_Reference:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_Location:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?location "
-					+ "WHERE {"
-					+ "Pre_Reference:"
-					+ reference + " Pre_Location:Location ?location  ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Reference_location_list = Query_To_List(CreatOntoModel(), query,
-					Reference_location_list, "#", ">");
-			i++;
-		}
-		return Reference_location_list;
-	}
-
+	
 	/**
 	 * do reasoner for the ontology
 	 * 

@@ -45,6 +45,10 @@
 			<result name="success">/GeneDetails.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="promoterDetails" class="promoterDetailsAction">
+			<result name="success">/PromoterDetails.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 
 </struts>
