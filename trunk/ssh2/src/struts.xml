@@ -41,8 +41,8 @@
 			<result name="success">/Result.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="searchPromoter" class="searchPromoterAction">
-			<result name="success">/Promoter.jsp</result>
+		<action name="geneDetails" class="geneDetailsAction">
+			<result name="success">/GeneDetails.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>

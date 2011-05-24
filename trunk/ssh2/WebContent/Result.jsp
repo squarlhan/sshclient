@@ -13,7 +13,7 @@
 	<s:iterator id="result_Gene" value="resultlist_Gene" status="index">
 		<tr align="center"
 			bgcolor="<s:if test="#index.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
-			<td><a href="searchPromoter!SearchPromoter.action?Gene=<s:property value="result_Gene" />"><s:property value="result_Gene" /></a></td>
+			<td><a href="geneDetails!GeneDetails.action?Gene=<s:property value="result_Gene" />"><s:property value="result_Gene" /></a></td>
 		
 		</tr>
 	</s:iterator>

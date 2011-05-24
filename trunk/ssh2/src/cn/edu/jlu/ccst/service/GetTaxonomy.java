@@ -85,6 +85,22 @@ public class GetTaxonomy {
 		}
 		return Taxonomy_list;
 	}
+	// Gene--fromSpcies--Taxonomy 返回Taxonomy列表
+	public List<String> Query_TaxonomyBYGene(String Gene)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_list = new ArrayList();
+			String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Taxonomy "
+					+ "WHERE {"
+					+ "Pre_Gene:"
+					+ Gene.trim()
+					+ " Pre_fromSpecies:fromSpecies ?Taxonomy ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Taxonomy_list = se.Query_To_List(se.CreatOntoModel(), query,
+					Taxonomy_list, "#", ">");
+		return Taxonomy_list;
+	}
 
 
 	// Taxonomy----Tax_label 返回Tax_label_list列表
@@ -107,6 +123,23 @@ public class GetTaxonomy {
 					Taxonomy_label_list, "=", "@");
 			i++;
 		}
+		return Taxonomy_label_list;
+	}
+	// Taxonomy----Tax_label 返回Tax_label_list列表
+	public List<String> Query_Taxonomy_label(String Taxonomy)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_label_list = new ArrayList();
+			String querystatement = "PREFIX Pre_Tax_label:<http://www.w3.org/2000/01/rdf-schema#>"
+					+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
+					+ "SELECT DISTINCT ?Tax_label  "
+					+ "WHERE {"
+					+ "Pre_Tax_name:"
+					+ Taxonomy.trim()
+					+ " Pre_Tax_label:label ?Tax_label  ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Taxonomy_label_list = se.Query_To_List(se.CreatOntoModel(), query,
+					Taxonomy_label_list, "=", "@");
+			
 		return Taxonomy_label_list;
 	}
 
