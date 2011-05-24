@@ -56,8 +56,22 @@ public class GetPromoter {
 			Query query = QueryFactory.create(querystatement);
 			Promoter_list = se.Query_To_List(se.CreatOntoModel(), query,
 					Promoter_list, "#", ">");
-
 		return Promoter_list;
+	}
+	// Promoter----Promoter_name 返回Promoter_name_list
+	public List<String> Query_Promoter_name(String Promoter)
+			throws ClassNotFoundException {
+		List<String> Promoter_name_list = new ArrayList();
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+					+ "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "SELECT ?Promoter_name "
+					+ "WHERE {"
+					+ "Pre_Promoter:"
+					+ Promoter + " Pre_Name:Name ?Promoter_name  ." + "}";
+			Query query = QueryFactory.create(querystatement);
+			Promoter_name_list = se.Query_To_List(se.CreatOntoModel(), query,
+					Promoter_name_list, "=", "@");
+		return Promoter_name_list;
 	}
 @Resource
 	public void setSe(SimpleExample se) {
