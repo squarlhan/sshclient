@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import cn.edu.jlu.ccst.service.GetHomology;
+import cn.edu.jlu.ccst.service.GetKeyword;
 import cn.edu.jlu.ccst.service.GetReference;
 import cn.edu.jlu.ccst.service.GetResource;
 
@@ -20,12 +21,15 @@ public class PromoterDetailsAction extends ActionSupport {
 	private List<String> resultlist_Reference;
 	private List<String> resultlist_Resource;
 	private List<String> resultlist_Homology;
+	private List<String> resultlist_Keyword;
 	private GetReference gr;
 	private GetResource gres;
 	private GetHomology gh;
+	private GetKeyword gk;
 	private List<String> Refresult;
 	private List<String> Resresult;
 	private List<String> Hresult;
+	private List<String> Kresult;
 
 	public String PromoterDetails() throws ClassNotFoundException {
 		List<String> Reference = gr.Query_Reference(Promoter);
@@ -80,10 +84,26 @@ public class PromoterDetailsAction extends ActionSupport {
 			int i = 0;
 			while (i < size) {
 				String homology = Homology.get(i);
-				Resresult.add(homology);
+				Hresult.add(homology);
 				List<String> homology_name = gh.Query_Homology_name(homology);
-				Resresult.addAll(homology_name);
+				Hresult.addAll(homology_name);
 				
+				i++;
+			}
+		}
+		List<String> Keyword = gh.Query_Homology(Promoter);
+		if(Keyword.size() == 0){
+			tip = "There is no Keyword for this Promoter!";
+		}else{
+			Kresult = new ArrayList();
+			setResultlist_Keyword(Keyword);
+			int size = Keyword.size();
+			int i = 0;
+			while (i < size) {
+				String key = Keyword.get(i);
+				Kresult.add(key);
+				List<String> key_keys = gk.Query_Keyword_Keywords(key);
+				Kresult.addAll(key_keys);				
 				i++;
 			}
 		}
@@ -177,6 +197,30 @@ public class PromoterDetailsAction extends ActionSupport {
 
 	public List<String> getHresult() {
 		return Hresult;
+	}
+
+	public void setResultlist_Keyword(List<String> resultlist_Keyword) {
+		this.resultlist_Keyword = resultlist_Keyword;
+	}
+
+	public List<String> getResultlist_Keyword() {
+		return resultlist_Keyword;
+	}
+	@Resource
+	public void setGk(GetKeyword gk) {
+		this.gk = gk;
+	}
+
+	public GetKeyword getGk() {
+		return gk;
+	}
+
+	public void setKresult(List<String> kresult) {
+		Kresult = kresult;
+	}
+
+	public List<String> getKresult() {
+		return Kresult;
 	}
 
 }
