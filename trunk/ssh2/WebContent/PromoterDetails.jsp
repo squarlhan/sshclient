@@ -27,6 +27,12 @@
 			<td><s:property value="result_Hom" /></td>
 		</tr>
 	</s:iterator>
+	<s:iterator id="result_Key" value="Kresult" status="index">
+		<tr align="center"
+			bgcolor="<s:if test="#index.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
+			<td><s:property value="result_Key" /></td>
+		</tr>
+	</s:iterator>
 </table>
 </body>
 </html>

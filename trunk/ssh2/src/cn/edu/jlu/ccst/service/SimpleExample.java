@@ -509,52 +509,7 @@ public class SimpleExample {
 		return Gene_list;
 	}
 
-	// Promoter--hasKeyword--Keyword 返回Keyword_list
-	public List<String> Query_Keyword(List<String> Promoter)
-			throws ClassNotFoundException {
-		List<String> Keyword_list = new ArrayList();
-		int size = Promoter.size();
-		int i = 0;
-		while (i < size) {
-			String promoter = Promoter.get(i);
-			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_hasKeywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?Keyword  "
-					+ "WHERE {"
-					+ "Pre_Promoter:"
-					+ promoter
-					+ " Pre_hasKeywords:hasKeywords ?Keyword ."
-					+ "}";
-			Query query = QueryFactory.create(querystatement);
-			Keyword_list = Query_To_List(CreatOntoModel(), query, Keyword_list,
-					"#", ">");
-			i++;
-		}
-		return Keyword_list;
-	}
-
-	// Keyword----keyword返回Keyword_keyword_list
-	public List<String> Query_Keyword_Keywords(List<String> Keyword)
-			throws ClassNotFoundException {
-		List<String> Keyword_Keywords_list = new ArrayList();
-		int size = Keyword.size();
-		int i = 0;
-		while (i < size) {
-			String keyword = Keyword.get(i);
-			String querystatement = "PREFIX Pre_Keyword:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_Keywords:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?keywords  "
-					+ "WHERE {"
-					+ "Pre_Keyword:"
-					+ keyword + " Pre_Keywords:Keywords ?keywords  ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Keyword_Keywords_list = Query_To_List(CreatOntoModel(), query,
-					Keyword_Keywords_list, "=", "@");
-			i++;
-		}
-		return Keyword_Keywords_list;
-	}
-
+	
 	
 	
 	
