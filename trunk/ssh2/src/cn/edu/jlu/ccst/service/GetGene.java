@@ -31,25 +31,19 @@ public class GetGene {
 	}
 
 	// Taxonomy----Gene
-	public List<String> Query_GeneByTax(List<String> Taxonomy)
+	public List<String> Query_GeneByTax(String Taxonomy)
 			throws ClassNotFoundException {
 		List<String> Gene_list = new ArrayList();
-		int size = Taxonomy.size();
-		int i = 0;
-		while (i < size) {
-			String Tax = Taxonomy.get(i);
-			String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "PREFIX Pre_Tax:<http://um.es/ncbi.owl#>"
+			String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#> "
+					+ "PREFIX Pre_Tax:<http://um.es/ncbi.owl#> "
 					+ "SELECT DISTINCT ?gene "
 					+ "WHERE {"
 					+ "?gene Pre_fromSpecies:fromSpecies Pre_Tax:"
-					+ Tax.trim()
+					+ Taxonomy.trim()
 					+ "  ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Gene_list = se.Query_To_List(se.CreatOntoModel(), query, Gene_list,
 					"#", ">");
-			i++;
-		}
 		return Gene_list;
 	}
 	// Promoter----Gene返回Gene列表
@@ -60,12 +54,12 @@ public class GetGene {
 		int i = 0;
 		while (i < size) {
 			String promoter = Promoter.get(i);
-			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_isBelongedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
+			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#> "
+					+ "PREFIX Pre_isBelongedTo:<http://miuras.inf.um.es/ontologies/promoter.owl#> "
 					+ "SELECT ?gene "
 					+ "WHERE {"
 					+ "Pre_Promoter:"
-					+ promoter
+					+ promoter.trim()
 					+ " Pre_isBelongedTo:isBelongedTo ?gene  ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Gene_list = se.Query_To_List(se.CreatOntoModel(), query, Gene_list, "#",
@@ -132,7 +126,7 @@ public class GetGene {
 					+ " Pre_Identifier:Identifier ?Gene_id ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Gene_id_list = se.Query_To_List(se.CreatOntoModel(), query,
-					Gene_id_list, "#", ">");
+					Gene_id_list, "=", "@");
 			i++;
 		}
 		return Gene_id_list;

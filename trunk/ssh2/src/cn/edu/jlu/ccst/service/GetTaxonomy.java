@@ -38,7 +38,7 @@ public class GetTaxonomy {
 
 	public String Query_Taxonomy_id(String keyword)
 			throws ClassNotFoundException {
-		//List<String> id_list = new ArrayList();
+		// List<String> id_list = new ArrayList();
 		String querystatement = "select t.ID from Taxonomy t where t.Name = '"
 				+ keyword.trim() + "'";
 		javax.persistence.Query query = em.createQuery(querystatement);
@@ -63,6 +63,7 @@ public class GetTaxonomy {
 		}
 		return Taxonomy_list;
 	}
+
 	// Gene--fromSpcies--Taxonomy 返回Taxonomy列表
 	public List<String> Query_TaxonomyBYGene(List<String> Gene)
 			throws ClassNotFoundException {
@@ -85,25 +86,58 @@ public class GetTaxonomy {
 		}
 		return Taxonomy_list;
 	}
+
 	// Gene--fromSpcies--Taxonomy 返回Taxonomy列表
 	public List<String> Query_TaxonomyBYGene(String Gene)
 			throws ClassNotFoundException {
 		List<String> Taxonomy_list = new ArrayList();
-			String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "SELECT ?Taxonomy "
-					+ "WHERE {"
-					+ "Pre_Gene:"
-					+ Gene.trim()
-					+ " Pre_fromSpecies:fromSpecies ?Taxonomy ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Taxonomy_list = se.Query_To_List(se.CreatOntoModel(), query,
-					Taxonomy_list, "#", ">");
+		String querystatement = "PREFIX Pre_fromSpecies:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+				+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+				+ "SELECT ?Taxonomy "
+				+ "WHERE {"
+				+ "Pre_Gene:"
+				+ Gene.trim()
+				+ " Pre_fromSpecies:fromSpecies ?Taxonomy ." + "}";
+		Query query = QueryFactory.create(querystatement);
+		Taxonomy_list = se.Query_To_List(se.CreatOntoModel(), query,
+				Taxonomy_list, "#", ">");
 		return Taxonomy_list;
 	}
 
+	// Taxonomy----Tax_label 返回Tax_label_list列表
+	public List<String> Query_TaxBYlabel(String label)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_label_list = new ArrayList();
+		String querystatement = "PREFIX Pre_Tax_label:<http://www.w3.org/2000/01/rdf-schema#>"
+				+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
+				+ "SELECT DISTINCT ?Tax  "
+				+ "WHERE {"
+				+ "?Tax"
+				+ " Pre_Tax_label:label \"" + label.trim() + "\"@EN." + "}";
+		Query query = QueryFactory.create(querystatement);
+		Taxonomy_label_list = se.Query_To_List(se.CreatOntoModel(), query,
+				Taxonomy_label_list, "#", ">");
+		return Taxonomy_label_list;
+	}
 
 	// Taxonomy----Tax_label 返回Tax_label_list列表
+	public List<String> Query_Taxonomy_label(String Taxonomy)
+			throws ClassNotFoundException {
+		List<String> Taxonomy_label_list = new ArrayList();
+
+		String querystatement = "PREFIX Pre_Tax_label:<http://www.w3.org/2000/01/rdf-schema#>"
+				+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
+				+ "SELECT DISTINCT ?Tax_label  "
+				+ "WHERE {"
+				+ "Pre_Tax_name:"
+				+ Taxonomy.trim() + " Pre_Tax_label:label ?Tax_label  ." + "}";
+		Query query = QueryFactory.create(querystatement);
+		Taxonomy_label_list = se.Query_To_List(se.CreatOntoModel(), query,
+				Taxonomy_label_list, "=", "@");
+
+		return Taxonomy_label_list;
+	}
+
 	public List<String> Query_Taxonomy_label(List<String> Taxonomy)
 			throws ClassNotFoundException {
 		List<String> Taxonomy_label_list = new ArrayList();
@@ -116,30 +150,14 @@ public class GetTaxonomy {
 					+ "SELECT DISTINCT ?Tax_label  "
 					+ "WHERE {"
 					+ "Pre_Tax_name:"
-					+ taxonomy
+					+ taxonomy.trim()
 					+ " Pre_Tax_label:label ?Tax_label  ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Taxonomy_label_list = se.Query_To_List(se.CreatOntoModel(), query,
 					Taxonomy_label_list, "=", "@");
 			i++;
 		}
-		return Taxonomy_label_list;
-	}
-	// Taxonomy----Tax_label 返回Tax_label_list列表
-	public List<String> Query_Taxonomy_label(String Taxonomy)
-			throws ClassNotFoundException {
-		List<String> Taxonomy_label_list = new ArrayList();
-			String querystatement = "PREFIX Pre_Tax_label:<http://www.w3.org/2000/01/rdf-schema#>"
-					+ "PREFIX Pre_Tax_name:<http://um.es/ncbi.owl#>"
-					+ "SELECT DISTINCT ?Tax_label  "
-					+ "WHERE {"
-					+ "Pre_Tax_name:"
-					+ Taxonomy.trim()
-					+ " Pre_Tax_label:label ?Tax_label  ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Taxonomy_label_list = se.Query_To_List(se.CreatOntoModel(), query,
-					Taxonomy_label_list, "=", "@");
-			
+
 		return Taxonomy_label_list;
 	}
 
@@ -164,6 +182,7 @@ public class GetTaxonomy {
 		}
 		return Taxonomy_id_list;
 	}
+
 	@Resource
 	public void setSe(SimpleExample se) {
 		this.se = se;
