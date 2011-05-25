@@ -556,52 +556,7 @@ public class SimpleExample {
 	}
 
 	
-	// Promoter--hasHomology--Homology 返回Homology_list
-	public List<String> Query_Homology(List<String> Promoter)
-			throws ClassNotFoundException {
-		List<String> Homology_list = new ArrayList();
-		int size = Promoter.size();
-		int i = 0;
-		while (i < size) {
-			String promoter = Promoter.get(i);
-			String querystatement = "PREFIX Pre_Promoter:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_hasHomology:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "SELECT ?homology  "
-					+ "WHERE  {"
-					+ "Pre_Promoter:"
-					+ promoter
-					+ " Pre_hasHomology:hasHomology ?homology  ."
-					+ "}";
-			Query query = QueryFactory.create(querystatement);
-			Homology_list = Query_To_List(CreatOntoModel(), query,
-					Homology_list, "#", ">");
-			i++;
-		}
-		return Homology_list;
-	}
-
-	// Homology----name返回Homology_name_list
-	public List<String> Query_Homology_name(List<String> Homology)
-			throws ClassNotFoundException {
-		List<String> Homology_name_list = new ArrayList();
-		int size = Homology.size();
-		int i = 0;
-		while (i < size) {
-			String homology = Homology.get(i);
-			String querystatement = "PREFIX Pre_Homology:<http://miuras.inf.um.es/ontologies/promoter.owl#>"
-					+ "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "SELECT ?name  "
-					+ "WHERE  {"
-					+ "Pre_Homology:"
-					+ homology + " Pre_Name:Name ?name  ." + "}";
-			Query query = QueryFactory.create(querystatement);
-			Homology_name_list = Query_To_List(CreatOntoModel(), query,
-					Homology_name_list, "=", "@");
-			i++;
-		}
-		return Homology_name_list;
-	}
-
+	
 	
 	/**
 	 * do reasoner for the ontology

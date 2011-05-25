@@ -21,6 +21,12 @@
 			<td><s:property value="result_Res" /></td>
 		</tr>
 	</s:iterator>
+	<s:iterator id="result_Hom" value="Hresult" status="index">
+		<tr align="center"
+			bgcolor="<s:if test="#index.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
+			<td><s:property value="result_Hom" /></td>
+		</tr>
+	</s:iterator>
 </table>
 </body>
 </html>

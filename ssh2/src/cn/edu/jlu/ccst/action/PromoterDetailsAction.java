@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
+import cn.edu.jlu.ccst.service.GetHomology;
 import cn.edu.jlu.ccst.service.GetReference;
 import cn.edu.jlu.ccst.service.GetResource;
 
@@ -18,10 +19,13 @@ public class PromoterDetailsAction extends ActionSupport {
 	private String tip;
 	private List<String> resultlist_Reference;
 	private List<String> resultlist_Resource;
+	private List<String> resultlist_Homology;
 	private GetReference gr;
 	private GetResource gres;
+	private GetHomology gh;
 	private List<String> Refresult;
 	private List<String> Resresult;
+	private List<String> Hresult;
 
 	public String PromoterDetails() throws ClassNotFoundException {
 		List<String> Reference = gr.Query_Reference(Promoter);
@@ -63,6 +67,23 @@ public class PromoterDetailsAction extends ActionSupport {
 				Resresult.addAll(resource_id);
 				List<String> resource_link = gres.Query_Resource_link(resource);
 				Resresult.addAll(resource_link);
+				i++;
+			}
+		}
+		List<String> Homology = gh.Query_Homology(Promoter);
+		if(Homology.size() == 0){
+			tip = "There is no Homology for this Promoter!";
+		}else{
+			Hresult = new ArrayList();
+			setResultlist_Homology(Homology);
+			int size = Homology.size();
+			int i = 0;
+			while (i < size) {
+				String homology = Homology.get(i);
+				Resresult.add(homology);
+				List<String> homology_name = gh.Query_Homology_name(homology);
+				Resresult.addAll(homology_name);
+				
 				i++;
 			}
 		}
@@ -132,6 +153,30 @@ public class PromoterDetailsAction extends ActionSupport {
 
 	public List<String> getResresult() {
 		return Resresult;
+	}
+
+	public void setResultlist_Homology(List<String> resultlist_Homology) {
+		this.resultlist_Homology = resultlist_Homology;
+	}
+
+	public List<String> getResultlist_Homology() {
+		return resultlist_Homology;
+	}
+@Resource
+	public void setGh(GetHomology gh) {
+		this.gh = gh;
+	}
+
+	public GetHomology getGh() {
+		return gh;
+	}
+
+	public void setHresult(List<String> hresult) {
+		Hresult = hresult;
+	}
+
+	public List<String> getHresult() {
+		return Hresult;
 	}
 
 }
