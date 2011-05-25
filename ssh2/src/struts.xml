@@ -41,6 +41,10 @@
 			<result name="success">/Result.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="searchGene" class="searchGeneAction">
+		<result name="success">/GetGene.jsp</result>
+		<result name="error">/error.jsp</result>
+		</action>
 		<action name="geneDetails" class="geneDetailsAction">
 			<result name="success">/GeneDetails.jsp</result>
 			<result name="error">/error.jsp</result>
