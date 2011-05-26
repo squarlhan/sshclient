@@ -13,8 +13,7 @@
 	<s:iterator id="result_Taxonomy" value="resultlist_Taxonomy"
 		status="index">
 		<tr align="center"
-			bgcolor="<s:if test="#index.odd == true">#ffffff</s:if>
-			<s:else>#EDEDED</s:else>">
+			bgcolor="<s:if test="#index.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
 			<td><a
 				href="searchGene!SearchGene.action?Taxonomy=
 				<s:property value="result_Taxonomy" />"><s:property
