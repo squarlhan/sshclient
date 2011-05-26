@@ -14,7 +14,7 @@
 			bgcolor="<s:if test="#index.odd == true">#ffffff</s:if><s:else>#EDEDED</s:else>">
 			<td><a
 				href="promoterDetails!PromoterDetails.action?Promoter=<s:property value="result_Promoter" />"><s:property
-				value="result_Promoter" /></td>
+				value="result_Promoter" /></a></td>
 		</tr>
 	</s:iterator>
 	<s:iterator id="result_Go" value="Goresult" status="index">

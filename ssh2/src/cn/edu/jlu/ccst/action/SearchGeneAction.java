@@ -34,7 +34,6 @@ public class SearchGeneAction extends ActionSupport {
 	}
 
 	public String SearchGene() throws ClassNotFoundException {
-
 		List<String> Gene = gg.Query_GeneByTax(Taxonomy);
 		if (Gene.size() == 0) {
 			setTip("There is no Gene for this taxonomy!");
