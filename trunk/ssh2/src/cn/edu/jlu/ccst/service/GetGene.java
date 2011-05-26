@@ -116,13 +116,15 @@ public class GetGene {
 		int i = 0;
 		while (i < size) {
 			String gene = Gene.get(i);
-			String querystatement = "PREFIX Pre_Name:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
-					+ "PREFIX Pre_Identifier:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+			String querystatement = "PREFIX Pre_Name:" +
+					"<http://miuras.inf.um.es/ontologies/OGO.owl#>"
+					+ "PREFIX Pre_Identifier:" +
+							"<http://miuras.inf.um.es/ontologies/OGO.owl#>"
 					+ "PREFIX Pre_Gene:<http://miuras.inf.um.es/ontologies/OGO.owl#>"
 					+ "SELECT ?Gene_id  "
 					+ "WHERE {"
 					+ "Pre_Name:"
-					+ gene
+					+ gene.trim()
 					+ " Pre_Identifier:Identifier ?Gene_id ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Gene_id_list = se.Query_To_List(se.CreatOntoModel(), query,

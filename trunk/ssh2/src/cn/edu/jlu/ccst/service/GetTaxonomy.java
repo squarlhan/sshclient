@@ -26,8 +26,9 @@ public class GetTaxonomy {
 	@SuppressWarnings("unchecked")
 	public List<String> Query_id(String keyword) throws ClassNotFoundException {
 		List<String> id_list = new ArrayList();
-		String querystatement = "select t.ID from Taxonomy t where t.Name like '%"
-				+ keyword.trim() + "%'";
+		String querystatement = 
+			"select t.ID from Taxonomy t where t.Name like '%"
+			+ keyword.trim() + "%'";
 		javax.persistence.Query query = em.createQuery(querystatement);
 		System.out.println(query.getResultList());
 		id_list = query.getResultList();
@@ -39,7 +40,7 @@ public class GetTaxonomy {
 	public String Query_Taxonomy_id(String keyword)
 			throws ClassNotFoundException {
 		// List<String> id_list = new ArrayList();
-		String querystatement = "select t.ID from Taxonomy t where t.Name = '"
+		String querystatement = "select distinct t.ID from Taxonomy t where t.Name = '"
 				+ keyword.trim() + "'";
 		javax.persistence.Query query = em.createQuery(querystatement);
 		System.out.println(query.getResultList());
