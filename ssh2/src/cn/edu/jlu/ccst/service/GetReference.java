@@ -78,7 +78,7 @@ public class GetReference {
 					+ Reference.trim()+ " Pre_Title:Title ?title  ." + "}";
 			Query query = QueryFactory.create(querystatement);
 			Reference_title_list = se.Query_To_List(se.CreatOntoModel(), query,
-					Reference_title_list, "=", "^^");
+					Reference_title_list, "\\", "\\");
 		return Reference_title_list;
 	}
 
