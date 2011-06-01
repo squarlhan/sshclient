@@ -97,10 +97,8 @@ public class SimpleExample {
 			"file:E:/promoter/ontologies/ncbi_punned.owl" };
 
 	public OntModel createOntModel() {
-
 		OntModel model = null;
-		boolean deleteDB = true; // If true the persistent model will be
-									// deleted.
+		boolean deleteDB = true; // If true the persistent model will be deleted.
 		try {
 			Class.forName(DB_Driver);// Load the Driver
 			ModelMaker mm = po.getRDBMaker(DB_URL + DB_SCHEMA, DB_USER,
