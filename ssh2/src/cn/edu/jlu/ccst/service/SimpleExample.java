@@ -399,7 +399,7 @@ public class SimpleExample {
 			ss = sarray[1];
 			// ss = s.substring(index1 + 3, index2-1);
 		} else if (a.equals("\\") && b.equals("\\")) {
-			ss = s.substring(index1 + 5, index2 - 4);
+			ss = s.substring(index1 + 2, index2);
 		} else {
 			ss = s.substring(index1 + 1, index2);
 		}
