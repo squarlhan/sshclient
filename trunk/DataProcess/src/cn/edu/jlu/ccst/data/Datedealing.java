@@ -387,7 +387,7 @@ public class Datedealing {
 //		getallgene("allgene.txt");
 //		getopandge("opandge.txt");
 //		getgeandpa("geandpa.txt");
-//		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
-		producepath("opandge.txt", "seq2421.txt", getgeandpa("geandpa.txt"), "pathway2421.txt");
+		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
+//		producepath("opandge.txt", "seq.txt", getgeandpa("geandpa.txt"), "pathway.txt");
 	}
 }
