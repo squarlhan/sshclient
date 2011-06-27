@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import cn.edu.jlu.ccst.data.CountSupercoilings;
+
 public class DataAnalysis {
 
 	public static List<Set<String>> getfile(String addr){
@@ -266,25 +268,29 @@ public static void similarity2(String[] addrs){
 	
 	public static void main(String[] args){
 				
-		String[] addrs = {"95.74.txt",
-				          "95.124 (2).txt",
-				          "95.124.txt",
-				          "95.397.txt",
-				          "95.713.txt",
-				          "95.829 (2).txt",
-				          "95.829.txt",
-				          "95.885.txt",
-				          "96.025.txt",
-				          "96.182.txt",
-				          "96.206.txt",
-				          "96.376.txt",
-				          "96.385.txt",
-				          "96.497.txt",
-				          "96.503.txt",
-				          "96.584.txt",
-				          "96.703.txt",
-				          "96.978.txt",};	
-		
+//		String[] addrs = {"95.74.txt",
+//				          "95.124 (2).txt",
+//				          "95.124.txt",
+//				          "95.397.txt",
+//				          "95.713.txt",
+//				          "95.829 (2).txt",
+//				          "95.829.txt",
+//				          "95.885.txt",
+//				          "96.025.txt",
+//				          "96.182.txt",
+//				          "96.206.txt",
+//				          "96.376.txt",
+//				          "96.385.txt",
+//				          "96.497.txt",
+//				          "96.503.txt",
+//				          "96.584.txt",
+//				          "96.703.txt",
+//				          "96.978.txt",};	
+//		
+		String[] addrs = new String[42];
+		for(int i = 1; i<=42;i++){
+			addrs[i-1] = "E:\\supercoli\\exe\\rs\\"+String.valueOf(i)+".tab";
+		}
 		similarity2(addrs);
 	}
 }
