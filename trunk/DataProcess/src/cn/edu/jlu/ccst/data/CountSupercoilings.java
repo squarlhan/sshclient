@@ -259,10 +259,10 @@ public class CountSupercoilings {
 		String filename = "";
 		String fileurl = "";
 		String rsurl = "";
-		for(int i = 1; i<=42;i++){
+		for(int i = 1; i<=8;i++){
 			filename = String.valueOf(i);
-			fileurl = "E:\\supercoli\\exe\\rs\\"+filename+".xle";
-			rsurl = "E:\\supercoli\\exe\\rs\\"+filename+".tab";
+			fileurl = "E:\\supercoli\\exe1\\rs\\"+filename+".xls";
+			rsurl = "E:\\supercoli\\exe1\\rs\\"+filename+".tab";
 			CountSupercoilings.writetxt(CountSupercoilings.readExcel(fileurl),rsurl);
 		}
 		
