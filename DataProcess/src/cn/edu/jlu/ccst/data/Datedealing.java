@@ -476,6 +476,50 @@ public class Datedealing {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("Pathway:"+result.get(3).getPathway().getId()+"; Supercoilings:"+result.get(3).getSupercoilings().size());
+		return result;
+	}
+	//算出每个超螺旋出现了多少次
+	public static List<Integer> countsupercoilings(int size, List<PathandSuper> pss, String resultaddr){
+		List<Integer> result = new ArrayList();
+		for(int i = 0; i<=size-1;i++){
+			result.add(0);
+		}
+		for(PathandSuper ps:pss){
+			for(Supercoiling sc:ps.getSupercoilings()){
+				int a = result.get(sc.getId());
+				a++;
+				result.set(sc.getId(), a);
+			}
+		}
+		
+		try {
+			File re = new File(resultaddr);
+			if (re.exists()) {
+				re.delete();
+				if (re.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+			} else {
+				if (re.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+
+			}
+
+			BufferedWriter output = new BufferedWriter(new FileWriter(re));
+			for(int i=0;i<=result.size()-1;i++){
+				output.write(result.get(i)+"\n");
+			}
+			output.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return result;
 	}
 
@@ -484,7 +528,7 @@ public class Datedealing {
 //		getopandge("opandge.txt");
 //		getgeandpa("newpa.txt");
 //		getsupercoilings("3.tab");
-		producepathandsuper(getsupercoilings("3.tab"), getgeandpa("newpa.txt"), "paandsu.txt");
+		countsupercoilings(getsupercoilings("3.tab").size() , producepathandsuper(getsupercoilings("3.tab"), getgeandpa("newpa.txt"), "paandsu.txt"), "counts.txt");
 //		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
 //		producepath("opandge.txt", "seq.txt", getgeandpa("geandpa.txt"), "pathway.txt");
 	}
