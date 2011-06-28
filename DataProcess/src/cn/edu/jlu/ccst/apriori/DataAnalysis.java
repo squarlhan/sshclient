@@ -287,9 +287,9 @@ public static void similarity2(String[] addrs){
 //				          "96.703.txt",
 //				          "96.978.txt",};	
 //		
-		String[] addrs = new String[42];
-		for(int i = 1; i<=42;i++){
-			addrs[i-1] = "E:\\supercoli\\exe\\rs\\"+String.valueOf(i)+".tab";
+		String[] addrs = new String[8];
+		for(int i = 1; i<=8;i++){
+			addrs[i-1] = "E:\\supercoli\\exe1\\rs\\"+String.valueOf(i)+".tab";
 		}
 		similarity2(addrs);
 	}

@@ -164,6 +164,52 @@ public class Datedealing {
 		return result;	
 	}
 	
+	//获取所有的超螺旋和操纵子的对应数据
+		private static List<Supercoiling> getsupercoilings(String addr){
+			File file = new File(addr);
+			List<Supercoiling> result = new ArrayList();
+			try {
+				InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
+				BufferedReader br = new BufferedReader(insr);
+				String line;
+				int id = 0;
+				while ((line = br.readLine()) != null) {
+					line = line.trim();				
+					if (line.trim().length() >= 1) 
+					{
+						Supercoiling sc = new Supercoiling(id);
+						id++;
+						String[] lines= line.split(",");
+					   for(int i=0;i<=lines.length-1;i++) {
+						   if(!lines[i].trim().isEmpty()){
+							   sc.getOperons().add(lines[i].trim());
+						   }
+					   }
+					   result.add(sc);
+					}
+				}
+				br.close();
+				insr.close();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Supercoilings:"+result.size());
+			return result;	
+		}
+		/**
+		 * 得到操纵子序列
+		 * @param ops
+		 * @param ges
+		 * @param resultaddr
+		 * @return
+		 */
 	private static List<String> produceseq(List<Operon> ops, List<String> ges, String resultaddr){
 		List<String> seq = new ArrayList();
 		for(String geneid:ges){
@@ -382,12 +428,64 @@ public class Datedealing {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 
+	 * @param scs
+	 * @param paths
+	 * @param resultaddr
+	 * @return
+	 */
+	private static List<PathandSuper> producepathandsuper(List<Supercoiling> scs, List<Pathway> paths, String resultaddr){
+		List<PathandSuper> result = new ArrayList();
+		for(Pathway path:paths){
+			PathandSuper ps = new PathandSuper(path);
+			for(String geneid:path.getGeneid()){
+				for(Supercoiling sc:scs){
+					if(sc.getOperons().contains(geneid)){
+						ps.getSupercoilings().add(sc);
+					}
+				}
+			}
+			result.add(ps);
+		}
+		System.out.println("Totel:"+result.size());
+		
+		try {
+			File re = new File(resultaddr);
+			if (re.exists()) {
+				re.delete();
+				if (re.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+			} else {
+				if (re.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+
+			}
+
+			BufferedWriter output = new BufferedWriter(new FileWriter(re));
+			for(int i=0;i<=result.size()-1;i++){
+				output.write(result.get(i)+"\n");
+			}
+			output.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	public static void main(String[] args){
 //		getallgene("allgene.txt");
 //		getopandge("opandge.txt");
-//		getgeandpa("geandpa.txt");
-		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
+//		getgeandpa("newpa.txt");
+//		getsupercoilings("3.tab");
+		producepathandsuper(getsupercoilings("3.tab"), getgeandpa("newpa.txt"), "paandsu.txt");
+//		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
 //		producepath("opandge.txt", "seq.txt", getgeandpa("geandpa.txt"), "pathway.txt");
 	}
 }
