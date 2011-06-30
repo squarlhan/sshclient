@@ -49,6 +49,38 @@ public class Datedealing {
 		System.out.println("Gene:"+result.size());
 		return result;	
 	}
+	
+	//获取所有的基因的起始位点
+		private static List<Integer> getallstarts(String addr){
+			File file = new File(addr);
+			List<Integer> result = new ArrayList();
+			try {
+				InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
+				BufferedReader br = new BufferedReader(insr);
+				String line;
+				while ((line = br.readLine()) != null) {
+					line = line.trim();
+					if (line.trim().length() >= 1) 
+					{				 
+						result.add(Integer.parseInt(line));					
+					}
+				}
+				br.close();
+				insr.close();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Gene:"+result.size());
+			return result;	
+		}
+	
 	//获取所有的操纵子和基因的对应数据
 	private static List<Operon> getopandge(String addr){
 		File file = new File(addr);
@@ -210,24 +242,40 @@ public class Datedealing {
 		 * @param resultaddr
 		 * @return
 		 */
-	private static List<String> produceseq(List<Operon> ops, List<String> ges, String resultaddr){
+	private static List<String> produceseq(List<Integer> starts, List<Operon> ops, List<String> ges, String resultaddr, String startaddr){
 		List<String> seq = new ArrayList();
-		for(String geneid:ges){
+		List<Integer> newstarts = new ArrayList();
+		for(int i = 0; i<=ges.size()-1; i++){
 			boolean flag = false;
 			for(Operon op:ops){
-				if(op.getGeneid().contains(geneid)){
+				if(op.getGeneid().contains(ges.get(i))){				
 					if(seq.size()>0){
 						if(!seq.contains(op.getId())){
-							seq.add(op.getId());				
+							seq.add(op.getId());		
+							int min = 5000000;
+							for(String opge: op.getGeneid()){
+								if((!opge.equals("b4448"))&&(min>starts.get(ges.indexOf(opge))))min = starts.get(ges.indexOf(opge));
+							}
+							newstarts.add(min);
 							//break;
 						}
 					}else {
 						seq.add(op.getId());
+						int min = 5000000;
+						for(String opge: op.getGeneid()){
+							if((!opge.equals("b4448"))&&(min>starts.get(ges.indexOf(opge))))min = starts.get(ges.indexOf(opge));
+						}
+						newstarts.add(min);
 					}
+					
+					
 					flag = true;
 				}
 			}
-			if(!flag)seq.add(geneid);
+			if(!flag){
+				seq.add(ges.get(i));
+				newstarts.add(starts.get(i));
+			}
 		}
 		System.out.println("Totel:"+seq.size());
 		
@@ -257,6 +305,34 @@ public class Datedealing {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		try {
+			File result = new File(startaddr);
+			if (result.exists()) {
+				result.delete();
+				if (result.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+			} else {
+				if (result.createNewFile()) {
+					System.out.println("result file create success!");
+				} else {
+					System.out.println("result file create failed!");
+				}
+
+			}
+
+			BufferedWriter output = new BufferedWriter(new FileWriter(result));
+			for(int i=0;i<=newstarts.size()-1;i++){
+				output.write(newstarts.get(i)+"\n");
+			}
+			output.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return seq;
 	}
 	//把pathway中的基因换成对映的operon
@@ -528,8 +604,8 @@ public class Datedealing {
 //		getopandge("opandge.txt");
 //		getgeandpa("newpa.txt");
 //		getsupercoilings("3.tab");
-		countsupercoilings(getsupercoilings("3.tab").size() , producepathandsuper(getsupercoilings("3.tab"), getgeandpa("newpa.txt"), "paandsu.txt"), "counts.txt");
-//		produceseq(getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt");
+//		countsupercoilings(getsupercoilings("3.tab").size() , producepathandsuper(getsupercoilings("3.tab"), getgeandpa("newpa.txt"), "paandsu.txt"), "counts.txt");
+		produceseq(getallstarts("start.txt"), getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt", "newstart.txt");
 //		producepath("opandge.txt", "seq.txt", getgeandpa("geandpa.txt"), "pathway.txt");
 	}
 }
