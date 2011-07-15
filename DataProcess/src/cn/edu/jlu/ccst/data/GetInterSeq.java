@@ -126,11 +126,15 @@ public class GetInterSeq {
 			for(int i = 0; i<=pos.size()-1  ;i++){
 				if(i==0){
 					String str1 = genome.substring(pos.get(i).get(0)-1);
-					String str2 = genome.substring(0, pos.get(i).get(1)+1);
+					String str2 = genome.substring(0, pos.get(i).get(1));
 					printfile(String.valueOf(i+1), str1+str2);
 				}else{
-					String str1 = genome.substring(pos.get(i).get(0)-1, pos.get(i).get(1)+1);
-					printfile(String.valueOf(i+1), str1);
+				if (pos.get(i).get(0) > pos.get(i).get(1)) {
+
+					String str1 = genome.substring(pos.get(i).get(0) - 1, pos
+							.get(i).get(1));
+					printfile(String.valueOf(i + 1), str1);
+					}
 				}
 			}
 		}
