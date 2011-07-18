@@ -221,16 +221,93 @@ public class GetInterSeq {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void producefnabyre(String rsaddr, String addr, String finaladdr){
+		File file = new File(rsaddr);
+		File finalfile = new File(finaladdr);
+		List<Integer> result = new ArrayList();
+		try {
+			InputStreamReader insr = new InputStreamReader(new FileInputStream(
+					file), "gb2312");
+			BufferedReader br = new BufferedReader(insr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				line = line.trim();
+				if (line.trim().length() >= 1) {
+					result.add(Integer.parseInt(line.trim()));
+				}
+			}
+			br.close();
+			insr.close();
+			System.out.println("result:" + result.size());
+			
+			
+			if (finalfile.exists()) {
+				finalfile.delete();
+				if (finalfile.createNewFile()) {
+					System.out
+							.println(finalfile + "result file create success!");
+				} else {
+					System.out.println(finalfile + "result file create failed!");
+				}
+			} else {
+				if (finalfile.createNewFile()) {
+					System.out
+							.println(finalfile + "result file create success!");
+				} else {
+					System.out.println(finalfile + "result file create failed!");
+				}
+
+			}
+
+			BufferedWriter output = new BufferedWriter(new FileWriter(finalfile));
+			int b = 0;
+			for(int a=0; a <= result.size()-1; a++){
+				if (result.get(a) == 1) {
+					File temp = new File(addr + (a + 1) + ".fna");
+					
+					if (temp.exists()) {
+						InputStreamReader insrtemp = new InputStreamReader(
+								new FileInputStream(temp), "gb2312");
+						BufferedReader brtemp = new BufferedReader(insrtemp);
+						line = "";
+						while ((line = brtemp.readLine()) != null) {
+							line = line.trim();
+							if (line.trim().length() >= 1) {
+								output.write(line + "\n");
+							}
+						}
+						brtemp.close();
+						insrtemp.close();
+					}else{
+							b++;
+							System.out.println("There is no file "+(a + 1));
+					}
+					
+				}
+			}
+			System.out.println("There is no file counts "+b);
+			output.close();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		producefasta("all", getgenomenew("NC_000913.one"), getpos("pos.txt"));
-		String a = "asdfasdf";
-		String b = a.substring(1, 2);
-		System.out.println(b);
+		//producefasta("all", getgenomenew("NC_000913.one"), getpos("pos.txt"));
+		producefnabyre("4.txt", "rs/", "resutlt_4_interval.fna");
 	}
 
 }
