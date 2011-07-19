@@ -6,12 +6,21 @@ public class Operon {
 
 	private String id;
 	private Set<String> geneid;
+	private String pm;
 	
 	
 	
 	public Operon() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getPm() {
+		return pm;
+	}
+
+	public void setPm(String pm) {
+		this.pm = pm;
 	}
 
 	public Operon(String id, Set<String> geneid) {

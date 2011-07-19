@@ -72,53 +72,18 @@ public class MaxFunction
 //  }
   
   private List<List<String>> matrix;
+  private List<Integer> myweight;
+  private List<Integer> myfrq;
   
-  public MaxFunction(List<List<String>> matrix){
+  public MaxFunction(List<List<String>> matrix, List<Integer> myweight, List<Integer> myfrq){
 	  this.matrix = matrix;
+	  this.myweight = myweight;
+	  this.myfrq = myfrq;
 	  //MaxFunction();
   }
   public double evaluate(IChromosome a_subject) {
 	    
-//        List<List<String>> matrix = new ArrayList<List<String>>();
-//        
-//        File file = new File("pathway.txt");
-//		try {
-//			InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
-//			BufferedReader br = new BufferedReader(insr);
-//			String line;
-//			while ((line = br.readLine()) != null) {		
-//				if (line.trim().length() >= 1) 
-//				{	
-//					String[] lines = line.trim().split(" ");
-//					if(matrix.size()==0){
-//						for(String label:lines){
-//							List<String> pas = new ArrayList<String>();
-//							pas.add(label);
-//							matrix.add(pas);
-//						}
-//					}else{
-//						for(int i = 0;i<=lines.length-1; i++){
-//							List<String> pas = matrix.get(i);
-//							pas.add(lines[i]);
-//							matrix.set(i, pas);
-//						}
-//					}				
-//				}
-//			}
-//			br.close();
-//			insr.close();
-//		} catch (UnsupportedEncodingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		//System.out.println("Matrix:"+matrix.size()+"*"+matrix.get(0).size());
-	  
+
 	    int total = 0;
 		List<Integer> pos = new ArrayList();
 		for (int i = 0; i < a_subject.size()-1; i++){
@@ -146,17 +111,54 @@ public class MaxFunction
 					}
 					np = p;
 				}
-				if(flag)sumitem++;
+				if(flag){
+					 int tsum = 0;
+		             for (int ks=pos.get(a); ks<=pos.get(a+1)-1; ks++)
+		                 tsum = tsum+myweight.get(ks);
+		             sumitem += tsum;
+				}
 				a++;
 			}
-			if(np>=pos.get(pos.size()-1))sumitem++;
+			if(np>=pos.get(pos.size()-1)){
+				int tsum = 0;
+				for(int ks = pos.get(pos.size()-1); ks < matrix.get(0).size();ks++)
+					tsum+=myweight.get(ks);
+				if(pos.get(0)>1)
+				{
+					for(int ks = 0; ks < pos.get(0);ks++)
+						tsum+=myweight.get(ks);
+				}
+				sumitem += tsum;
+			}
 			sum.add(sumitem);
 		}
         
 	    for (int i = 0; i < sum.size(); i++) {	      
-	        total += sum.get(i);
+	        total += sum.get(i)*myfrq.get(i);
 	    }
+	    
+	    int total1 = 0;
+	    int a = 0;
+	    while (a < pos.size()-1){
+	    	int sumitem = 0;
+	    	for(int i = pos.get(a); i<=pos.get(a+1)-1;i++){
+	    		sumitem += myweight.get(i);
+	    	}
+	    	total1 += Math.abs(sumitem-10);
+	         a++;
+	    }
+	    int tsum = 0;
+		for(int ks = pos.get(pos.size()-1); ks < matrix.get(0).size();ks++)
+			tsum+=myweight.get(ks);
+		if(pos.get(0)>1)
+		{
+			for(int ks = 0; ks < pos.get(0);ks++)
+				tsum+=myweight.get(ks);
+		}
+		total1 = total1+Math.abs(tsum-10);
+		
+		double res = Math.pow((double)pos.size(),1/3)/(Math.pow((double)total,1/3)+Math.pow((double)total1,1/2));
 //	    System.out.println("fitness:"+pos.size()+"/"+total+" :"+Math.pow((double)pos.size(),0.5)/(double)total);
-	    return Math.pow((double)pos.size(),0.5)/Math.pow((double)total,1);
+	    return res;
 	  }
 }

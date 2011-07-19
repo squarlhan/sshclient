@@ -50,6 +50,37 @@ public class Datedealing {
 		return result;	
 	}
 	
+	//获取所有的基因正负链信息
+	private static List<String> getallpm(String addr){
+		File file = new File(addr);
+		List<String> result = new ArrayList();
+		try {
+			InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
+			BufferedReader br = new BufferedReader(insr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				line = line.trim();
+				if (line.trim().length() >= 1) 
+				{				 
+					result.add(line);					
+				}
+			}
+			br.close();
+			insr.close();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Gene:"+result.size());
+		return result;	
+	}
+	
 	//获取所有的基因的起始位点
 		private static List<Integer> getallstarts(String addr){
 			File file = new File(addr);
@@ -598,6 +629,23 @@ public class Datedealing {
 		
 		return result;
 	}
+	
+	public static void trypm(List<Operon> ops, List<String> genes, List<String> pms){
+	    
+		for(Operon op:ops){
+			Set<String> opge = op.getGeneid();
+			boolean flagp = false;
+			boolean flagm = false;
+			for(String ge:opge){
+				int ind = genes.indexOf(ge);
+				if(ind>-1 && pms.get(ind).equals("+"))flagp=true;
+				else if(ind>-1 && pms.get(ind).equals("-"))flagm = true;
+			}
+			if(flagp == flagm){
+				System.out.println(op.getId() + " in p and m!");
+			}
+		}
+	}
 
 	public static void main(String[] args){
 //		getallgene("allgene.txt");
@@ -605,7 +653,8 @@ public class Datedealing {
 //		getgeandpa("newpa.txt");
 //		getsupercoilings("3.tab");
 //		countsupercoilings(getsupercoilings("3.tab").size() , producepathandsuper(getsupercoilings("3.tab"), getgeandpa("newpa.txt"), "paandsu.txt"), "counts.txt");
-		produceseq(getallstarts("start.txt"), getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt", "newstart.txt");
+//		produceseq(getallstarts("start.txt"), getopandge("opandge.txt"),getallgene("allgene.txt"), "seq.txt", "newstart.txt");
 //		producepath("opandge.txt", "seq.txt", getgeandpa("geandpa.txt"), "pathway.txt");
+		trypm(getopandge("opandge.txt"), getallgene("allgene.txt"), getallpm("pm.txt"));
 	}
 }
