@@ -69,7 +69,7 @@ public class SimpleExample {
       out2 = "resltinfo"+marker+".txt";
       out3 = "bestchrom"+marker+".txt";
      }else {
-	   numEvolutions = 10;
+	   numEvolutions = 1000;
 	   pop = 20;
 	   SimpleDateFormat df=new SimpleDateFormat("yyyyMMddHHmmss");
 	   String marker = df.format(new Date());
@@ -84,14 +84,22 @@ public class SimpleExample {
     Genotype genotype = null;
     int chromeSize = 2421;
     
-    double maxFitness = Math.pow((double)2421,0.5)/Math.pow((double)123,1);
+    double maxFitness = 100;
     
     List<List<String>> matrix = new ArrayList<List<String>>();
+    List<Integer> myweight = new ArrayList<Integer>();
+    List<Integer> myfrq = new ArrayList<Integer>();
     
     File file = new File("pathway2421.txt");
+    File file1 = new File("newweight.txt");
+    File file2 = new File("myfrq.txt");
 	try {
 		InputStreamReader insr = new InputStreamReader(new FileInputStream(file), "gb2312");
 		BufferedReader br = new BufferedReader(insr);
+		InputStreamReader insr1 = new InputStreamReader(new FileInputStream(file1), "gb2312");
+		BufferedReader br1 = new BufferedReader(insr1);
+		InputStreamReader insr2 = new InputStreamReader(new FileInputStream(file2), "gb2312");
+		BufferedReader br2 = new BufferedReader(insr2);
 		String line;
 		while ((line = br.readLine()) != null) {		
 			if (line.trim().length() >= 1) 
@@ -112,8 +120,24 @@ public class SimpleExample {
 				}				
 			}
 		}
+		while ((line = br1.readLine()) != null) {		
+			if (line.trim().length() >= 1) 
+			{	
+				myweight.add(Integer.parseInt(line.trim()));
+			}
+		}
+		while ((line = br2.readLine()) != null) {		
+			if (line.trim().length() >= 1) 
+			{	
+				myfrq.add(Integer.parseInt(line.trim()));
+			}
+		}
 		br.close();
+		br1.close();
+		br2.close();
 		insr.close();
+		insr1.close();
+		insr2.close();
 	} catch (UnsupportedEncodingException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -124,7 +148,7 @@ public class SimpleExample {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	System.out.println("Matrix:"+matrix.size()+"*"+matrix.get(0).size());
+//	System.out.println("Matrix:"+matrix.size()+"*"+matrix.get(0).size());
    
 	
     try {
@@ -132,7 +156,7 @@ public class SimpleExample {
           new BooleanGene(gaConf), chromeSize);
       gaConf.setSampleChromosome(sampleChromosome);
       gaConf.setPopulationSize(pop);
-      gaConf.setFitnessFunction(new MaxFunction(matrix));
+      gaConf.setFitnessFunction(new MaxFunction(matrix, myweight, myfrq));
       genotype = Genotype.randomInitialGenotype(gaConf);
     }
     catch (InvalidConfigurationException e) {
