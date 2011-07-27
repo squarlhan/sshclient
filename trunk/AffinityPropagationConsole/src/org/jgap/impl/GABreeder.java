@@ -227,6 +227,8 @@ public class GABreeder
       }
     }
     IChromosome newFittest = reAddFittest(pop, fittest);
+    //把每次最适应的染色体的真实适应度，算出来
+    fittest.setFitnessValueDirectly(a_conf.getFitnessFunction().getFitnessValue(fittest));
     if (monitorActive && newFittest != null) {
       // Monitor that fitness value of chromosomes is being updated.
       // -----------------------------------------------------------
