@@ -83,13 +83,14 @@ package ga;
 			gaConf.setPreservFittestIndividual(true);
 			gaConf.setKeepPopulationSizeConstant(false);
 			Genotype genotype = null;
-			Genotype intergt = null;
+			Genotype[] intergt = new Genotype[intervalcfg.getPopsize()];
+			Genotype bestinter = null;
 			try {
 				IChromosome sampleChromosome = new Chromosome(gaConf,
 						new BooleanGene(gaConf), intervalcfg.getP()*intervalcfg.getLen());
 				gaConf.setSampleChromosome(sampleChromosome);
 				gaConf.setPopulationSize(intervalcfg.getPopsize());
-				gaConf.setFitnessFunction(new IntervalFunction(intervalcfg.getInter(), intervalcfg.getP() , intergt));
+				gaConf.setFitnessFunction(new IntervalFunction());
 				genotype = Genotype.randomInitialGenotype(gaConf);
 			} catch (InvalidConfigurationException e) {
 				e.printStackTrace();
@@ -98,7 +99,22 @@ package ga;
 			int progress = 0;
 			int percentEvolution = intervalcfg.getMaxgen() / 10;
 			for (int i = 0; i < intervalcfg.getMaxgen(); i++) {
-				intergt = commenga(commencfg);
+				for(int a = 0; a<=intervalcfg.getPopsize()-1;a++ ){
+					double[] inters = Bin2Dec.binstr2decstr_interval(
+							genotype.getPopulation().getChromosome(a), 
+							intervalcfg.getP(), 
+							intervalcfg.getInter()
+							);
+					Double[][] cominters = new Double[2][inters.length/2];
+					for(int b = 0; b<= inters.length-1; b+=2){
+						cominters[0][b] = inters[b];
+						cominters[1][b] = inters[b] + inters[b+1];                           
+					}
+					commencfg.setInter(cominters);
+					commencfg.setLen(intervalcfg.getLen()/2);
+					intergt[a] = commenga(commencfg);
+				}
+				
 				genotype.evolve();
 				// Print progress.
 				// ---------------
@@ -123,7 +139,10 @@ package ga;
 
 			}
 			result[0] = fittest;
-			result[1] = intergt.getFittestChromosome();
+			for(int i = 0; i<=genotype.getPopulation().size()-1; i++ ){
+				if(genotype.getPopulation().getChromosome(i).equals(fittest))
+					result[1] = intergt[i].getFittestChromosome();
+			}
 			return result;
 		}
 		
