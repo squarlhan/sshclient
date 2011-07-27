@@ -43,14 +43,28 @@ public class IntervalFunction   extends FitnessFunction {
   
   private Double[][] inters; // 每个参数的取值范围
   private int p; // 参数精度
-  private Genotype genotype; //某子空间内参数进化结果
+  private Genotype[] genotype; //某子空间内参数进化结果
+  private int index; //这是第几条染色体？
+ 
 
-
-public IntervalFunction(Double[][] inters, int p, Genotype genotype) {
+public IntervalFunction(Double[][] inters, int p, Genotype[] genotype, int index) {
 	super();
 	this.inters = inters;
 	this.p = p;
 	this.genotype = genotype;
+	this.index = index;
+}
+
+public IntervalFunction() {
+	// TODO Auto-generated constructor stub
+}
+
+public int getIndex() {
+	return index;
+}
+
+public void setIndex(int index) {
+	this.index = index;
 }
 
 public int getP() {
@@ -71,11 +85,11 @@ public void setInters(Double[][] inters) {
 
 
 
-public Genotype getGenotype() {
+public Genotype[] getGenotype() {
 	return genotype;
 }
 
-public void setGenotype(Genotype genotype) {
+public void setGenotype(Genotype[] genotype) {
 	this.genotype = genotype;
 }
 
@@ -88,10 +102,10 @@ public double evaluate(IChromosome a_subject) {
 		e.printStackTrace();
 	}
     double[] decs = Bin2Dec.binstr2decstr_interval(a_subject, p, inters);
-    for (int i = 1; i <= decs.length-2; i+=2) {      
+    for (int i = 1; i <= decs.length-1; i+=2) {      
         total *= decs[i];     
     }
-    Population pop = genotype.getPopulation();
+    Population pop = genotype[index].getPopulation();
     double avgfit = 0;
    for(int i = 0; i<=pop.size()-1;i++){
 	   avgfit+=pop.getChromosome(i).getFitnessValue();
