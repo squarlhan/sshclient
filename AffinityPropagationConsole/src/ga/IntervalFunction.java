@@ -9,6 +9,7 @@
  */
 package ga;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.jgap.*;
@@ -43,16 +44,39 @@ public class IntervalFunction   extends FitnessFunction {
   
   private Double[][] inters; // 每个参数的取值范围
   private int p; // 参数精度
-  private Genotype[] genotype; //某子空间内参数进化结果
+  private Genotype genotype; //某子空间内参数进化结果
   private int index; //这是第几条染色体？
+  private IntervalConfig commencfg;
  
 
-public IntervalFunction(Double[][] inters, int p, Genotype[] genotype, int index) {
+public IntervalConfig getCommencfg() {
+	return commencfg;
+}
+
+public void setCommencfg(IntervalConfig commencfg) {
+	this.commencfg = commencfg;
+}
+
+public IntervalFunction(Double[][] inters, int p, IntervalConfig commencfg, int index) {
+	super();
+	this.inters = inters;
+	this.p = p;
+	this.commencfg = commencfg;
+	this.index = index;
+}
+
+public IntervalFunction(Double[][] inters, int p, Genotype genotype, int index) {
 	super();
 	this.inters = inters;
 	this.p = p;
 	this.genotype = genotype;
 	this.index = index;
+}
+
+public IntervalFunction(Double[][] inters, int p) {
+	super();
+	this.inters = inters;
+	this.p = p;
 }
 
 public IntervalFunction() {
@@ -85,16 +109,59 @@ public void setInters(Double[][] inters) {
 
 
 
-public Genotype[] getGenotype() {
+public Genotype getGenotype() {
 	return genotype;
 }
 
-public void setGenotype(Genotype[] genotype) {
+public void setGenotype(Genotype genotype) {
 	this.genotype = genotype;
 }
 
-public double evaluate(IChromosome a_subject) {
-    double total = 0;
+/**
+ * 一个普通的遗传算法
+ * @param commencfg 关于该遗传算法的配置
+ * @return 返回程序终止前的种群
+ */
+public static Genotype commenga(IntervalConfig commencfg){
+	
+	Configuration.reset();
+	Configuration comgaConf = new DefaultConfiguration();		
+	comgaConf.setPreservFittestIndividual(true);
+	comgaConf.setKeepPopulationSizeConstant(false);
+	Genotype comgenotype = null;
+	try {
+		IChromosome sampleChromosome = new Chromosome(comgaConf,
+				new BooleanGene(comgaConf), commencfg.getP()*commencfg.getLen());
+		comgaConf.setSampleChromosome(sampleChromosome);
+		comgaConf.setPopulationSize(commencfg.getPopsize());
+		comgaConf.setFitnessFunction(new InterMaxFunction(commencfg.getInter(), commencfg.getP() , commencfg.getMaxfit()));
+		comgenotype = Genotype.randomInitialGenotype(comgaConf);
+	} catch (InvalidConfigurationException e) {
+		e.printStackTrace();
+		System.exit(-2);
+	}
+	int progress = 0;
+	int percentEvolution = commencfg.getMaxgen() / 10;
+	for (int i = 0; i < commencfg.getMaxgen(); i++) {
+		comgenotype.evolve();
+	}
+	// Print summary.
+	// --------------
+//	IChromosome fittest = comgenotype.getFittestChromosome();
+//	double[] fited = Bin2Dec.binstr2decstr(fittest, commencfg.getP(), commencfg.getInter());
+//	System.out.print("Fittest Chromosome has fitness "+ (commencfg.getMaxfit()-fittest.getFitnessValue()));
+//	DecimalFormat myformat = new DecimalFormat("#0.00");
+//	System.out.print("   :   ");
+//	for (int i = 0; i < fited.length; i++) {
+//		System.out.print(myformat.format(fited[i])+"  ");
+//	}
+//	System.out.println();
+	return comgenotype;
+}
+
+
+public double evaluate(IChromosome a_subject, IChromosome[] chorms) {
+    double total = 1;
     try {
 		Thread.sleep(0);
 	} catch (InterruptedException e) {
@@ -102,15 +169,31 @@ public double evaluate(IChromosome a_subject) {
 		e.printStackTrace();
 	}
     double[] decs = Bin2Dec.binstr2decstr_interval(a_subject, p, inters);
+		Double[][] cominters = new Double[decs.length/2][2];
+		for(int b = 0; b<= inters.length-1; b+=2){
+			cominters[b/2][0] = decs[b];
+			cominters[b/2][1] = decs[b] + decs[b+1];                           
+		}
+		commencfg.setInter(cominters);
+		commencfg.setLen(cominters.length);
+		genotype = commenga(commencfg);
+
     for (int i = 1; i <= decs.length-1; i+=2) {      
         total *= decs[i];     
     }
-    Population pop = genotype[index].getPopulation();
+    Population pop = genotype.getPopulation();
     double avgfit = 0;
    for(int i = 0; i<=pop.size()-1;i++){
 	   avgfit+=pop.getChromosome(i).getFitnessValue();
    }
-
-    return avgfit/(pop.size()*total);
+   chorms[index] = genotype.getFittestChromosome();
+    return avgfit/(pop.size()*Math.pow(total, 3/4));
+//    return avgfit/pop.size();
   }
+
+@Override
+protected double evaluate(IChromosome a_subject) {
+	// TODO Auto-generated method stub
+	return -1.0;
+}
 }

@@ -235,9 +235,9 @@ public class Genotype
 	    setPopulation(newPop);
 	  }
   
-  public synchronized void evolve(IntervalConfig intercfg, Genotype[] intergts) {
+  public synchronized void evolve(IntervalConfig intercfg, IntervalConfig commencfg) {
 	    IBreeder breeder = getConfiguration().getBreeder();
-	    Population newPop = breeder.evolve(getPopulation(), getConfiguration(), intercfg, intergts);
+	    Population newPop = breeder.evolve(getPopulation(), getConfiguration(), intercfg, commencfg);
 	    setPopulation(newPop);
 	  }
 
