@@ -63,5 +63,12 @@ public class IntervalConfig {
 		this.p = p;
 		this.len = len;
 	}
+	public IntervalConfig(int maxgen, int popsize, Double maxfit, int p) {
+		super();
+		this.maxgen = maxgen;
+		this.popsize = popsize;
+		this.maxfit = maxfit;
+		this.p = p;
+	}
 
 }

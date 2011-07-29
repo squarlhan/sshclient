@@ -11,6 +11,7 @@ package org.jgap.impl;
 
 import ga.Bin2Dec;
 import ga.IntervalConfig;
+import ga.IntervalEvolvement;
 import ga.IntervalFunction;
 import ga.clustObjectFun;
 
@@ -441,7 +442,7 @@ public class GABreeder
 	    return pop;
 	  }
 
-  public Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg, Genotype[] intergts) {
+  public Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg,  IntervalConfig commencfg) {
 	    Population pop = a_pop;
 	    int originalPopSize = a_conf.getPopulationSize();
 	    boolean monitorActive = a_conf.getMonitor() != null;
@@ -490,7 +491,8 @@ public class GABreeder
 	          IEvolutionMonitor.MONITOR_EVENT_BEFORE_UPDATE_CHROMOSOMES1,
 	          a_conf.getGenerationNr(), new Object[]{pop});
 	    }
-	    updateChromosomes(pop, a_conf, intercfg, intergts);
+	    IChromosome[] tempcroms = updateChromosomes(pop, a_conf, intercfg,commencfg);
+	    Population older_pop = (Population) pop.clone() ;
 	    if (monitorActive) {
 	      // Monitor that fitness value of chromosomes is being updated.
 	      // -----------------------------------------------------------
@@ -563,7 +565,8 @@ public class GABreeder
 	          IEvolutionMonitor.MONITOR_EVENT_BEFORE_UPDATE_CHROMOSOMES2,
 	          a_conf.getGenerationNr(), new Object[]{pop});
 	    }
-	    updateChromosomes(pop, a_conf, intercfg, intergts);
+	    tempcroms = updateChromosomes(older_pop,pop, a_conf, intercfg, commencfg,tempcroms);
+	    Population my_pop = (Population) pop.clone() ;
 	    if (monitorActive) {
 	      // Monitor that fitness value of chromosomes is being updated.
 	      // -----------------------------------------------------------
@@ -628,6 +631,25 @@ public class GABreeder
 	    m_lastConf = a_conf;
 	    a_conf.getEventManager().fireGeneticEvent(
 	        new GeneticEvent(GeneticEvent.GENOTYPE_EVOLVED_EVENT, this));
+	    IChromosome[] mycroms = new IChromosome[pop.size()];
+	    for(int a = 0; a<= pop.size()-1; a++){
+	    	//IChromosome[] tempcroms 	    	
+	    	for(int i = 0; i<= my_pop.size()-1;i++){
+	    		if(pop.getChromosome(a).equals(my_pop.getChromosome(i))){
+	    			mycroms[a] = tempcroms[i];
+	    			break;
+	    		}
+	    	}
+	    	if(IntervalEvolvement.tempcroms !=null){
+	    		for(int b = 0; b<=pop.size()-1; b++){
+	    			if(pop.getChromosome(a).equals(this.getLastPopulation().getChromosome(b))){
+	    				mycroms[a] = IntervalEvolvement.tempcroms[b];
+		    			break;
+	    			}
+	    		}
+	    	}
+	    }
+	    IntervalEvolvement.tempcroms = mycroms;
 	    return pop;
 	  }
 
@@ -679,14 +701,39 @@ public class GABreeder
     return null;
   }
 
-  protected void updateChromosomes(Population a_pop, Configuration a_conf, IntervalConfig intercfg, Genotype[] intergts) {
+  protected IChromosome[] updateChromosomes(Population a_pop, Configuration a_conf, IntervalConfig intercfg, IntervalConfig commencfg) {
     int currentPopSize = a_pop.size();
     // Ensure all chromosomes are updated.
     // -----------------------------------
- for(int i = 0; i<=currentPopSize-1; i++){
-	 a_pop.getChromosome(i).setFitnessValue(new IntervalFunction(intercfg.getInter(), intercfg.getP(), intergts, i).evaluate( a_pop.getChromosome(i)));
-    }
-  }
+    IChromosome[] tempcroms = new IChromosome[currentPopSize];
+		for (int i = 0; i <= currentPopSize - 1; i++) {
+			if(a_pop.getChromosome(i).getFitnessValueDirectly()<0)
+			a_pop.getChromosome(i).setFitnessValue(
+					new IntervalFunction(intercfg.getInter(), intercfg.getP(), commencfg, i)
+							.evaluate(a_pop.getChromosome(i), tempcroms));
+		}
+		return tempcroms;
+	}
+  protected IChromosome[] updateChromosomes(Population older_pop, Population a_pop, Configuration a_conf, IntervalConfig intercfg, IntervalConfig commencfg, IChromosome[] tempcroms) {
+	    int currentPopSize = a_pop.size();
+	    // Ensure all chromosomes are updated.
+	    // -----------------------------------
+	    IChromosome[] thischorms = new IChromosome[currentPopSize];
+			for (int i = 0; i <= currentPopSize - 1; i++) {
+				if(!older_pop.contains(a_pop.getChromosome(i))){
+					a_pop.getChromosome(i).setFitnessValue(
+						new IntervalFunction(intercfg.getInter(), intercfg.getP(), commencfg, i)
+								.evaluate(a_pop.getChromosome(i), thischorms));
+				}else{
+					for(int a = 0; a<=older_pop.size()-1;a++){
+						if(older_pop.getChromosome(a).equals(a_pop.getChromosome(i))){
+							thischorms[i] = tempcroms[a];
+						}
+					}
+				}			
+			}
+			return thischorms;
+		}
   
   protected void updateChromosomes(Population a_pop, Configuration a_conf ) {
 	    int currentPopSize = a_pop.size();

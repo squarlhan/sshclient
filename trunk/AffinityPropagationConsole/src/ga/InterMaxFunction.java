@@ -97,8 +97,8 @@ public double evaluate(IChromosome a_subject) {
 	}
     double[] decs = Bin2Dec.binstr2decstr(a_subject, p, inters);
     for (int i = 0; i < decs.length; i++) {
-      
-        total += Math.pow(decs[i], 2.0);
+
+        total +=  (decs[i]*decs[i]-10*Math.cos(2*decs[i]*Math.PI)+10);
       
     }
 

@@ -40,5 +40,5 @@ public interface IBreeder
    */
   Population evolve(Population a_pop, Configuration a_conf);
   Population evolve(Population a_pop, Configuration a_conf, boolean ap);
-  Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg, Genotype[] intergts);
+  Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg, IntervalConfig commencfg);
 }
