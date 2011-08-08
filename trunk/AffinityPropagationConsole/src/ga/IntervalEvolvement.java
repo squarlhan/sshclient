@@ -18,13 +18,21 @@ import org.jgap.impl.*;
 	 */
 	public class IntervalEvolvement {
 		
-		public static IChromosome[] tempcroms = null;
+		private IChromosome[] tempcroms = null;
+		public IChromosome[] getTempcroms() {
+			return tempcroms;
+		}
+
+		public void setTempcroms(IChromosome[] tempcroms) {
+			this.tempcroms = tempcroms;
+		}
+
 		/**
 		 * 一个普通的遗传算法
 		 * @param commencfg 关于该遗传算法的配置
 		 * @return 返回程序终止前的种群
 		 */
-		public static Genotype commenga(IntervalConfig commencfg){
+		public Genotype commenga(IntervalConfig commencfg){
 			
 			Configuration.reset();
 			Configuration comgaConf = new DefaultConfiguration();		
@@ -32,11 +40,14 @@ import org.jgap.impl.*;
 			comgaConf.setKeepPopulationSizeConstant(false);
 			Genotype comgenotype = null;
 			try {
-				IChromosome sampleChromosome = new Chromosome(comgaConf,
-						new BooleanGene(comgaConf), commencfg.getP()*commencfg.getLen());
+				Gene[] genes = new DoubleGene[commencfg.getLen()];
+				for(int i =0 ; i<= genes.length-1; i++){
+					genes[i] = new DoubleGene(comgaConf, commencfg.getInter()[i][0], commencfg.getInter()[i][1]);
+				}
+				IChromosome sampleChromosome = new Chromosome(comgaConf, genes);
 				comgaConf.setSampleChromosome(sampleChromosome);
 				comgaConf.setPopulationSize(commencfg.getPopsize());
-				comgaConf.setFitnessFunction(new InterMaxFunction(commencfg.getInter(), commencfg.getP() , commencfg.getMaxfit()));
+				comgaConf.setFitnessFunction(new InterMaxFunction(commencfg.getMaxfit()));
 				comgenotype = Genotype.randomInitialGenotype(comgaConf);
 			} catch (InvalidConfigurationException e) {
 				e.printStackTrace();
@@ -58,11 +69,10 @@ import org.jgap.impl.*;
 			// Print summary.
 			// --------------
 			IChromosome fittest = comgenotype.getFittestChromosome();
-			double[] fited = Bin2Dec.binstr2decstr(fittest, commencfg.getP(), commencfg.getInter());
 			System.out.println("Fittest Chromosome has fitness "+ (commencfg.getMaxfit()-fittest.getFitnessValue()));
 			DecimalFormat myformat = new DecimalFormat("#0.00");
-			for (int i = 0; i < fited.length; i++) {
-				System.out.print(myformat.format(fited[i])+"  ");
+			for (int i = 0; i < fittest.size(); i++) {
+				System.out.print(myformat.format(fittest.getGene(i).getAllele())+"  ");
 			}
 			System.out.println();
 			return comgenotype;
@@ -74,7 +84,7 @@ import org.jgap.impl.*;
 		 * @param commencfg 区间内参数遗传算法的配置
 		 * @return 返回两个最佳染色体，第一个是区间染色体，第二个是此区间下的最佳参数染色体
 		 */
-		public static IChromosome[] intervalga(IntervalConfig intervalcfg, IntervalConfig commencfg){
+		public  IChromosome[] intervalga(IntervalConfig intervalcfg, IntervalConfig commencfg){
 			
 			IChromosome[] result = new IChromosome[2]; 
 			Configuration gaConf = new DefaultConfiguration();
@@ -82,8 +92,11 @@ import org.jgap.impl.*;
 			gaConf.setKeepPopulationSizeConstant(false);
 			Genotype genotype = null;
 			try {
-				IChromosome sampleChromosome = new Chromosome(gaConf,
-						new BooleanGene(gaConf), intervalcfg.getP()*intervalcfg.getLen());
+				Gene[] genes = new IntegerGene[intervalcfg.getLen()];
+				for(int i =0 ; i<= genes.length-1; i++){
+					genes[i] = new IntegerGene(gaConf, 0, intervalcfg.getP()-1);
+				}
+				IChromosome sampleChromosome = new Chromosome(gaConf, genes);
 				gaConf.setSampleChromosome(sampleChromosome);
 				gaConf.setPopulationSize(intervalcfg.getPopsize());
 				gaConf.setFitnessFunction(new IntervalFunction());
@@ -97,7 +110,7 @@ import org.jgap.impl.*;
 			for (int i = 0; i < intervalcfg.getMaxgen(); i++) {
 				
 				
-				genotype.evolve(intervalcfg, commencfg);
+				genotype.evolve(intervalcfg, commencfg, this);
 				// Print progress.
 				// ---------------
 				if (percentEvolution > 0 && i % percentEvolution == 0) {
@@ -112,17 +125,19 @@ import org.jgap.impl.*;
 			IChromosome fittest = genotype.getFittestChromosome();
 			result[0] = fittest;
 			
-			double[] fited = Bin2Dec.binstr2decstr_interval(fittest, intervalcfg.getP(), intervalcfg.getInter());
 			System.out.println("Fittest Domain has fitness "+ (fittest.getFitnessValue()));
-			Double[][] cominters = new Double[fited.length/2][2];
+			Double[][] cominters = new Double[fittest.size()][2];
 			DecimalFormat myformat = new DecimalFormat("#0.00");
-			for (int i = 0; i < fited.length; i++) {
-				if(i%2==0){
-					System.out.print(myformat.format(fited[i])+"  ");
-					cominters[i/2][0] = fited[i];
+			for (int i = 0; i < fittest.size(); i++) {
+				int index = (Integer) fittest.getGene(i).getAllele();
+				double min = intervalcfg.getInter()[i][0];
+				double max = intervalcfg.getInter()[i][1];
+				if(i%2==0){					
+					cominters[i][0] = min + index*(max-min)/intervalcfg.getP();
+					System.out.print(myformat.format(cominters[i][0])+"		");
 				}else{
-					System.out.println(myformat.format(fited[i]+fited[i-1])+"   ");
-					cominters[(i-1)/2][1] = fited[i]+fited[i-1];
+					cominters[i][1] = min + (index+1)*(max-min)/intervalcfg.getP();
+					System.out.println(myformat.format(cominters[i][1])+"   ");
 				}
 			}
 			System.out.println("pop size: "+genotype.getPopulation().size());
@@ -133,10 +148,10 @@ import org.jgap.impl.*;
 					break;
 				}	
 			}
-			double[] interfited = Bin2Dec.binstr2decstr(result[1], commencfg.getP(), cominters);
+
 			System.out.println("Fittest Parameter has fitness "+ (commencfg.getMaxfit()-result[1].getFitnessValue()));
-			for (int i = 0; i < interfited.length; i++) {		
-					System.out.print(myformat.format(interfited[i])+" ");
+			for (int i = 0; i < result[1].size(); i++) {		
+					System.out.print(myformat.format(result[1].getGene(i).getAllele())+" ");
 			}
 			System.out.println();
 			return result;
@@ -220,16 +235,17 @@ import org.jgap.impl.*;
 		
 		public static void main(String[] args) {
 			
-			Double[][] inter = new Double[60][2];
-			for(int a = 0; a<=59; a++){
+			Double[][] inter = new Double[30][2];
+			for(int a = 0; a<=29; a++){
 				inter[a][0] = -10.0;
 				inter[a][1] = 10.0;
 			}
 			Double maxfit = 222.0;
 			maxfit = 3330.0;
-			IntervalConfig intervalcfg = new IntervalConfig(10, 10,  maxfit,  inter, 20, 60);
-			IntervalConfig commencfg = new IntervalConfig(100, 20,  maxfit, 20);
-			intervalga(intervalcfg, commencfg);		
+			IntervalConfig intervalcfg = new IntervalConfig(10, 20,  maxfit,  inter, 20, 30);
+			IntervalConfig commencfg = new IntervalConfig(100, 20,  maxfit);
+			IntervalEvolvement ie = new IntervalEvolvement();
+			ie.intervalga(intervalcfg, commencfg);		
 			
 			Double[][] cominter = new Double[30][2];
 			for(int a = 0; a<=29; a++){
@@ -237,9 +253,9 @@ import org.jgap.impl.*;
 				cominter[a][1] = 10.0;
 			}
 			//Double commaxfit = 222.0;
-			maxfit = 3330.0;
-			IntervalConfig comcfg = new IntervalConfig(100, 20,  maxfit, cominter, 20, 30);
-//			commenga(comcfg);		
+//			maxfit = 3330.0;
+			IntervalConfig comcfg = new IntervalConfig(10000, 20,  maxfit, cominter, 30);
+//			ie.commenga(comcfg);		
 		}
 	}
 

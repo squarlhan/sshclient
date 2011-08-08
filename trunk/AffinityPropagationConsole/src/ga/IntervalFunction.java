@@ -130,11 +130,14 @@ public static Genotype commenga(IntervalConfig commencfg){
 	comgaConf.setKeepPopulationSizeConstant(false);
 	Genotype comgenotype = null;
 	try {
-		IChromosome sampleChromosome = new Chromosome(comgaConf,
-				new BooleanGene(comgaConf), commencfg.getP()*commencfg.getLen());
+		Gene[] genes = new DoubleGene[commencfg.getLen()];
+		for(int i =0 ; i<= genes.length-1; i++){
+			genes[i] = new DoubleGene(comgaConf, commencfg.getInter()[i][0], commencfg.getInter()[i][1]);
+		}
+		IChromosome sampleChromosome = new Chromosome(comgaConf, genes);
 		comgaConf.setSampleChromosome(sampleChromosome);
 		comgaConf.setPopulationSize(commencfg.getPopsize());
-		comgaConf.setFitnessFunction(new InterMaxFunction(commencfg.getInter(), commencfg.getP() , commencfg.getMaxfit()));
+		comgaConf.setFitnessFunction(new InterMaxFunction(commencfg.getMaxfit()));
 		comgenotype = Genotype.randomInitialGenotype(comgaConf);
 	} catch (InvalidConfigurationException e) {
 		e.printStackTrace();
@@ -161,34 +164,33 @@ public static Genotype commenga(IntervalConfig commencfg){
 
 
 public double evaluate(IChromosome a_subject, IChromosome[] chorms) {
-    double total = 1;
     try {
 		Thread.sleep(0);
 	} catch (InterruptedException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    double[] decs = Bin2Dec.binstr2decstr_interval(a_subject, p, inters);
-		Double[][] cominters = new Double[decs.length/2][2];
-		for(int b = 0; b<= inters.length-1; b+=2){
-			cominters[b/2][0] = decs[b];
-			cominters[b/2][1] = decs[b] + decs[b+1];                           
+		Double[][] cominters = new Double[a_subject.size()][2];
+		for(int b = 0; b<= inters.length-1; b++){
+			int index = (Integer) a_subject.getGene(b).getAllele();
+			double min = inters[b][0];
+			double max = inters[b][1];
+			cominters[b][0] = min + index*(max-min)/p;
+			cominters[b][1] = min + (index+1)*(max-min)/p;                           
 		}
 		commencfg.setInter(cominters);
 		commencfg.setLen(cominters.length);
 		genotype = commenga(commencfg);
 
-    for (int i = 1; i <= decs.length-1; i+=2) {      
-        total *= decs[i];     
-    }
+    
     Population pop = genotype.getPopulation();
     double avgfit = 0;
    for(int i = 0; i<=pop.size()-1;i++){
 	   avgfit+=pop.getChromosome(i).getFitnessValue();
    }
    chorms[index] = genotype.getFittestChromosome();
-    return avgfit/(pop.size()*Math.pow(total, 3/4));
 //    return avgfit/pop.size();
+   return genotype.getFittestChromosome().getFitnessValue();
   }
 
 @Override

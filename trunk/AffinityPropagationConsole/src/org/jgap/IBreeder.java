@@ -10,6 +10,7 @@
 package org.jgap;
 
 import ga.IntervalConfig;
+import ga.IntervalEvolvement;
 
 import java.io.*;
 import org.jgap.util.ICloneable;
@@ -40,5 +41,5 @@ public interface IBreeder
    */
   Population evolve(Population a_pop, Configuration a_conf);
   Population evolve(Population a_pop, Configuration a_conf, boolean ap);
-  Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg, IntervalConfig commencfg);
+  Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg, IntervalConfig commencfg,IntervalEvolvement obj);
 }
