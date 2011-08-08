@@ -442,7 +442,7 @@ public class GABreeder
 	    return pop;
 	  }
 
-  public Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg,  IntervalConfig commencfg) {
+  public Population evolve(Population a_pop, Configuration a_conf, IntervalConfig intercfg,  IntervalConfig commencfg,IntervalEvolvement obj) {
 	    Population pop = a_pop;
 	    int originalPopSize = a_conf.getPopulationSize();
 	    boolean monitorActive = a_conf.getMonitor() != null;
@@ -491,7 +491,7 @@ public class GABreeder
 	          IEvolutionMonitor.MONITOR_EVENT_BEFORE_UPDATE_CHROMOSOMES1,
 	          a_conf.getGenerationNr(), new Object[]{pop});
 	    }
-	    IChromosome[] tempcroms = updateChromosomes(pop, a_conf, intercfg,commencfg);
+	    IChromosome[] tempcroms = updateChromosomes(pop, a_conf, intercfg,commencfg, obj);
 	    Population older_pop = (Population) pop.clone() ;
 	    if (monitorActive) {
 	      // Monitor that fitness value of chromosomes is being updated.
@@ -636,20 +636,20 @@ public class GABreeder
 	    	//IChromosome[] tempcroms 	    	
 	    	for(int i = 0; i<= my_pop.size()-1;i++){
 	    		if(pop.getChromosome(a).equals(my_pop.getChromosome(i))){
-	    			mycroms[a] = tempcroms[i];
+	    			mycroms[a] = (IChromosome) tempcroms[i].clone();
 	    			break;
 	    		}
 	    	}
-	    	if(IntervalEvolvement.tempcroms !=null){
+	    	if(obj.getTempcroms() !=null){
 	    		for(int b = 0; b<=pop.size()-1; b++){
 	    			if(pop.getChromosome(a).equals(this.getLastPopulation().getChromosome(b))){
-	    				mycroms[a] = IntervalEvolvement.tempcroms[b];
+	    				mycroms[a] = (IChromosome) obj.getTempcroms()[b].clone();
 		    			break;
 	    			}
 	    		}
 	    	}
 	    }
-	    IntervalEvolvement.tempcroms = mycroms;
+	    obj.setTempcroms(mycroms);
 	    return pop;
 	  }
 
@@ -701,16 +701,21 @@ public class GABreeder
     return null;
   }
 
-  protected IChromosome[] updateChromosomes(Population a_pop, Configuration a_conf, IntervalConfig intercfg, IntervalConfig commencfg) {
+  protected IChromosome[] updateChromosomes(Population a_pop, Configuration a_conf, IntervalConfig intercfg, IntervalConfig commencfg, IntervalEvolvement obj) {
     int currentPopSize = a_pop.size();
     // Ensure all chromosomes are updated.
     // -----------------------------------
-    IChromosome[] tempcroms = new IChromosome[currentPopSize];
+		IChromosome[] tempcroms = new IChromosome[currentPopSize];
 		for (int i = 0; i <= currentPopSize - 1; i++) {
-			if(a_pop.getChromosome(i).getFitnessValueDirectly()<0)
-			a_pop.getChromosome(i).setFitnessValue(
-					new IntervalFunction(intercfg.getInter(), intercfg.getP(), commencfg, i)
-							.evaluate(a_pop.getChromosome(i), tempcroms));
+			if (a_pop.getChromosome(i).getFitnessValueDirectly() < 0) {
+				a_pop.getChromosome(i).setFitnessValue(
+						new IntervalFunction(intercfg.getInter(), intercfg
+								.getP(), commencfg, i).evaluate(
+								a_pop.getChromosome(i), tempcroms));
+			} else {
+				tempcroms[i] = (IChromosome) obj.getTempcroms()[i].clone();
+			}
+
 		}
 		return tempcroms;
 	}
@@ -727,7 +732,8 @@ public class GABreeder
 				}else{
 					for(int a = 0; a<=older_pop.size()-1;a++){
 						if(older_pop.getChromosome(a).equals(a_pop.getChromosome(i))){
-							thischorms[i] = tempcroms[a];
+							thischorms[i] = (IChromosome) tempcroms[a].clone();
+							break;
 						}
 					}
 				}			

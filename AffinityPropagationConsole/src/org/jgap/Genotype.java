@@ -10,6 +10,7 @@
 package org.jgap;
 
 import ga.IntervalConfig;
+import ga.IntervalEvolvement;
 
 import java.io.*;
 import java.util.*;
@@ -235,9 +236,9 @@ public class Genotype
 	    setPopulation(newPop);
 	  }
   
-  public synchronized void evolve(IntervalConfig intercfg, IntervalConfig commencfg) {
+  public synchronized void evolve(IntervalConfig intercfg, IntervalConfig commencfg, IntervalEvolvement obj) {
 	    IBreeder breeder = getConfiguration().getBreeder();
-	    Population newPop = breeder.evolve(getPopulation(), getConfiguration(), intercfg, commencfg);
+	    Population newPop = breeder.evolve(getPopulation(), getConfiguration(), intercfg, commencfg, obj);
 	    setPopulation(newPop);
 	  }
 

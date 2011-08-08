@@ -6,8 +6,8 @@ public class IntervalConfig {
 	 * @param maxgen 最大进化带数
 	 * @param popsize 群体数目
 	 * @param maxfit 最大适应度
-	 * @param inter 每个参数定义域
-	 * @param p 参数精度，即多长二进制串表示一个参数
+	 * @param inter 每个参数定义域 2列 len行
+	 * @param p 参数精度，即多长二进制串表示一个参数 或者把定义域分成多少分
 	 * @param len 共有参数多少个
 	 */
 	private int maxgen; 
@@ -69,6 +69,21 @@ public class IntervalConfig {
 		this.popsize = popsize;
 		this.maxfit = maxfit;
 		this.p = p;
+	}
+	public IntervalConfig(int maxgen, int popsize, Double maxfit) {
+		super();
+		this.maxgen = maxgen;
+		this.popsize = popsize;
+		this.maxfit = maxfit;
+	}
+	public IntervalConfig(int maxgen, int popsize, Double maxfit,
+			Double[][] inter, int len) {
+		super();
+		this.maxgen = maxgen;
+		this.popsize = popsize;
+		this.maxfit = maxfit;
+		this.inter = inter;
+		this.len = len;
 	}
 
 }

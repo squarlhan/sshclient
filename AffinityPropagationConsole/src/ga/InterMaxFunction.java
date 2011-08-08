@@ -49,8 +49,6 @@ public class InterMaxFunction
    * @since 2.0
    */
   
-  private Double[][] inters;
-  private int p;
   private Double maxfit;
 
 
@@ -62,27 +60,9 @@ public void setMaxfit(Double maxfit) {
 	this.maxfit = maxfit;
 }
 
-public InterMaxFunction(Double[][] inters, int p, Double maxfit) {
+public InterMaxFunction(Double maxfit) {
 	super();
-	this.inters = inters;
-	this.p = p;
 	this.maxfit = maxfit;
-}
-
-public int getP() {
-	return p;
-}
-
-public void setP(int p) {
-	this.p = p;
-}
-
-public Double[][] getInters() {
-	return inters;
-}
-
-public void setInters(Double[][] inters) {
-	this.inters = inters;
 }
 
 
@@ -95,10 +75,10 @@ public double evaluate(IChromosome a_subject) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    double[] decs = Bin2Dec.binstr2decstr(a_subject, p, inters);
-    for (int i = 0; i < decs.length; i++) {
+    for (int i = 0; i < a_subject.size(); i++) {
 
-        total +=  (decs[i]*decs[i]-10*Math.cos(2*decs[i]*Math.PI)+10);
+    	Double gene_value = (Double) a_subject.getGene(i).getAllele();
+    	total +=  (gene_value*gene_value-10*Math.cos(2*gene_value*Math.PI)+10);
       
     }
 
