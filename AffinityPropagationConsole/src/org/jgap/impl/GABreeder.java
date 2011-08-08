@@ -565,7 +565,7 @@ public class GABreeder
 	          IEvolutionMonitor.MONITOR_EVENT_BEFORE_UPDATE_CHROMOSOMES2,
 	          a_conf.getGenerationNr(), new Object[]{pop});
 	    }
-	    tempcroms = updateChromosomes(older_pop,pop, a_conf, intercfg, commencfg,tempcroms);
+	    IChromosome[] tempcroms2 = updateChromosomes(older_pop,pop, a_conf, intercfg, commencfg,tempcroms);
 	    Population my_pop = (Population) pop.clone() ;
 	    if (monitorActive) {
 	      // Monitor that fitness value of chromosomes is being updated.
@@ -631,25 +631,15 @@ public class GABreeder
 	    m_lastConf = a_conf;
 	    a_conf.getEventManager().fireGeneticEvent(
 	        new GeneticEvent(GeneticEvent.GENOTYPE_EVOLVED_EVENT, this));
-	    IChromosome[] mycroms = new IChromosome[pop.size()];
 	    for(int a = 0; a<= pop.size()-1; a++){
 	    	//IChromosome[] tempcroms 	    	
 	    	for(int i = 0; i<= my_pop.size()-1;i++){
 	    		if(pop.getChromosome(a).equals(my_pop.getChromosome(i))){
-	    			mycroms[a] = (IChromosome) tempcroms[i].clone();
+	    			obj.getTempcroms()[a] = (IChromosome) tempcroms2[i].clone();
 	    			break;
 	    		}
 	    	}
-	    	if(obj.getTempcroms() !=null){
-	    		for(int b = 0; b<=pop.size()-1; b++){
-	    			if(pop.getChromosome(a).equals(this.getLastPopulation().getChromosome(b))){
-	    				mycroms[a] = (IChromosome) obj.getTempcroms()[b].clone();
-		    			break;
-	    			}
-	    		}
-	    	}
 	    }
-	    obj.setTempcroms(mycroms);
 	    return pop;
 	  }
 
