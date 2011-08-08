@@ -91,6 +91,7 @@ import org.jgap.impl.*;
 			gaConf.setPreservFittestIndividual(true);
 			gaConf.setKeepPopulationSizeConstant(false);
 			Genotype genotype = null;
+			tempcroms = new IChromosome[intervalcfg.getPopsize()];
 			try {
 				Gene[] genes = new IntegerGene[intervalcfg.getLen()];
 				for(int i =0 ; i<= genes.length-1; i++){
@@ -132,18 +133,23 @@ import org.jgap.impl.*;
 				int index = (Integer) fittest.getGene(i).getAllele();
 				double min = intervalcfg.getInter()[i][0];
 				double max = intervalcfg.getInter()[i][1];
-				if(i%2==0){					
-					cominters[i][0] = min + index*(max-min)/intervalcfg.getP();
-					System.out.print(myformat.format(cominters[i][0])+"		");
-				}else{
-					cominters[i][1] = min + (index+1)*(max-min)/intervalcfg.getP();
-					System.out.println(myformat.format(cominters[i][1])+"   ");
-				}
+				cominters[i][0] = min + index*(max-min)/intervalcfg.getP();
+				System.out.print(myformat.format(cominters[i][0])+"	");
+				cominters[i][1] = min + (index+1)*(max-min)/intervalcfg.getP();
+				System.out.println(myformat.format(cominters[i][1])+"	");
 			}
-			System.out.println("pop size: "+genotype.getPopulation().size());
-			System.out.println("chrom size: "+tempcroms.length);
-			for(int i = 0; i<=genotype.getPopulation().size()-1; i++ ){
-				if(genotype.getPopulation().getChromosome(i).equals(fittest)){
+			
+//			for(int i = 0; i<=genotype.getPopulation().size()-1; i++ ){
+//				if(genotype.getPopulation().getChromosome(i).equals(fittest)){
+//					result[1] = tempcroms[i];
+//					break;
+//				}	
+//			}
+			double maxfitness = tempcroms[0].getFitnessValueDirectly();
+			result[1] = tempcroms[0];
+			for(int i = 0; i<=tempcroms.length-1; i++ ){
+				if(maxfitness<tempcroms[i].getFitnessValueDirectly()){
+					maxfitness = tempcroms[i].getFitnessValueDirectly();
 					result[1] = tempcroms[i];
 					break;
 				}	
