@@ -38,85 +38,85 @@ public class SimpleExample {
 	 * 
 	 * @author Neil Rotstan
 	 * @author Klaus Meffert
-	 * @throws IOException 
+	 * @throws IOException
 	 * @since 2.0
 	 */
 	public static void main(String[] args) throws IOException {
 
-			File result = new File("purega.txt");
-			if (result.exists()) {
-				result.delete();
-				if (result.createNewFile()) {
-					System.out.println("result file create success!");
-				} else {
-					System.out.println("result file create failed!");
-				}
+		File result = new File("purega.txt");
+		if (result.exists()) {
+			result.delete();
+			if (result.createNewFile()) {
+				System.out.println("result file create success!");
 			} else {
-				if (result.createNewFile()) {
-					System.out.println("result file create success!");
-				} else {
-					System.out.println("result file create failed!");
-				}
-
+				System.out.println("result file create failed!");
+			}
+		} else {
+			if (result.createNewFile()) {
+				System.out.println("result file create success!");
+			} else {
+				System.out.println("result file create failed!");
 			}
 
-			BufferedWriter output = new BufferedWriter(new FileWriter(result));
-			
+		}
+		
+		Graph g=GraphFactory.createGraph("scen11_f6.txt");
 
-				long startTime = System.currentTimeMillis();
-				int numEvolutions = 200;
-				Configuration gaConf = new DefaultConfiguration();
-				gaConf.setPreservFittestIndividual(true);
-				gaConf.setKeepPopulationSizeConstant(false);
-				Genotype genotype = null;
-				int chromeSize = 2000;
-				double maxFitness = 100 * Math.pow(5.12, 2.0);
-				try {
-					IChromosome sampleChromosome = new Chromosome(gaConf,
-							new BooleanGene(gaConf), chromeSize);
-					gaConf.setSampleChromosome(sampleChromosome);
-					gaConf.setPopulationSize(40);
-					gaConf.setFitnessFunction(new GraphMaxFunction());
-					genotype = Genotype.randomInitialGenotype(gaConf);
-				} catch (InvalidConfigurationException e) {
-					e.printStackTrace();
-					System.exit(-2);
-				}
-				int progress = 0;
-				int percentEvolution = numEvolutions / 10;
-				for (int i = 0; i < numEvolutions; i++) {
-					genotype.evolve();
-					// Print progress.
-					// ---------------
-					if (percentEvolution > 0 && i % percentEvolution == 0) {
-						progress++;
-						IChromosome fittest = genotype.getFittestChromosome();
-						double fitness = fittest.getFitnessValue();
-						System.out.println("Currently fittest Chromosome has fitness "+ fitness);
-						output.write(String.valueOf(fitness)+"\n");
-					}
-				}
-				// Print summary.
-				// --------------
+		BufferedWriter output = new BufferedWriter(new FileWriter(result));
+
+		long startTime = System.currentTimeMillis();
+		int numEvolutions = 200;
+		Configuration gaConf = new DefaultConfiguration();
+		gaConf.setPreservFittestIndividual(true);
+		gaConf.setKeepPopulationSizeConstant(false);
+		Genotype genotype = null;
+		int chromeSize = 680;
+		double maxFitness = 680;
+		try {
+			IChromosome sampleChromosome = new Chromosome(gaConf,
+					new BooleanGene(gaConf), chromeSize);
+			gaConf.setSampleChromosome(sampleChromosome);
+			gaConf.setPopulationSize(40);
+			gaConf.setFitnessFunction(new GraphMaxFunction(g));
+			genotype = Genotype.randomInitialGenotype(gaConf);
+		} catch (InvalidConfigurationException e) {
+			e.printStackTrace();
+			System.exit(-2);
+		}
+		int progress = 0;
+		int percentEvolution = numEvolutions / 10;
+		for (int i = 0; i < numEvolutions; i++) {
+			genotype.evolve();
+			// Print progress.
+			// ---------------
+			if (percentEvolution > 0 && i % percentEvolution == 0) {
+				progress++;
 				IChromosome fittest = genotype.getFittestChromosome();
-				double[] fited = Bin2Dec
-						.binstr2decstr(fittest, 20, 5.12, -5.12);
-				System.out.println("Fittest Chromosome has fitness "
-						+ (maxFitness-fittest.getFitnessValue()));
-				output.write("Fittest Chromosome has fitness "
-						+ (maxFitness-fittest.getFitnessValue())+"\n");
-				DecimalFormat myformat = new DecimalFormat("#0.00");
-				for (int i = 0; i < fited.length; i++) {
+				double fitness = fittest.getFitnessValue();
+				System.out.println("Currently fittest Chromosome has fitness "
+						+ fitness);
+				output.write(String.valueOf(fitness) + "\n");
+			}
+		}
+		// Print summary.
+		// --------------
+		IChromosome fittest = genotype.getFittestChromosome();
+		System.out.println("Fittest Chromosome has fitness "
+				+ (maxFitness - fittest.getFitnessValue()));
+		output.write("Fittest Chromosome has fitness "
+				+ (maxFitness - fittest.getFitnessValue()) + "\n");
+		DecimalFormat myformat = new DecimalFormat("#0.00");
+		for (int i = 0; i < fittest.size(); i++) {
 
-					System.out.println(myformat.format(fited[i]));
-					output.write(String.valueOf(myformat.format(fited[i]))+"\n");
+			if ((Boolean) fittest.getGene(i).getAllele())
+				System.out.println(myformat.format(i));
+			output.write(String.valueOf(myformat.format(i)) + "\n");
 
-				}
-				long endTime = System.currentTimeMillis();
-				System.out.println("程序运行时间： " + (endTime - startTime) + "ms");
-				output.write("程序运行时间： " + (endTime - startTime) + "ms"+"\n");
-				output.close();
-			
-			
+		}
+		long endTime = System.currentTimeMillis();
+		System.out.println("程序运行时间： " + (endTime - startTime) + "ms");
+		output.write("程序运行时间： " + (endTime - startTime) + "ms" + "\n");
+		output.close();
+
 	}
 }
