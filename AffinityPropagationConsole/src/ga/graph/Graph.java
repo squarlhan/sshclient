@@ -15,12 +15,13 @@ public class Graph {
 		recover();
 		initilize(list);
 		Node root=findRoot();
-		if(root.visited){
-			System.out.println("所有节点都已经被删除");
-			System.exit(0);
-		}
+		while(!root.visited){
+			if(depthFirst(root))
+				return true;
+			root=findRoot();
 			
-		return depthFirst(root);
+		}
+		return false;
 	}
 	
 	
