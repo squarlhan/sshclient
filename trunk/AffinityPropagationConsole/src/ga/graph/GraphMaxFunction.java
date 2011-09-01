@@ -58,17 +58,20 @@ public class GraphMaxFunction extends FitnessFunction {
 	 */
 	public double evaluate(IChromosome a_subject) {
 		double total = 0;
-		Boolean[] list  = new Boolean[a_subject.size()];
+		boolean[] list  = new boolean[a_subject.size()];
 		
 		for (int i = 0; i < a_subject.size(); i++) {
-			Boolean genevalue = (Boolean)a_subject.getGene(i).getAllele();
+			boolean genevalue = (Boolean)a_subject.getGene(i).getAllele();
 			list[i] = genevalue;
 			if(genevalue){
 				total++;				
 			}
 		}
-
-		return a_subject.size() - total;
+		if(!g.ifCycleExist(list)){
+			return a_subject.size() - total;
+		}else{
+			return 2;
+		}
 	}
 
 	public GraphMaxFunction(Graph g) {

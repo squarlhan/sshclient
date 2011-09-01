@@ -60,23 +60,23 @@ public class SimpleExample {
 
 		}
 		
-		Graph g=GraphFactory.createGraph("scen11_f6.txt");
+		Graph g=GraphFactory.createGraph("fapp01_0200_4-bis.txt");
 
 		BufferedWriter output = new BufferedWriter(new FileWriter(result));
 
 		long startTime = System.currentTimeMillis();
-		int numEvolutions = 200;
+		int numEvolutions = 2500;
 		Configuration gaConf = new DefaultConfiguration();
 		gaConf.setPreservFittestIndividual(true);
 		gaConf.setKeepPopulationSizeConstant(false);
 		Genotype genotype = null;
-		int chromeSize = 680;
-		double maxFitness = 680;
+		int chromeSize = g.nodes.length;
+		double maxFitness = g.nodes.length;
 		try {
 			IChromosome sampleChromosome = new Chromosome(gaConf,
 					new BooleanGene(gaConf), chromeSize);
 			gaConf.setSampleChromosome(sampleChromosome);
-			gaConf.setPopulationSize(40);
+			gaConf.setPopulationSize(50);
 			gaConf.setFitnessFunction(new GraphMaxFunction(g));
 			genotype = Genotype.randomInitialGenotype(gaConf);
 		} catch (InvalidConfigurationException e) {
@@ -102,13 +102,13 @@ public class SimpleExample {
 		// --------------
 		IChromosome fittest = genotype.getFittestChromosome();
 		System.out.println("Fittest Chromosome has fitness "
-				+ (maxFitness - fittest.getFitnessValue()));
+				+ (fittest.getFitnessValue()));
 		output.write("Fittest Chromosome has fitness "
-				+ (maxFitness - fittest.getFitnessValue()) + "\n");
+				+ (fittest.getFitnessValue()) + "\n");
 		DecimalFormat myformat = new DecimalFormat("#0.00");
 		for (int i = 0; i < fittest.size(); i++) {
 
-			if ((Boolean) fittest.getGene(i).getAllele())
+			if (!(Boolean) fittest.getGene(i).getAllele())
 				System.out.println(myformat.format(i));
 			output.write(String.valueOf(myformat.format(i)) + "\n");
 
